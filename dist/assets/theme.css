@@ -211,3 +211,46 @@ select,
 .font-ibm-plex-mono {
   font-family: var(--font-ibm-plex-mono), monospace;
 }
+
+/* =====================================================================
+   Prevent horizontal scrollbar — guard against any wide element
+   (large hero headings, off-canvas sidebar, etc.) causing page-level
+   horizontal overflow.
+   ===================================================================== */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* =====================================================================
+   Hero image orbital ring — slow rotation like the reference design.
+   ===================================================================== */
+@keyframes hero-orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.hero-orbit {
+  animation: hero-orbit-spin 40s linear infinite;
+  transform-origin: center center;
+}
+
+/* =====================================================================
+   Hero device — 3D tilt + gentle float (reference style).
+   ===================================================================== */
+.hero-tilt {
+  transform: perspective(1500px) rotateY(-22deg) rotateX(5deg) rotateZ(3deg);
+  transform-style: preserve-3d;
+  animation: hero-float 6s ease-in-out infinite;
+}
+@keyframes hero-float {
+  0%, 100% { transform: perspective(1500px) rotateY(-22deg) rotateX(5deg) rotateZ(3deg) translateY(0); }
+  50%      { transform: perspective(1500px) rotateY(-22deg) rotateX(5deg) rotateZ(3deg) translateY(-14px); }
+}
+@media (max-width: 1023px) {
+  /* straighten on small screens so it doesn't overflow */
+  .hero-tilt {
+    transform: none;
+    animation: none;
+  }
+}

@@ -8,17 +8,13 @@ Error generating stack: `+e.message+`
 `+e.stack}}var Ae=Object.prototype.hasOwnProperty,je=t.unstable_scheduleCallback,Me=t.unstable_cancelCallback,Ne=t.unstable_shouldYield,Pe=t.unstable_requestPaint,Fe=t.unstable_now,Ie=t.unstable_getCurrentPriorityLevel,Le=t.unstable_ImmediatePriority,Re=t.unstable_UserBlockingPriority,ze=t.unstable_NormalPriority,Be=t.unstable_LowPriority,Ve=t.unstable_IdlePriority,He=t.log,Ue=t.unstable_setDisableYieldValue,We=null,Ge=null;function Ke(e){if(typeof He==`function`&&Ue(e),Ge&&typeof Ge.setStrictMode==`function`)try{Ge.setStrictMode(We,e)}catch{}}var qe=Math.clz32?Math.clz32:Xe,Je=Math.log,Ye=Math.LN2;function Xe(e){return e>>>=0,e===0?32:31-(Je(e)/Ye|0)|0}var Ze=256,Qe=262144,$e=4194304;function et(e){var t=e&42;if(t!==0)return t;switch(e&-e){case 1:return 1;case 2:return 2;case 4:return 4;case 8:return 8;case 16:return 16;case 32:return 32;case 64:return 64;case 128:return 128;case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:return e&261888;case 262144:case 524288:case 1048576:case 2097152:return e&3932160;case 4194304:case 8388608:case 16777216:case 33554432:return e&62914560;case 67108864:return 67108864;case 134217728:return 134217728;case 268435456:return 268435456;case 536870912:return 536870912;case 1073741824:return 0;default:return e}}function tt(e,t,n){var r=e.pendingLanes;if(r===0)return 0;var i=0,a=e.suspendedLanes,o=e.pingedLanes;e=e.warmLanes;var s=r&134217727;return s===0?(s=r&~a,s===0?o===0?n||(n=r&~e,n!==0&&(i=et(n))):i=et(o):i=et(s)):(r=s&~a,r===0?(o&=s,o===0?n||(n=s&~e,n!==0&&(i=et(n))):i=et(o)):i=et(r)),i===0?0:t!==0&&t!==i&&(t&a)===0&&(a=i&-i,n=t&-t,a>=n||a===32&&n&4194048)?t:i}function nt(e,t){return(e.pendingLanes&~(e.suspendedLanes&~e.pingedLanes)&t)===0}function rt(e,t){switch(e){case 1:case 2:case 4:case 8:case 64:return t+250;case 16:case 32:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return t+5e3;case 4194304:case 8388608:case 16777216:case 33554432:return-1;case 67108864:case 134217728:case 268435456:case 536870912:case 1073741824:return-1;default:return-1}}function it(){var e=$e;return $e<<=1,!($e&62914560)&&($e=4194304),e}function at(e){for(var t=[],n=0;31>n;n++)t.push(e);return t}function ot(e,t){e.pendingLanes|=t,t!==268435456&&(e.suspendedLanes=0,e.pingedLanes=0,e.warmLanes=0)}function st(e,t,n,r,i,a){var o=e.pendingLanes;e.pendingLanes=n,e.suspendedLanes=0,e.pingedLanes=0,e.warmLanes=0,e.expiredLanes&=n,e.entangledLanes&=n,e.errorRecoveryDisabledLanes&=n,e.shellSuspendCounter=0;var s=e.entanglements,c=e.expirationTimes,l=e.hiddenUpdates;for(n=o&~n;0<n;){var u=31-qe(n),d=1<<u;s[u]=0,c[u]=-1;var f=l[u];if(f!==null)for(l[u]=null,u=0;u<f.length;u++){var p=f[u];p!==null&&(p.lane&=-536870913)}n&=~d}r!==0&&ct(e,r,0),a!==0&&i===0&&e.tag!==0&&(e.suspendedLanes|=a&~(o&~t))}function ct(e,t,n){e.pendingLanes|=t,e.suspendedLanes&=~t;var r=31-qe(t);e.entangledLanes|=t,e.entanglements[r]=e.entanglements[r]|1073741824|n&261930}function lt(e,t){var n=e.entangledLanes|=t;for(e=e.entanglements;n;){var r=31-qe(n),i=1<<r;i&t|e[r]&t&&(e[r]|=t),n&=~i}}function ut(e,t){var n=t&-t;return n=n&42?1:dt(n),(n&(e.suspendedLanes|t))===0?n:0}function dt(e){switch(e){case 2:e=1;break;case 8:e=4;break;case 32:e=16;break;case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:case 4194304:case 8388608:case 16777216:case 33554432:e=128;break;case 268435456:e=134217728;break;default:e=0}return e}function ft(e){return e&=-e,2<e?8<e?e&134217727?32:268435456:8:2}function pt(){var e=E.p;return e===0?(e=window.event,e===void 0?32:mp(e.type)):e}function mt(e,t){var n=E.p;try{return E.p=e,t()}finally{E.p=n}}var k=Math.random().toString(36).slice(2),ht=`__reactFiber$`+k,gt=`__reactProps$`+k,_t=`__reactContainer$`+k,vt=`__reactEvents$`+k,yt=`__reactListeners$`+k,bt=`__reactHandles$`+k,xt=`__reactResources$`+k,St=`__reactMarker$`+k;function Ct(e){delete e[ht],delete e[gt],delete e[vt],delete e[yt],delete e[bt]}function wt(e){var t=e[ht];if(t)return t;for(var n=e.parentNode;n;){if(t=n[_t]||n[ht]){if(n=t.alternate,t.child!==null||n!==null&&n.child!==null)for(e=df(e);e!==null;){if(n=e[ht])return n;e=df(e)}return t}e=n,n=e.parentNode}return null}function Tt(e){if(e=e[ht]||e[_t]){var t=e.tag;if(t===5||t===6||t===13||t===31||t===26||t===27||t===3)return e}return null}function Et(e){var t=e.tag;if(t===5||t===26||t===27||t===6)return e.stateNode;throw Error(i(33))}function Dt(e){var t=e[xt];return t||=e[xt]={hoistableStyles:new Map,hoistableScripts:new Map},t}function Ot(e){e[St]=!0}var kt=new Set,At={};function jt(e,t){Mt(e,t),Mt(e+`Capture`,t)}function Mt(e,t){for(At[e]=t,e=0;e<t.length;e++)kt.add(t[e])}var Nt=RegExp(`^[:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD][:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$`),Pt={},Ft={};function It(e){return Ae.call(Ft,e)?!0:Ae.call(Pt,e)?!1:Nt.test(e)?Ft[e]=!0:(Pt[e]=!0,!1)}function Lt(e,t,n){if(It(t))if(n===null)e.removeAttribute(t);else{switch(typeof n){case`undefined`:case`function`:case`symbol`:e.removeAttribute(t);return;case`boolean`:var r=t.toLowerCase().slice(0,5);if(r!==`data-`&&r!==`aria-`){e.removeAttribute(t);return}}e.setAttribute(t,``+n)}}function Rt(e,t,n){if(n===null)e.removeAttribute(t);else{switch(typeof n){case`undefined`:case`function`:case`symbol`:case`boolean`:e.removeAttribute(t);return}e.setAttribute(t,``+n)}}function zt(e,t,n,r){if(r===null)e.removeAttribute(n);else{switch(typeof r){case`undefined`:case`function`:case`symbol`:case`boolean`:e.removeAttribute(n);return}e.setAttributeNS(t,n,``+r)}}function Bt(e){switch(typeof e){case`bigint`:case`boolean`:case`number`:case`string`:case`undefined`:return e;case`object`:return e;default:return``}}function Vt(e){var t=e.type;return(e=e.nodeName)&&e.toLowerCase()===`input`&&(t===`checkbox`||t===`radio`)}function Ht(e,t,n){var r=Object.getOwnPropertyDescriptor(e.constructor.prototype,t);if(!e.hasOwnProperty(t)&&r!==void 0&&typeof r.get==`function`&&typeof r.set==`function`){var i=r.get,a=r.set;return Object.defineProperty(e,t,{configurable:!0,get:function(){return i.call(this)},set:function(e){n=``+e,a.call(this,e)}}),Object.defineProperty(e,t,{enumerable:r.enumerable}),{getValue:function(){return n},setValue:function(e){n=``+e},stopTracking:function(){e._valueTracker=null,delete e[t]}}}}function Ut(e){if(!e._valueTracker){var t=Vt(e)?`checked`:`value`;e._valueTracker=Ht(e,t,``+e[t])}}function Wt(e){if(!e)return!1;var t=e._valueTracker;if(!t)return!0;var n=t.getValue(),r=``;return e&&(r=Vt(e)?e.checked?`true`:`false`:e.value),e=r,e===n?!1:(t.setValue(e),!0)}function Gt(e){if(e||=typeof document<`u`?document:void 0,e===void 0)return null;try{return e.activeElement||e.body}catch{return e.body}}var Kt=/[\n"\\]/g;function qt(e){return e.replace(Kt,function(e){return`\\`+e.charCodeAt(0).toString(16)+` `})}function Jt(e,t,n,r,i,a,o,s){e.name=``,o!=null&&typeof o!=`function`&&typeof o!=`symbol`&&typeof o!=`boolean`?e.type=o:e.removeAttribute(`type`),t==null?o!==`submit`&&o!==`reset`||e.removeAttribute(`value`):o===`number`?(t===0&&e.value===``||e.value!=t)&&(e.value=``+Bt(t)):e.value!==``+Bt(t)&&(e.value=``+Bt(t)),t==null?n==null?r!=null&&e.removeAttribute(`value`):Xt(e,o,Bt(n)):Xt(e,o,Bt(t)),i==null&&a!=null&&(e.defaultChecked=!!a),i!=null&&(e.checked=i&&typeof i!=`function`&&typeof i!=`symbol`),s!=null&&typeof s!=`function`&&typeof s!=`symbol`&&typeof s!=`boolean`?e.name=``+Bt(s):e.removeAttribute(`name`)}function Yt(e,t,n,r,i,a,o,s){if(a!=null&&typeof a!=`function`&&typeof a!=`symbol`&&typeof a!=`boolean`&&(e.type=a),t!=null||n!=null){if(!(a!==`submit`&&a!==`reset`||t!=null)){Ut(e);return}n=n==null?``:``+Bt(n),t=t==null?n:``+Bt(t),s||t===e.value||(e.value=t),e.defaultValue=t}r??=i,r=typeof r!=`function`&&typeof r!=`symbol`&&!!r,e.checked=s?e.checked:!!r,e.defaultChecked=!!r,o!=null&&typeof o!=`function`&&typeof o!=`symbol`&&typeof o!=`boolean`&&(e.name=o),Ut(e)}function Xt(e,t,n){t===`number`&&Gt(e.ownerDocument)===e||e.defaultValue===``+n||(e.defaultValue=``+n)}function Zt(e,t,n,r){if(e=e.options,t){t={};for(var i=0;i<n.length;i++)t[`$`+n[i]]=!0;for(n=0;n<e.length;n++)i=t.hasOwnProperty(`$`+e[n].value),e[n].selected!==i&&(e[n].selected=i),i&&r&&(e[n].defaultSelected=!0)}else{for(n=``+Bt(n),t=null,i=0;i<e.length;i++){if(e[i].value===n){e[i].selected=!0,r&&(e[i].defaultSelected=!0);return}t!==null||e[i].disabled||(t=e[i])}t!==null&&(t.selected=!0)}}function Qt(e,t,n){if(t!=null&&(t=``+Bt(t),t!==e.value&&(e.value=t),n==null)){e.defaultValue!==t&&(e.defaultValue=t);return}e.defaultValue=n==null?``:``+Bt(n)}function $t(e,t,n,r){if(t==null){if(r!=null){if(n!=null)throw Error(i(92));if(ue(r)){if(1<r.length)throw Error(i(93));r=r[0]}n=r}n??=``,t=n}n=Bt(t),e.defaultValue=n,r=e.textContent,r===n&&r!==``&&r!==null&&(e.value=r),Ut(e)}function en(e,t){if(t){var n=e.firstChild;if(n&&n===e.lastChild&&n.nodeType===3){n.nodeValue=t;return}}e.textContent=t}var tn=new Set(`animationIterationCount aspectRatio borderImageOutset borderImageSlice borderImageWidth boxFlex boxFlexGroup boxOrdinalGroup columnCount columns flex flexGrow flexPositive flexShrink flexNegative flexOrder gridArea gridRow gridRowEnd gridRowSpan gridRowStart gridColumn gridColumnEnd gridColumnSpan gridColumnStart fontWeight lineClamp lineHeight opacity order orphans scale tabSize widows zIndex zoom fillOpacity floodOpacity stopOpacity strokeDasharray strokeDashoffset strokeMiterlimit strokeOpacity strokeWidth MozAnimationIterationCount MozBoxFlex MozBoxFlexGroup MozLineClamp msAnimationIterationCount msFlex msZoom msFlexGrow msFlexNegative msFlexOrder msFlexPositive msFlexShrink msGridColumn msGridColumnSpan msGridRow msGridRowSpan WebkitAnimationIterationCount WebkitBoxFlex WebKitBoxFlexGroup WebkitBoxOrdinalGroup WebkitColumnCount WebkitColumns WebkitFlex WebkitFlexGrow WebkitFlexPositive WebkitFlexShrink WebkitLineClamp`.split(` `));function nn(e,t,n){var r=t.indexOf(`--`)===0;n==null||typeof n==`boolean`||n===``?r?e.setProperty(t,``):t===`float`?e.cssFloat=``:e[t]=``:r?e.setProperty(t,n):typeof n!=`number`||n===0||tn.has(t)?t===`float`?e.cssFloat=n:e[t]=(``+n).trim():e[t]=n+`px`}function rn(e,t,n){if(t!=null&&typeof t!=`object`)throw Error(i(62));if(e=e.style,n!=null){for(var r in n)!n.hasOwnProperty(r)||t!=null&&t.hasOwnProperty(r)||(r.indexOf(`--`)===0?e.setProperty(r,``):r===`float`?e.cssFloat=``:e[r]=``);for(var a in t)r=t[a],t.hasOwnProperty(a)&&n[a]!==r&&nn(e,a,r)}else for(var o in t)t.hasOwnProperty(o)&&nn(e,o,t[o])}function an(e){if(e.indexOf(`-`)===-1)return!1;switch(e){case`annotation-xml`:case`color-profile`:case`font-face`:case`font-face-src`:case`font-face-uri`:case`font-face-format`:case`font-face-name`:case`missing-glyph`:return!1;default:return!0}}var on=new Map([[`acceptCharset`,`accept-charset`],[`htmlFor`,`for`],[`httpEquiv`,`http-equiv`],[`crossOrigin`,`crossorigin`],[`accentHeight`,`accent-height`],[`alignmentBaseline`,`alignment-baseline`],[`arabicForm`,`arabic-form`],[`baselineShift`,`baseline-shift`],[`capHeight`,`cap-height`],[`clipPath`,`clip-path`],[`clipRule`,`clip-rule`],[`colorInterpolation`,`color-interpolation`],[`colorInterpolationFilters`,`color-interpolation-filters`],[`colorProfile`,`color-profile`],[`colorRendering`,`color-rendering`],[`dominantBaseline`,`dominant-baseline`],[`enableBackground`,`enable-background`],[`fillOpacity`,`fill-opacity`],[`fillRule`,`fill-rule`],[`floodColor`,`flood-color`],[`floodOpacity`,`flood-opacity`],[`fontFamily`,`font-family`],[`fontSize`,`font-size`],[`fontSizeAdjust`,`font-size-adjust`],[`fontStretch`,`font-stretch`],[`fontStyle`,`font-style`],[`fontVariant`,`font-variant`],[`fontWeight`,`font-weight`],[`glyphName`,`glyph-name`],[`glyphOrientationHorizontal`,`glyph-orientation-horizontal`],[`glyphOrientationVertical`,`glyph-orientation-vertical`],[`horizAdvX`,`horiz-adv-x`],[`horizOriginX`,`horiz-origin-x`],[`imageRendering`,`image-rendering`],[`letterSpacing`,`letter-spacing`],[`lightingColor`,`lighting-color`],[`markerEnd`,`marker-end`],[`markerMid`,`marker-mid`],[`markerStart`,`marker-start`],[`overlinePosition`,`overline-position`],[`overlineThickness`,`overline-thickness`],[`paintOrder`,`paint-order`],[`panose-1`,`panose-1`],[`pointerEvents`,`pointer-events`],[`renderingIntent`,`rendering-intent`],[`shapeRendering`,`shape-rendering`],[`stopColor`,`stop-color`],[`stopOpacity`,`stop-opacity`],[`strikethroughPosition`,`strikethrough-position`],[`strikethroughThickness`,`strikethrough-thickness`],[`strokeDasharray`,`stroke-dasharray`],[`strokeDashoffset`,`stroke-dashoffset`],[`strokeLinecap`,`stroke-linecap`],[`strokeLinejoin`,`stroke-linejoin`],[`strokeMiterlimit`,`stroke-miterlimit`],[`strokeOpacity`,`stroke-opacity`],[`strokeWidth`,`stroke-width`],[`textAnchor`,`text-anchor`],[`textDecoration`,`text-decoration`],[`textRendering`,`text-rendering`],[`transformOrigin`,`transform-origin`],[`underlinePosition`,`underline-position`],[`underlineThickness`,`underline-thickness`],[`unicodeBidi`,`unicode-bidi`],[`unicodeRange`,`unicode-range`],[`unitsPerEm`,`units-per-em`],[`vAlphabetic`,`v-alphabetic`],[`vHanging`,`v-hanging`],[`vIdeographic`,`v-ideographic`],[`vMathematical`,`v-mathematical`],[`vectorEffect`,`vector-effect`],[`vertAdvY`,`vert-adv-y`],[`vertOriginX`,`vert-origin-x`],[`vertOriginY`,`vert-origin-y`],[`wordSpacing`,`word-spacing`],[`writingMode`,`writing-mode`],[`xmlnsXlink`,`xmlns:xlink`],[`xHeight`,`x-height`]]),sn=/^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*:/i;function cn(e){return sn.test(``+e)?`javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')`:e}function ln(){}var un=null;function dn(e){return e=e.target||e.srcElement||window,e.correspondingUseElement&&(e=e.correspondingUseElement),e.nodeType===3?e.parentNode:e}var fn=null,pn=null;function mn(e){var t=Tt(e);if(t&&(e=t.stateNode)){var n=e[gt]||null;a:switch(e=t.stateNode,t.type){case`input`:if(Jt(e,n.value,n.defaultValue,n.defaultValue,n.checked,n.defaultChecked,n.type,n.name),t=n.name,n.type===`radio`&&t!=null){for(n=e;n.parentNode;)n=n.parentNode;for(n=n.querySelectorAll(`input[name="`+qt(``+t)+`"][type="radio"]`),t=0;t<n.length;t++){var r=n[t];if(r!==e&&r.form===e.form){var a=r[gt]||null;if(!a)throw Error(i(90));Jt(r,a.value,a.defaultValue,a.defaultValue,a.checked,a.defaultChecked,a.type,a.name)}}for(t=0;t<n.length;t++)r=n[t],r.form===e.form&&Wt(r)}break a;case`textarea`:Qt(e,n.value,n.defaultValue);break a;case`select`:t=n.value,t!=null&&Zt(e,!!n.multiple,t,!1)}}}var hn=!1;function gn(e,t,n){if(hn)return e(t,n);hn=!0;try{return e(t)}finally{if(hn=!1,(fn!==null||pn!==null)&&(bu(),fn&&(t=fn,e=pn,pn=fn=null,mn(t),e)))for(t=0;t<e.length;t++)mn(e[t])}}function _n(e,t){var n=e.stateNode;if(n===null)return null;var r=n[gt]||null;if(r===null)return null;n=r[t];a:switch(t){case`onClick`:case`onClickCapture`:case`onDoubleClick`:case`onDoubleClickCapture`:case`onMouseDown`:case`onMouseDownCapture`:case`onMouseMove`:case`onMouseMoveCapture`:case`onMouseUp`:case`onMouseUpCapture`:case`onMouseEnter`:(r=!r.disabled)||(e=e.type,r=!(e===`button`||e===`input`||e===`select`||e===`textarea`)),e=!r;break a;default:e=!1}if(e)return null;if(n&&typeof n!=`function`)throw Error(i(231,t,typeof n));return n}var vn=!(typeof window>`u`||window.document===void 0||window.document.createElement===void 0),yn=!1;if(vn)try{var bn={};Object.defineProperty(bn,"passive",{get:function(){yn=!0}}),window.addEventListener(`test`,bn,bn),window.removeEventListener(`test`,bn,bn)}catch{yn=!1}var xn=null,Sn=null,Cn=null;function wn(){if(Cn)return Cn;var e,t=Sn,n=t.length,r,i=`value`in xn?xn.value:xn.textContent,a=i.length;for(e=0;e<n&&t[e]===i[e];e++);var o=n-e;for(r=1;r<=o&&t[n-r]===i[a-r];r++);return Cn=i.slice(e,1<r?1-r:void 0)}function Tn(e){var t=e.keyCode;return`charCode`in e?(e=e.charCode,e===0&&t===13&&(e=13)):e=t,e===10&&(e=13),32<=e||e===13?e:0}function En(){return!0}function Dn(){return!1}function On(e){function t(t,n,r,i,a){for(var o in this._reactName=t,this._targetInst=r,this.type=n,this.nativeEvent=i,this.target=a,this.currentTarget=null,e)e.hasOwnProperty(o)&&(t=e[o],this[o]=t?t(i):i[o]);return this.isDefaultPrevented=(i.defaultPrevented==null?!1===i.returnValue:i.defaultPrevented)?En:Dn,this.isPropagationStopped=Dn,this}return h(t.prototype,{preventDefault:function(){this.defaultPrevented=!0;var e=this.nativeEvent;e&&(e.preventDefault?e.preventDefault():typeof e.returnValue!=`unknown`&&(e.returnValue=!1),this.isDefaultPrevented=En)},stopPropagation:function(){var e=this.nativeEvent;e&&(e.stopPropagation?e.stopPropagation():typeof e.cancelBubble!=`unknown`&&(e.cancelBubble=!0),this.isPropagationStopped=En)},persist:function(){},isPersistent:En}),t}var kn={eventPhase:0,bubbles:0,cancelable:0,timeStamp:function(e){return e.timeStamp||Date.now()},defaultPrevented:0,isTrusted:0},An=On(kn),jn=h({},kn,{view:0,detail:0}),Mn=On(jn),Nn,Pn,Fn,In=h({},jn,{screenX:0,screenY:0,clientX:0,clientY:0,pageX:0,pageY:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,getModifierState:qn,button:0,buttons:0,relatedTarget:function(e){return e.relatedTarget===void 0?e.fromElement===e.srcElement?e.toElement:e.fromElement:e.relatedTarget},movementX:function(e){return`movementX`in e?e.movementX:(e!==Fn&&(Fn&&e.type===`mousemove`?(Nn=e.screenX-Fn.screenX,Pn=e.screenY-Fn.screenY):Pn=Nn=0,Fn=e),Nn)},movementY:function(e){return`movementY`in e?e.movementY:Pn}}),Ln=On(In),Rn=On(h({},In,{dataTransfer:0})),zn=On(h({},jn,{relatedTarget:0})),Bn=On(h({},kn,{animationName:0,elapsedTime:0,pseudoElement:0})),Vn=On(h({},kn,{clipboardData:function(e){return`clipboardData`in e?e.clipboardData:window.clipboardData}})),Hn=On(h({},kn,{data:0})),Un={Esc:`Escape`,Spacebar:` `,Left:`ArrowLeft`,Up:`ArrowUp`,Right:`ArrowRight`,Down:`ArrowDown`,Del:`Delete`,Win:`OS`,Menu:`ContextMenu`,Apps:`ContextMenu`,Scroll:`ScrollLock`,MozPrintableKey:`Unidentified`},Wn={8:`Backspace`,9:`Tab`,12:`Clear`,13:`Enter`,16:`Shift`,17:`Control`,18:`Alt`,19:`Pause`,20:`CapsLock`,27:`Escape`,32:` `,33:`PageUp`,34:`PageDown`,35:`End`,36:`Home`,37:`ArrowLeft`,38:`ArrowUp`,39:`ArrowRight`,40:`ArrowDown`,45:`Insert`,46:`Delete`,112:`F1`,113:`F2`,114:`F3`,115:`F4`,116:`F5`,117:`F6`,118:`F7`,119:`F8`,120:`F9`,121:`F10`,122:`F11`,123:`F12`,144:`NumLock`,145:`ScrollLock`,224:`Meta`},Gn={Alt:`altKey`,Control:`ctrlKey`,Meta:`metaKey`,Shift:`shiftKey`};function Kn(e){var t=this.nativeEvent;return t.getModifierState?t.getModifierState(e):(e=Gn[e])?!!t[e]:!1}function qn(){return Kn}var Jn=On(h({},jn,{key:function(e){if(e.key){var t=Un[e.key]||e.key;if(t!==`Unidentified`)return t}return e.type===`keypress`?(e=Tn(e),e===13?`Enter`:String.fromCharCode(e)):e.type===`keydown`||e.type===`keyup`?Wn[e.keyCode]||`Unidentified`:``},code:0,location:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,repeat:0,locale:0,getModifierState:qn,charCode:function(e){return e.type===`keypress`?Tn(e):0},keyCode:function(e){return e.type===`keydown`||e.type===`keyup`?e.keyCode:0},which:function(e){return e.type===`keypress`?Tn(e):e.type===`keydown`||e.type===`keyup`?e.keyCode:0}})),Yn=On(h({},In,{pointerId:0,width:0,height:0,pressure:0,tangentialPressure:0,tiltX:0,tiltY:0,twist:0,pointerType:0,isPrimary:0})),Xn=On(h({},jn,{touches:0,targetTouches:0,changedTouches:0,altKey:0,metaKey:0,ctrlKey:0,shiftKey:0,getModifierState:qn})),Zn=On(h({},kn,{propertyName:0,elapsedTime:0,pseudoElement:0})),Qn=On(h({},In,{deltaX:function(e){return`deltaX`in e?e.deltaX:`wheelDeltaX`in e?-e.wheelDeltaX:0},deltaY:function(e){return`deltaY`in e?e.deltaY:`wheelDeltaY`in e?-e.wheelDeltaY:`wheelDelta`in e?-e.wheelDelta:0},deltaZ:0,deltaMode:0})),$n=On(h({},kn,{newState:0,oldState:0})),er=[9,13,27,32],A=vn&&`CompositionEvent`in window,j=null;vn&&`documentMode`in document&&(j=document.documentMode);var tr=vn&&`TextEvent`in window&&!j,nr=vn&&(!A||j&&8<j&&11>=j),rr=` `,ir=!1;function ar(e,t){switch(e){case`keyup`:return er.indexOf(t.keyCode)!==-1;case`keydown`:return t.keyCode!==229;case`keypress`:case`mousedown`:case`focusout`:return!0;default:return!1}}function or(e){return e=e.detail,typeof e==`object`&&`data`in e?e.data:null}var sr=!1;function cr(e,t){switch(e){case`compositionend`:return or(t);case`keypress`:return t.which===32?(ir=!0,rr):null;case`textInput`:return e=t.data,e===rr&&ir?null:e;default:return null}}function lr(e,t){if(sr)return e===`compositionend`||!A&&ar(e,t)?(e=wn(),Cn=Sn=xn=null,sr=!1,e):null;switch(e){case`paste`:return null;case`keypress`:if(!(t.ctrlKey||t.altKey||t.metaKey)||t.ctrlKey&&t.altKey){if(t.char&&1<t.char.length)return t.char;if(t.which)return String.fromCharCode(t.which)}return null;case`compositionend`:return nr&&t.locale!==`ko`?null:t.data;default:return null}}var ur={color:!0,date:!0,datetime:!0,"datetime-local":!0,email:!0,month:!0,number:!0,password:!0,range:!0,search:!0,tel:!0,text:!0,time:!0,url:!0,week:!0};function dr(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t===`input`?!!ur[e.type]:t===`textarea`}function fr(e,t,n,r){fn?pn?pn.push(r):pn=[r]:fn=r,t=Ed(t,`onChange`),0<t.length&&(n=new An(`onChange`,`change`,null,n,r),e.push({event:n,listeners:t}))}var pr=null,mr=null;function hr(e){yd(e,0)}function gr(e){if(Wt(Et(e)))return e}function _r(e,t){if(e===`change`)return t}var vr=!1;if(vn){var yr;if(vn){var br=`oninput`in document;if(!br){var xr=document.createElement(`div`);xr.setAttribute(`oninput`,`return;`),br=typeof xr.oninput==`function`}yr=br}else yr=!1;vr=yr&&(!document.documentMode||9<document.documentMode)}function Sr(){pr&&(pr.detachEvent(`onpropertychange`,Cr),mr=pr=null)}function Cr(e){if(e.propertyName===`value`&&gr(mr)){var t=[];fr(t,mr,e,dn(e)),gn(hr,t)}}function wr(e,t,n){e===`focusin`?(Sr(),pr=t,mr=n,pr.attachEvent(`onpropertychange`,Cr)):e===`focusout`&&Sr()}function Tr(e){if(e===`selectionchange`||e===`keyup`||e===`keydown`)return gr(mr)}function Er(e,t){if(e===`click`)return gr(t)}function Dr(e,t){if(e===`input`||e===`change`)return gr(t)}function Or(e,t){return e===t&&(e!==0||1/e==1/t)||e!==e&&t!==t}var kr=typeof Object.is==`function`?Object.is:Or;function Ar(e,t){if(kr(e,t))return!0;if(typeof e!=`object`||!e||typeof t!=`object`||!t)return!1;var n=Object.keys(e),r=Object.keys(t);if(n.length!==r.length)return!1;for(r=0;r<n.length;r++){var i=n[r];if(!Ae.call(t,i)||!kr(e[i],t[i]))return!1}return!0}function jr(e){for(;e&&e.firstChild;)e=e.firstChild;return e}function Mr(e,t){var n=jr(e);e=0;for(var r;n;){if(n.nodeType===3){if(r=e+n.textContent.length,e<=t&&r>=t)return{node:n,offset:t-e};e=r}a:{for(;n;){if(n.nextSibling){n=n.nextSibling;break a}n=n.parentNode}n=void 0}n=jr(n)}}function Nr(e,t){return e&&t?e===t?!0:e&&e.nodeType===3?!1:t&&t.nodeType===3?Nr(e,t.parentNode):`contains`in e?e.contains(t):e.compareDocumentPosition?!!(e.compareDocumentPosition(t)&16):!1:!1}function Pr(e){e=e!=null&&e.ownerDocument!=null&&e.ownerDocument.defaultView!=null?e.ownerDocument.defaultView:window;for(var t=Gt(e.document);t instanceof e.HTMLIFrameElement;){try{var n=typeof t.contentWindow.location.href==`string`}catch{n=!1}if(n)e=t.contentWindow;else break;t=Gt(e.document)}return t}function Fr(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t&&(t===`input`&&(e.type===`text`||e.type===`search`||e.type===`tel`||e.type===`url`||e.type===`password`)||t===`textarea`||e.contentEditable===`true`)}var Ir=vn&&`documentMode`in document&&11>=document.documentMode,Lr=null,Rr=null,zr=null,Br=!1;function Vr(e,t,n){var r=n.window===n?n.document:n.nodeType===9?n:n.ownerDocument;Br||Lr==null||Lr!==Gt(r)||(r=Lr,`selectionStart`in r&&Fr(r)?r={start:r.selectionStart,end:r.selectionEnd}:(r=(r.ownerDocument&&r.ownerDocument.defaultView||window).getSelection(),r={anchorNode:r.anchorNode,anchorOffset:r.anchorOffset,focusNode:r.focusNode,focusOffset:r.focusOffset}),zr&&Ar(zr,r)||(zr=r,r=Ed(Rr,`onSelect`),0<r.length&&(t=new An(`onSelect`,`select`,null,t,n),e.push({event:t,listeners:r}),t.target=Lr)))}function Hr(e,t){var n={};return n[e.toLowerCase()]=t.toLowerCase(),n[`Webkit`+e]=`webkit`+t,n[`Moz`+e]=`moz`+t,n}var Ur={animationend:Hr(`Animation`,`AnimationEnd`),animationiteration:Hr(`Animation`,`AnimationIteration`),animationstart:Hr(`Animation`,`AnimationStart`),transitionrun:Hr(`Transition`,`TransitionRun`),transitionstart:Hr(`Transition`,`TransitionStart`),transitioncancel:Hr(`Transition`,`TransitionCancel`),transitionend:Hr(`Transition`,`TransitionEnd`)},Wr={},Gr={};vn&&(Gr=document.createElement(`div`).style,`AnimationEvent`in window||(delete Ur.animationend.animation,delete Ur.animationiteration.animation,delete Ur.animationstart.animation),`TransitionEvent`in window||delete Ur.transitionend.transition);function Kr(e){if(Wr[e])return Wr[e];if(!Ur[e])return e;var t=Ur[e],n;for(n in t)if(t.hasOwnProperty(n)&&n in Gr)return Wr[e]=t[n];return e}var qr=Kr(`animationend`),Jr=Kr(`animationiteration`),Yr=Kr(`animationstart`),Xr=Kr(`transitionrun`),Zr=Kr(`transitionstart`),Qr=Kr(`transitioncancel`),$r=Kr(`transitionend`),ei=new Map,ti=`abort auxClick beforeToggle cancel canPlay canPlayThrough click close contextMenu copy cut drag dragEnd dragEnter dragExit dragLeave dragOver dragStart drop durationChange emptied encrypted ended error gotPointerCapture input invalid keyDown keyPress keyUp load loadedData loadedMetadata loadStart lostPointerCapture mouseDown mouseMove mouseOut mouseOver mouseUp paste pause play playing pointerCancel pointerDown pointerMove pointerOut pointerOver pointerUp progress rateChange reset resize seeked seeking stalled submit suspend timeUpdate touchCancel touchEnd touchStart volumeChange scroll toggle touchMove waiting wheel`.split(` `);ti.push(`scrollEnd`);function ni(e,t){ei.set(e,t),jt(t,[e])}var ri=typeof reportError==`function`?reportError:function(e){if(typeof window==`object`&&typeof window.ErrorEvent==`function`){var t=new window.ErrorEvent(`error`,{bubbles:!0,cancelable:!0,message:typeof e==`object`&&e&&typeof e.message==`string`?String(e.message):String(e),error:e});if(!window.dispatchEvent(t))return}else if(typeof process==`object`&&typeof process.emit==`function`){process.emit(`uncaughtException`,e);return}console.error(e)},ii=[],ai=0,oi=0;function si(){for(var e=ai,t=oi=ai=0;t<e;){var n=ii[t];ii[t++]=null;var r=ii[t];ii[t++]=null;var i=ii[t];ii[t++]=null;var a=ii[t];if(ii[t++]=null,r!==null&&i!==null){var o=r.pending;o===null?i.next=i:(i.next=o.next,o.next=i),r.pending=i}a!==0&&di(n,i,a)}}function ci(e,t,n,r){ii[ai++]=e,ii[ai++]=t,ii[ai++]=n,ii[ai++]=r,oi|=r,e.lanes|=r,e=e.alternate,e!==null&&(e.lanes|=r)}function li(e,t,n,r){return ci(e,t,n,r),fi(e)}function ui(e,t){return ci(e,null,null,t),fi(e)}function di(e,t,n){e.lanes|=n;var r=e.alternate;r!==null&&(r.lanes|=n);for(var i=!1,a=e.return;a!==null;)a.childLanes|=n,r=a.alternate,r!==null&&(r.childLanes|=n),a.tag===22&&(e=a.stateNode,e===null||e._visibility&1||(i=!0)),e=a,a=a.return;return e.tag===3?(a=e.stateNode,i&&t!==null&&(i=31-qe(n),e=a.hiddenUpdates,r=e[i],r===null?e[i]=[t]:r.push(t),t.lane=n|536870912),a):null}function fi(e){if(50<du)throw du=0,fu=null,Error(i(185));for(var t=e.return;t!==null;)e=t,t=e.return;return e.tag===3?e.stateNode:null}var pi={};function mi(e,t,n,r){this.tag=e,this.key=n,this.sibling=this.child=this.return=this.stateNode=this.type=this.elementType=null,this.index=0,this.refCleanup=this.ref=null,this.pendingProps=t,this.dependencies=this.memoizedState=this.updateQueue=this.memoizedProps=null,this.mode=r,this.subtreeFlags=this.flags=0,this.deletions=null,this.childLanes=this.lanes=0,this.alternate=null}function hi(e,t,n,r){return new mi(e,t,n,r)}function gi(e){return e=e.prototype,!(!e||!e.isReactComponent)}function _i(e,t){var n=e.alternate;return n===null?(n=hi(e.tag,t,e.key,e.mode),n.elementType=e.elementType,n.type=e.type,n.stateNode=e.stateNode,n.alternate=e,e.alternate=n):(n.pendingProps=t,n.type=e.type,n.flags=0,n.subtreeFlags=0,n.deletions=null),n.flags=e.flags&65011712,n.childLanes=e.childLanes,n.lanes=e.lanes,n.child=e.child,n.memoizedProps=e.memoizedProps,n.memoizedState=e.memoizedState,n.updateQueue=e.updateQueue,t=e.dependencies,n.dependencies=t===null?null:{lanes:t.lanes,firstContext:t.firstContext},n.sibling=e.sibling,n.index=e.index,n.ref=e.ref,n.refCleanup=e.refCleanup,n}function vi(e,t){e.flags&=65011714;var n=e.alternate;return n===null?(e.childLanes=0,e.lanes=t,e.child=null,e.subtreeFlags=0,e.memoizedProps=null,e.memoizedState=null,e.updateQueue=null,e.dependencies=null,e.stateNode=null):(e.childLanes=n.childLanes,e.lanes=n.lanes,e.child=n.child,e.subtreeFlags=0,e.deletions=null,e.memoizedProps=n.memoizedProps,e.memoizedState=n.memoizedState,e.updateQueue=n.updateQueue,e.type=n.type,t=n.dependencies,e.dependencies=t===null?null:{lanes:t.lanes,firstContext:t.firstContext}),e}function yi(e,t,n,r,a,o){var s=0;if(r=e,typeof e==`function`)gi(e)&&(s=1);else if(typeof e==`string`)s=Uf(e,n,he.current)?26:e===`html`||e===`head`||e===`body`?27:5;else a:switch(e){case ie:return e=hi(31,n,t,a),e.elementType=ie,e.lanes=o,e;case y:return bi(n.children,a,o,t);case b:s=8,a|=24;break;case x:return e=hi(12,n,t,a|2),e.elementType=x,e.lanes=o,e;case te:return e=hi(13,n,t,a),e.elementType=te,e.lanes=o,e;case ne:return e=hi(19,n,t,a),e.elementType=ne,e.lanes=o,e;default:if(typeof e==`object`&&e)switch(e.$$typeof){case S:s=10;break a;case ee:s=9;break a;case C:s=11;break a;case re:s=14;break a;case w:s=16,r=null;break a}s=29,n=Error(i(130,e===null?`null`:typeof e,``)),r=null}return t=hi(s,n,t,a),t.elementType=e,t.type=r,t.lanes=o,t}function bi(e,t,n,r){return e=hi(7,e,r,t),e.lanes=n,e}function xi(e,t,n){return e=hi(6,e,null,t),e.lanes=n,e}function Si(e){var t=hi(18,null,null,0);return t.stateNode=e,t}function Ci(e,t,n){return t=hi(4,e.children===null?[]:e.children,e.key,t),t.lanes=n,t.stateNode={containerInfo:e.containerInfo,pendingChildren:null,implementation:e.implementation},t}var wi=new WeakMap;function Ti(e,t){if(typeof e==`object`&&e){var n=wi.get(e);return n===void 0?(t={value:e,source:t,stack:ke(t)},wi.set(e,t),t):n}return{value:e,source:t,stack:ke(t)}}var Ei=[],Di=0,Oi=null,ki=0,Ai=[],ji=0,Mi=null,Ni=1,Pi=``;function Fi(e,t){Ei[Di++]=ki,Ei[Di++]=Oi,Oi=e,ki=t}function Ii(e,t,n){Ai[ji++]=Ni,Ai[ji++]=Pi,Ai[ji++]=Mi,Mi=e;var r=Ni;e=Pi;var i=32-qe(r)-1;r&=~(1<<i),n+=1;var a=32-qe(t)+i;if(30<a){var o=i-i%5;a=(r&(1<<o)-1).toString(32),r>>=o,i-=o,Ni=1<<32-qe(t)+i|n<<i|r,Pi=a+e}else Ni=1<<a|n<<i|r,Pi=e}function Li(e){e.return!==null&&(Fi(e,1),Ii(e,1,0))}function Ri(e){for(;e===Oi;)Oi=Ei[--Di],Ei[Di]=null,ki=Ei[--Di],Ei[Di]=null;for(;e===Mi;)Mi=Ai[--ji],Ai[ji]=null,Pi=Ai[--ji],Ai[ji]=null,Ni=Ai[--ji],Ai[ji]=null}function zi(e,t){Ai[ji++]=Ni,Ai[ji++]=Pi,Ai[ji++]=Mi,Ni=t.id,Pi=t.overflow,Mi=e}var Bi=null,M=null,N=!1,Vi=null,Hi=!1,Ui=Error(i(519));function Wi(e){throw Xi(Ti(Error(i(418,1<arguments.length&&arguments[1]!==void 0&&arguments[1]?`text`:`HTML`,``)),e)),Ui}function Gi(e){var t=e.stateNode,n=e.type,r=e.memoizedProps;switch(t[ht]=e,t[gt]=r,n){case`dialog`:Q(`cancel`,t),Q(`close`,t);break;case`iframe`:case`object`:case`embed`:Q(`load`,t);break;case`video`:case`audio`:for(n=0;n<_d.length;n++)Q(_d[n],t);break;case`source`:Q(`error`,t);break;case`img`:case`image`:case`link`:Q(`error`,t),Q(`load`,t);break;case`details`:Q(`toggle`,t);break;case`input`:Q(`invalid`,t),Yt(t,r.value,r.defaultValue,r.checked,r.defaultChecked,r.type,r.name,!0);break;case`select`:Q(`invalid`,t);break;case`textarea`:Q(`invalid`,t),$t(t,r.value,r.defaultValue,r.children)}n=r.children,typeof n!=`string`&&typeof n!=`number`&&typeof n!=`bigint`||t.textContent===``+n||!0===r.suppressHydrationWarning||Md(t.textContent,n)?(r.popover!=null&&(Q(`beforetoggle`,t),Q(`toggle`,t)),r.onScroll!=null&&Q(`scroll`,t),r.onScrollEnd!=null&&Q(`scrollend`,t),r.onClick!=null&&(t.onclick=ln),t=!0):t=!1,t||Wi(e,!0)}function Ki(e){for(Bi=e.return;Bi;)switch(Bi.tag){case 5:case 31:case 13:Hi=!1;return;case 27:case 3:Hi=!0;return;default:Bi=Bi.return}}function qi(e){if(e!==Bi)return!1;if(!N)return Ki(e),N=!0,!1;var t=e.tag,n;if((n=t!==3&&t!==27)&&((n=t===5)&&(n=e.type,n=!(n!==`form`&&n!==`button`)||Ud(e.type,e.memoizedProps)),n=!n),n&&M&&Wi(e),Ki(e),t===13){if(e=e.memoizedState,e=e===null?null:e.dehydrated,!e)throw Error(i(317));M=uf(e)}else if(t===31){if(e=e.memoizedState,e=e===null?null:e.dehydrated,!e)throw Error(i(317));M=uf(e)}else t===27?(t=M,Zd(e.type)?(e=lf,lf=null,M=e):M=t):M=Bi?cf(e.stateNode.nextSibling):null;return!0}function Ji(){M=Bi=null,N=!1}function Yi(){var e=Vi;return e!==null&&(Zl===null?Zl=e:Zl.push.apply(Zl,e),Vi=null),e}function Xi(e){Vi===null?Vi=[e]:Vi.push(e)}var Zi=me(null),Qi=null,$i=null;function ea(e,t,n){O(Zi,t._currentValue),t._currentValue=n}function ta(e){e._currentValue=Zi.current,D(Zi)}function na(e,t,n){for(;e!==null;){var r=e.alternate;if((e.childLanes&t)===t?r!==null&&(r.childLanes&t)!==t&&(r.childLanes|=t):(e.childLanes|=t,r!==null&&(r.childLanes|=t)),e===n)break;e=e.return}}function ra(e,t,n,r){var a=e.child;for(a!==null&&(a.return=e);a!==null;){var o=a.dependencies;if(o!==null){var s=a.child;o=o.firstContext;a:for(;o!==null;){var c=o;o=a;for(var l=0;l<t.length;l++)if(c.context===t[l]){o.lanes|=n,c=o.alternate,c!==null&&(c.lanes|=n),na(o.return,n,e),r||(s=null);break a}o=c.next}}else if(a.tag===18){if(s=a.return,s===null)throw Error(i(341));s.lanes|=n,o=s.alternate,o!==null&&(o.lanes|=n),na(s,n,e),s=null}else s=a.child;if(s!==null)s.return=a;else for(s=a;s!==null;){if(s===e){s=null;break}if(a=s.sibling,a!==null){a.return=s.return,s=a;break}s=s.return}a=s}}function ia(e,t,n,r){e=null;for(var a=t,o=!1;a!==null;){if(!o){if(a.flags&524288)o=!0;else if(a.flags&262144)break}if(a.tag===10){var s=a.alternate;if(s===null)throw Error(i(387));if(s=s.memoizedProps,s!==null){var c=a.type;kr(a.pendingProps.value,s.value)||(e===null?e=[c]:e.push(c))}}else if(a===ve.current){if(s=a.alternate,s===null)throw Error(i(387));s.memoizedState.memoizedState!==a.memoizedState.memoizedState&&(e===null?e=[Qf]:e.push(Qf))}a=a.return}e!==null&&ra(t,e,n,r),t.flags|=262144}function aa(e){for(e=e.firstContext;e!==null;){if(!kr(e.context._currentValue,e.memoizedValue))return!0;e=e.next}return!1}function oa(e){Qi=e,$i=null,e=e.dependencies,e!==null&&(e.firstContext=null)}function sa(e){return la(Qi,e)}function ca(e,t){return Qi===null&&oa(e),la(e,t)}function la(e,t){var n=t._currentValue;if(t={context:t,memoizedValue:n,next:null},$i===null){if(e===null)throw Error(i(308));$i=t,e.dependencies={lanes:0,firstContext:t},e.flags|=524288}else $i=$i.next=t;return n}var ua=typeof AbortController<`u`?AbortController:function(){var e=[],t=this.signal={aborted:!1,addEventListener:function(t,n){e.push(n)}};this.abort=function(){t.aborted=!0,e.forEach(function(e){return e()})}},da=t.unstable_scheduleCallback,fa=t.unstable_NormalPriority,P={$$typeof:S,Consumer:null,Provider:null,_currentValue:null,_currentValue2:null,_threadCount:0};function pa(){return{controller:new ua,data:new Map,refCount:0}}function ma(e){e.refCount--,e.refCount===0&&da(fa,function(){e.controller.abort()})}var ha=null,ga=0,_a=0,va=null;function ya(e,t){if(ha===null){var n=ha=[];ga=0,_a=dd(),va={status:`pending`,value:void 0,then:function(e){n.push(e)}}}return ga++,t.then(ba,ba),t}function ba(){if(--ga===0&&ha!==null){va!==null&&(va.status=`fulfilled`);var e=ha;ha=null,_a=0,va=null;for(var t=0;t<e.length;t++)(0,e[t])()}}function xa(e,t){var n=[],r={status:`pending`,value:null,reason:null,then:function(e){n.push(e)}};return e.then(function(){r.status=`fulfilled`,r.value=t;for(var e=0;e<n.length;e++)(0,n[e])(t)},function(e){for(r.status=`rejected`,r.reason=e,e=0;e<n.length;e++)(0,n[e])(void 0)}),r}var Sa=T.S;T.S=function(e,t){eu=Fe(),typeof t==`object`&&t&&typeof t.then==`function`&&ya(e,t),Sa!==null&&Sa(e,t)};var Ca=me(null);function wa(){var e=Ca.current;return e===null?K.pooledCache:e}function Ta(e,t){t===null?O(Ca,Ca.current):O(Ca,t.pool)}function Ea(){var e=wa();return e===null?null:{parent:P._currentValue,pool:e}}var Da=Error(i(460)),Oa=Error(i(474)),ka=Error(i(542)),Aa={then:function(){}};function ja(e){return e=e.status,e===`fulfilled`||e===`rejected`}function Ma(e,t,n){switch(n=e[n],n===void 0?e.push(t):n!==t&&(t.then(ln,ln),t=n),t.status){case`fulfilled`:return t.value;case`rejected`:throw e=t.reason,Ia(e),e;default:if(typeof t.status==`string`)t.then(ln,ln);else{if(e=K,e!==null&&100<e.shellSuspendCounter)throw Error(i(482));e=t,e.status=`pending`,e.then(function(e){if(t.status===`pending`){var n=t;n.status=`fulfilled`,n.value=e}},function(e){if(t.status===`pending`){var n=t;n.status=`rejected`,n.reason=e}})}switch(t.status){case`fulfilled`:return t.value;case`rejected`:throw e=t.reason,Ia(e),e}throw Pa=t,Da}}function Na(e){try{var t=e._init;return t(e._payload)}catch(e){throw typeof e==`object`&&e&&typeof e.then==`function`?(Pa=e,Da):e}}var Pa=null;function Fa(){if(Pa===null)throw Error(i(459));var e=Pa;return Pa=null,e}function Ia(e){if(e===Da||e===ka)throw Error(i(483))}var La=null,Ra=0;function za(e){var t=Ra;return Ra+=1,La===null&&(La=[]),Ma(La,e,t)}function Ba(e,t){t=t.props.ref,e.ref=t===void 0?null:t}function Va(e,t){throw t.$$typeof===g?Error(i(525)):(e=Object.prototype.toString.call(t),Error(i(31,e===`[object Object]`?`object with keys {`+Object.keys(t).join(`, `)+`}`:e)))}function Ha(e){function t(t,n){if(e){var r=t.deletions;r===null?(t.deletions=[n],t.flags|=16):r.push(n)}}function n(n,r){if(!e)return null;for(;r!==null;)t(n,r),r=r.sibling;return null}function r(e){for(var t=new Map;e!==null;)e.key===null?t.set(e.index,e):t.set(e.key,e),e=e.sibling;return t}function a(e,t){return e=_i(e,t),e.index=0,e.sibling=null,e}function o(t,n,r){return t.index=r,e?(r=t.alternate,r===null?(t.flags|=67108866,n):(r=r.index,r<n?(t.flags|=67108866,n):r)):(t.flags|=1048576,n)}function s(t){return e&&t.alternate===null&&(t.flags|=67108866),t}function c(e,t,n,r){return t===null||t.tag!==6?(t=xi(n,e.mode,r),t.return=e,t):(t=a(t,n),t.return=e,t)}function l(e,t,n,r){var i=n.type;return i===y?d(e,t,n.props.children,r,n.key):t!==null&&(t.elementType===i||typeof i==`object`&&i&&i.$$typeof===w&&Na(i)===t.type)?(t=a(t,n.props),Ba(t,n),t.return=e,t):(t=yi(n.type,n.key,n.props,null,e.mode,r),Ba(t,n),t.return=e,t)}function u(e,t,n,r){return t===null||t.tag!==4||t.stateNode.containerInfo!==n.containerInfo||t.stateNode.implementation!==n.implementation?(t=Ci(n,e.mode,r),t.return=e,t):(t=a(t,n.children||[]),t.return=e,t)}function d(e,t,n,r,i){return t===null||t.tag!==7?(t=bi(n,e.mode,r,i),t.return=e,t):(t=a(t,n),t.return=e,t)}function f(e,t,n){if(typeof t==`string`&&t!==``||typeof t==`number`||typeof t==`bigint`)return t=xi(``+t,e.mode,n),t.return=e,t;if(typeof t==`object`&&t){switch(t.$$typeof){case _:return n=yi(t.type,t.key,t.props,null,e.mode,n),Ba(n,t),n.return=e,n;case v:return t=Ci(t,e.mode,n),t.return=e,t;case w:return t=Na(t),f(e,t,n)}if(ue(t)||se(t))return t=bi(t,e.mode,n,null),t.return=e,t;if(typeof t.then==`function`)return f(e,za(t),n);if(t.$$typeof===S)return f(e,ca(e,t),n);Va(e,t)}return null}function p(e,t,n,r){var i=t===null?null:t.key;if(typeof n==`string`&&n!==``||typeof n==`number`||typeof n==`bigint`)return i===null?c(e,t,``+n,r):null;if(typeof n==`object`&&n){switch(n.$$typeof){case _:return n.key===i?l(e,t,n,r):null;case v:return n.key===i?u(e,t,n,r):null;case w:return n=Na(n),p(e,t,n,r)}if(ue(n)||se(n))return i===null?d(e,t,n,r,null):null;if(typeof n.then==`function`)return p(e,t,za(n),r);if(n.$$typeof===S)return p(e,t,ca(e,n),r);Va(e,n)}return null}function m(e,t,n,r,i){if(typeof r==`string`&&r!==``||typeof r==`number`||typeof r==`bigint`)return e=e.get(n)||null,c(t,e,``+r,i);if(typeof r==`object`&&r){switch(r.$$typeof){case _:return e=e.get(r.key===null?n:r.key)||null,l(t,e,r,i);case v:return e=e.get(r.key===null?n:r.key)||null,u(t,e,r,i);case w:return r=Na(r),m(e,t,n,r,i)}if(ue(r)||se(r))return e=e.get(n)||null,d(t,e,r,i,null);if(typeof r.then==`function`)return m(e,t,n,za(r),i);if(r.$$typeof===S)return m(e,t,n,ca(t,r),i);Va(t,r)}return null}function h(i,a,s,c){for(var l=null,u=null,d=a,h=a=0,g=null;d!==null&&h<s.length;h++){d.index>h?(g=d,d=null):g=d.sibling;var _=p(i,d,s[h],c);if(_===null){d===null&&(d=g);break}e&&d&&_.alternate===null&&t(i,d),a=o(_,a,h),u===null?l=_:u.sibling=_,u=_,d=g}if(h===s.length)return n(i,d),N&&Fi(i,h),l;if(d===null){for(;h<s.length;h++)d=f(i,s[h],c),d!==null&&(a=o(d,a,h),u===null?l=d:u.sibling=d,u=d);return N&&Fi(i,h),l}for(d=r(d);h<s.length;h++)g=m(d,i,h,s[h],c),g!==null&&(e&&g.alternate!==null&&d.delete(g.key===null?h:g.key),a=o(g,a,h),u===null?l=g:u.sibling=g,u=g);return e&&d.forEach(function(e){return t(i,e)}),N&&Fi(i,h),l}function g(a,s,c,l){if(c==null)throw Error(i(151));for(var u=null,d=null,h=s,g=s=0,_=null,v=c.next();h!==null&&!v.done;g++,v=c.next()){h.index>g?(_=h,h=null):_=h.sibling;var y=p(a,h,v.value,l);if(y===null){h===null&&(h=_);break}e&&h&&y.alternate===null&&t(a,h),s=o(y,s,g),d===null?u=y:d.sibling=y,d=y,h=_}if(v.done)return n(a,h),N&&Fi(a,g),u;if(h===null){for(;!v.done;g++,v=c.next())v=f(a,v.value,l),v!==null&&(s=o(v,s,g),d===null?u=v:d.sibling=v,d=v);return N&&Fi(a,g),u}for(h=r(h);!v.done;g++,v=c.next())v=m(h,a,g,v.value,l),v!==null&&(e&&v.alternate!==null&&h.delete(v.key===null?g:v.key),s=o(v,s,g),d===null?u=v:d.sibling=v,d=v);return e&&h.forEach(function(e){return t(a,e)}),N&&Fi(a,g),u}function b(e,r,o,c){if(typeof o==`object`&&o&&o.type===y&&o.key===null&&(o=o.props.children),typeof o==`object`&&o){switch(o.$$typeof){case _:a:{for(var l=o.key;r!==null;){if(r.key===l){if(l=o.type,l===y){if(r.tag===7){n(e,r.sibling),c=a(r,o.props.children),c.return=e,e=c;break a}}else if(r.elementType===l||typeof l==`object`&&l&&l.$$typeof===w&&Na(l)===r.type){n(e,r.sibling),c=a(r,o.props),Ba(c,o),c.return=e,e=c;break a}n(e,r);break}else t(e,r);r=r.sibling}o.type===y?(c=bi(o.props.children,e.mode,c,o.key),c.return=e,e=c):(c=yi(o.type,o.key,o.props,null,e.mode,c),Ba(c,o),c.return=e,e=c)}return s(e);case v:a:{for(l=o.key;r!==null;){if(r.key===l)if(r.tag===4&&r.stateNode.containerInfo===o.containerInfo&&r.stateNode.implementation===o.implementation){n(e,r.sibling),c=a(r,o.children||[]),c.return=e,e=c;break a}else{n(e,r);break}else t(e,r);r=r.sibling}c=Ci(o,e.mode,c),c.return=e,e=c}return s(e);case w:return o=Na(o),b(e,r,o,c)}if(ue(o))return h(e,r,o,c);if(se(o)){if(l=se(o),typeof l!=`function`)throw Error(i(150));return o=l.call(o),g(e,r,o,c)}if(typeof o.then==`function`)return b(e,r,za(o),c);if(o.$$typeof===S)return b(e,r,ca(e,o),c);Va(e,o)}return typeof o==`string`&&o!==``||typeof o==`number`||typeof o==`bigint`?(o=``+o,r!==null&&r.tag===6?(n(e,r.sibling),c=a(r,o),c.return=e,e=c):(n(e,r),c=xi(o,e.mode,c),c.return=e,e=c),s(e)):n(e,r)}return function(e,t,n,r){try{Ra=0;var i=b(e,t,n,r);return La=null,i}catch(t){if(t===Da||t===ka)throw t;var a=hi(29,t,null,e.mode);return a.lanes=r,a.return=e,a}}}var Ua=Ha(!0),Wa=Ha(!1),Ga=!1;function Ka(e){e.updateQueue={baseState:e.memoizedState,firstBaseUpdate:null,lastBaseUpdate:null,shared:{pending:null,lanes:0,hiddenCallbacks:null},callbacks:null}}function qa(e,t){e=e.updateQueue,t.updateQueue===e&&(t.updateQueue={baseState:e.baseState,firstBaseUpdate:e.firstBaseUpdate,lastBaseUpdate:e.lastBaseUpdate,shared:e.shared,callbacks:null})}function Ja(e){return{lane:e,tag:0,payload:null,callback:null,next:null}}function Ya(e,t,n){var r=e.updateQueue;if(r===null)return null;if(r=r.shared,G&2){var i=r.pending;return i===null?t.next=t:(t.next=i.next,i.next=t),r.pending=t,t=fi(e),di(e,null,n),t}return ci(e,r,t,n),fi(e)}function Xa(e,t,n){if(t=t.updateQueue,t!==null&&(t=t.shared,n&4194048)){var r=t.lanes;r&=e.pendingLanes,n|=r,t.lanes=n,lt(e,n)}}function Za(e,t){var n=e.updateQueue,r=e.alternate;if(r!==null&&(r=r.updateQueue,n===r)){var i=null,a=null;if(n=n.firstBaseUpdate,n!==null){do{var o={lane:n.lane,tag:n.tag,payload:n.payload,callback:null,next:null};a===null?i=a=o:a=a.next=o,n=n.next}while(n!==null);a===null?i=a=t:a=a.next=t}else i=a=t;n={baseState:r.baseState,firstBaseUpdate:i,lastBaseUpdate:a,shared:r.shared,callbacks:r.callbacks},e.updateQueue=n;return}e=n.lastBaseUpdate,e===null?n.firstBaseUpdate=t:e.next=t,n.lastBaseUpdate=t}var Qa=!1;function $a(){if(Qa){var e=va;if(e!==null)throw e}}function eo(e,t,n,r){Qa=!1;var i=e.updateQueue;Ga=!1;var a=i.firstBaseUpdate,o=i.lastBaseUpdate,s=i.shared.pending;if(s!==null){i.shared.pending=null;var c=s,l=c.next;c.next=null,o===null?a=l:o.next=l,o=c;var u=e.alternate;u!==null&&(u=u.updateQueue,s=u.lastBaseUpdate,s!==o&&(s===null?u.firstBaseUpdate=l:s.next=l,u.lastBaseUpdate=c))}if(a!==null){var d=i.baseState;o=0,u=l=c=null,s=a;do{var f=s.lane&-536870913,p=f!==s.lane;if(p?(J&f)===f:(r&f)===f){f!==0&&f===_a&&(Qa=!0),u!==null&&(u=u.next={lane:0,tag:s.tag,payload:s.payload,callback:null,next:null});a:{var m=e,g=s;f=t;var _=n;switch(g.tag){case 1:if(m=g.payload,typeof m==`function`){d=m.call(_,d,f);break a}d=m;break a;case 3:m.flags=m.flags&-65537|128;case 0:if(m=g.payload,f=typeof m==`function`?m.call(_,d,f):m,f==null)break a;d=h({},d,f);break a;case 2:Ga=!0}}f=s.callback,f!==null&&(e.flags|=64,p&&(e.flags|=8192),p=i.callbacks,p===null?i.callbacks=[f]:p.push(f))}else p={lane:f,tag:s.tag,payload:s.payload,callback:s.callback,next:null},u===null?(l=u=p,c=d):u=u.next=p,o|=f;if(s=s.next,s===null){if(s=i.shared.pending,s===null)break;p=s,s=p.next,p.next=null,i.lastBaseUpdate=p,i.shared.pending=null}}while(1);u===null&&(c=d),i.baseState=c,i.firstBaseUpdate=l,i.lastBaseUpdate=u,a===null&&(i.shared.lanes=0),Gl|=o,e.lanes=o,e.memoizedState=d}}function to(e,t){if(typeof e!=`function`)throw Error(i(191,e));e.call(t)}function no(e,t){var n=e.callbacks;if(n!==null)for(e.callbacks=null,e=0;e<n.length;e++)to(n[e],t)}var ro=me(null),io=me(0);function ao(e,t){e=Wl,O(io,e),O(ro,t),Wl=e|t.baseLanes}function oo(){O(io,Wl),O(ro,ro.current)}function so(){Wl=io.current,D(ro),D(io)}var co=me(null),lo=null;function uo(e){var t=e.alternate;O(F,F.current&1),O(co,e),lo===null&&(t===null||ro.current!==null||t.memoizedState!==null)&&(lo=e)}function fo(e){O(F,F.current),O(co,e),lo===null&&(lo=e)}function po(e){e.tag===22?(O(F,F.current),O(co,e),lo===null&&(lo=e)):mo(e)}function mo(){O(F,F.current),O(co,co.current)}function ho(e){D(co),lo===e&&(lo=null),D(F)}var F=me(0);function go(e){for(var t=e;t!==null;){if(t.tag===13){var n=t.memoizedState;if(n!==null&&(n=n.dehydrated,n===null||af(n)||of(n)))return t}else if(t.tag===19&&(t.memoizedProps.revealOrder===`forwards`||t.memoizedProps.revealOrder===`backwards`||t.memoizedProps.revealOrder===`unstable_legacy-backwards`||t.memoizedProps.revealOrder===`together`)){if(t.flags&128)return t}else if(t.child!==null){t.child.return=t,t=t.child;continue}if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return null;t=t.return}t.sibling.return=t.return,t=t.sibling}return null}var _o=0,I=null,L=null,R=null,vo=!1,yo=!1,bo=!1,xo=0,So=0,Co=null,wo=0;function z(){throw Error(i(321))}function To(e,t){if(t===null)return!1;for(var n=0;n<t.length&&n<e.length;n++)if(!kr(e[n],t[n]))return!1;return!0}function Eo(e,t,n,r,i,a){return _o=a,I=t,t.memoizedState=null,t.updateQueue=null,t.lanes=0,T.H=e===null||e.memoizedState===null?Hs:Us,bo=!1,a=n(r,i),bo=!1,yo&&(a=Oo(t,n,r,i)),Do(e),a}function Do(e){T.H=Vs;var t=L!==null&&L.next!==null;if(_o=0,R=L=I=null,vo=!1,So=0,Co=null,t)throw Error(i(300));e===null||V||(e=e.dependencies,e!==null&&aa(e)&&(V=!0))}function Oo(e,t,n,r){I=e;var a=0;do{if(yo&&(Co=null),So=0,yo=!1,25<=a)throw Error(i(301));if(a+=1,R=L=null,e.updateQueue!=null){var o=e.updateQueue;o.lastEffect=null,o.events=null,o.stores=null,o.memoCache!=null&&(o.memoCache.index=0)}T.H=Ws,o=t(n,r)}while(yo);return o}function ko(){var e=T.H,t=e.useState()[0];return t=typeof t.then==`function`?Fo(t):t,e=e.useState()[0],(L===null?null:L.memoizedState)!==e&&(I.flags|=1024),t}function Ao(){var e=xo!==0;return xo=0,e}function jo(e,t,n){t.updateQueue=e.updateQueue,t.flags&=-2053,e.lanes&=~n}function Mo(e){if(vo){for(e=e.memoizedState;e!==null;){var t=e.queue;t!==null&&(t.pending=null),e=e.next}vo=!1}_o=0,R=L=I=null,yo=!1,So=xo=0,Co=null}function No(){var e={memoizedState:null,baseState:null,baseQueue:null,queue:null,next:null};return R===null?I.memoizedState=R=e:R=R.next=e,R}function B(){if(L===null){var e=I.alternate;e=e===null?null:e.memoizedState}else e=L.next;var t=R===null?I.memoizedState:R.next;if(t!==null)R=t,L=e;else{if(e===null)throw I.alternate===null?Error(i(467)):Error(i(310));L=e,e={memoizedState:L.memoizedState,baseState:L.baseState,baseQueue:L.baseQueue,queue:L.queue,next:null},R===null?I.memoizedState=R=e:R=R.next=e}return R}function Po(){return{lastEffect:null,events:null,stores:null,memoCache:null}}function Fo(e){var t=So;return So+=1,Co===null&&(Co=[]),e=Ma(Co,e,t),t=I,(R===null?t.memoizedState:R.next)===null&&(t=t.alternate,T.H=t===null||t.memoizedState===null?Hs:Us),e}function Io(e){if(typeof e==`object`&&e){if(typeof e.then==`function`)return Fo(e);if(e.$$typeof===S)return sa(e)}throw Error(i(438,String(e)))}function Lo(e){var t=null,n=I.updateQueue;if(n!==null&&(t=n.memoCache),t==null){var r=I.alternate;r!==null&&(r=r.updateQueue,r!==null&&(r=r.memoCache,r!=null&&(t={data:r.data.map(function(e){return e.slice()}),index:0})))}if(t??={data:[],index:0},n===null&&(n=Po(),I.updateQueue=n),n.memoCache=t,n=t.data[t.index],n===void 0)for(n=t.data[t.index]=Array(e),r=0;r<e;r++)n[r]=ae;return t.index++,n}function Ro(e,t){return typeof t==`function`?t(e):t}function zo(e){return Bo(B(),L,e)}function Bo(e,t,n){var r=e.queue;if(r===null)throw Error(i(311));r.lastRenderedReducer=n;var a=e.baseQueue,o=r.pending;if(o!==null){if(a!==null){var s=a.next;a.next=o.next,o.next=s}t.baseQueue=a=o,r.pending=null}if(o=e.baseState,a===null)e.memoizedState=o;else{t=a.next;var c=s=null,l=null,u=t,d=!1;do{var f=u.lane&-536870913;if(f===u.lane?(_o&f)===f:(J&f)===f){var p=u.revertLane;if(p===0)l!==null&&(l=l.next={lane:0,revertLane:0,gesture:null,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null}),f===_a&&(d=!0);else if((_o&p)===p){u=u.next,p===_a&&(d=!0);continue}else f={lane:0,revertLane:u.revertLane,gesture:null,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null},l===null?(c=l=f,s=o):l=l.next=f,I.lanes|=p,Gl|=p;f=u.action,bo&&n(o,f),o=u.hasEagerState?u.eagerState:n(o,f)}else p={lane:f,revertLane:u.revertLane,gesture:u.gesture,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null},l===null?(c=l=p,s=o):l=l.next=p,I.lanes|=f,Gl|=f;u=u.next}while(u!==null&&u!==t);if(l===null?s=o:l.next=c,!kr(o,e.memoizedState)&&(V=!0,d&&(n=va,n!==null)))throw n;e.memoizedState=o,e.baseState=s,e.baseQueue=l,r.lastRenderedState=o}return a===null&&(r.lanes=0),[e.memoizedState,r.dispatch]}function Vo(e){var t=B(),n=t.queue;if(n===null)throw Error(i(311));n.lastRenderedReducer=e;var r=n.dispatch,a=n.pending,o=t.memoizedState;if(a!==null){n.pending=null;var s=a=a.next;do o=e(o,s.action),s=s.next;while(s!==a);kr(o,t.memoizedState)||(V=!0),t.memoizedState=o,t.baseQueue===null&&(t.baseState=o),n.lastRenderedState=o}return[o,r]}function Ho(e,t,n){var r=I,a=B(),o=N;if(o){if(n===void 0)throw Error(i(407));n=n()}else n=t();var s=!kr((L||a).memoizedState,n);if(s&&(a.memoizedState=n,V=!0),a=a.queue,ps(Go.bind(null,r,a,e),[e]),a.getSnapshot!==t||s||R!==null&&R.memoizedState.tag&1){if(r.flags|=2048,cs(9,{destroy:void 0},Wo.bind(null,r,a,n,t),null),K===null)throw Error(i(349));o||_o&127||Uo(r,t,n)}return n}function Uo(e,t,n){e.flags|=16384,e={getSnapshot:t,value:n},t=I.updateQueue,t===null?(t=Po(),I.updateQueue=t,t.stores=[e]):(n=t.stores,n===null?t.stores=[e]:n.push(e))}function Wo(e,t,n,r){t.value=n,t.getSnapshot=r,Ko(t)&&qo(e)}function Go(e,t,n){return n(function(){Ko(t)&&qo(e)})}function Ko(e){var t=e.getSnapshot;e=e.value;try{var n=t();return!kr(e,n)}catch{return!0}}function qo(e){var t=ui(e,2);t!==null&&hu(t,e,2)}function Jo(e){var t=No();if(typeof e==`function`){var n=e;if(e=n(),bo){Ke(!0);try{n()}finally{Ke(!1)}}}return t.memoizedState=t.baseState=e,t.queue={pending:null,lanes:0,dispatch:null,lastRenderedReducer:Ro,lastRenderedState:e},t}function Yo(e,t,n,r){return e.baseState=n,Bo(e,L,typeof r==`function`?r:Ro)}function Xo(e,t,n,r,a){if(Rs(e))throw Error(i(485));if(e=t.action,e!==null){var o={payload:a,action:e,next:null,isTransition:!0,status:`pending`,value:null,reason:null,listeners:[],then:function(e){o.listeners.push(e)}};T.T===null?o.isTransition=!1:n(!0),r(o),n=t.pending,n===null?(o.next=t.pending=o,Zo(t,o)):(o.next=n.next,t.pending=n.next=o)}}function Zo(e,t){var n=t.action,r=t.payload,i=e.state;if(t.isTransition){var a=T.T,o={};T.T=o;try{var s=n(i,r),c=T.S;c!==null&&c(o,s),Qo(e,t,s)}catch(n){es(e,t,n)}finally{a!==null&&o.types!==null&&(a.types=o.types),T.T=a}}else try{a=n(i,r),Qo(e,t,a)}catch(n){es(e,t,n)}}function Qo(e,t,n){typeof n==`object`&&n&&typeof n.then==`function`?n.then(function(n){$o(e,t,n)},function(n){return es(e,t,n)}):$o(e,t,n)}function $o(e,t,n){t.status=`fulfilled`,t.value=n,ts(t),e.state=n,t=e.pending,t!==null&&(n=t.next,n===t?e.pending=null:(n=n.next,t.next=n,Zo(e,n)))}function es(e,t,n){var r=e.pending;if(e.pending=null,r!==null){r=r.next;do t.status=`rejected`,t.reason=n,ts(t),t=t.next;while(t!==r)}e.action=null}function ts(e){e=e.listeners;for(var t=0;t<e.length;t++)(0,e[t])()}function ns(e,t){return t}function rs(e,t){if(N){var n=K.formState;if(n!==null){a:{var r=I;if(N){if(M){b:{for(var i=M,a=Hi;i.nodeType!==8;){if(!a){i=null;break b}if(i=cf(i.nextSibling),i===null){i=null;break b}}a=i.data,i=a===`F!`||a===`F`?i:null}if(i){M=cf(i.nextSibling),r=i.data===`F!`;break a}}Wi(r)}r=!1}r&&(t=n[0])}}return n=No(),n.memoizedState=n.baseState=t,r={pending:null,lanes:0,dispatch:null,lastRenderedReducer:ns,lastRenderedState:t},n.queue=r,n=Fs.bind(null,I,r),r.dispatch=n,r=Jo(!1),a=Ls.bind(null,I,!1,r.queue),r=No(),i={state:t,dispatch:null,action:e,pending:null},r.queue=i,n=Xo.bind(null,I,i,a,n),i.dispatch=n,r.memoizedState=e,[t,n,!1]}function is(e){return as(B(),L,e)}function as(e,t,n){if(t=Bo(e,t,ns)[0],e=zo(Ro)[0],typeof t==`object`&&t&&typeof t.then==`function`)try{var r=Fo(t)}catch(e){throw e===Da?ka:e}else r=t;t=B();var i=t.queue,a=i.dispatch;return n!==t.memoizedState&&(I.flags|=2048,cs(9,{destroy:void 0},os.bind(null,i,n),null)),[r,a,e]}function os(e,t){e.action=t}function ss(e){var t=B(),n=L;if(n!==null)return as(t,n,e);B(),t=t.memoizedState,n=B();var r=n.queue.dispatch;return n.memoizedState=e,[t,r,!1]}function cs(e,t,n,r){return e={tag:e,create:n,deps:r,inst:t,next:null},t=I.updateQueue,t===null&&(t=Po(),I.updateQueue=t),n=t.lastEffect,n===null?t.lastEffect=e.next=e:(r=n.next,n.next=e,e.next=r,t.lastEffect=e),e}function ls(){return B().memoizedState}function us(e,t,n,r){var i=No();I.flags|=e,i.memoizedState=cs(1|t,{destroy:void 0},n,r===void 0?null:r)}function ds(e,t,n,r){var i=B();r=r===void 0?null:r;var a=i.memoizedState.inst;L!==null&&r!==null&&To(r,L.memoizedState.deps)?i.memoizedState=cs(t,a,n,r):(I.flags|=e,i.memoizedState=cs(1|t,a,n,r))}function fs(e,t){us(8390656,8,e,t)}function ps(e,t){ds(2048,8,e,t)}function ms(e){I.flags|=4;var t=I.updateQueue;if(t===null)t=Po(),I.updateQueue=t,t.events=[e];else{var n=t.events;n===null?t.events=[e]:n.push(e)}}function hs(e){var t=B().memoizedState;return ms({ref:t,nextImpl:e}),function(){if(G&2)throw Error(i(440));return t.impl.apply(void 0,arguments)}}function gs(e,t){return ds(4,2,e,t)}function _s(e,t){return ds(4,4,e,t)}function vs(e,t){if(typeof t==`function`){e=e();var n=t(e);return function(){typeof n==`function`?n():t(null)}}if(t!=null)return e=e(),t.current=e,function(){t.current=null}}function ys(e,t,n){n=n==null?null:n.concat([e]),ds(4,4,vs.bind(null,t,e),n)}function bs(){}function xs(e,t){var n=B();t=t===void 0?null:t;var r=n.memoizedState;return t!==null&&To(t,r[1])?r[0]:(n.memoizedState=[e,t],e)}function Ss(e,t){var n=B();t=t===void 0?null:t;var r=n.memoizedState;if(t!==null&&To(t,r[1]))return r[0];if(r=e(),bo){Ke(!0);try{e()}finally{Ke(!1)}}return n.memoizedState=[r,t],r}function Cs(e,t,n){return n===void 0||_o&1073741824&&!(J&261930)?e.memoizedState=t:(e.memoizedState=n,e=mu(),I.lanes|=e,Gl|=e,n)}function ws(e,t,n,r){return kr(n,t)?n:ro.current===null?!(_o&42)||_o&1073741824&&!(J&261930)?(V=!0,e.memoizedState=n):(e=mu(),I.lanes|=e,Gl|=e,t):(e=Cs(e,n,r),kr(e,t)||(V=!0),e)}function Ts(e,t,n,r,i){var a=E.p;E.p=a!==0&&8>a?a:8;var o=T.T,s={};T.T=s,Ls(e,!1,t,n);try{var c=i(),l=T.S;l!==null&&l(s,c),typeof c==`object`&&c&&typeof c.then==`function`?Is(e,t,xa(c,r),pu(e)):Is(e,t,r,pu(e))}catch(n){Is(e,t,{then:function(){},status:`rejected`,reason:n},pu())}finally{E.p=a,o!==null&&s.types!==null&&(o.types=s.types),T.T=o}}function Es(){}function Ds(e,t,n,r){if(e.tag!==5)throw Error(i(476));var a=Os(e).queue;Ts(e,a,t,de,n===null?Es:function(){return ks(e),n(r)})}function Os(e){var t=e.memoizedState;if(t!==null)return t;t={memoizedState:de,baseState:de,baseQueue:null,queue:{pending:null,lanes:0,dispatch:null,lastRenderedReducer:Ro,lastRenderedState:de},next:null};var n={};return t.next={memoizedState:n,baseState:n,baseQueue:null,queue:{pending:null,lanes:0,dispatch:null,lastRenderedReducer:Ro,lastRenderedState:n},next:null},e.memoizedState=t,e=e.alternate,e!==null&&(e.memoizedState=t),t}function ks(e){var t=Os(e);t.next===null&&(t=e.alternate.memoizedState),Is(e,t.next.queue,{},pu())}function As(){return sa(Qf)}function js(){return B().memoizedState}function Ms(){return B().memoizedState}function Ns(e){for(var t=e.return;t!==null;){switch(t.tag){case 24:case 3:var n=pu();e=Ja(n);var r=Ya(t,e,n);r!==null&&(hu(r,t,n),Xa(r,t,n)),t={cache:pa()},e.payload=t;return}t=t.return}}function Ps(e,t,n){var r=pu();n={lane:r,revertLane:0,gesture:null,action:n,hasEagerState:!1,eagerState:null,next:null},Rs(e)?zs(t,n):(n=li(e,t,n,r),n!==null&&(hu(n,e,r),Bs(n,t,r)))}function Fs(e,t,n){Is(e,t,n,pu())}function Is(e,t,n,r){var i={lane:r,revertLane:0,gesture:null,action:n,hasEagerState:!1,eagerState:null,next:null};if(Rs(e))zs(t,i);else{var a=e.alternate;if(e.lanes===0&&(a===null||a.lanes===0)&&(a=t.lastRenderedReducer,a!==null))try{var o=t.lastRenderedState,s=a(o,n);if(i.hasEagerState=!0,i.eagerState=s,kr(s,o))return ci(e,t,i,0),K===null&&si(),!1}catch{}if(n=li(e,t,i,r),n!==null)return hu(n,e,r),Bs(n,t,r),!0}return!1}function Ls(e,t,n,r){if(r={lane:2,revertLane:dd(),gesture:null,action:r,hasEagerState:!1,eagerState:null,next:null},Rs(e)){if(t)throw Error(i(479))}else t=li(e,n,r,2),t!==null&&hu(t,e,2)}function Rs(e){var t=e.alternate;return e===I||t!==null&&t===I}function zs(e,t){yo=vo=!0;var n=e.pending;n===null?t.next=t:(t.next=n.next,n.next=t),e.pending=t}function Bs(e,t,n){if(n&4194048){var r=t.lanes;r&=e.pendingLanes,n|=r,t.lanes=n,lt(e,n)}}var Vs={readContext:sa,use:Io,useCallback:z,useContext:z,useEffect:z,useImperativeHandle:z,useLayoutEffect:z,useInsertionEffect:z,useMemo:z,useReducer:z,useRef:z,useState:z,useDebugValue:z,useDeferredValue:z,useTransition:z,useSyncExternalStore:z,useId:z,useHostTransitionStatus:z,useFormState:z,useActionState:z,useOptimistic:z,useMemoCache:z,useCacheRefresh:z};Vs.useEffectEvent=z;var Hs={readContext:sa,use:Io,useCallback:function(e,t){return No().memoizedState=[e,t===void 0?null:t],e},useContext:sa,useEffect:fs,useImperativeHandle:function(e,t,n){n=n==null?null:n.concat([e]),us(4194308,4,vs.bind(null,t,e),n)},useLayoutEffect:function(e,t){return us(4194308,4,e,t)},useInsertionEffect:function(e,t){us(4,2,e,t)},useMemo:function(e,t){var n=No();t=t===void 0?null:t;var r=e();if(bo){Ke(!0);try{e()}finally{Ke(!1)}}return n.memoizedState=[r,t],r},useReducer:function(e,t,n){var r=No();if(n!==void 0){var i=n(t);if(bo){Ke(!0);try{n(t)}finally{Ke(!1)}}}else i=t;return r.memoizedState=r.baseState=i,e={pending:null,lanes:0,dispatch:null,lastRenderedReducer:e,lastRenderedState:i},r.queue=e,e=e.dispatch=Ps.bind(null,I,e),[r.memoizedState,e]},useRef:function(e){var t=No();return e={current:e},t.memoizedState=e},useState:function(e){e=Jo(e);var t=e.queue,n=Fs.bind(null,I,t);return t.dispatch=n,[e.memoizedState,n]},useDebugValue:bs,useDeferredValue:function(e,t){return Cs(No(),e,t)},useTransition:function(){var e=Jo(!1);return e=Ts.bind(null,I,e.queue,!0,!1),No().memoizedState=e,[!1,e]},useSyncExternalStore:function(e,t,n){var r=I,a=No();if(N){if(n===void 0)throw Error(i(407));n=n()}else{if(n=t(),K===null)throw Error(i(349));J&127||Uo(r,t,n)}a.memoizedState=n;var o={value:n,getSnapshot:t};return a.queue=o,fs(Go.bind(null,r,o,e),[e]),r.flags|=2048,cs(9,{destroy:void 0},Wo.bind(null,r,o,n,t),null),n},useId:function(){var e=No(),t=K.identifierPrefix;if(N){var n=Pi,r=Ni;n=(r&~(1<<32-qe(r)-1)).toString(32)+n,t=`_`+t+`R_`+n,n=xo++,0<n&&(t+=`H`+n.toString(32)),t+=`_`}else n=wo++,t=`_`+t+`r_`+n.toString(32)+`_`;return e.memoizedState=t},useHostTransitionStatus:As,useFormState:rs,useActionState:rs,useOptimistic:function(e){var t=No();t.memoizedState=t.baseState=e;var n={pending:null,lanes:0,dispatch:null,lastRenderedReducer:null,lastRenderedState:null};return t.queue=n,t=Ls.bind(null,I,!0,n),n.dispatch=t,[e,t]},useMemoCache:Lo,useCacheRefresh:function(){return No().memoizedState=Ns.bind(null,I)},useEffectEvent:function(e){var t=No(),n={impl:e};return t.memoizedState=n,function(){if(G&2)throw Error(i(440));return n.impl.apply(void 0,arguments)}}},Us={readContext:sa,use:Io,useCallback:xs,useContext:sa,useEffect:ps,useImperativeHandle:ys,useInsertionEffect:gs,useLayoutEffect:_s,useMemo:Ss,useReducer:zo,useRef:ls,useState:function(){return zo(Ro)},useDebugValue:bs,useDeferredValue:function(e,t){return ws(B(),L.memoizedState,e,t)},useTransition:function(){var e=zo(Ro)[0],t=B().memoizedState;return[typeof e==`boolean`?e:Fo(e),t]},useSyncExternalStore:Ho,useId:js,useHostTransitionStatus:As,useFormState:is,useActionState:is,useOptimistic:function(e,t){return Yo(B(),L,e,t)},useMemoCache:Lo,useCacheRefresh:Ms};Us.useEffectEvent=hs;var Ws={readContext:sa,use:Io,useCallback:xs,useContext:sa,useEffect:ps,useImperativeHandle:ys,useInsertionEffect:gs,useLayoutEffect:_s,useMemo:Ss,useReducer:Vo,useRef:ls,useState:function(){return Vo(Ro)},useDebugValue:bs,useDeferredValue:function(e,t){var n=B();return L===null?Cs(n,e,t):ws(n,L.memoizedState,e,t)},useTransition:function(){var e=Vo(Ro)[0],t=B().memoizedState;return[typeof e==`boolean`?e:Fo(e),t]},useSyncExternalStore:Ho,useId:js,useHostTransitionStatus:As,useFormState:ss,useActionState:ss,useOptimistic:function(e,t){var n=B();return L===null?(n.baseState=e,[e,n.queue.dispatch]):Yo(n,L,e,t)},useMemoCache:Lo,useCacheRefresh:Ms};Ws.useEffectEvent=hs;function Gs(e,t,n,r){t=e.memoizedState,n=n(r,t),n=n==null?t:h({},t,n),e.memoizedState=n,e.lanes===0&&(e.updateQueue.baseState=n)}var Ks={enqueueSetState:function(e,t,n){e=e._reactInternals;var r=pu(),i=Ja(r);i.payload=t,n!=null&&(i.callback=n),t=Ya(e,i,r),t!==null&&(hu(t,e,r),Xa(t,e,r))},enqueueReplaceState:function(e,t,n){e=e._reactInternals;var r=pu(),i=Ja(r);i.tag=1,i.payload=t,n!=null&&(i.callback=n),t=Ya(e,i,r),t!==null&&(hu(t,e,r),Xa(t,e,r))},enqueueForceUpdate:function(e,t){e=e._reactInternals;var n=pu(),r=Ja(n);r.tag=2,t!=null&&(r.callback=t),t=Ya(e,r,n),t!==null&&(hu(t,e,n),Xa(t,e,n))}};function qs(e,t,n,r,i,a,o){return e=e.stateNode,typeof e.shouldComponentUpdate==`function`?e.shouldComponentUpdate(r,a,o):t.prototype&&t.prototype.isPureReactComponent?!Ar(n,r)||!Ar(i,a):!0}function Js(e,t,n,r){e=t.state,typeof t.componentWillReceiveProps==`function`&&t.componentWillReceiveProps(n,r),typeof t.UNSAFE_componentWillReceiveProps==`function`&&t.UNSAFE_componentWillReceiveProps(n,r),t.state!==e&&Ks.enqueueReplaceState(t,t.state,null)}function Ys(e,t){var n=t;if(`ref`in t)for(var r in n={},t)r!==`ref`&&(n[r]=t[r]);if(e=e.defaultProps)for(var i in n===t&&(n=h({},n)),e)n[i]===void 0&&(n[i]=e[i]);return n}function Xs(e){ri(e)}function Zs(e){console.error(e)}function Qs(e){ri(e)}function $s(e,t){try{var n=e.onUncaughtError;n(t.value,{componentStack:t.stack})}catch(e){setTimeout(function(){throw e})}}function ec(e,t,n){try{var r=e.onCaughtError;r(n.value,{componentStack:n.stack,errorBoundary:t.tag===1?t.stateNode:null})}catch(e){setTimeout(function(){throw e})}}function tc(e,t,n){return n=Ja(n),n.tag=3,n.payload={element:null},n.callback=function(){$s(e,t)},n}function nc(e){return e=Ja(e),e.tag=3,e}function rc(e,t,n,r){var i=n.type.getDerivedStateFromError;if(typeof i==`function`){var a=r.value;e.payload=function(){return i(a)},e.callback=function(){ec(t,n,r)}}var o=n.stateNode;o!==null&&typeof o.componentDidCatch==`function`&&(e.callback=function(){ec(t,n,r),typeof i!=`function`&&(ru===null?ru=new Set([this]):ru.add(this));var e=r.stack;this.componentDidCatch(r.value,{componentStack:e===null?``:e})})}function ic(e,t,n,r,a){if(n.flags|=32768,typeof r==`object`&&r&&typeof r.then==`function`){if(t=n.alternate,t!==null&&ia(t,n,a,!0),n=co.current,n!==null){switch(n.tag){case 31:case 13:return lo===null?Du():n.alternate===null&&X===0&&(X=3),n.flags&=-257,n.flags|=65536,n.lanes=a,r===Aa?n.flags|=16384:(t=n.updateQueue,t===null?n.updateQueue=new Set([r]):t.add(r),Gu(e,r,a)),!1;case 22:return n.flags|=65536,r===Aa?n.flags|=16384:(t=n.updateQueue,t===null?(t={transitions:null,markerInstances:null,retryQueue:new Set([r])},n.updateQueue=t):(n=t.retryQueue,n===null?t.retryQueue=new Set([r]):n.add(r)),Gu(e,r,a)),!1}throw Error(i(435,n.tag))}return Gu(e,r,a),Du(),!1}if(N)return t=co.current,t===null?(r!==Ui&&(t=Error(i(423),{cause:r}),Xi(Ti(t,n))),e=e.current.alternate,e.flags|=65536,a&=-a,e.lanes|=a,r=Ti(r,n),a=tc(e.stateNode,r,a),Za(e,a),X!==4&&(X=2)):(!(t.flags&65536)&&(t.flags|=256),t.flags|=65536,t.lanes=a,r!==Ui&&(e=Error(i(422),{cause:r}),Xi(Ti(e,n)))),!1;var o=Error(i(520),{cause:r});if(o=Ti(o,n),Xl===null?Xl=[o]:Xl.push(o),X!==4&&(X=2),t===null)return!0;r=Ti(r,n),n=t;do{switch(n.tag){case 3:return n.flags|=65536,e=a&-a,n.lanes|=e,e=tc(n.stateNode,r,e),Za(n,e),!1;case 1:if(t=n.type,o=n.stateNode,!(n.flags&128)&&(typeof t.getDerivedStateFromError==`function`||o!==null&&typeof o.componentDidCatch==`function`&&(ru===null||!ru.has(o))))return n.flags|=65536,a&=-a,n.lanes|=a,a=nc(a),rc(a,e,n,r),Za(n,a),!1}n=n.return}while(n!==null);return!1}var ac=Error(i(461)),V=!1;function oc(e,t,n,r){t.child=e===null?Wa(t,null,n,r):Ua(t,e.child,n,r)}function sc(e,t,n,r,i){n=n.render;var a=t.ref;if(`ref`in r){var o={};for(var s in r)s!==`ref`&&(o[s]=r[s])}else o=r;return oa(t),r=Eo(e,t,n,o,a,i),s=Ao(),e!==null&&!V?(jo(e,t,i),jc(e,t,i)):(N&&s&&Li(t),t.flags|=1,oc(e,t,r,i),t.child)}function cc(e,t,n,r,i){if(e===null){var a=n.type;return typeof a==`function`&&!gi(a)&&a.defaultProps===void 0&&n.compare===null?(t.tag=15,t.type=a,lc(e,t,a,r,i)):(e=yi(n.type,null,r,t,t.mode,i),e.ref=t.ref,e.return=t,t.child=e)}if(a=e.child,!Mc(e,i)){var o=a.memoizedProps;if(n=n.compare,n=n===null?Ar:n,n(o,r)&&e.ref===t.ref)return jc(e,t,i)}return t.flags|=1,e=_i(a,r),e.ref=t.ref,e.return=t,t.child=e}function lc(e,t,n,r,i){if(e!==null){var a=e.memoizedProps;if(Ar(a,r)&&e.ref===t.ref)if(V=!1,t.pendingProps=r=a,Mc(e,i))e.flags&131072&&(V=!0);else return t.lanes=e.lanes,jc(e,t,i)}return _c(e,t,n,r,i)}function uc(e,t,n,r){var i=r.children,a=e===null?null:e.memoizedState;if(e===null&&t.stateNode===null&&(t.stateNode={_visibility:1,_pendingMarkers:null,_retryCache:null,_transitions:null}),r.mode===`hidden`){if(t.flags&128){if(a=a===null?n:a.baseLanes|n,e!==null){for(r=t.child=e.child,i=0;r!==null;)i=i|r.lanes|r.childLanes,r=r.sibling;r=i&~a}else r=0,t.child=null;return fc(e,t,a,n,r)}if(n&536870912)t.memoizedState={baseLanes:0,cachePool:null},e!==null&&Ta(t,a===null?null:a.cachePool),a===null?oo():ao(t,a),po(t);else return r=t.lanes=536870912,fc(e,t,a===null?n:a.baseLanes|n,n,r)}else a===null?(e!==null&&Ta(t,null),oo(),mo(t)):(Ta(t,a.cachePool),ao(t,a),mo(t),t.memoizedState=null);return oc(e,t,i,n),t.child}function dc(e,t){return e!==null&&e.tag===22||t.stateNode!==null||(t.stateNode={_visibility:1,_pendingMarkers:null,_retryCache:null,_transitions:null}),t.sibling}function fc(e,t,n,r,i){var a=wa();return a=a===null?null:{parent:P._currentValue,pool:a},t.memoizedState={baseLanes:n,cachePool:a},e!==null&&Ta(t,null),oo(),po(t),e!==null&&ia(e,t,r,!0),t.childLanes=i,null}function pc(e,t){return t=Ec({mode:t.mode,children:t.children},e.mode),t.ref=e.ref,e.child=t,t.return=e,t}function mc(e,t,n){return Ua(t,e.child,null,n),e=pc(t,t.pendingProps),e.flags|=2,ho(t),t.memoizedState=null,e}function hc(e,t,n){var r=t.pendingProps,a=(t.flags&128)!=0;if(t.flags&=-129,e===null){if(N){if(r.mode===`hidden`)return e=pc(t,r),t.lanes=536870912,dc(null,e);if(fo(t),(e=M)?(e=rf(e,Hi),e=e!==null&&e.data===`&`?e:null,e!==null&&(t.memoizedState={dehydrated:e,treeContext:Mi===null?null:{id:Ni,overflow:Pi},retryLane:536870912,hydrationErrors:null},n=Si(e),n.return=t,t.child=n,Bi=t,M=null)):e=null,e===null)throw Wi(t);return t.lanes=536870912,null}return pc(t,r)}var o=e.memoizedState;if(o!==null){var s=o.dehydrated;if(fo(t),a)if(t.flags&256)t.flags&=-257,t=mc(e,t,n);else if(t.memoizedState!==null)t.child=e.child,t.flags|=128,t=null;else throw Error(i(558));else if(V||ia(e,t,n,!1),a=(n&e.childLanes)!==0,V||a){if(r=K,r!==null&&(s=ut(r,n),s!==0&&s!==o.retryLane))throw o.retryLane=s,ui(e,s),hu(r,e,s),ac;Du(),t=mc(e,t,n)}else e=o.treeContext,M=cf(s.nextSibling),Bi=t,N=!0,Vi=null,Hi=!1,e!==null&&zi(t,e),t=pc(t,r),t.flags|=4096;return t}return e=_i(e.child,{mode:r.mode,children:r.children}),e.ref=t.ref,t.child=e,e.return=t,e}function gc(e,t){var n=t.ref;if(n===null)e!==null&&e.ref!==null&&(t.flags|=4194816);else{if(typeof n!=`function`&&typeof n!=`object`)throw Error(i(284));(e===null||e.ref!==n)&&(t.flags|=4194816)}}function _c(e,t,n,r,i){return oa(t),n=Eo(e,t,n,r,void 0,i),r=Ao(),e!==null&&!V?(jo(e,t,i),jc(e,t,i)):(N&&r&&Li(t),t.flags|=1,oc(e,t,n,i),t.child)}function vc(e,t,n,r,i,a){return oa(t),t.updateQueue=null,n=Oo(t,r,n,i),Do(e),r=Ao(),e!==null&&!V?(jo(e,t,a),jc(e,t,a)):(N&&r&&Li(t),t.flags|=1,oc(e,t,n,a),t.child)}function yc(e,t,n,r,i){if(oa(t),t.stateNode===null){var a=pi,o=n.contextType;typeof o==`object`&&o&&(a=sa(o)),a=new n(r,a),t.memoizedState=a.state!==null&&a.state!==void 0?a.state:null,a.updater=Ks,t.stateNode=a,a._reactInternals=t,a=t.stateNode,a.props=r,a.state=t.memoizedState,a.refs={},Ka(t),o=n.contextType,a.context=typeof o==`object`&&o?sa(o):pi,a.state=t.memoizedState,o=n.getDerivedStateFromProps,typeof o==`function`&&(Gs(t,n,o,r),a.state=t.memoizedState),typeof n.getDerivedStateFromProps==`function`||typeof a.getSnapshotBeforeUpdate==`function`||typeof a.UNSAFE_componentWillMount!=`function`&&typeof a.componentWillMount!=`function`||(o=a.state,typeof a.componentWillMount==`function`&&a.componentWillMount(),typeof a.UNSAFE_componentWillMount==`function`&&a.UNSAFE_componentWillMount(),o!==a.state&&Ks.enqueueReplaceState(a,a.state,null),eo(t,r,a,i),$a(),a.state=t.memoizedState),typeof a.componentDidMount==`function`&&(t.flags|=4194308),r=!0}else if(e===null){a=t.stateNode;var s=t.memoizedProps,c=Ys(n,s);a.props=c;var l=a.context,u=n.contextType;o=pi,typeof u==`object`&&u&&(o=sa(u));var d=n.getDerivedStateFromProps;u=typeof d==`function`||typeof a.getSnapshotBeforeUpdate==`function`,s=t.pendingProps!==s,u||typeof a.UNSAFE_componentWillReceiveProps!=`function`&&typeof a.componentWillReceiveProps!=`function`||(s||l!==o)&&Js(t,a,r,o),Ga=!1;var f=t.memoizedState;a.state=f,eo(t,r,a,i),$a(),l=t.memoizedState,s||f!==l||Ga?(typeof d==`function`&&(Gs(t,n,d,r),l=t.memoizedState),(c=Ga||qs(t,n,c,r,f,l,o))?(u||typeof a.UNSAFE_componentWillMount!=`function`&&typeof a.componentWillMount!=`function`||(typeof a.componentWillMount==`function`&&a.componentWillMount(),typeof a.UNSAFE_componentWillMount==`function`&&a.UNSAFE_componentWillMount()),typeof a.componentDidMount==`function`&&(t.flags|=4194308)):(typeof a.componentDidMount==`function`&&(t.flags|=4194308),t.memoizedProps=r,t.memoizedState=l),a.props=r,a.state=l,a.context=o,r=c):(typeof a.componentDidMount==`function`&&(t.flags|=4194308),r=!1)}else{a=t.stateNode,qa(e,t),o=t.memoizedProps,u=Ys(n,o),a.props=u,d=t.pendingProps,f=a.context,l=n.contextType,c=pi,typeof l==`object`&&l&&(c=sa(l)),s=n.getDerivedStateFromProps,(l=typeof s==`function`||typeof a.getSnapshotBeforeUpdate==`function`)||typeof a.UNSAFE_componentWillReceiveProps!=`function`&&typeof a.componentWillReceiveProps!=`function`||(o!==d||f!==c)&&Js(t,a,r,c),Ga=!1,f=t.memoizedState,a.state=f,eo(t,r,a,i),$a();var p=t.memoizedState;o!==d||f!==p||Ga||e!==null&&e.dependencies!==null&&aa(e.dependencies)?(typeof s==`function`&&(Gs(t,n,s,r),p=t.memoizedState),(u=Ga||qs(t,n,u,r,f,p,c)||e!==null&&e.dependencies!==null&&aa(e.dependencies))?(l||typeof a.UNSAFE_componentWillUpdate!=`function`&&typeof a.componentWillUpdate!=`function`||(typeof a.componentWillUpdate==`function`&&a.componentWillUpdate(r,p,c),typeof a.UNSAFE_componentWillUpdate==`function`&&a.UNSAFE_componentWillUpdate(r,p,c)),typeof a.componentDidUpdate==`function`&&(t.flags|=4),typeof a.getSnapshotBeforeUpdate==`function`&&(t.flags|=1024)):(typeof a.componentDidUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=4),typeof a.getSnapshotBeforeUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=1024),t.memoizedProps=r,t.memoizedState=p),a.props=r,a.state=p,a.context=c,r=u):(typeof a.componentDidUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=4),typeof a.getSnapshotBeforeUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=1024),r=!1)}return a=r,gc(e,t),r=(t.flags&128)!=0,a||r?(a=t.stateNode,n=r&&typeof n.getDerivedStateFromError!=`function`?null:a.render(),t.flags|=1,e!==null&&r?(t.child=Ua(t,e.child,null,i),t.child=Ua(t,null,n,i)):oc(e,t,n,i),t.memoizedState=a.state,e=t.child):e=jc(e,t,i),e}function bc(e,t,n,r){return Ji(),t.flags|=256,oc(e,t,n,r),t.child}var xc={dehydrated:null,treeContext:null,retryLane:0,hydrationErrors:null};function Sc(e){return{baseLanes:e,cachePool:Ea()}}function Cc(e,t,n){return e=e===null?0:e.childLanes&~n,t&&(e|=Jl),e}function wc(e,t,n){var r=t.pendingProps,a=!1,o=(t.flags&128)!=0,s;if((s=o)||(s=e!==null&&e.memoizedState===null?!1:(F.current&2)!=0),s&&(a=!0,t.flags&=-129),s=(t.flags&32)!=0,t.flags&=-33,e===null){if(N){if(a?uo(t):mo(t),(e=M)?(e=rf(e,Hi),e=e!==null&&e.data!==`&`?e:null,e!==null&&(t.memoizedState={dehydrated:e,treeContext:Mi===null?null:{id:Ni,overflow:Pi},retryLane:536870912,hydrationErrors:null},n=Si(e),n.return=t,t.child=n,Bi=t,M=null)):e=null,e===null)throw Wi(t);return of(e)?t.lanes=32:t.lanes=536870912,null}var c=r.children;return r=r.fallback,a?(mo(t),a=t.mode,c=Ec({mode:`hidden`,children:c},a),r=bi(r,a,n,null),c.return=t,r.return=t,c.sibling=r,t.child=c,r=t.child,r.memoizedState=Sc(n),r.childLanes=Cc(e,s,n),t.memoizedState=xc,dc(null,r)):(uo(t),Tc(t,c))}var l=e.memoizedState;if(l!==null&&(c=l.dehydrated,c!==null)){if(o)t.flags&256?(uo(t),t.flags&=-257,t=Dc(e,t,n)):t.memoizedState===null?(mo(t),c=r.fallback,a=t.mode,r=Ec({mode:`visible`,children:r.children},a),c=bi(c,a,n,null),c.flags|=2,r.return=t,c.return=t,r.sibling=c,t.child=r,Ua(t,e.child,null,n),r=t.child,r.memoizedState=Sc(n),r.childLanes=Cc(e,s,n),t.memoizedState=xc,t=dc(null,r)):(mo(t),t.child=e.child,t.flags|=128,t=null);else if(uo(t),of(c)){if(s=c.nextSibling&&c.nextSibling.dataset,s)var u=s.dgst;s=u,r=Error(i(419)),r.stack=``,r.digest=s,Xi({value:r,source:null,stack:null}),t=Dc(e,t,n)}else if(V||ia(e,t,n,!1),s=(n&e.childLanes)!==0,V||s){if(s=K,s!==null&&(r=ut(s,n),r!==0&&r!==l.retryLane))throw l.retryLane=r,ui(e,r),hu(s,e,r),ac;af(c)||Du(),t=Dc(e,t,n)}else af(c)?(t.flags|=192,t.child=e.child,t=null):(e=l.treeContext,M=cf(c.nextSibling),Bi=t,N=!0,Vi=null,Hi=!1,e!==null&&zi(t,e),t=Tc(t,r.children),t.flags|=4096);return t}return a?(mo(t),c=r.fallback,a=t.mode,l=e.child,u=l.sibling,r=_i(l,{mode:`hidden`,children:r.children}),r.subtreeFlags=l.subtreeFlags&65011712,u===null?(c=bi(c,a,n,null),c.flags|=2):c=_i(u,c),c.return=t,r.return=t,r.sibling=c,t.child=r,dc(null,r),r=t.child,c=e.child.memoizedState,c===null?c=Sc(n):(a=c.cachePool,a===null?a=Ea():(l=P._currentValue,a=a.parent===l?a:{parent:l,pool:l}),c={baseLanes:c.baseLanes|n,cachePool:a}),r.memoizedState=c,r.childLanes=Cc(e,s,n),t.memoizedState=xc,dc(e.child,r)):(uo(t),n=e.child,e=n.sibling,n=_i(n,{mode:`visible`,children:r.children}),n.return=t,n.sibling=null,e!==null&&(s=t.deletions,s===null?(t.deletions=[e],t.flags|=16):s.push(e)),t.child=n,t.memoizedState=null,n)}function Tc(e,t){return t=Ec({mode:`visible`,children:t},e.mode),t.return=e,e.child=t}function Ec(e,t){return e=hi(22,e,null,t),e.lanes=0,e}function Dc(e,t,n){return Ua(t,e.child,null,n),e=Tc(t,t.pendingProps.children),e.flags|=2,t.memoizedState=null,e}function Oc(e,t,n){e.lanes|=t;var r=e.alternate;r!==null&&(r.lanes|=t),na(e.return,t,n)}function kc(e,t,n,r,i,a){var o=e.memoizedState;o===null?e.memoizedState={isBackwards:t,rendering:null,renderingStartTime:0,last:r,tail:n,tailMode:i,treeForkCount:a}:(o.isBackwards=t,o.rendering=null,o.renderingStartTime=0,o.last=r,o.tail=n,o.tailMode=i,o.treeForkCount=a)}function Ac(e,t,n){var r=t.pendingProps,i=r.revealOrder,a=r.tail;r=r.children;var o=F.current,s=(o&2)!=0;if(s?(o=o&1|2,t.flags|=128):o&=1,O(F,o),oc(e,t,r,n),r=N?ki:0,!s&&e!==null&&e.flags&128)a:for(e=t.child;e!==null;){if(e.tag===13)e.memoizedState!==null&&Oc(e,n,t);else if(e.tag===19)Oc(e,n,t);else if(e.child!==null){e.child.return=e,e=e.child;continue}if(e===t)break a;for(;e.sibling===null;){if(e.return===null||e.return===t)break a;e=e.return}e.sibling.return=e.return,e=e.sibling}switch(i){case`forwards`:for(n=t.child,i=null;n!==null;)e=n.alternate,e!==null&&go(e)===null&&(i=n),n=n.sibling;n=i,n===null?(i=t.child,t.child=null):(i=n.sibling,n.sibling=null),kc(t,!1,i,n,a,r);break;case`backwards`:case`unstable_legacy-backwards`:for(n=null,i=t.child,t.child=null;i!==null;){if(e=i.alternate,e!==null&&go(e)===null){t.child=i;break}e=i.sibling,i.sibling=n,n=i,i=e}kc(t,!0,n,null,a,r);break;case`together`:kc(t,!1,null,null,void 0,r);break;default:t.memoizedState=null}return t.child}function jc(e,t,n){if(e!==null&&(t.dependencies=e.dependencies),Gl|=t.lanes,(n&t.childLanes)===0)if(e!==null){if(ia(e,t,n,!1),(n&t.childLanes)===0)return null}else return null;if(e!==null&&t.child!==e.child)throw Error(i(153));if(t.child!==null){for(e=t.child,n=_i(e,e.pendingProps),t.child=n,n.return=t;e.sibling!==null;)e=e.sibling,n=n.sibling=_i(e,e.pendingProps),n.return=t;n.sibling=null}return t.child}function Mc(e,t){return(e.lanes&t)===0?(e=e.dependencies,!!(e!==null&&aa(e))):!0}function Nc(e,t,n){switch(t.tag){case 3:ye(t,t.stateNode.containerInfo),ea(t,P,e.memoizedState.cache),Ji();break;case 27:case 5:xe(t);break;case 4:ye(t,t.stateNode.containerInfo);break;case 10:ea(t,t.type,t.memoizedProps.value);break;case 31:if(t.memoizedState!==null)return t.flags|=128,fo(t),null;break;case 13:var r=t.memoizedState;if(r!==null)return r.dehydrated===null?(n&t.child.childLanes)===0?(uo(t),e=jc(e,t,n),e===null?null:e.sibling):wc(e,t,n):(uo(t),t.flags|=128,null);uo(t);break;case 19:var i=(e.flags&128)!=0;if(r=(n&t.childLanes)!==0,r||=(ia(e,t,n,!1),(n&t.childLanes)!==0),i){if(r)return Ac(e,t,n);t.flags|=128}if(i=t.memoizedState,i!==null&&(i.rendering=null,i.tail=null,i.lastEffect=null),O(F,F.current),r)break;return null;case 22:return t.lanes=0,uc(e,t,n,t.pendingProps);case 24:ea(t,P,e.memoizedState.cache)}return jc(e,t,n)}function Pc(e,t,n){if(e!==null)if(e.memoizedProps!==t.pendingProps)V=!0;else{if(!Mc(e,n)&&!(t.flags&128))return V=!1,Nc(e,t,n);V=!!(e.flags&131072)}else V=!1,N&&t.flags&1048576&&Ii(t,ki,t.index);switch(t.lanes=0,t.tag){case 16:a:{var r=t.pendingProps;if(e=Na(t.elementType),t.type=e,typeof e==`function`)gi(e)?(r=Ys(e,r),t.tag=1,t=yc(null,t,e,r,n)):(t.tag=0,t=_c(null,t,e,r,n));else{if(e!=null){var a=e.$$typeof;if(a===C){t.tag=11,t=sc(null,t,e,r,n);break a}else if(a===re){t.tag=14,t=cc(null,t,e,r,n);break a}}throw t=le(e)||e,Error(i(306,t,``))}}return t;case 0:return _c(e,t,t.type,t.pendingProps,n);case 1:return r=t.type,a=Ys(r,t.pendingProps),yc(e,t,r,a,n);case 3:a:{if(ye(t,t.stateNode.containerInfo),e===null)throw Error(i(387));r=t.pendingProps;var o=t.memoizedState;a=o.element,qa(e,t),eo(t,r,null,n);var s=t.memoizedState;if(r=s.cache,ea(t,P,r),r!==o.cache&&ra(t,[P],n,!0),$a(),r=s.element,o.isDehydrated)if(o={element:r,isDehydrated:!1,cache:s.cache},t.updateQueue.baseState=o,t.memoizedState=o,t.flags&256){t=bc(e,t,r,n);break a}else if(r!==a){a=Ti(Error(i(424)),t),Xi(a),t=bc(e,t,r,n);break a}else{switch(e=t.stateNode.containerInfo,e.nodeType){case 9:e=e.body;break;default:e=e.nodeName===`HTML`?e.ownerDocument.body:e}for(M=cf(e.firstChild),Bi=t,N=!0,Vi=null,Hi=!0,n=Wa(t,null,r,n),t.child=n;n;)n.flags=n.flags&-3|4096,n=n.sibling}else{if(Ji(),r===a){t=jc(e,t,n);break a}oc(e,t,r,n)}t=t.child}return t;case 26:return gc(e,t),e===null?(n=kf(t.type,null,t.pendingProps,null))?t.memoizedState=n:N||(n=t.type,e=t.pendingProps,r=Bd(_e.current).createElement(n),r[ht]=t,r[gt]=e,Pd(r,n,e),Ot(r),t.stateNode=r):t.memoizedState=kf(t.type,e.memoizedProps,t.pendingProps,e.memoizedState),null;case 27:return xe(t),e===null&&N&&(r=t.stateNode=ff(t.type,t.pendingProps,_e.current),Bi=t,Hi=!0,a=M,Zd(t.type)?(lf=a,M=cf(r.firstChild)):M=a),oc(e,t,t.pendingProps.children,n),gc(e,t),e===null&&(t.flags|=4194304),t.child;case 5:return e===null&&N&&((a=r=M)&&(r=tf(r,t.type,t.pendingProps,Hi),r===null?a=!1:(t.stateNode=r,Bi=t,M=cf(r.firstChild),Hi=!1,a=!0)),a||Wi(t)),xe(t),a=t.type,o=t.pendingProps,s=e===null?null:e.memoizedProps,r=o.children,Ud(a,o)?r=null:s!==null&&Ud(a,s)&&(t.flags|=32),t.memoizedState!==null&&(a=Eo(e,t,ko,null,null,n),Qf._currentValue=a),gc(e,t),oc(e,t,r,n),t.child;case 6:return e===null&&N&&((e=n=M)&&(n=nf(n,t.pendingProps,Hi),n===null?e=!1:(t.stateNode=n,Bi=t,M=null,e=!0)),e||Wi(t)),null;case 13:return wc(e,t,n);case 4:return ye(t,t.stateNode.containerInfo),r=t.pendingProps,e===null?t.child=Ua(t,null,r,n):oc(e,t,r,n),t.child;case 11:return sc(e,t,t.type,t.pendingProps,n);case 7:return oc(e,t,t.pendingProps,n),t.child;case 8:return oc(e,t,t.pendingProps.children,n),t.child;case 12:return oc(e,t,t.pendingProps.children,n),t.child;case 10:return r=t.pendingProps,ea(t,t.type,r.value),oc(e,t,r.children,n),t.child;case 9:return a=t.type._context,r=t.pendingProps.children,oa(t),a=sa(a),r=r(a),t.flags|=1,oc(e,t,r,n),t.child;case 14:return cc(e,t,t.type,t.pendingProps,n);case 15:return lc(e,t,t.type,t.pendingProps,n);case 19:return Ac(e,t,n);case 31:return hc(e,t,n);case 22:return uc(e,t,n,t.pendingProps);case 24:return oa(t),r=sa(P),e===null?(a=wa(),a===null&&(a=K,o=pa(),a.pooledCache=o,o.refCount++,o!==null&&(a.pooledCacheLanes|=n),a=o),t.memoizedState={parent:r,cache:a},Ka(t),ea(t,P,a)):((e.lanes&n)!==0&&(qa(e,t),eo(t,null,null,n),$a()),a=e.memoizedState,o=t.memoizedState,a.parent===r?(r=o.cache,ea(t,P,r),r!==a.cache&&ra(t,[P],n,!0)):(a={parent:r,cache:r},t.memoizedState=a,t.lanes===0&&(t.memoizedState=t.updateQueue.baseState=a),ea(t,P,r))),oc(e,t,t.pendingProps.children,n),t.child;case 29:throw t.pendingProps}throw Error(i(156,t.tag))}function Fc(e){e.flags|=4}function Ic(e,t,n,r,i){if((t=(e.mode&32)!=0)&&(t=!1),t){if(e.flags|=16777216,(i&335544128)===i)if(e.stateNode.complete)e.flags|=8192;else if(wu())e.flags|=8192;else throw Pa=Aa,Oa}else e.flags&=-16777217}function Lc(e,t){if(t.type!==`stylesheet`||t.state.loading&4)e.flags&=-16777217;else if(e.flags|=16777216,!Wf(t))if(wu())e.flags|=8192;else throw Pa=Aa,Oa}function Rc(e,t){t!==null&&(e.flags|=4),e.flags&16384&&(t=e.tag===22?536870912:it(),e.lanes|=t,Yl|=t)}function zc(e,t){if(!N)switch(e.tailMode){case`hidden`:t=e.tail;for(var n=null;t!==null;)t.alternate!==null&&(n=t),t=t.sibling;n===null?e.tail=null:n.sibling=null;break;case`collapsed`:n=e.tail;for(var r=null;n!==null;)n.alternate!==null&&(r=n),n=n.sibling;r===null?t||e.tail===null?e.tail=null:e.tail.sibling=null:r.sibling=null}}function H(e){var t=e.alternate!==null&&e.alternate.child===e.child,n=0,r=0;if(t)for(var i=e.child;i!==null;)n|=i.lanes|i.childLanes,r|=i.subtreeFlags&65011712,r|=i.flags&65011712,i.return=e,i=i.sibling;else for(i=e.child;i!==null;)n|=i.lanes|i.childLanes,r|=i.subtreeFlags,r|=i.flags,i.return=e,i=i.sibling;return e.subtreeFlags|=r,e.childLanes=n,t}function Bc(e,t,n){var r=t.pendingProps;switch(Ri(t),t.tag){case 16:case 15:case 0:case 11:case 7:case 8:case 12:case 9:case 14:return H(t),null;case 1:return H(t),null;case 3:return n=t.stateNode,r=null,e!==null&&(r=e.memoizedState.cache),t.memoizedState.cache!==r&&(t.flags|=2048),ta(P),be(),n.pendingContext&&(n.context=n.pendingContext,n.pendingContext=null),(e===null||e.child===null)&&(qi(t)?Fc(t):e===null||e.memoizedState.isDehydrated&&!(t.flags&256)||(t.flags|=1024,Yi())),H(t),null;case 26:var a=t.type,o=t.memoizedState;return e===null?(Fc(t),o===null?(H(t),Ic(t,a,null,r,n)):(H(t),Lc(t,o))):o?o===e.memoizedState?(H(t),t.flags&=-16777217):(Fc(t),H(t),Lc(t,o)):(e=e.memoizedProps,e!==r&&Fc(t),H(t),Ic(t,a,e,r,n)),null;case 27:if(Se(t),n=_e.current,a=t.type,e!==null&&t.stateNode!=null)e.memoizedProps!==r&&Fc(t);else{if(!r){if(t.stateNode===null)throw Error(i(166));return H(t),null}e=he.current,qi(t)?Gi(t,e):(e=ff(a,r,n),t.stateNode=e,Fc(t))}return H(t),null;case 5:if(Se(t),a=t.type,e!==null&&t.stateNode!=null)e.memoizedProps!==r&&Fc(t);else{if(!r){if(t.stateNode===null)throw Error(i(166));return H(t),null}if(o=he.current,qi(t))Gi(t,o);else{var s=Bd(_e.current);switch(o){case 1:o=s.createElementNS(`http://www.w3.org/2000/svg`,a);break;case 2:o=s.createElementNS(`http://www.w3.org/1998/Math/MathML`,a);break;default:switch(a){case`svg`:o=s.createElementNS(`http://www.w3.org/2000/svg`,a);break;case`math`:o=s.createElementNS(`http://www.w3.org/1998/Math/MathML`,a);break;case`script`:o=s.createElement(`div`),o.innerHTML=`<script><\/script>`,o=o.removeChild(o.firstChild);break;case`select`:o=typeof r.is==`string`?s.createElement(`select`,{is:r.is}):s.createElement(`select`),r.multiple?o.multiple=!0:r.size&&(o.size=r.size);break;default:o=typeof r.is==`string`?s.createElement(a,{is:r.is}):s.createElement(a)}}o[ht]=t,o[gt]=r;a:for(s=t.child;s!==null;){if(s.tag===5||s.tag===6)o.appendChild(s.stateNode);else if(s.tag!==4&&s.tag!==27&&s.child!==null){s.child.return=s,s=s.child;continue}if(s===t)break a;for(;s.sibling===null;){if(s.return===null||s.return===t)break a;s=s.return}s.sibling.return=s.return,s=s.sibling}t.stateNode=o;a:switch(Pd(o,a,r),a){case`button`:case`input`:case`select`:case`textarea`:r=!!r.autoFocus;break a;case`img`:r=!0;break a;default:r=!1}r&&Fc(t)}}return H(t),Ic(t,t.type,e===null?null:e.memoizedProps,t.pendingProps,n),null;case 6:if(e&&t.stateNode!=null)e.memoizedProps!==r&&Fc(t);else{if(typeof r!=`string`&&t.stateNode===null)throw Error(i(166));if(e=_e.current,qi(t)){if(e=t.stateNode,n=t.memoizedProps,r=null,a=Bi,a!==null)switch(a.tag){case 27:case 5:r=a.memoizedProps}e[ht]=t,e=!!(e.nodeValue===n||r!==null&&!0===r.suppressHydrationWarning||Md(e.nodeValue,n)),e||Wi(t,!0)}else e=Bd(e).createTextNode(r),e[ht]=t,t.stateNode=e}return H(t),null;case 31:if(n=t.memoizedState,e===null||e.memoizedState!==null){if(r=qi(t),n!==null){if(e===null){if(!r)throw Error(i(318));if(e=t.memoizedState,e=e===null?null:e.dehydrated,!e)throw Error(i(557));e[ht]=t}else Ji(),!(t.flags&128)&&(t.memoizedState=null),t.flags|=4;H(t),e=!1}else n=Yi(),e!==null&&e.memoizedState!==null&&(e.memoizedState.hydrationErrors=n),e=!0;if(!e)return t.flags&256?(ho(t),t):(ho(t),null);if(t.flags&128)throw Error(i(558))}return H(t),null;case 13:if(r=t.memoizedState,e===null||e.memoizedState!==null&&e.memoizedState.dehydrated!==null){if(a=qi(t),r!==null&&r.dehydrated!==null){if(e===null){if(!a)throw Error(i(318));if(a=t.memoizedState,a=a===null?null:a.dehydrated,!a)throw Error(i(317));a[ht]=t}else Ji(),!(t.flags&128)&&(t.memoizedState=null),t.flags|=4;H(t),a=!1}else a=Yi(),e!==null&&e.memoizedState!==null&&(e.memoizedState.hydrationErrors=a),a=!0;if(!a)return t.flags&256?(ho(t),t):(ho(t),null)}return ho(t),t.flags&128?(t.lanes=n,t):(n=r!==null,e=e!==null&&e.memoizedState!==null,n&&(r=t.child,a=null,r.alternate!==null&&r.alternate.memoizedState!==null&&r.alternate.memoizedState.cachePool!==null&&(a=r.alternate.memoizedState.cachePool.pool),o=null,r.memoizedState!==null&&r.memoizedState.cachePool!==null&&(o=r.memoizedState.cachePool.pool),o!==a&&(r.flags|=2048)),n!==e&&n&&(t.child.flags|=8192),Rc(t,t.updateQueue),H(t),null);case 4:return be(),e===null&&Sd(t.stateNode.containerInfo),H(t),null;case 10:return ta(t.type),H(t),null;case 19:if(D(F),r=t.memoizedState,r===null)return H(t),null;if(a=(t.flags&128)!=0,o=r.rendering,o===null)if(a)zc(r,!1);else{if(X!==0||e!==null&&e.flags&128)for(e=t.child;e!==null;){if(o=go(e),o!==null){for(t.flags|=128,zc(r,!1),e=o.updateQueue,t.updateQueue=e,Rc(t,e),t.subtreeFlags=0,e=n,n=t.child;n!==null;)vi(n,e),n=n.sibling;return O(F,F.current&1|2),N&&Fi(t,r.treeForkCount),t.child}e=e.sibling}r.tail!==null&&Fe()>tu&&(t.flags|=128,a=!0,zc(r,!1),t.lanes=4194304)}else{if(!a)if(e=go(o),e!==null){if(t.flags|=128,a=!0,e=e.updateQueue,t.updateQueue=e,Rc(t,e),zc(r,!0),r.tail===null&&r.tailMode===`hidden`&&!o.alternate&&!N)return H(t),null}else 2*Fe()-r.renderingStartTime>tu&&n!==536870912&&(t.flags|=128,a=!0,zc(r,!1),t.lanes=4194304);r.isBackwards?(o.sibling=t.child,t.child=o):(e=r.last,e===null?t.child=o:e.sibling=o,r.last=o)}return r.tail===null?(H(t),null):(e=r.tail,r.rendering=e,r.tail=e.sibling,r.renderingStartTime=Fe(),e.sibling=null,n=F.current,O(F,a?n&1|2:n&1),N&&Fi(t,r.treeForkCount),e);case 22:case 23:return ho(t),so(),r=t.memoizedState!==null,e===null?r&&(t.flags|=8192):e.memoizedState!==null!==r&&(t.flags|=8192),r?n&536870912&&!(t.flags&128)&&(H(t),t.subtreeFlags&6&&(t.flags|=8192)):H(t),n=t.updateQueue,n!==null&&Rc(t,n.retryQueue),n=null,e!==null&&e.memoizedState!==null&&e.memoizedState.cachePool!==null&&(n=e.memoizedState.cachePool.pool),r=null,t.memoizedState!==null&&t.memoizedState.cachePool!==null&&(r=t.memoizedState.cachePool.pool),r!==n&&(t.flags|=2048),e!==null&&D(Ca),null;case 24:return n=null,e!==null&&(n=e.memoizedState.cache),t.memoizedState.cache!==n&&(t.flags|=2048),ta(P),H(t),null;case 25:return null;case 30:return null}throw Error(i(156,t.tag))}function Vc(e,t){switch(Ri(t),t.tag){case 1:return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 3:return ta(P),be(),e=t.flags,e&65536&&!(e&128)?(t.flags=e&-65537|128,t):null;case 26:case 27:case 5:return Se(t),null;case 31:if(t.memoizedState!==null){if(ho(t),t.alternate===null)throw Error(i(340));Ji()}return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 13:if(ho(t),e=t.memoizedState,e!==null&&e.dehydrated!==null){if(t.alternate===null)throw Error(i(340));Ji()}return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 19:return D(F),null;case 4:return be(),null;case 10:return ta(t.type),null;case 22:case 23:return ho(t),so(),e!==null&&D(Ca),e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 24:return ta(P),null;case 25:return null;default:return null}}function Hc(e,t){switch(Ri(t),t.tag){case 3:ta(P),be();break;case 26:case 27:case 5:Se(t);break;case 4:be();break;case 31:t.memoizedState!==null&&ho(t);break;case 13:ho(t);break;case 19:D(F);break;case 10:ta(t.type);break;case 22:case 23:ho(t),so(),e!==null&&D(Ca);break;case 24:ta(P)}}function Uc(e,t){try{var n=t.updateQueue,r=n===null?null:n.lastEffect;if(r!==null){var i=r.next;n=i;do{if((n.tag&e)===e){r=void 0;var a=n.create,o=n.inst;r=a(),o.destroy=r}n=n.next}while(n!==i)}}catch(e){Z(t,t.return,e)}}function Wc(e,t,n){try{var r=t.updateQueue,i=r===null?null:r.lastEffect;if(i!==null){var a=i.next;r=a;do{if((r.tag&e)===e){var o=r.inst,s=o.destroy;if(s!==void 0){o.destroy=void 0,i=t;var c=n,l=s;try{l()}catch(e){Z(i,c,e)}}}r=r.next}while(r!==a)}}catch(e){Z(t,t.return,e)}}function Gc(e){var t=e.updateQueue;if(t!==null){var n=e.stateNode;try{no(t,n)}catch(t){Z(e,e.return,t)}}}function Kc(e,t,n){n.props=Ys(e.type,e.memoizedProps),n.state=e.memoizedState;try{n.componentWillUnmount()}catch(n){Z(e,t,n)}}function qc(e,t){try{var n=e.ref;if(n!==null){switch(e.tag){case 26:case 27:case 5:var r=e.stateNode;break;case 30:r=e.stateNode;break;default:r=e.stateNode}typeof n==`function`?e.refCleanup=n(r):n.current=r}}catch(n){Z(e,t,n)}}function Jc(e,t){var n=e.ref,r=e.refCleanup;if(n!==null)if(typeof r==`function`)try{r()}catch(n){Z(e,t,n)}finally{e.refCleanup=null,e=e.alternate,e!=null&&(e.refCleanup=null)}else if(typeof n==`function`)try{n(null)}catch(n){Z(e,t,n)}else n.current=null}function Yc(e){var t=e.type,n=e.memoizedProps,r=e.stateNode;try{a:switch(t){case`button`:case`input`:case`select`:case`textarea`:n.autoFocus&&r.focus();break a;case`img`:n.src?r.src=n.src:n.srcSet&&(r.srcset=n.srcSet)}}catch(t){Z(e,e.return,t)}}function Xc(e,t,n){try{var r=e.stateNode;Fd(r,e.type,n,t),r[gt]=t}catch(t){Z(e,e.return,t)}}function Zc(e){return e.tag===5||e.tag===3||e.tag===26||e.tag===27&&Zd(e.type)||e.tag===4}function Qc(e){a:for(;;){for(;e.sibling===null;){if(e.return===null||Zc(e.return))return null;e=e.return}for(e.sibling.return=e.return,e=e.sibling;e.tag!==5&&e.tag!==6&&e.tag!==18;){if(e.tag===27&&Zd(e.type)||e.flags&2||e.child===null||e.tag===4)continue a;e.child.return=e,e=e.child}if(!(e.flags&2))return e.stateNode}}function $c(e,t,n){var r=e.tag;if(r===5||r===6)e=e.stateNode,t?(n.nodeType===9?n.body:n.nodeName===`HTML`?n.ownerDocument.body:n).insertBefore(e,t):(t=n.nodeType===9?n.body:n.nodeName===`HTML`?n.ownerDocument.body:n,t.appendChild(e),n=n._reactRootContainer,n!=null||t.onclick!==null||(t.onclick=ln));else if(r!==4&&(r===27&&Zd(e.type)&&(n=e.stateNode,t=null),e=e.child,e!==null))for($c(e,t,n),e=e.sibling;e!==null;)$c(e,t,n),e=e.sibling}function el(e,t,n){var r=e.tag;if(r===5||r===6)e=e.stateNode,t?n.insertBefore(e,t):n.appendChild(e);else if(r!==4&&(r===27&&Zd(e.type)&&(n=e.stateNode),e=e.child,e!==null))for(el(e,t,n),e=e.sibling;e!==null;)el(e,t,n),e=e.sibling}function tl(e){var t=e.stateNode,n=e.memoizedProps;try{for(var r=e.type,i=t.attributes;i.length;)t.removeAttributeNode(i[0]);Pd(t,r,n),t[ht]=e,t[gt]=n}catch(t){Z(e,e.return,t)}}var nl=!1,U=!1,rl=!1,il=typeof WeakSet==`function`?WeakSet:Set,al=null;function ol(e,t){if(e=e.containerInfo,Rd=sp,e=Pr(e),Fr(e)){if(`selectionStart`in e)var n={start:e.selectionStart,end:e.selectionEnd};else a:{n=(n=e.ownerDocument)&&n.defaultView||window;var r=n.getSelection&&n.getSelection();if(r&&r.rangeCount!==0){n=r.anchorNode;var a=r.anchorOffset,o=r.focusNode;r=r.focusOffset;try{n.nodeType,o.nodeType}catch{n=null;break a}var s=0,c=-1,l=-1,u=0,d=0,f=e,p=null;b:for(;;){for(var m;f!==n||a!==0&&f.nodeType!==3||(c=s+a),f!==o||r!==0&&f.nodeType!==3||(l=s+r),f.nodeType===3&&(s+=f.nodeValue.length),(m=f.firstChild)!==null;)p=f,f=m;for(;;){if(f===e)break b;if(p===n&&++u===a&&(c=s),p===o&&++d===r&&(l=s),(m=f.nextSibling)!==null)break;f=p,p=f.parentNode}f=m}n=c===-1||l===-1?null:{start:c,end:l}}else n=null}n||={start:0,end:0}}else n=null;for(zd={focusedElem:e,selectionRange:n},sp=!1,al=t;al!==null;)if(t=al,e=t.child,t.subtreeFlags&1028&&e!==null)e.return=t,al=e;else for(;al!==null;){switch(t=al,o=t.alternate,e=t.flags,t.tag){case 0:if(e&4&&(e=t.updateQueue,e=e===null?null:e.events,e!==null))for(n=0;n<e.length;n++)a=e[n],a.ref.impl=a.nextImpl;break;case 11:case 15:break;case 1:if(e&1024&&o!==null){e=void 0,n=t,a=o.memoizedProps,o=o.memoizedState,r=n.stateNode;try{var h=Ys(n.type,a);e=r.getSnapshotBeforeUpdate(h,o),r.__reactInternalSnapshotBeforeUpdate=e}catch(e){Z(n,n.return,e)}}break;case 3:if(e&1024){if(e=t.stateNode.containerInfo,n=e.nodeType,n===9)ef(e);else if(n===1)switch(e.nodeName){case`HEAD`:case`HTML`:case`BODY`:ef(e);break;default:e.textContent=``}}break;case 5:case 26:case 27:case 6:case 4:case 17:break;default:if(e&1024)throw Error(i(163))}if(e=t.sibling,e!==null){e.return=t.return,al=e;break}al=t.return}}function sl(e,t,n){var r=n.flags;switch(n.tag){case 0:case 11:case 15:xl(e,n),r&4&&Uc(5,n);break;case 1:if(xl(e,n),r&4)if(e=n.stateNode,t===null)try{e.componentDidMount()}catch(e){Z(n,n.return,e)}else{var i=Ys(n.type,t.memoizedProps);t=t.memoizedState;try{e.componentDidUpdate(i,t,e.__reactInternalSnapshotBeforeUpdate)}catch(e){Z(n,n.return,e)}}r&64&&Gc(n),r&512&&qc(n,n.return);break;case 3:if(xl(e,n),r&64&&(e=n.updateQueue,e!==null)){if(t=null,n.child!==null)switch(n.child.tag){case 27:case 5:t=n.child.stateNode;break;case 1:t=n.child.stateNode}try{no(e,t)}catch(e){Z(n,n.return,e)}}break;case 27:t===null&&r&4&&tl(n);case 26:case 5:xl(e,n),t===null&&r&4&&Yc(n),r&512&&qc(n,n.return);break;case 12:xl(e,n);break;case 31:xl(e,n),r&4&&fl(e,n);break;case 13:xl(e,n),r&4&&pl(e,n),r&64&&(e=n.memoizedState,e!==null&&(e=e.dehydrated,e!==null&&(n=Ju.bind(null,n),sf(e,n))));break;case 22:if(r=n.memoizedState!==null||nl,!r){t=t!==null&&t.memoizedState!==null||U,i=nl;var a=U;nl=r,(U=t)&&!a?Cl(e,n,(n.subtreeFlags&8772)!=0):xl(e,n),nl=i,U=a}break;case 30:break;default:xl(e,n)}}function cl(e){var t=e.alternate;t!==null&&(e.alternate=null,cl(t)),e.child=null,e.deletions=null,e.sibling=null,e.tag===5&&(t=e.stateNode,t!==null&&Ct(t)),e.stateNode=null,e.return=null,e.dependencies=null,e.memoizedProps=null,e.memoizedState=null,e.pendingProps=null,e.stateNode=null,e.updateQueue=null}var W=null,ll=!1;function ul(e,t,n){for(n=n.child;n!==null;)dl(e,t,n),n=n.sibling}function dl(e,t,n){if(Ge&&typeof Ge.onCommitFiberUnmount==`function`)try{Ge.onCommitFiberUnmount(We,n)}catch{}switch(n.tag){case 26:U||Jc(n,t),ul(e,t,n),n.memoizedState?n.memoizedState.count--:n.stateNode&&(n=n.stateNode,n.parentNode.removeChild(n));break;case 27:U||Jc(n,t);var r=W,i=ll;Zd(n.type)&&(W=n.stateNode,ll=!1),ul(e,t,n),pf(n.stateNode),W=r,ll=i;break;case 5:U||Jc(n,t);case 6:if(r=W,i=ll,W=null,ul(e,t,n),W=r,ll=i,W!==null)if(ll)try{(W.nodeType===9?W.body:W.nodeName===`HTML`?W.ownerDocument.body:W).removeChild(n.stateNode)}catch(e){Z(n,t,e)}else try{W.removeChild(n.stateNode)}catch(e){Z(n,t,e)}break;case 18:W!==null&&(ll?(e=W,Qd(e.nodeType===9?e.body:e.nodeName===`HTML`?e.ownerDocument.body:e,n.stateNode),Np(e)):Qd(W,n.stateNode));break;case 4:r=W,i=ll,W=n.stateNode.containerInfo,ll=!0,ul(e,t,n),W=r,ll=i;break;case 0:case 11:case 14:case 15:Wc(2,n,t),U||Wc(4,n,t),ul(e,t,n);break;case 1:U||(Jc(n,t),r=n.stateNode,typeof r.componentWillUnmount==`function`&&Kc(n,t,r)),ul(e,t,n);break;case 21:ul(e,t,n);break;case 22:U=(r=U)||n.memoizedState!==null,ul(e,t,n),U=r;break;default:ul(e,t,n)}}function fl(e,t){if(t.memoizedState===null&&(e=t.alternate,e!==null&&(e=e.memoizedState,e!==null))){e=e.dehydrated;try{Np(e)}catch(e){Z(t,t.return,e)}}}function pl(e,t){if(t.memoizedState===null&&(e=t.alternate,e!==null&&(e=e.memoizedState,e!==null&&(e=e.dehydrated,e!==null))))try{Np(e)}catch(e){Z(t,t.return,e)}}function ml(e){switch(e.tag){case 31:case 13:case 19:var t=e.stateNode;return t===null&&(t=e.stateNode=new il),t;case 22:return e=e.stateNode,t=e._retryCache,t===null&&(t=e._retryCache=new il),t;default:throw Error(i(435,e.tag))}}function hl(e,t){var n=ml(e);t.forEach(function(t){if(!n.has(t)){n.add(t);var r=Yu.bind(null,e,t);t.then(r,r)}})}function gl(e,t){var n=t.deletions;if(n!==null)for(var r=0;r<n.length;r++){var a=n[r],o=e,s=t,c=s;a:for(;c!==null;){switch(c.tag){case 27:if(Zd(c.type)){W=c.stateNode,ll=!1;break a}break;case 5:W=c.stateNode,ll=!1;break a;case 3:case 4:W=c.stateNode.containerInfo,ll=!0;break a}c=c.return}if(W===null)throw Error(i(160));dl(o,s,a),W=null,ll=!1,o=a.alternate,o!==null&&(o.return=null),a.return=null}if(t.subtreeFlags&13886)for(t=t.child;t!==null;)vl(t,e),t=t.sibling}var _l=null;function vl(e,t){var n=e.alternate,r=e.flags;switch(e.tag){case 0:case 11:case 14:case 15:gl(t,e),yl(e),r&4&&(Wc(3,e,e.return),Uc(3,e),Wc(5,e,e.return));break;case 1:gl(t,e),yl(e),r&512&&(U||n===null||Jc(n,n.return)),r&64&&nl&&(e=e.updateQueue,e!==null&&(r=e.callbacks,r!==null&&(n=e.shared.hiddenCallbacks,e.shared.hiddenCallbacks=n===null?r:n.concat(r))));break;case 26:var a=_l;if(gl(t,e),yl(e),r&512&&(U||n===null||Jc(n,n.return)),r&4){var o=n===null?null:n.memoizedState;if(r=e.memoizedState,n===null)if(r===null)if(e.stateNode===null){a:{r=e.type,n=e.memoizedProps,a=a.ownerDocument||a;b:switch(r){case`title`:o=a.getElementsByTagName(`title`)[0],(!o||o[St]||o[ht]||o.namespaceURI===`http://www.w3.org/2000/svg`||o.hasAttribute(`itemprop`))&&(o=a.createElement(r),a.head.insertBefore(o,a.querySelector(`head > title`))),Pd(o,r,n),o[ht]=e,Ot(o),r=o;break a;case`link`:var s=Vf(`link`,`href`,a).get(r+(n.href||``));if(s){for(var c=0;c<s.length;c++)if(o=s[c],o.getAttribute(`href`)===(n.href==null||n.href===``?null:n.href)&&o.getAttribute(`rel`)===(n.rel==null?null:n.rel)&&o.getAttribute(`title`)===(n.title==null?null:n.title)&&o.getAttribute(`crossorigin`)===(n.crossOrigin==null?null:n.crossOrigin)){s.splice(c,1);break b}}o=a.createElement(r),Pd(o,r,n),a.head.appendChild(o);break;case`meta`:if(s=Vf(`meta`,`content`,a).get(r+(n.content||``))){for(c=0;c<s.length;c++)if(o=s[c],o.getAttribute(`content`)===(n.content==null?null:``+n.content)&&o.getAttribute(`name`)===(n.name==null?null:n.name)&&o.getAttribute(`property`)===(n.property==null?null:n.property)&&o.getAttribute(`http-equiv`)===(n.httpEquiv==null?null:n.httpEquiv)&&o.getAttribute(`charset`)===(n.charSet==null?null:n.charSet)){s.splice(c,1);break b}}o=a.createElement(r),Pd(o,r,n),a.head.appendChild(o);break;default:throw Error(i(468,r))}o[ht]=e,Ot(o),r=o}e.stateNode=r}else Hf(a,e.type,e.stateNode);else e.stateNode=If(a,r,e.memoizedProps);else o===r?r===null&&e.stateNode!==null&&Xc(e,e.memoizedProps,n.memoizedProps):(o===null?n.stateNode!==null&&(n=n.stateNode,n.parentNode.removeChild(n)):o.count--,r===null?Hf(a,e.type,e.stateNode):If(a,r,e.memoizedProps))}break;case 27:gl(t,e),yl(e),r&512&&(U||n===null||Jc(n,n.return)),n!==null&&r&4&&Xc(e,e.memoizedProps,n.memoizedProps);break;case 5:if(gl(t,e),yl(e),r&512&&(U||n===null||Jc(n,n.return)),e.flags&32){a=e.stateNode;try{en(a,``)}catch(t){Z(e,e.return,t)}}r&4&&e.stateNode!=null&&(a=e.memoizedProps,Xc(e,a,n===null?a:n.memoizedProps)),r&1024&&(rl=!0);break;case 6:if(gl(t,e),yl(e),r&4){if(e.stateNode===null)throw Error(i(162));r=e.memoizedProps,n=e.stateNode;try{n.nodeValue=r}catch(t){Z(e,e.return,t)}}break;case 3:if(Bf=null,a=_l,_l=gf(t.containerInfo),gl(t,e),_l=a,yl(e),r&4&&n!==null&&n.memoizedState.isDehydrated)try{Np(t.containerInfo)}catch(t){Z(e,e.return,t)}rl&&(rl=!1,bl(e));break;case 4:r=_l,_l=gf(e.stateNode.containerInfo),gl(t,e),yl(e),_l=r;break;case 12:gl(t,e),yl(e);break;case 31:gl(t,e),yl(e),r&4&&(r=e.updateQueue,r!==null&&(e.updateQueue=null,hl(e,r)));break;case 13:gl(t,e),yl(e),e.child.flags&8192&&e.memoizedState!==null!=(n!==null&&n.memoizedState!==null)&&($l=Fe()),r&4&&(r=e.updateQueue,r!==null&&(e.updateQueue=null,hl(e,r)));break;case 22:a=e.memoizedState!==null;var l=n!==null&&n.memoizedState!==null,u=nl,d=U;if(nl=u||a,U=d||l,gl(t,e),U=d,nl=u,yl(e),r&8192)a:for(t=e.stateNode,t._visibility=a?t._visibility&-2:t._visibility|1,a&&(n===null||l||nl||U||Sl(e)),n=null,t=e;;){if(t.tag===5||t.tag===26){if(n===null){l=n=t;try{if(o=l.stateNode,a)s=o.style,typeof s.setProperty==`function`?s.setProperty(`display`,`none`,`important`):s.display=`none`;else{c=l.stateNode;var f=l.memoizedProps.style,p=f!=null&&f.hasOwnProperty(`display`)?f.display:null;c.style.display=p==null||typeof p==`boolean`?``:(``+p).trim()}}catch(e){Z(l,l.return,e)}}}else if(t.tag===6){if(n===null){l=t;try{l.stateNode.nodeValue=a?``:l.memoizedProps}catch(e){Z(l,l.return,e)}}}else if(t.tag===18){if(n===null){l=t;try{var m=l.stateNode;a?$d(m,!0):$d(l.stateNode,!1)}catch(e){Z(l,l.return,e)}}}else if((t.tag!==22&&t.tag!==23||t.memoizedState===null||t===e)&&t.child!==null){t.child.return=t,t=t.child;continue}if(t===e)break a;for(;t.sibling===null;){if(t.return===null||t.return===e)break a;n===t&&(n=null),t=t.return}n===t&&(n=null),t.sibling.return=t.return,t=t.sibling}r&4&&(r=e.updateQueue,r!==null&&(n=r.retryQueue,n!==null&&(r.retryQueue=null,hl(e,n))));break;case 19:gl(t,e),yl(e),r&4&&(r=e.updateQueue,r!==null&&(e.updateQueue=null,hl(e,r)));break;case 30:break;case 21:break;default:gl(t,e),yl(e)}}function yl(e){var t=e.flags;if(t&2){try{for(var n,r=e.return;r!==null;){if(Zc(r)){n=r;break}r=r.return}if(n==null)throw Error(i(160));switch(n.tag){case 27:var a=n.stateNode;el(e,Qc(e),a);break;case 5:var o=n.stateNode;n.flags&32&&(en(o,``),n.flags&=-33),el(e,Qc(e),o);break;case 3:case 4:var s=n.stateNode.containerInfo;$c(e,Qc(e),s);break;default:throw Error(i(161))}}catch(t){Z(e,e.return,t)}e.flags&=-3}t&4096&&(e.flags&=-4097)}function bl(e){if(e.subtreeFlags&1024)for(e=e.child;e!==null;){var t=e;bl(t),t.tag===5&&t.flags&1024&&t.stateNode.reset(),e=e.sibling}}function xl(e,t){if(t.subtreeFlags&8772)for(t=t.child;t!==null;)sl(e,t.alternate,t),t=t.sibling}function Sl(e){for(e=e.child;e!==null;){var t=e;switch(t.tag){case 0:case 11:case 14:case 15:Wc(4,t,t.return),Sl(t);break;case 1:Jc(t,t.return);var n=t.stateNode;typeof n.componentWillUnmount==`function`&&Kc(t,t.return,n),Sl(t);break;case 27:pf(t.stateNode);case 26:case 5:Jc(t,t.return),Sl(t);break;case 22:t.memoizedState===null&&Sl(t);break;case 30:Sl(t);break;default:Sl(t)}e=e.sibling}}function Cl(e,t,n){for(n&&=(t.subtreeFlags&8772)!=0,t=t.child;t!==null;){var r=t.alternate,i=e,a=t,o=a.flags;switch(a.tag){case 0:case 11:case 15:Cl(i,a,n),Uc(4,a);break;case 1:if(Cl(i,a,n),r=a,i=r.stateNode,typeof i.componentDidMount==`function`)try{i.componentDidMount()}catch(e){Z(r,r.return,e)}if(r=a,i=r.updateQueue,i!==null){var s=r.stateNode;try{var c=i.shared.hiddenCallbacks;if(c!==null)for(i.shared.hiddenCallbacks=null,i=0;i<c.length;i++)to(c[i],s)}catch(e){Z(r,r.return,e)}}n&&o&64&&Gc(a),qc(a,a.return);break;case 27:tl(a);case 26:case 5:Cl(i,a,n),n&&r===null&&o&4&&Yc(a),qc(a,a.return);break;case 12:Cl(i,a,n);break;case 31:Cl(i,a,n),n&&o&4&&fl(i,a);break;case 13:Cl(i,a,n),n&&o&4&&pl(i,a);break;case 22:a.memoizedState===null&&Cl(i,a,n),qc(a,a.return);break;case 30:break;default:Cl(i,a,n)}t=t.sibling}}function wl(e,t){var n=null;e!==null&&e.memoizedState!==null&&e.memoizedState.cachePool!==null&&(n=e.memoizedState.cachePool.pool),e=null,t.memoizedState!==null&&t.memoizedState.cachePool!==null&&(e=t.memoizedState.cachePool.pool),e!==n&&(e!=null&&e.refCount++,n!=null&&ma(n))}function Tl(e,t){e=null,t.alternate!==null&&(e=t.alternate.memoizedState.cache),t=t.memoizedState.cache,t!==e&&(t.refCount++,e!=null&&ma(e))}function El(e,t,n,r){if(t.subtreeFlags&10256)for(t=t.child;t!==null;)Dl(e,t,n,r),t=t.sibling}function Dl(e,t,n,r){var i=t.flags;switch(t.tag){case 0:case 11:case 15:El(e,t,n,r),i&2048&&Uc(9,t);break;case 1:El(e,t,n,r);break;case 3:El(e,t,n,r),i&2048&&(e=null,t.alternate!==null&&(e=t.alternate.memoizedState.cache),t=t.memoizedState.cache,t!==e&&(t.refCount++,e!=null&&ma(e)));break;case 12:if(i&2048){El(e,t,n,r),e=t.stateNode;try{var a=t.memoizedProps,o=a.id,s=a.onPostCommit;typeof s==`function`&&s(o,t.alternate===null?`mount`:`update`,e.passiveEffectDuration,-0)}catch(e){Z(t,t.return,e)}}else El(e,t,n,r);break;case 31:El(e,t,n,r);break;case 13:El(e,t,n,r);break;case 23:break;case 22:a=t.stateNode,o=t.alternate,t.memoizedState===null?a._visibility&2?El(e,t,n,r):(a._visibility|=2,Ol(e,t,n,r,(t.subtreeFlags&10256)!=0||!1)):a._visibility&2?El(e,t,n,r):kl(e,t),i&2048&&wl(o,t);break;case 24:El(e,t,n,r),i&2048&&Tl(t.alternate,t);break;default:El(e,t,n,r)}}function Ol(e,t,n,r,i){for(i&&=(t.subtreeFlags&10256)!=0||!1,t=t.child;t!==null;){var a=e,o=t,s=n,c=r,l=o.flags;switch(o.tag){case 0:case 11:case 15:Ol(a,o,s,c,i),Uc(8,o);break;case 23:break;case 22:var u=o.stateNode;o.memoizedState===null?(u._visibility|=2,Ol(a,o,s,c,i)):u._visibility&2?Ol(a,o,s,c,i):kl(a,o),i&&l&2048&&wl(o.alternate,o);break;case 24:Ol(a,o,s,c,i),i&&l&2048&&Tl(o.alternate,o);break;default:Ol(a,o,s,c,i)}t=t.sibling}}function kl(e,t){if(t.subtreeFlags&10256)for(t=t.child;t!==null;){var n=e,r=t,i=r.flags;switch(r.tag){case 22:kl(n,r),i&2048&&wl(r.alternate,r);break;case 24:kl(n,r),i&2048&&Tl(r.alternate,r);break;default:kl(n,r)}t=t.sibling}}var Al=8192;function jl(e,t,n){if(e.subtreeFlags&Al)for(e=e.child;e!==null;)Ml(e,t,n),e=e.sibling}function Ml(e,t,n){switch(e.tag){case 26:jl(e,t,n),e.flags&Al&&e.memoizedState!==null&&Gf(n,_l,e.memoizedState,e.memoizedProps);break;case 5:jl(e,t,n);break;case 3:case 4:var r=_l;_l=gf(e.stateNode.containerInfo),jl(e,t,n),_l=r;break;case 22:e.memoizedState===null&&(r=e.alternate,r!==null&&r.memoizedState!==null?(r=Al,Al=16777216,jl(e,t,n),Al=r):jl(e,t,n));break;default:jl(e,t,n)}}function Nl(e){var t=e.alternate;if(t!==null&&(e=t.child,e!==null)){t.child=null;do t=e.sibling,e.sibling=null,e=t;while(e!==null)}}function Pl(e){var t=e.deletions;if(e.flags&16){if(t!==null)for(var n=0;n<t.length;n++){var r=t[n];al=r,Ll(r,e)}Nl(e)}if(e.subtreeFlags&10256)for(e=e.child;e!==null;)Fl(e),e=e.sibling}function Fl(e){switch(e.tag){case 0:case 11:case 15:Pl(e),e.flags&2048&&Wc(9,e,e.return);break;case 3:Pl(e);break;case 12:Pl(e);break;case 22:var t=e.stateNode;e.memoizedState!==null&&t._visibility&2&&(e.return===null||e.return.tag!==13)?(t._visibility&=-3,Il(e)):Pl(e);break;default:Pl(e)}}function Il(e){var t=e.deletions;if(e.flags&16){if(t!==null)for(var n=0;n<t.length;n++){var r=t[n];al=r,Ll(r,e)}Nl(e)}for(e=e.child;e!==null;){switch(t=e,t.tag){case 0:case 11:case 15:Wc(8,t,t.return),Il(t);break;case 22:n=t.stateNode,n._visibility&2&&(n._visibility&=-3,Il(t));break;default:Il(t)}e=e.sibling}}function Ll(e,t){for(;al!==null;){var n=al;switch(n.tag){case 0:case 11:case 15:Wc(8,n,t);break;case 23:case 22:if(n.memoizedState!==null&&n.memoizedState.cachePool!==null){var r=n.memoizedState.cachePool.pool;r!=null&&r.refCount++}break;case 24:ma(n.memoizedState.cache)}if(r=n.child,r!==null)r.return=n,al=r;else a:for(n=e;al!==null;){r=al;var i=r.sibling,a=r.return;if(cl(r),r===n){al=null;break a}if(i!==null){i.return=a,al=i;break a}al=a}}}var Rl={getCacheForType:function(e){var t=sa(P),n=t.data.get(e);return n===void 0&&(n=e(),t.data.set(e,n)),n},cacheSignal:function(){return sa(P).controller.signal}},zl=typeof WeakMap==`function`?WeakMap:Map,G=0,K=null,q=null,J=0,Y=0,Bl=null,Vl=!1,Hl=!1,Ul=!1,Wl=0,X=0,Gl=0,Kl=0,ql=0,Jl=0,Yl=0,Xl=null,Zl=null,Ql=!1,$l=0,eu=0,tu=1/0,nu=null,ru=null,iu=0,au=null,ou=null,su=0,cu=0,lu=null,uu=null,du=0,fu=null;function pu(){return G&2&&J!==0?J&-J:T.T===null?pt():dd()}function mu(){if(Jl===0)if(!(J&536870912)||N){var e=Qe;Qe<<=1,!(Qe&3932160)&&(Qe=262144),Jl=e}else Jl=536870912;return e=co.current,e!==null&&(e.flags|=32),Jl}function hu(e,t,n){(e===K&&(Y===2||Y===9)||e.cancelPendingCommit!==null)&&(Su(e,0),yu(e,J,Jl,!1)),ot(e,n),(!(G&2)||e!==K)&&(e===K&&(!(G&2)&&(Kl|=n),X===4&&yu(e,J,Jl,!1)),rd(e))}function gu(e,t,n){if(G&6)throw Error(i(327));var r=!n&&(t&127)==0&&(t&e.expiredLanes)===0||nt(e,t),a=r?Au(e,t):Ou(e,t,!0),o=r;do{if(a===0){Hl&&!r&&yu(e,t,0,!1);break}else{if(n=e.current.alternate,o&&!vu(n)){a=Ou(e,t,!1),o=!1;continue}if(a===2){if(o=t,e.errorRecoveryDisabledLanes&o)var s=0;else s=e.pendingLanes&-536870913,s=s===0?s&536870912?536870912:0:s;if(s!==0){t=s;a:{var c=e;a=Xl;var l=c.current.memoizedState.isDehydrated;if(l&&(Su(c,s).flags|=256),s=Ou(c,s,!1),s!==2){if(Ul&&!l){c.errorRecoveryDisabledLanes|=o,Kl|=o,a=4;break a}o=Zl,Zl=a,o!==null&&(Zl===null?Zl=o:Zl.push.apply(Zl,o))}a=s}if(o=!1,a!==2)continue}}if(a===1){Su(e,0),yu(e,t,0,!0);break}a:{switch(r=e,o=a,o){case 0:case 1:throw Error(i(345));case 4:if((t&4194048)!==t)break;case 6:yu(r,t,Jl,!Vl);break a;case 2:Zl=null;break;case 3:case 5:break;default:throw Error(i(329))}if((t&62914560)===t&&(a=$l+300-Fe(),10<a)){if(yu(r,t,Jl,!Vl),tt(r,0,!0)!==0)break a;su=t,r.timeoutHandle=Kd(_u.bind(null,r,n,Zl,nu,Ql,t,Jl,Kl,Yl,Vl,o,`Throttled`,-0,0),a);break a}_u(r,n,Zl,nu,Ql,t,Jl,Kl,Yl,Vl,o,null,-0,0)}}break}while(1);rd(e)}function _u(e,t,n,r,i,a,o,s,c,l,u,d,f,p){if(e.timeoutHandle=-1,d=t.subtreeFlags,d&8192||(d&16785408)==16785408){d={stylesheets:null,count:0,imgCount:0,imgBytes:0,suspenseyImages:[],waitingForImages:!0,waitingForViewTransition:!1,unsuspend:ln},Ml(t,a,d);var m=(a&62914560)===a?$l-Fe():(a&4194048)===a?eu-Fe():0;if(m=qf(d,m),m!==null){su=a,e.cancelPendingCommit=m(Lu.bind(null,e,t,a,n,r,i,o,s,c,u,d,null,f,p)),yu(e,a,o,!l);return}}Lu(e,t,a,n,r,i,o,s,c)}function vu(e){for(var t=e;;){var n=t.tag;if((n===0||n===11||n===15)&&t.flags&16384&&(n=t.updateQueue,n!==null&&(n=n.stores,n!==null)))for(var r=0;r<n.length;r++){var i=n[r],a=i.getSnapshot;i=i.value;try{if(!kr(a(),i))return!1}catch{return!1}}if(n=t.child,t.subtreeFlags&16384&&n!==null)n.return=t,t=n;else{if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return!0;t=t.return}t.sibling.return=t.return,t=t.sibling}}return!0}function yu(e,t,n,r){t&=~ql,t&=~Kl,e.suspendedLanes|=t,e.pingedLanes&=~t,r&&(e.warmLanes|=t),r=e.expirationTimes;for(var i=t;0<i;){var a=31-qe(i),o=1<<a;r[a]=-1,i&=~o}n!==0&&ct(e,n,t)}function bu(){return G&6?!0:(id(0,!1),!1)}function xu(){if(q!==null){if(Y===0)var e=q.return;else e=q,$i=Qi=null,Mo(e),La=null,Ra=0,e=q;for(;e!==null;)Hc(e.alternate,e),e=e.return;q=null}}function Su(e,t){var n=e.timeoutHandle;n!==-1&&(e.timeoutHandle=-1,qd(n)),n=e.cancelPendingCommit,n!==null&&(e.cancelPendingCommit=null,n()),su=0,xu(),K=e,q=n=_i(e.current,null),J=t,Y=0,Bl=null,Vl=!1,Hl=nt(e,t),Ul=!1,Yl=Jl=ql=Kl=Gl=X=0,Zl=Xl=null,Ql=!1,t&8&&(t|=t&32);var r=e.entangledLanes;if(r!==0)for(e=e.entanglements,r&=t;0<r;){var i=31-qe(r),a=1<<i;t|=e[i],r&=~a}return Wl=t,si(),n}function Cu(e,t){I=null,T.H=Vs,t===Da||t===ka?(t=Fa(),Y=3):t===Oa?(t=Fa(),Y=4):Y=t===ac?8:typeof t==`object`&&t&&typeof t.then==`function`?6:1,Bl=t,q===null&&(X=1,$s(e,Ti(t,e.current)))}function wu(){var e=co.current;return e===null?!0:(J&4194048)===J?lo===null:(J&62914560)===J||J&536870912?e===lo:!1}function Tu(){var e=T.H;return T.H=Vs,e===null?Vs:e}function Eu(){var e=T.A;return T.A=Rl,e}function Du(){X=4,Vl||(J&4194048)!==J&&co.current!==null||(Hl=!0),!(Gl&134217727)&&!(Kl&134217727)||K===null||yu(K,J,Jl,!1)}function Ou(e,t,n){var r=G;G|=2;var i=Tu(),a=Eu();(K!==e||J!==t)&&(nu=null,Su(e,t)),t=!1;var o=X;a:do try{if(Y!==0&&q!==null){var s=q,c=Bl;switch(Y){case 8:xu(),o=6;break a;case 3:case 2:case 9:case 6:co.current===null&&(t=!0);var l=Y;if(Y=0,Bl=null,Pu(e,s,c,l),n&&Hl){o=0;break a}break;default:l=Y,Y=0,Bl=null,Pu(e,s,c,l)}}ku(),o=X;break}catch(t){Cu(e,t)}while(1);return t&&e.shellSuspendCounter++,$i=Qi=null,G=r,T.H=i,T.A=a,q===null&&(K=null,J=0,si()),o}function ku(){for(;q!==null;)Mu(q)}function Au(e,t){var n=G;G|=2;var r=Tu(),a=Eu();K!==e||J!==t?(nu=null,tu=Fe()+500,Su(e,t)):Hl=nt(e,t);a:do try{if(Y!==0&&q!==null){t=q;var o=Bl;b:switch(Y){case 1:Y=0,Bl=null,Pu(e,t,o,1);break;case 2:case 9:if(ja(o)){Y=0,Bl=null,Nu(t);break}t=function(){Y!==2&&Y!==9||K!==e||(Y=7),rd(e)},o.then(t,t);break a;case 3:Y=7;break a;case 4:Y=5;break a;case 7:ja(o)?(Y=0,Bl=null,Nu(t)):(Y=0,Bl=null,Pu(e,t,o,7));break;case 5:var s=null;switch(q.tag){case 26:s=q.memoizedState;case 5:case 27:var c=q;if(s?Wf(s):c.stateNode.complete){Y=0,Bl=null;var l=c.sibling;if(l!==null)q=l;else{var u=c.return;u===null?q=null:(q=u,Fu(u))}break b}}Y=0,Bl=null,Pu(e,t,o,5);break;case 6:Y=0,Bl=null,Pu(e,t,o,6);break;case 8:xu(),X=6;break a;default:throw Error(i(462))}}ju();break}catch(t){Cu(e,t)}while(1);return $i=Qi=null,T.H=r,T.A=a,G=n,q===null?(K=null,J=0,si(),X):0}function ju(){for(;q!==null&&!Ne();)Mu(q)}function Mu(e){var t=Pc(e.alternate,e,Wl);e.memoizedProps=e.pendingProps,t===null?Fu(e):q=t}function Nu(e){var t=e,n=t.alternate;switch(t.tag){case 15:case 0:t=vc(n,t,t.pendingProps,t.type,void 0,J);break;case 11:t=vc(n,t,t.pendingProps,t.type.render,t.ref,J);break;case 5:Mo(t);default:Hc(n,t),t=q=vi(t,Wl),t=Pc(n,t,Wl)}e.memoizedProps=e.pendingProps,t===null?Fu(e):q=t}function Pu(e,t,n,r){$i=Qi=null,Mo(t),La=null,Ra=0;var i=t.return;try{if(ic(e,i,t,n,J)){X=1,$s(e,Ti(n,e.current)),q=null;return}}catch(t){if(i!==null)throw q=i,t;X=1,$s(e,Ti(n,e.current)),q=null;return}t.flags&32768?(N||r===1?e=!0:Hl||J&536870912?e=!1:(Vl=e=!0,(r===2||r===9||r===3||r===6)&&(r=co.current,r!==null&&r.tag===13&&(r.flags|=16384))),Iu(t,e)):Fu(t)}function Fu(e){var t=e;do{if(t.flags&32768){Iu(t,Vl);return}e=t.return;var n=Bc(t.alternate,t,Wl);if(n!==null){q=n;return}if(t=t.sibling,t!==null){q=t;return}q=t=e}while(t!==null);X===0&&(X=5)}function Iu(e,t){do{var n=Vc(e.alternate,e);if(n!==null){n.flags&=32767,q=n;return}if(n=e.return,n!==null&&(n.flags|=32768,n.subtreeFlags=0,n.deletions=null),!t&&(e=e.sibling,e!==null)){q=e;return}q=e=n}while(e!==null);X=6,q=null}function Lu(e,t,n,r,a,o,s,c,l){e.cancelPendingCommit=null;do Hu();while(iu!==0);if(G&6)throw Error(i(327));if(t!==null){if(t===e.current)throw Error(i(177));if(o=t.lanes|t.childLanes,o|=oi,st(e,n,o,s,c,l),e===K&&(q=K=null,J=0),ou=t,au=e,su=n,cu=o,lu=a,uu=r,t.subtreeFlags&10256||t.flags&10256?(e.callbackNode=null,e.callbackPriority=0,Xu(ze,function(){return Uu(),null})):(e.callbackNode=null,e.callbackPriority=0),r=(t.flags&13878)!=0,t.subtreeFlags&13878||r){r=T.T,T.T=null,a=E.p,E.p=2,s=G,G|=4;try{ol(e,t,n)}finally{G=s,E.p=a,T.T=r}}iu=1,Ru(),zu(),Bu()}}function Ru(){if(iu===1){iu=0;var e=au,t=ou,n=(t.flags&13878)!=0;if(t.subtreeFlags&13878||n){n=T.T,T.T=null;var r=E.p;E.p=2;var i=G;G|=4;try{vl(t,e);var a=zd,o=Pr(e.containerInfo),s=a.focusedElem,c=a.selectionRange;if(o!==s&&s&&s.ownerDocument&&Nr(s.ownerDocument.documentElement,s)){if(c!==null&&Fr(s)){var l=c.start,u=c.end;if(u===void 0&&(u=l),`selectionStart`in s)s.selectionStart=l,s.selectionEnd=Math.min(u,s.value.length);else{var d=s.ownerDocument||document,f=d&&d.defaultView||window;if(f.getSelection){var p=f.getSelection(),m=s.textContent.length,h=Math.min(c.start,m),g=c.end===void 0?h:Math.min(c.end,m);!p.extend&&h>g&&(o=g,g=h,h=o);var _=Mr(s,h),v=Mr(s,g);if(_&&v&&(p.rangeCount!==1||p.anchorNode!==_.node||p.anchorOffset!==_.offset||p.focusNode!==v.node||p.focusOffset!==v.offset)){var y=d.createRange();y.setStart(_.node,_.offset),p.removeAllRanges(),h>g?(p.addRange(y),p.extend(v.node,v.offset)):(y.setEnd(v.node,v.offset),p.addRange(y))}}}}for(d=[],p=s;p=p.parentNode;)p.nodeType===1&&d.push({element:p,left:p.scrollLeft,top:p.scrollTop});for(typeof s.focus==`function`&&s.focus(),s=0;s<d.length;s++){var b=d[s];b.element.scrollLeft=b.left,b.element.scrollTop=b.top}}sp=!!Rd,zd=Rd=null}finally{G=i,E.p=r,T.T=n}}e.current=t,iu=2}}function zu(){if(iu===2){iu=0;var e=au,t=ou,n=(t.flags&8772)!=0;if(t.subtreeFlags&8772||n){n=T.T,T.T=null;var r=E.p;E.p=2;var i=G;G|=4;try{sl(e,t.alternate,t)}finally{G=i,E.p=r,T.T=n}}iu=3}}function Bu(){if(iu===4||iu===3){iu=0,Pe();var e=au,t=ou,n=su,r=uu;t.subtreeFlags&10256||t.flags&10256?iu=5:(iu=0,ou=au=null,Vu(e,e.pendingLanes));var i=e.pendingLanes;if(i===0&&(ru=null),ft(n),t=t.stateNode,Ge&&typeof Ge.onCommitFiberRoot==`function`)try{Ge.onCommitFiberRoot(We,t,void 0,(t.current.flags&128)==128)}catch{}if(r!==null){t=T.T,i=E.p,E.p=2,T.T=null;try{for(var a=e.onRecoverableError,o=0;o<r.length;o++){var s=r[o];a(s.value,{componentStack:s.stack})}}finally{T.T=t,E.p=i}}su&3&&Hu(),rd(e),i=e.pendingLanes,n&261930&&i&42?e===fu?du++:(du=0,fu=e):du=0,id(0,!1)}}function Vu(e,t){(e.pooledCacheLanes&=t)===0&&(t=e.pooledCache,t!=null&&(e.pooledCache=null,ma(t)))}function Hu(){return Ru(),zu(),Bu(),Uu()}function Uu(){if(iu!==5)return!1;var e=au,t=cu;cu=0;var n=ft(su),r=T.T,a=E.p;try{E.p=32>n?32:n,T.T=null,n=lu,lu=null;var o=au,s=su;if(iu=0,ou=au=null,su=0,G&6)throw Error(i(331));var c=G;if(G|=4,Fl(o.current),Dl(o,o.current,s,n),G=c,id(0,!1),Ge&&typeof Ge.onPostCommitFiberRoot==`function`)try{Ge.onPostCommitFiberRoot(We,o)}catch{}return!0}finally{E.p=a,T.T=r,Vu(e,t)}}function Wu(e,t,n){t=Ti(n,t),t=tc(e.stateNode,t,2),e=Ya(e,t,2),e!==null&&(ot(e,2),rd(e))}function Z(e,t,n){if(e.tag===3)Wu(e,e,n);else for(;t!==null;){if(t.tag===3){Wu(t,e,n);break}else if(t.tag===1){var r=t.stateNode;if(typeof t.type.getDerivedStateFromError==`function`||typeof r.componentDidCatch==`function`&&(ru===null||!ru.has(r))){e=Ti(n,e),n=nc(2),r=Ya(t,n,2),r!==null&&(rc(n,r,t,e),ot(r,2),rd(r));break}}t=t.return}}function Gu(e,t,n){var r=e.pingCache;if(r===null){r=e.pingCache=new zl;var i=new Set;r.set(t,i)}else i=r.get(t),i===void 0&&(i=new Set,r.set(t,i));i.has(n)||(Ul=!0,i.add(n),e=Ku.bind(null,e,t,n),t.then(e,e))}function Ku(e,t,n){var r=e.pingCache;r!==null&&r.delete(t),e.pingedLanes|=e.suspendedLanes&n,e.warmLanes&=~n,K===e&&(J&n)===n&&(X===4||X===3&&(J&62914560)===J&&300>Fe()-$l?!(G&2)&&Su(e,0):ql|=n,Yl===J&&(Yl=0)),rd(e)}function qu(e,t){t===0&&(t=it()),e=ui(e,t),e!==null&&(ot(e,t),rd(e))}function Ju(e){var t=e.memoizedState,n=0;t!==null&&(n=t.retryLane),qu(e,n)}function Yu(e,t){var n=0;switch(e.tag){case 31:case 13:var r=e.stateNode,a=e.memoizedState;a!==null&&(n=a.retryLane);break;case 19:r=e.stateNode;break;case 22:r=e.stateNode._retryCache;break;default:throw Error(i(314))}r!==null&&r.delete(t),qu(e,n)}function Xu(e,t){return je(e,t)}var Zu=null,Qu=null,$u=!1,ed=!1,td=!1,nd=0;function rd(e){e!==Qu&&e.next===null&&(Qu===null?Zu=Qu=e:Qu=Qu.next=e),ed=!0,$u||($u=!0,ud())}function id(e,t){if(!td&&ed){td=!0;do for(var n=!1,r=Zu;r!==null;){if(!t)if(e!==0){var i=r.pendingLanes;if(i===0)var a=0;else{var o=r.suspendedLanes,s=r.pingedLanes;a=(1<<31-qe(42|e)+1)-1,a&=i&~(o&~s),a=a&201326741?a&201326741|1:a?a|2:0}a!==0&&(n=!0,ld(r,a))}else a=J,a=tt(r,r===K?a:0,r.cancelPendingCommit!==null||r.timeoutHandle!==-1),!(a&3)||nt(r,a)||(n=!0,ld(r,a));r=r.next}while(n);td=!1}}function ad(){od()}function od(){ed=$u=!1;var e=0;nd!==0&&Gd()&&(e=nd);for(var t=Fe(),n=null,r=Zu;r!==null;){var i=r.next,a=sd(r,t);a===0?(r.next=null,n===null?Zu=i:n.next=i,i===null&&(Qu=n)):(n=r,(e!==0||a&3)&&(ed=!0)),r=i}iu!==0&&iu!==5||id(e,!1),nd!==0&&(nd=0)}function sd(e,t){for(var n=e.suspendedLanes,r=e.pingedLanes,i=e.expirationTimes,a=e.pendingLanes&-62914561;0<a;){var o=31-qe(a),s=1<<o,c=i[o];c===-1?((s&n)===0||(s&r)!==0)&&(i[o]=rt(s,t)):c<=t&&(e.expiredLanes|=s),a&=~s}if(t=K,n=J,n=tt(e,e===t?n:0,e.cancelPendingCommit!==null||e.timeoutHandle!==-1),r=e.callbackNode,n===0||e===t&&(Y===2||Y===9)||e.cancelPendingCommit!==null)return r!==null&&r!==null&&Me(r),e.callbackNode=null,e.callbackPriority=0;if(!(n&3)||nt(e,n)){if(t=n&-n,t===e.callbackPriority)return t;switch(r!==null&&Me(r),ft(n)){case 2:case 8:n=Re;break;case 32:n=ze;break;case 268435456:n=Ve;break;default:n=ze}return r=cd.bind(null,e),n=je(n,r),e.callbackPriority=t,e.callbackNode=n,t}return r!==null&&r!==null&&Me(r),e.callbackPriority=2,e.callbackNode=null,2}function cd(e,t){if(iu!==0&&iu!==5)return e.callbackNode=null,e.callbackPriority=0,null;var n=e.callbackNode;if(Hu()&&e.callbackNode!==n)return null;var r=J;return r=tt(e,e===K?r:0,e.cancelPendingCommit!==null||e.timeoutHandle!==-1),r===0?null:(gu(e,r,t),sd(e,Fe()),e.callbackNode!=null&&e.callbackNode===n?cd.bind(null,e):null)}function ld(e,t){if(Hu())return null;gu(e,t,!0)}function ud(){Yd(function(){G&6?je(Le,ad):od()})}function dd(){if(nd===0){var e=_a;e===0&&(e=Ze,Ze<<=1,!(Ze&261888)&&(Ze=256)),nd=e}return nd}function fd(e){return e==null||typeof e==`symbol`||typeof e==`boolean`?null:typeof e==`function`?e:cn(``+e)}function pd(e,t){var n=t.ownerDocument.createElement(`input`);return n.name=t.name,n.value=t.value,e.id&&n.setAttribute(`form`,e.id),t.parentNode.insertBefore(n,t),e=new FormData(e),n.parentNode.removeChild(n),e}function md(e,t,n,r,i){if(t===`submit`&&n&&n.stateNode===i){var a=fd((i[gt]||null).action),o=r.submitter;o&&(t=(t=o[gt]||null)?fd(t.formAction):o.getAttribute(`formAction`),t!==null&&(a=t,o=null));var s=new An(`action`,`action`,null,r,i);e.push({event:s,listeners:[{instance:null,listener:function(){if(r.defaultPrevented){if(nd!==0){var e=o?pd(i,o):new FormData(i);Ds(n,{pending:!0,data:e,method:i.method,action:a},null,e)}}else typeof a==`function`&&(s.preventDefault(),e=o?pd(i,o):new FormData(i),Ds(n,{pending:!0,data:e,method:i.method,action:a},a,e))},currentTarget:i}]})}}for(var hd=0;hd<ti.length;hd++){var gd=ti[hd];ni(gd.toLowerCase(),`on`+(gd[0].toUpperCase()+gd.slice(1)))}ni(qr,`onAnimationEnd`),ni(Jr,`onAnimationIteration`),ni(Yr,`onAnimationStart`),ni(`dblclick`,`onDoubleClick`),ni(`focusin`,`onFocus`),ni(`focusout`,`onBlur`),ni(Xr,`onTransitionRun`),ni(Zr,`onTransitionStart`),ni(Qr,`onTransitionCancel`),ni($r,`onTransitionEnd`),Mt(`onMouseEnter`,[`mouseout`,`mouseover`]),Mt(`onMouseLeave`,[`mouseout`,`mouseover`]),Mt(`onPointerEnter`,[`pointerout`,`pointerover`]),Mt(`onPointerLeave`,[`pointerout`,`pointerover`]),jt(`onChange`,`change click focusin focusout input keydown keyup selectionchange`.split(` `)),jt(`onSelect`,`focusout contextmenu dragend focusin keydown keyup mousedown mouseup selectionchange`.split(` `)),jt(`onBeforeInput`,[`compositionend`,`keypress`,`textInput`,`paste`]),jt(`onCompositionEnd`,`compositionend focusout keydown keypress keyup mousedown`.split(` `)),jt(`onCompositionStart`,`compositionstart focusout keydown keypress keyup mousedown`.split(` `)),jt(`onCompositionUpdate`,`compositionupdate focusout keydown keypress keyup mousedown`.split(` `));var _d=`abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting`.split(` `),vd=new Set(`beforetoggle cancel close invalid load scroll scrollend toggle`.split(` `).concat(_d));function yd(e,t){t=(t&4)!=0;for(var n=0;n<e.length;n++){var r=e[n],i=r.event;r=r.listeners;a:{var a=void 0;if(t)for(var o=r.length-1;0<=o;o--){var s=r[o],c=s.instance,l=s.currentTarget;if(s=s.listener,c!==a&&i.isPropagationStopped())break a;a=s,i.currentTarget=l;try{a(i)}catch(e){ri(e)}i.currentTarget=null,a=c}else for(o=0;o<r.length;o++){if(s=r[o],c=s.instance,l=s.currentTarget,s=s.listener,c!==a&&i.isPropagationStopped())break a;a=s,i.currentTarget=l;try{a(i)}catch(e){ri(e)}i.currentTarget=null,a=c}}}}function Q(e,t){var n=t[vt];n===void 0&&(n=t[vt]=new Set);var r=e+`__bubble`;n.has(r)||(Cd(t,e,2,!1),n.add(r))}function bd(e,t,n){var r=0;t&&(r|=4),Cd(n,e,r,t)}var xd=`_reactListening`+Math.random().toString(36).slice(2);function Sd(e){if(!e[xd]){e[xd]=!0,kt.forEach(function(t){t!==`selectionchange`&&(vd.has(t)||bd(t,!1,e),bd(t,!0,e))});var t=e.nodeType===9?e:e.ownerDocument;t===null||t[xd]||(t[xd]=!0,bd(`selectionchange`,!1,t))}}function Cd(e,t,n,r){switch(mp(t)){case 2:var i=cp;break;case 8:i=lp;break;default:i=up}n=i.bind(null,t,n,e),i=void 0,!yn||t!==`touchstart`&&t!==`touchmove`&&t!==`wheel`||(i=!0),r?i===void 0?e.addEventListener(t,n,!0):e.addEventListener(t,n,{capture:!0,passive:i}):i===void 0?e.addEventListener(t,n,!1):e.addEventListener(t,n,{passive:i})}function wd(e,t,n,r,i){var a=r;if(!(t&1)&&!(t&2)&&r!==null)a:for(;;){if(r===null)return;var s=r.tag;if(s===3||s===4){var c=r.stateNode.containerInfo;if(c===i)break;if(s===4)for(s=r.return;s!==null;){var l=s.tag;if((l===3||l===4)&&s.stateNode.containerInfo===i)return;s=s.return}for(;c!==null;){if(s=wt(c),s===null)return;if(l=s.tag,l===5||l===6||l===26||l===27){r=a=s;continue a}c=c.parentNode}}r=r.return}gn(function(){var r=a,i=dn(n),s=[];a:{var c=ei.get(e);if(c!==void 0){var l=An,u=e;switch(e){case`keypress`:if(Tn(n)===0)break a;case`keydown`:case`keyup`:l=Jn;break;case`focusin`:u=`focus`,l=zn;break;case`focusout`:u=`blur`,l=zn;break;case`beforeblur`:case`afterblur`:l=zn;break;case`click`:if(n.button===2)break a;case`auxclick`:case`dblclick`:case`mousedown`:case`mousemove`:case`mouseup`:case`mouseout`:case`mouseover`:case`contextmenu`:l=Ln;break;case`drag`:case`dragend`:case`dragenter`:case`dragexit`:case`dragleave`:case`dragover`:case`dragstart`:case`drop`:l=Rn;break;case`touchcancel`:case`touchend`:case`touchmove`:case`touchstart`:l=Xn;break;case qr:case Jr:case Yr:l=Bn;break;case $r:l=Zn;break;case`scroll`:case`scrollend`:l=Mn;break;case`wheel`:l=Qn;break;case`copy`:case`cut`:case`paste`:l=Vn;break;case`gotpointercapture`:case`lostpointercapture`:case`pointercancel`:case`pointerdown`:case`pointermove`:case`pointerout`:case`pointerover`:case`pointerup`:l=Yn;break;case`toggle`:case`beforetoggle`:l=$n}var d=(t&4)!=0,f=!d&&(e===`scroll`||e===`scrollend`),p=d?c===null?null:c+`Capture`:c;d=[];for(var m=r,h;m!==null;){var g=m;if(h=g.stateNode,g=g.tag,g!==5&&g!==26&&g!==27||h===null||p===null||(g=_n(m,p),g!=null&&d.push(Td(m,g,h))),f)break;m=m.return}0<d.length&&(c=new l(c,u,null,n,i),s.push({event:c,listeners:d}))}}if(!(t&7)){a:{if(c=e===`mouseover`||e===`pointerover`,l=e===`mouseout`||e===`pointerout`,c&&n!==un&&(u=n.relatedTarget||n.fromElement)&&(wt(u)||u[_t]))break a;if((l||c)&&(c=i.window===i?i:(c=i.ownerDocument)?c.defaultView||c.parentWindow:window,l?(u=n.relatedTarget||n.toElement,l=r,u=u?wt(u):null,u!==null&&(f=o(u),d=u.tag,u!==f||d!==5&&d!==27&&d!==6)&&(u=null)):(l=null,u=r),l!==u)){if(d=Ln,g=`onMouseLeave`,p=`onMouseEnter`,m=`mouse`,(e===`pointerout`||e===`pointerover`)&&(d=Yn,g=`onPointerLeave`,p=`onPointerEnter`,m=`pointer`),f=l==null?c:Et(l),h=u==null?c:Et(u),c=new d(g,m+`leave`,l,n,i),c.target=f,c.relatedTarget=h,g=null,wt(i)===r&&(d=new d(p,m+`enter`,u,n,i),d.target=h,d.relatedTarget=f,g=d),f=g,l&&u)b:{for(d=Dd,p=l,m=u,h=0,g=p;g;g=d(g))h++;g=0;for(var _=m;_;_=d(_))g++;for(;0<h-g;)p=d(p),h--;for(;0<g-h;)m=d(m),g--;for(;h--;){if(p===m||m!==null&&p===m.alternate){d=p;break b}p=d(p),m=d(m)}d=null}else d=null;l!==null&&Od(s,c,l,d,!1),u!==null&&f!==null&&Od(s,f,u,d,!0)}}a:{if(c=r?Et(r):window,l=c.nodeName&&c.nodeName.toLowerCase(),l===`select`||l===`input`&&c.type===`file`)var v=_r;else if(dr(c))if(vr)v=Dr;else{v=Tr;var y=wr}else l=c.nodeName,!l||l.toLowerCase()!==`input`||c.type!==`checkbox`&&c.type!==`radio`?r&&an(r.elementType)&&(v=_r):v=Er;if(v&&=v(e,r)){fr(s,v,n,i);break a}y&&y(e,c,r),e===`focusout`&&r&&c.type===`number`&&r.memoizedProps.value!=null&&Xt(c,`number`,c.value)}switch(y=r?Et(r):window,e){case`focusin`:(dr(y)||y.contentEditable===`true`)&&(Lr=y,Rr=r,zr=null);break;case`focusout`:zr=Rr=Lr=null;break;case`mousedown`:Br=!0;break;case`contextmenu`:case`mouseup`:case`dragend`:Br=!1,Vr(s,n,i);break;case`selectionchange`:if(Ir)break;case`keydown`:case`keyup`:Vr(s,n,i)}var b;if(A)b:{switch(e){case`compositionstart`:var x=`onCompositionStart`;break b;case`compositionend`:x=`onCompositionEnd`;break b;case`compositionupdate`:x=`onCompositionUpdate`;break b}x=void 0}else sr?ar(e,n)&&(x=`onCompositionEnd`):e===`keydown`&&n.keyCode===229&&(x=`onCompositionStart`);x&&(nr&&n.locale!==`ko`&&(sr||x!==`onCompositionStart`?x===`onCompositionEnd`&&sr&&(b=wn()):(xn=i,Sn=`value`in xn?xn.value:xn.textContent,sr=!0)),y=Ed(r,x),0<y.length&&(x=new Hn(x,e,null,n,i),s.push({event:x,listeners:y}),b?x.data=b:(b=or(n),b!==null&&(x.data=b)))),(b=tr?cr(e,n):lr(e,n))&&(x=Ed(r,`onBeforeInput`),0<x.length&&(y=new Hn(`onBeforeInput`,`beforeinput`,null,n,i),s.push({event:y,listeners:x}),y.data=b)),md(s,e,r,n,i)}yd(s,t)})}function Td(e,t,n){return{instance:e,listener:t,currentTarget:n}}function Ed(e,t){for(var n=t+`Capture`,r=[];e!==null;){var i=e,a=i.stateNode;if(i=i.tag,i!==5&&i!==26&&i!==27||a===null||(i=_n(e,n),i!=null&&r.unshift(Td(e,i,a)),i=_n(e,t),i!=null&&r.push(Td(e,i,a))),e.tag===3)return r;e=e.return}return[]}function Dd(e){if(e===null)return null;do e=e.return;while(e&&e.tag!==5&&e.tag!==27);return e||null}function Od(e,t,n,r,i){for(var a=t._reactName,o=[];n!==null&&n!==r;){var s=n,c=s.alternate,l=s.stateNode;if(s=s.tag,c!==null&&c===r)break;s!==5&&s!==26&&s!==27||l===null||(c=l,i?(l=_n(n,a),l!=null&&o.unshift(Td(n,l,c))):i||(l=_n(n,a),l!=null&&o.push(Td(n,l,c)))),n=n.return}o.length!==0&&e.push({event:t,listeners:o})}var kd=/\r\n?/g,Ad=/\u0000|\uFFFD/g;function jd(e){return(typeof e==`string`?e:``+e).replace(kd,`
 `).replace(Ad,``)}function Md(e,t){return t=jd(t),jd(e)===t}function $(e,t,n,r,a,o){switch(n){case`children`:typeof r==`string`?t===`body`||t===`textarea`&&r===``||en(e,r):(typeof r==`number`||typeof r==`bigint`)&&t!==`body`&&en(e,``+r);break;case`className`:Rt(e,`class`,r);break;case`tabIndex`:Rt(e,`tabindex`,r);break;case`dir`:case`role`:case`viewBox`:case`width`:case`height`:Rt(e,n,r);break;case`style`:rn(e,r,o);break;case`data`:if(t!==`object`){Rt(e,`data`,r);break}case`src`:case`href`:if(r===``&&(t!==`a`||n!==`href`)){e.removeAttribute(n);break}if(r==null||typeof r==`function`||typeof r==`symbol`||typeof r==`boolean`){e.removeAttribute(n);break}r=cn(``+r),e.setAttribute(n,r);break;case`action`:case`formAction`:if(typeof r==`function`){e.setAttribute(n,`javascript:throw new Error('A React form was unexpectedly submitted. If you called form.submit() manually, consider using form.requestSubmit() instead. If you\\'re trying to use event.stopPropagation() in a submit event handler, consider also calling event.preventDefault().')`);break}else typeof o==`function`&&(n===`formAction`?(t!==`input`&&$(e,t,`name`,a.name,a,null),$(e,t,`formEncType`,a.formEncType,a,null),$(e,t,`formMethod`,a.formMethod,a,null),$(e,t,`formTarget`,a.formTarget,a,null)):($(e,t,`encType`,a.encType,a,null),$(e,t,`method`,a.method,a,null),$(e,t,`target`,a.target,a,null)));if(r==null||typeof r==`symbol`||typeof r==`boolean`){e.removeAttribute(n);break}r=cn(``+r),e.setAttribute(n,r);break;case`onClick`:r!=null&&(e.onclick=ln);break;case`onScroll`:r!=null&&Q(`scroll`,e);break;case`onScrollEnd`:r!=null&&Q(`scrollend`,e);break;case`dangerouslySetInnerHTML`:if(r!=null){if(typeof r!=`object`||!(`__html`in r))throw Error(i(61));if(n=r.__html,n!=null){if(a.children!=null)throw Error(i(60));e.innerHTML=n}}break;case`multiple`:e.multiple=r&&typeof r!=`function`&&typeof r!=`symbol`;break;case`muted`:e.muted=r&&typeof r!=`function`&&typeof r!=`symbol`;break;case`suppressContentEditableWarning`:case`suppressHydrationWarning`:case`defaultValue`:case`defaultChecked`:case`innerHTML`:case`ref`:break;case`autoFocus`:break;case`xlinkHref`:if(r==null||typeof r==`function`||typeof r==`boolean`||typeof r==`symbol`){e.removeAttribute(`xlink:href`);break}n=cn(``+r),e.setAttributeNS(`http://www.w3.org/1999/xlink`,`xlink:href`,n);break;case`contentEditable`:case`spellCheck`:case`draggable`:case`value`:case`autoReverse`:case`externalResourcesRequired`:case`focusable`:case`preserveAlpha`:r!=null&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,``+r):e.removeAttribute(n);break;case`inert`:case`allowFullScreen`:case`async`:case`autoPlay`:case`controls`:case`default`:case`defer`:case`disabled`:case`disablePictureInPicture`:case`disableRemotePlayback`:case`formNoValidate`:case`hidden`:case`loop`:case`noModule`:case`noValidate`:case`open`:case`playsInline`:case`readOnly`:case`required`:case`reversed`:case`scoped`:case`seamless`:case`itemScope`:r&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,``):e.removeAttribute(n);break;case`capture`:case`download`:!0===r?e.setAttribute(n,``):!1!==r&&r!=null&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,r):e.removeAttribute(n);break;case`cols`:case`rows`:case`size`:case`span`:r!=null&&typeof r!=`function`&&typeof r!=`symbol`&&!isNaN(r)&&1<=r?e.setAttribute(n,r):e.removeAttribute(n);break;case`rowSpan`:case`start`:r==null||typeof r==`function`||typeof r==`symbol`||isNaN(r)?e.removeAttribute(n):e.setAttribute(n,r);break;case`popover`:Q(`beforetoggle`,e),Q(`toggle`,e),Lt(e,`popover`,r);break;case`xlinkActuate`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:actuate`,r);break;case`xlinkArcrole`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:arcrole`,r);break;case`xlinkRole`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:role`,r);break;case`xlinkShow`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:show`,r);break;case`xlinkTitle`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:title`,r);break;case`xlinkType`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:type`,r);break;case`xmlBase`:zt(e,`http://www.w3.org/XML/1998/namespace`,`xml:base`,r);break;case`xmlLang`:zt(e,`http://www.w3.org/XML/1998/namespace`,`xml:lang`,r);break;case`xmlSpace`:zt(e,`http://www.w3.org/XML/1998/namespace`,`xml:space`,r);break;case`is`:Lt(e,`is`,r);break;case`innerText`:case`textContent`:break;default:(!(2<n.length)||n[0]!==`o`&&n[0]!==`O`||n[1]!==`n`&&n[1]!==`N`)&&(n=on.get(n)||n,Lt(e,n,r))}}function Nd(e,t,n,r,a,o){switch(n){case`style`:rn(e,r,o);break;case`dangerouslySetInnerHTML`:if(r!=null){if(typeof r!=`object`||!(`__html`in r))throw Error(i(61));if(n=r.__html,n!=null){if(a.children!=null)throw Error(i(60));e.innerHTML=n}}break;case`children`:typeof r==`string`?en(e,r):(typeof r==`number`||typeof r==`bigint`)&&en(e,``+r);break;case`onScroll`:r!=null&&Q(`scroll`,e);break;case`onScrollEnd`:r!=null&&Q(`scrollend`,e);break;case`onClick`:r!=null&&(e.onclick=ln);break;case`suppressContentEditableWarning`:case`suppressHydrationWarning`:case`innerHTML`:case`ref`:break;case`innerText`:case`textContent`:break;default:if(!At.hasOwnProperty(n))a:{if(n[0]===`o`&&n[1]===`n`&&(a=n.endsWith(`Capture`),t=n.slice(2,a?n.length-7:void 0),o=e[gt]||null,o=o==null?null:o[n],typeof o==`function`&&e.removeEventListener(t,o,a),typeof r==`function`)){typeof o!=`function`&&o!==null&&(n in e?e[n]=null:e.hasAttribute(n)&&e.removeAttribute(n)),e.addEventListener(t,r,a);break a}n in e?e[n]=r:!0===r?e.setAttribute(n,``):Lt(e,n,r)}}}function Pd(e,t,n){switch(t){case`div`:case`span`:case`svg`:case`path`:case`a`:case`g`:case`p`:case`li`:break;case`img`:Q(`error`,e),Q(`load`,e);var r=!1,a=!1,o;for(o in n)if(n.hasOwnProperty(o)){var s=n[o];if(s!=null)switch(o){case`src`:r=!0;break;case`srcSet`:a=!0;break;case`children`:case`dangerouslySetInnerHTML`:throw Error(i(137,t));default:$(e,t,o,s,n,null)}}a&&$(e,t,`srcSet`,n.srcSet,n,null),r&&$(e,t,`src`,n.src,n,null);return;case`input`:Q(`invalid`,e);var c=o=s=a=null,l=null,u=null;for(r in n)if(n.hasOwnProperty(r)){var d=n[r];if(d!=null)switch(r){case`name`:a=d;break;case`type`:s=d;break;case`checked`:l=d;break;case`defaultChecked`:u=d;break;case`value`:o=d;break;case`defaultValue`:c=d;break;case`children`:case`dangerouslySetInnerHTML`:if(d!=null)throw Error(i(137,t));break;default:$(e,t,r,d,n,null)}}Yt(e,o,c,l,u,s,a,!1);return;case`select`:for(a in Q(`invalid`,e),r=s=o=null,n)if(n.hasOwnProperty(a)&&(c=n[a],c!=null))switch(a){case`value`:o=c;break;case`defaultValue`:s=c;break;case`multiple`:r=c;default:$(e,t,a,c,n,null)}t=o,n=s,e.multiple=!!r,t==null?n!=null&&Zt(e,!!r,n,!0):Zt(e,!!r,t,!1);return;case`textarea`:for(s in Q(`invalid`,e),o=a=r=null,n)if(n.hasOwnProperty(s)&&(c=n[s],c!=null))switch(s){case`value`:r=c;break;case`defaultValue`:a=c;break;case`children`:o=c;break;case`dangerouslySetInnerHTML`:if(c!=null)throw Error(i(91));break;default:$(e,t,s,c,n,null)}$t(e,r,a,o);return;case`option`:for(l in n)if(n.hasOwnProperty(l)&&(r=n[l],r!=null))switch(l){case`selected`:e.selected=r&&typeof r!=`function`&&typeof r!=`symbol`;break;default:$(e,t,l,r,n,null)}return;case`dialog`:Q(`beforetoggle`,e),Q(`toggle`,e),Q(`cancel`,e),Q(`close`,e);break;case`iframe`:case`object`:Q(`load`,e);break;case`video`:case`audio`:for(r=0;r<_d.length;r++)Q(_d[r],e);break;case`image`:Q(`error`,e),Q(`load`,e);break;case`details`:Q(`toggle`,e);break;case`embed`:case`source`:case`link`:Q(`error`,e),Q(`load`,e);case`area`:case`base`:case`br`:case`col`:case`hr`:case`keygen`:case`meta`:case`param`:case`track`:case`wbr`:case`menuitem`:for(u in n)if(n.hasOwnProperty(u)&&(r=n[u],r!=null))switch(u){case`children`:case`dangerouslySetInnerHTML`:throw Error(i(137,t));default:$(e,t,u,r,n,null)}return;default:if(an(t)){for(d in n)n.hasOwnProperty(d)&&(r=n[d],r!==void 0&&Nd(e,t,d,r,n,void 0));return}}for(c in n)n.hasOwnProperty(c)&&(r=n[c],r!=null&&$(e,t,c,r,n,null))}function Fd(e,t,n,r){switch(t){case`div`:case`span`:case`svg`:case`path`:case`a`:case`g`:case`p`:case`li`:break;case`input`:var a=null,o=null,s=null,c=null,l=null,u=null,d=null;for(m in n){var f=n[m];if(n.hasOwnProperty(m)&&f!=null)switch(m){case`checked`:break;case`value`:break;case`defaultValue`:l=f;default:r.hasOwnProperty(m)||$(e,t,m,null,r,f)}}for(var p in r){var m=r[p];if(f=n[p],r.hasOwnProperty(p)&&(m!=null||f!=null))switch(p){case`type`:o=m;break;case`name`:a=m;break;case`checked`:u=m;break;case`defaultChecked`:d=m;break;case`value`:s=m;break;case`defaultValue`:c=m;break;case`children`:case`dangerouslySetInnerHTML`:if(m!=null)throw Error(i(137,t));break;default:m!==f&&$(e,t,p,m,r,f)}}Jt(e,s,c,l,u,d,o,a);return;case`select`:for(o in m=s=c=p=null,n)if(l=n[o],n.hasOwnProperty(o)&&l!=null)switch(o){case`value`:break;case`multiple`:m=l;default:r.hasOwnProperty(o)||$(e,t,o,null,r,l)}for(a in r)if(o=r[a],l=n[a],r.hasOwnProperty(a)&&(o!=null||l!=null))switch(a){case`value`:p=o;break;case`defaultValue`:c=o;break;case`multiple`:s=o;default:o!==l&&$(e,t,a,o,r,l)}t=c,n=s,r=m,p==null?!!r!=!!n&&(t==null?Zt(e,!!n,n?[]:``,!1):Zt(e,!!n,t,!0)):Zt(e,!!n,p,!1);return;case`textarea`:for(c in m=p=null,n)if(a=n[c],n.hasOwnProperty(c)&&a!=null&&!r.hasOwnProperty(c))switch(c){case`value`:break;case`children`:break;default:$(e,t,c,null,r,a)}for(s in r)if(a=r[s],o=n[s],r.hasOwnProperty(s)&&(a!=null||o!=null))switch(s){case`value`:p=a;break;case`defaultValue`:m=a;break;case`children`:break;case`dangerouslySetInnerHTML`:if(a!=null)throw Error(i(91));break;default:a!==o&&$(e,t,s,a,r,o)}Qt(e,p,m);return;case`option`:for(var h in n)if(p=n[h],n.hasOwnProperty(h)&&p!=null&&!r.hasOwnProperty(h))switch(h){case`selected`:e.selected=!1;break;default:$(e,t,h,null,r,p)}for(l in r)if(p=r[l],m=n[l],r.hasOwnProperty(l)&&p!==m&&(p!=null||m!=null))switch(l){case`selected`:e.selected=p&&typeof p!=`function`&&typeof p!=`symbol`;break;default:$(e,t,l,p,r,m)}return;case`img`:case`link`:case`area`:case`base`:case`br`:case`col`:case`embed`:case`hr`:case`keygen`:case`meta`:case`param`:case`source`:case`track`:case`wbr`:case`menuitem`:for(var g in n)p=n[g],n.hasOwnProperty(g)&&p!=null&&!r.hasOwnProperty(g)&&$(e,t,g,null,r,p);for(u in r)if(p=r[u],m=n[u],r.hasOwnProperty(u)&&p!==m&&(p!=null||m!=null))switch(u){case`children`:case`dangerouslySetInnerHTML`:if(p!=null)throw Error(i(137,t));break;default:$(e,t,u,p,r,m)}return;default:if(an(t)){for(var _ in n)p=n[_],n.hasOwnProperty(_)&&p!==void 0&&!r.hasOwnProperty(_)&&Nd(e,t,_,void 0,r,p);for(d in r)p=r[d],m=n[d],!r.hasOwnProperty(d)||p===m||p===void 0&&m===void 0||Nd(e,t,d,p,r,m);return}}for(var v in n)p=n[v],n.hasOwnProperty(v)&&p!=null&&!r.hasOwnProperty(v)&&$(e,t,v,null,r,p);for(f in r)p=r[f],m=n[f],!r.hasOwnProperty(f)||p===m||p==null&&m==null||$(e,t,f,p,r,m)}function Id(e){switch(e){case`css`:case`script`:case`font`:case`img`:case`image`:case`input`:case`link`:return!0;default:return!1}}function Ld(){if(typeof performance.getEntriesByType==`function`){for(var e=0,t=0,n=performance.getEntriesByType(`resource`),r=0;r<n.length;r++){var i=n[r],a=i.transferSize,o=i.initiatorType,s=i.duration;if(a&&s&&Id(o)){for(o=0,s=i.responseEnd,r+=1;r<n.length;r++){var c=n[r],l=c.startTime;if(l>s)break;var u=c.transferSize,d=c.initiatorType;u&&Id(d)&&(c=c.responseEnd,o+=u*(c<s?1:(s-l)/(c-l)))}if(--r,t+=8*(a+o)/(i.duration/1e3),e++,10<e)break}}if(0<e)return t/e/1e6}return navigator.connection&&(e=navigator.connection.downlink,typeof e==`number`)?e:5}var Rd=null,zd=null;function Bd(e){return e.nodeType===9?e:e.ownerDocument}function Vd(e){switch(e){case`http://www.w3.org/2000/svg`:return 1;case`http://www.w3.org/1998/Math/MathML`:return 2;default:return 0}}function Hd(e,t){if(e===0)switch(t){case`svg`:return 1;case`math`:return 2;default:return 0}return e===1&&t===`foreignObject`?0:e}function Ud(e,t){return e===`textarea`||e===`noscript`||typeof t.children==`string`||typeof t.children==`number`||typeof t.children==`bigint`||typeof t.dangerouslySetInnerHTML==`object`&&t.dangerouslySetInnerHTML!==null&&t.dangerouslySetInnerHTML.__html!=null}var Wd=null;function Gd(){var e=window.event;return e&&e.type===`popstate`?e===Wd?!1:(Wd=e,!0):(Wd=null,!1)}var Kd=typeof setTimeout==`function`?setTimeout:void 0,qd=typeof clearTimeout==`function`?clearTimeout:void 0,Jd=typeof Promise==`function`?Promise:void 0,Yd=typeof queueMicrotask==`function`?queueMicrotask:Jd===void 0?Kd:function(e){return Jd.resolve(null).then(e).catch(Xd)};function Xd(e){setTimeout(function(){throw e})}function Zd(e){return e===`head`}function Qd(e,t){var n=t,r=0;do{var i=n.nextSibling;if(e.removeChild(n),i&&i.nodeType===8)if(n=i.data,n===`/$`||n===`/&`){if(r===0){e.removeChild(i),Np(t);return}r--}else if(n===`$`||n===`$?`||n===`$~`||n===`$!`||n===`&`)r++;else if(n===`html`)pf(e.ownerDocument.documentElement);else if(n===`head`){n=e.ownerDocument.head,pf(n);for(var a=n.firstChild;a;){var o=a.nextSibling,s=a.nodeName;a[St]||s===`SCRIPT`||s===`STYLE`||s===`LINK`&&a.rel.toLowerCase()===`stylesheet`||n.removeChild(a),a=o}}else n===`body`&&pf(e.ownerDocument.body);n=i}while(n);Np(t)}function $d(e,t){var n=e;e=0;do{var r=n.nextSibling;if(n.nodeType===1?t?(n._stashedDisplay=n.style.display,n.style.display=`none`):(n.style.display=n._stashedDisplay||``,n.getAttribute(`style`)===``&&n.removeAttribute(`style`)):n.nodeType===3&&(t?(n._stashedText=n.nodeValue,n.nodeValue=``):n.nodeValue=n._stashedText||``),r&&r.nodeType===8)if(n=r.data,n===`/$`){if(e===0)break;e--}else n!==`$`&&n!==`$?`&&n!==`$~`&&n!==`$!`||e++;n=r}while(n)}function ef(e){var t=e.firstChild;for(t&&t.nodeType===10&&(t=t.nextSibling);t;){var n=t;switch(t=t.nextSibling,n.nodeName){case`HTML`:case`HEAD`:case`BODY`:ef(n),Ct(n);continue;case`SCRIPT`:case`STYLE`:continue;case`LINK`:if(n.rel.toLowerCase()===`stylesheet`)continue}e.removeChild(n)}}function tf(e,t,n,r){for(;e.nodeType===1;){var i=n;if(e.nodeName.toLowerCase()!==t.toLowerCase()){if(!r&&(e.nodeName!==`INPUT`||e.type!==`hidden`))break}else if(!r)if(t===`input`&&e.type===`hidden`){var a=i.name==null?null:``+i.name;if(i.type===`hidden`&&e.getAttribute(`name`)===a)return e}else return e;else if(!e[St])switch(t){case`meta`:if(!e.hasAttribute(`itemprop`))break;return e;case`link`:if(a=e.getAttribute(`rel`),a===`stylesheet`&&e.hasAttribute(`data-precedence`)||a!==i.rel||e.getAttribute(`href`)!==(i.href==null||i.href===``?null:i.href)||e.getAttribute(`crossorigin`)!==(i.crossOrigin==null?null:i.crossOrigin)||e.getAttribute(`title`)!==(i.title==null?null:i.title))break;return e;case`style`:if(e.hasAttribute(`data-precedence`))break;return e;case`script`:if(a=e.getAttribute(`src`),(a!==(i.src==null?null:i.src)||e.getAttribute(`type`)!==(i.type==null?null:i.type)||e.getAttribute(`crossorigin`)!==(i.crossOrigin==null?null:i.crossOrigin))&&a&&e.hasAttribute(`async`)&&!e.hasAttribute(`itemprop`))break;return e;default:return e}if(e=cf(e.nextSibling),e===null)break}return null}function nf(e,t,n){if(t===``)return null;for(;e.nodeType!==3;)if((e.nodeType!==1||e.nodeName!==`INPUT`||e.type!==`hidden`)&&!n||(e=cf(e.nextSibling),e===null))return null;return e}function rf(e,t){for(;e.nodeType!==8;)if((e.nodeType!==1||e.nodeName!==`INPUT`||e.type!==`hidden`)&&!t||(e=cf(e.nextSibling),e===null))return null;return e}function af(e){return e.data===`$?`||e.data===`$~`}function of(e){return e.data===`$!`||e.data===`$?`&&e.ownerDocument.readyState!==`loading`}function sf(e,t){var n=e.ownerDocument;if(e.data===`$~`)e._reactRetry=t;else if(e.data!==`$?`||n.readyState!==`loading`)t();else{var r=function(){t(),n.removeEventListener(`DOMContentLoaded`,r)};n.addEventListener(`DOMContentLoaded`,r),e._reactRetry=r}}function cf(e){for(;e!=null;e=e.nextSibling){var t=e.nodeType;if(t===1||t===3)break;if(t===8){if(t=e.data,t===`$`||t===`$!`||t===`$?`||t===`$~`||t===`&`||t===`F!`||t===`F`)break;if(t===`/$`||t===`/&`)return null}}return e}var lf=null;function uf(e){e=e.nextSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n===`/$`||n===`/&`){if(t===0)return cf(e.nextSibling);t--}else n!==`$`&&n!==`$!`&&n!==`$?`&&n!==`$~`&&n!==`&`||t++}e=e.nextSibling}return null}function df(e){e=e.previousSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n===`$`||n===`$!`||n===`$?`||n===`$~`||n===`&`){if(t===0)return e;t--}else n!==`/$`&&n!==`/&`||t++}e=e.previousSibling}return null}function ff(e,t,n){switch(t=Bd(n),e){case`html`:if(e=t.documentElement,!e)throw Error(i(452));return e;case`head`:if(e=t.head,!e)throw Error(i(453));return e;case`body`:if(e=t.body,!e)throw Error(i(454));return e;default:throw Error(i(451))}}function pf(e){for(var t=e.attributes;t.length;)e.removeAttributeNode(t[0]);Ct(e)}var mf=new Map,hf=new Set;function gf(e){return typeof e.getRootNode==`function`?e.getRootNode():e.nodeType===9?e:e.ownerDocument}var _f=E.d;E.d={f:vf,r:yf,D:Sf,C:Cf,L:wf,m:Tf,X:Df,S:Ef,M:Of};function vf(){var e=_f.f(),t=bu();return e||t}function yf(e){var t=Tt(e);t!==null&&t.tag===5&&t.type===`form`?ks(t):_f.r(e)}var bf=typeof document>`u`?null:document;function xf(e,t,n){var r=bf;if(r&&typeof t==`string`&&t){var i=qt(t);i=`link[rel="`+e+`"][href="`+i+`"]`,typeof n==`string`&&(i+=`[crossorigin="`+n+`"]`),hf.has(i)||(hf.add(i),e={rel:e,crossOrigin:n,href:t},r.querySelector(i)===null&&(t=r.createElement(`link`),Pd(t,`link`,e),Ot(t),r.head.appendChild(t)))}}function Sf(e){_f.D(e),xf(`dns-prefetch`,e,null)}function Cf(e,t){_f.C(e,t),xf(`preconnect`,e,t)}function wf(e,t,n){_f.L(e,t,n);var r=bf;if(r&&e&&t){var i=`link[rel="preload"][as="`+qt(t)+`"]`;t===`image`&&n&&n.imageSrcSet?(i+=`[imagesrcset="`+qt(n.imageSrcSet)+`"]`,typeof n.imageSizes==`string`&&(i+=`[imagesizes="`+qt(n.imageSizes)+`"]`)):i+=`[href="`+qt(e)+`"]`;var a=i;switch(t){case`style`:a=Af(e);break;case`script`:a=Pf(e)}mf.has(a)||(e=h({rel:`preload`,href:t===`image`&&n&&n.imageSrcSet?void 0:e,as:t},n),mf.set(a,e),r.querySelector(i)!==null||t===`style`&&r.querySelector(jf(a))||t===`script`&&r.querySelector(Ff(a))||(t=r.createElement(`link`),Pd(t,`link`,e),Ot(t),r.head.appendChild(t)))}}function Tf(e,t){_f.m(e,t);var n=bf;if(n&&e){var r=t&&typeof t.as==`string`?t.as:`script`,i=`link[rel="modulepreload"][as="`+qt(r)+`"][href="`+qt(e)+`"]`,a=i;switch(r){case`audioworklet`:case`paintworklet`:case`serviceworker`:case`sharedworker`:case`worker`:case`script`:a=Pf(e)}if(!mf.has(a)&&(e=h({rel:`modulepreload`,href:e},t),mf.set(a,e),n.querySelector(i)===null)){switch(r){case`audioworklet`:case`paintworklet`:case`serviceworker`:case`sharedworker`:case`worker`:case`script`:if(n.querySelector(Ff(a)))return}r=n.createElement(`link`),Pd(r,`link`,e),Ot(r),n.head.appendChild(r)}}}function Ef(e,t,n){_f.S(e,t,n);var r=bf;if(r&&e){var i=Dt(r).hoistableStyles,a=Af(e);t||=`default`;var o=i.get(a);if(!o){var s={loading:0,preload:null};if(o=r.querySelector(jf(a)))s.loading=5;else{e=h({rel:`stylesheet`,href:e,"data-precedence":t},n),(n=mf.get(a))&&Rf(e,n);var c=o=r.createElement(`link`);Ot(c),Pd(c,`link`,e),c._p=new Promise(function(e,t){c.onload=e,c.onerror=t}),c.addEventListener(`load`,function(){s.loading|=1}),c.addEventListener(`error`,function(){s.loading|=2}),s.loading|=4,Lf(o,t,r)}o={type:`stylesheet`,instance:o,count:1,state:s},i.set(a,o)}}}function Df(e,t){_f.X(e,t);var n=bf;if(n&&e){var r=Dt(n).hoistableScripts,i=Pf(e),a=r.get(i);a||(a=n.querySelector(Ff(i)),a||(e=h({src:e,async:!0},t),(t=mf.get(i))&&zf(e,t),a=n.createElement(`script`),Ot(a),Pd(a,`link`,e),n.head.appendChild(a)),a={type:`script`,instance:a,count:1,state:null},r.set(i,a))}}function Of(e,t){_f.M(e,t);var n=bf;if(n&&e){var r=Dt(n).hoistableScripts,i=Pf(e),a=r.get(i);a||(a=n.querySelector(Ff(i)),a||(e=h({src:e,async:!0,type:`module`},t),(t=mf.get(i))&&zf(e,t),a=n.createElement(`script`),Ot(a),Pd(a,`link`,e),n.head.appendChild(a)),a={type:`script`,instance:a,count:1,state:null},r.set(i,a))}}function kf(e,t,n,r){var a=(a=_e.current)?gf(a):null;if(!a)throw Error(i(446));switch(e){case`meta`:case`title`:return null;case`style`:return typeof n.precedence==`string`&&typeof n.href==`string`?(t=Af(n.href),n=Dt(a).hoistableStyles,r=n.get(t),r||(r={type:`style`,instance:null,count:0,state:null},n.set(t,r)),r):{type:`void`,instance:null,count:0,state:null};case`link`:if(n.rel===`stylesheet`&&typeof n.href==`string`&&typeof n.precedence==`string`){e=Af(n.href);var o=Dt(a).hoistableStyles,s=o.get(e);if(s||(a=a.ownerDocument||a,s={type:`stylesheet`,instance:null,count:0,state:{loading:0,preload:null}},o.set(e,s),(o=a.querySelector(jf(e)))&&!o._p&&(s.instance=o,s.state.loading=5),mf.has(e)||(n={rel:`preload`,as:`style`,href:n.href,crossOrigin:n.crossOrigin,integrity:n.integrity,media:n.media,hrefLang:n.hrefLang,referrerPolicy:n.referrerPolicy},mf.set(e,n),o||Nf(a,e,n,s.state))),t&&r===null)throw Error(i(528,``));return s}if(t&&r!==null)throw Error(i(529,``));return null;case`script`:return t=n.async,n=n.src,typeof n==`string`&&t&&typeof t!=`function`&&typeof t!=`symbol`?(t=Pf(n),n=Dt(a).hoistableScripts,r=n.get(t),r||(r={type:`script`,instance:null,count:0,state:null},n.set(t,r)),r):{type:`void`,instance:null,count:0,state:null};default:throw Error(i(444,e))}}function Af(e){return`href="`+qt(e)+`"`}function jf(e){return`link[rel="stylesheet"][`+e+`]`}function Mf(e){return h({},e,{"data-precedence":e.precedence,precedence:null})}function Nf(e,t,n,r){e.querySelector(`link[rel="preload"][as="style"][`+t+`]`)?r.loading=1:(t=e.createElement(`link`),r.preload=t,t.addEventListener(`load`,function(){return r.loading|=1}),t.addEventListener(`error`,function(){return r.loading|=2}),Pd(t,`link`,n),Ot(t),e.head.appendChild(t))}function Pf(e){return`[src="`+qt(e)+`"]`}function Ff(e){return`script[async]`+e}function If(e,t,n){if(t.count++,t.instance===null)switch(t.type){case`style`:var r=e.querySelector(`style[data-href~="`+qt(n.href)+`"]`);if(r)return t.instance=r,Ot(r),r;var a=h({},n,{"data-href":n.href,"data-precedence":n.precedence,href:null,precedence:null});return r=(e.ownerDocument||e).createElement(`style`),Ot(r),Pd(r,`style`,a),Lf(r,n.precedence,e),t.instance=r;case`stylesheet`:a=Af(n.href);var o=e.querySelector(jf(a));if(o)return t.state.loading|=4,t.instance=o,Ot(o),o;r=Mf(n),(a=mf.get(a))&&Rf(r,a),o=(e.ownerDocument||e).createElement(`link`),Ot(o);var s=o;return s._p=new Promise(function(e,t){s.onload=e,s.onerror=t}),Pd(o,`link`,r),t.state.loading|=4,Lf(o,n.precedence,e),t.instance=o;case`script`:return o=Pf(n.src),(a=e.querySelector(Ff(o)))?(t.instance=a,Ot(a),a):(r=n,(a=mf.get(o))&&(r=h({},n),zf(r,a)),e=e.ownerDocument||e,a=e.createElement(`script`),Ot(a),Pd(a,`link`,r),e.head.appendChild(a),t.instance=a);case`void`:return null;default:throw Error(i(443,t.type))}else t.type===`stylesheet`&&!(t.state.loading&4)&&(r=t.instance,t.state.loading|=4,Lf(r,n.precedence,e));return t.instance}function Lf(e,t,n){for(var r=n.querySelectorAll(`link[rel="stylesheet"][data-precedence],style[data-precedence]`),i=r.length?r[r.length-1]:null,a=i,o=0;o<r.length;o++){var s=r[o];if(s.dataset.precedence===t)a=s;else if(a!==i)break}a?a.parentNode.insertBefore(e,a.nextSibling):(t=n.nodeType===9?n.head:n,t.insertBefore(e,t.firstChild))}function Rf(e,t){e.crossOrigin??=t.crossOrigin,e.referrerPolicy??=t.referrerPolicy,e.title??=t.title}function zf(e,t){e.crossOrigin??=t.crossOrigin,e.referrerPolicy??=t.referrerPolicy,e.integrity??=t.integrity}var Bf=null;function Vf(e,t,n){if(Bf===null){var r=new Map,i=Bf=new Map;i.set(n,r)}else i=Bf,r=i.get(n),r||(r=new Map,i.set(n,r));if(r.has(e))return r;for(r.set(e,null),n=n.getElementsByTagName(e),i=0;i<n.length;i++){var a=n[i];if(!(a[St]||a[ht]||e===`link`&&a.getAttribute(`rel`)===`stylesheet`)&&a.namespaceURI!==`http://www.w3.org/2000/svg`){var o=a.getAttribute(t)||``;o=e+o;var s=r.get(o);s?s.push(a):r.set(o,[a])}}return r}function Hf(e,t,n){e=e.ownerDocument||e,e.head.insertBefore(n,t===`title`?e.querySelector(`head > title`):null)}function Uf(e,t,n){if(n===1||t.itemProp!=null)return!1;switch(e){case`meta`:case`title`:return!0;case`style`:if(typeof t.precedence!=`string`||typeof t.href!=`string`||t.href===``)break;return!0;case`link`:if(typeof t.rel!=`string`||typeof t.href!=`string`||t.href===``||t.onLoad||t.onError)break;switch(t.rel){case`stylesheet`:return e=t.disabled,typeof t.precedence==`string`&&e==null;default:return!0}case`script`:if(t.async&&typeof t.async!=`function`&&typeof t.async!=`symbol`&&!t.onLoad&&!t.onError&&t.src&&typeof t.src==`string`)return!0}return!1}function Wf(e){return!(e.type===`stylesheet`&&!(e.state.loading&3))}function Gf(e,t,n,r){if(n.type===`stylesheet`&&(typeof r.media!=`string`||!1!==matchMedia(r.media).matches)&&!(n.state.loading&4)){if(n.instance===null){var i=Af(r.href),a=t.querySelector(jf(i));if(a){t=a._p,typeof t==`object`&&t&&typeof t.then==`function`&&(e.count++,e=Jf.bind(e),t.then(e,e)),n.state.loading|=4,n.instance=a,Ot(a);return}a=t.ownerDocument||t,r=Mf(r),(i=mf.get(i))&&Rf(r,i),a=a.createElement(`link`),Ot(a);var o=a;o._p=new Promise(function(e,t){o.onload=e,o.onerror=t}),Pd(a,`link`,r),n.instance=a}e.stylesheets===null&&(e.stylesheets=new Map),e.stylesheets.set(n,t),(t=n.state.preload)&&!(n.state.loading&3)&&(e.count++,n=Jf.bind(e),t.addEventListener(`load`,n),t.addEventListener(`error`,n))}}var Kf=0;function qf(e,t){return e.stylesheets&&e.count===0&&Xf(e,e.stylesheets),0<e.count||0<e.imgCount?function(n){var r=setTimeout(function(){if(e.stylesheets&&Xf(e,e.stylesheets),e.unsuspend){var t=e.unsuspend;e.unsuspend=null,t()}},6e4+t);0<e.imgBytes&&Kf===0&&(Kf=62500*Ld());var i=setTimeout(function(){if(e.waitingForImages=!1,e.count===0&&(e.stylesheets&&Xf(e,e.stylesheets),e.unsuspend)){var t=e.unsuspend;e.unsuspend=null,t()}},(e.imgBytes>Kf?50:800)+t);return e.unsuspend=n,function(){e.unsuspend=null,clearTimeout(r),clearTimeout(i)}}:null}function Jf(){if(this.count--,this.count===0&&(this.imgCount===0||!this.waitingForImages)){if(this.stylesheets)Xf(this,this.stylesheets);else if(this.unsuspend){var e=this.unsuspend;this.unsuspend=null,e()}}}var Yf=null;function Xf(e,t){e.stylesheets=null,e.unsuspend!==null&&(e.count++,Yf=new Map,t.forEach(Zf,e),Yf=null,Jf.call(e))}function Zf(e,t){if(!(t.state.loading&4)){var n=Yf.get(e);if(n)var r=n.get(null);else{n=new Map,Yf.set(e,n);for(var i=e.querySelectorAll(`link[data-precedence],style[data-precedence]`),a=0;a<i.length;a++){var o=i[a];(o.nodeName===`LINK`||o.getAttribute(`media`)!==`not all`)&&(n.set(o.dataset.precedence,o),r=o)}r&&n.set(null,r)}i=t.instance,o=i.getAttribute(`data-precedence`),a=n.get(o)||r,a===r&&n.set(null,i),n.set(o,i),this.count++,r=Jf.bind(this),i.addEventListener(`load`,r),i.addEventListener(`error`,r),a?a.parentNode.insertBefore(i,a.nextSibling):(e=e.nodeType===9?e.head:e,e.insertBefore(i,e.firstChild)),t.state.loading|=4}}var Qf={$$typeof:S,Provider:null,Consumer:null,_currentValue:de,_currentValue2:de,_threadCount:0};function $f(e,t,n,r,i,a,o,s,c){this.tag=1,this.containerInfo=e,this.pingCache=this.current=this.pendingChildren=null,this.timeoutHandle=-1,this.callbackNode=this.next=this.pendingContext=this.context=this.cancelPendingCommit=null,this.callbackPriority=0,this.expirationTimes=at(-1),this.entangledLanes=this.shellSuspendCounter=this.errorRecoveryDisabledLanes=this.expiredLanes=this.warmLanes=this.pingedLanes=this.suspendedLanes=this.pendingLanes=0,this.entanglements=at(0),this.hiddenUpdates=at(null),this.identifierPrefix=r,this.onUncaughtError=i,this.onCaughtError=a,this.onRecoverableError=o,this.pooledCache=null,this.pooledCacheLanes=0,this.formState=c,this.incompleteTransitions=new Map}function ep(e,t,n,r,i,a,o,s,c,l,u,d){return e=new $f(e,t,n,o,c,l,u,d,s),t=1,!0===a&&(t|=24),a=hi(3,null,null,t),e.current=a,a.stateNode=e,t=pa(),t.refCount++,e.pooledCache=t,t.refCount++,a.memoizedState={element:r,isDehydrated:n,cache:t},Ka(a),e}function tp(e){return e?(e=pi,e):pi}function np(e,t,n,r,i,a){i=tp(i),r.context===null?r.context=i:r.pendingContext=i,r=Ja(t),r.payload={element:n},a=a===void 0?null:a,a!==null&&(r.callback=a),n=Ya(e,r,t),n!==null&&(hu(n,e,t),Xa(n,e,t))}function rp(e,t){if(e=e.memoizedState,e!==null&&e.dehydrated!==null){var n=e.retryLane;e.retryLane=n!==0&&n<t?n:t}}function ip(e,t){rp(e,t),(e=e.alternate)&&rp(e,t)}function ap(e){if(e.tag===13||e.tag===31){var t=ui(e,67108864);t!==null&&hu(t,e,67108864),ip(e,67108864)}}function op(e){if(e.tag===13||e.tag===31){var t=pu();t=dt(t);var n=ui(e,t);n!==null&&hu(n,e,t),ip(e,t)}}var sp=!0;function cp(e,t,n,r){var i=T.T;T.T=null;var a=E.p;try{E.p=2,up(e,t,n,r)}finally{E.p=a,T.T=i}}function lp(e,t,n,r){var i=T.T;T.T=null;var a=E.p;try{E.p=8,up(e,t,n,r)}finally{E.p=a,T.T=i}}function up(e,t,n,r){if(sp){var i=dp(r);if(i===null)wd(e,t,r,fp,n),Cp(e,r);else if(Tp(i,e,t,n,r))r.stopPropagation();else if(Cp(e,r),t&4&&-1<Sp.indexOf(e)){for(;i!==null;){var a=Tt(i);if(a!==null)switch(a.tag){case 3:if(a=a.stateNode,a.current.memoizedState.isDehydrated){var o=et(a.pendingLanes);if(o!==0){var s=a;for(s.pendingLanes|=2,s.entangledLanes|=2;o;){var c=1<<31-qe(o);s.entanglements[1]|=c,o&=~c}rd(a),!(G&6)&&(tu=Fe()+500,id(0,!1))}}break;case 31:case 13:s=ui(a,2),s!==null&&hu(s,a,2),bu(),ip(a,2)}if(a=dp(r),a===null&&wd(e,t,r,fp,n),a===i)break;i=a}i!==null&&r.stopPropagation()}else wd(e,t,r,null,n)}}function dp(e){return e=dn(e),pp(e)}var fp=null;function pp(e){if(fp=null,e=wt(e),e!==null){var t=o(e);if(t===null)e=null;else{var n=t.tag;if(n===13){if(e=s(t),e!==null)return e;e=null}else if(n===31){if(e=c(t),e!==null)return e;e=null}else if(n===3){if(t.stateNode.current.memoizedState.isDehydrated)return t.tag===3?t.stateNode.containerInfo:null;e=null}else t!==e&&(e=null)}}return fp=e,null}function mp(e){switch(e){case`beforetoggle`:case`cancel`:case`click`:case`close`:case`contextmenu`:case`copy`:case`cut`:case`auxclick`:case`dblclick`:case`dragend`:case`dragstart`:case`drop`:case`focusin`:case`focusout`:case`input`:case`invalid`:case`keydown`:case`keypress`:case`keyup`:case`mousedown`:case`mouseup`:case`paste`:case`pause`:case`play`:case`pointercancel`:case`pointerdown`:case`pointerup`:case`ratechange`:case`reset`:case`resize`:case`seeked`:case`submit`:case`toggle`:case`touchcancel`:case`touchend`:case`touchstart`:case`volumechange`:case`change`:case`selectionchange`:case`textInput`:case`compositionstart`:case`compositionend`:case`compositionupdate`:case`beforeblur`:case`afterblur`:case`beforeinput`:case`blur`:case`fullscreenchange`:case`focus`:case`hashchange`:case`popstate`:case`select`:case`selectstart`:return 2;case`drag`:case`dragenter`:case`dragexit`:case`dragleave`:case`dragover`:case`mousemove`:case`mouseout`:case`mouseover`:case`pointermove`:case`pointerout`:case`pointerover`:case`scroll`:case`touchmove`:case`wheel`:case`mouseenter`:case`mouseleave`:case`pointerenter`:case`pointerleave`:return 8;case`message`:switch(Ie()){case Le:return 2;case Re:return 8;case ze:case Be:return 32;case Ve:return 268435456;default:return 32}default:return 32}}var hp=!1,gp=null,_p=null,vp=null,yp=new Map,bp=new Map,xp=[],Sp=`mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset`.split(` `);function Cp(e,t){switch(e){case`focusin`:case`focusout`:gp=null;break;case`dragenter`:case`dragleave`:_p=null;break;case`mouseover`:case`mouseout`:vp=null;break;case`pointerover`:case`pointerout`:yp.delete(t.pointerId);break;case`gotpointercapture`:case`lostpointercapture`:bp.delete(t.pointerId)}}function wp(e,t,n,r,i,a){return e===null||e.nativeEvent!==a?(e={blockedOn:t,domEventName:n,eventSystemFlags:r,nativeEvent:a,targetContainers:[i]},t!==null&&(t=Tt(t),t!==null&&ap(t)),e):(e.eventSystemFlags|=r,t=e.targetContainers,i!==null&&t.indexOf(i)===-1&&t.push(i),e)}function Tp(e,t,n,r,i){switch(t){case`focusin`:return gp=wp(gp,e,t,n,r,i),!0;case`dragenter`:return _p=wp(_p,e,t,n,r,i),!0;case`mouseover`:return vp=wp(vp,e,t,n,r,i),!0;case`pointerover`:var a=i.pointerId;return yp.set(a,wp(yp.get(a)||null,e,t,n,r,i)),!0;case`gotpointercapture`:return a=i.pointerId,bp.set(a,wp(bp.get(a)||null,e,t,n,r,i)),!0}return!1}function Ep(e){var t=wt(e.target);if(t!==null){var n=o(t);if(n!==null){if(t=n.tag,t===13){if(t=s(n),t!==null){e.blockedOn=t,mt(e.priority,function(){op(n)});return}}else if(t===31){if(t=c(n),t!==null){e.blockedOn=t,mt(e.priority,function(){op(n)});return}}else if(t===3&&n.stateNode.current.memoizedState.isDehydrated){e.blockedOn=n.tag===3?n.stateNode.containerInfo:null;return}}}e.blockedOn=null}function Dp(e){if(e.blockedOn!==null)return!1;for(var t=e.targetContainers;0<t.length;){var n=dp(e.nativeEvent);if(n===null){n=e.nativeEvent;var r=new n.constructor(n.type,n);un=r,n.target.dispatchEvent(r),un=null}else return t=Tt(n),t!==null&&ap(t),e.blockedOn=n,!1;t.shift()}return!0}function Op(e,t,n){Dp(e)&&n.delete(t)}function kp(){hp=!1,gp!==null&&Dp(gp)&&(gp=null),_p!==null&&Dp(_p)&&(_p=null),vp!==null&&Dp(vp)&&(vp=null),yp.forEach(Op),bp.forEach(Op)}function Ap(e,n){e.blockedOn===n&&(e.blockedOn=null,hp||(hp=!0,t.unstable_scheduleCallback(t.unstable_NormalPriority,kp)))}var jp=null;function Mp(e){jp!==e&&(jp=e,t.unstable_scheduleCallback(t.unstable_NormalPriority,function(){jp===e&&(jp=null);for(var t=0;t<e.length;t+=3){var n=e[t],r=e[t+1],i=e[t+2];if(typeof r!=`function`){if(pp(r||n)===null)continue;break}var a=Tt(n);a!==null&&(e.splice(t,3),t-=3,Ds(a,{pending:!0,data:i,method:n.method,action:r},r,i))}}))}function Np(e){function t(t){return Ap(t,e)}gp!==null&&Ap(gp,e),_p!==null&&Ap(_p,e),vp!==null&&Ap(vp,e),yp.forEach(t),bp.forEach(t);for(var n=0;n<xp.length;n++){var r=xp[n];r.blockedOn===e&&(r.blockedOn=null)}for(;0<xp.length&&(n=xp[0],n.blockedOn===null);)Ep(n),n.blockedOn===null&&xp.shift();if(n=(e.ownerDocument||e).$$reactFormReplay,n!=null)for(r=0;r<n.length;r+=3){var i=n[r],a=n[r+1],o=i[gt]||null;if(typeof a==`function`)o||Mp(n);else if(o){var s=null;if(a&&a.hasAttribute(`formAction`)){if(i=a,o=a[gt]||null)s=o.formAction;else if(pp(i)!==null)continue}else s=o.action;typeof s==`function`?n[r+1]=s:(n.splice(r,3),r-=3),Mp(n)}}}function Pp(){function e(e){e.canIntercept&&e.info===`react-transition`&&e.intercept({handler:function(){return new Promise(function(e){return i=e})},focusReset:`manual`,scroll:`manual`})}function t(){i!==null&&(i(),i=null),r||setTimeout(n,20)}function n(){if(!r&&!navigation.transition){var e=navigation.currentEntry;e&&e.url!=null&&navigation.navigate(e.url,{state:e.getState(),info:`react-transition`,history:`replace`})}}if(typeof navigation==`object`){var r=!1,i=null;return navigation.addEventListener(`navigate`,e),navigation.addEventListener(`navigatesuccess`,t),navigation.addEventListener(`navigateerror`,t),setTimeout(n,100),function(){r=!0,navigation.removeEventListener(`navigate`,e),navigation.removeEventListener(`navigatesuccess`,t),navigation.removeEventListener(`navigateerror`,t),i!==null&&(i(),i=null)}}}function Fp(e){this._internalRoot=e}Ip.prototype.render=Fp.prototype.render=function(e){var t=this._internalRoot;if(t===null)throw Error(i(409));var n=t.current;np(n,pu(),e,t,null,null)},Ip.prototype.unmount=Fp.prototype.unmount=function(){var e=this._internalRoot;if(e!==null){this._internalRoot=null;var t=e.containerInfo;np(e.current,2,null,e,null,null),bu(),t[_t]=null}};function Ip(e){this._internalRoot=e}Ip.prototype.unstable_scheduleHydration=function(e){if(e){var t=pt();e={blockedOn:null,target:e,priority:t};for(var n=0;n<xp.length&&t!==0&&t<xp[n].priority;n++);xp.splice(n,0,e),n===0&&Ep(e)}};var Lp=n.version;if(Lp!==`19.2.7`)throw Error(i(527,Lp,`19.2.7`));E.findDOMNode=function(e){var t=e._reactInternals;if(t===void 0)throw typeof e.render==`function`?Error(i(188)):(e=Object.keys(e).join(`,`),Error(i(268,e)));return e=d(t),e=e===null?null:p(e),e=e===null?null:e.stateNode,e};var Rp={bundleType:0,version:`19.2.7`,rendererPackageName:`react-dom`,currentDispatcherRef:T,reconcilerVersion:`19.2.7`};if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__<`u`){var zp=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!zp.isDisabled&&zp.supportsFiber)try{We=zp.inject(Rp),Ge=zp}catch{}}e.createRoot=function(e,t){if(!a(e))throw Error(i(299));var n=!1,r=``,o=Xs,s=Zs,c=Qs;return t!=null&&(!0===t.unstable_strictMode&&(n=!0),t.identifierPrefix!==void 0&&(r=t.identifierPrefix),t.onUncaughtError!==void 0&&(o=t.onUncaughtError),t.onCaughtError!==void 0&&(s=t.onCaughtError),t.onRecoverableError!==void 0&&(c=t.onRecoverableError)),t=ep(e,1,!1,null,null,n,r,null,o,s,c,Pp),e[_t]=t.current,Sd(e),new Fp(t)}})),g=o(((e,t)=>{function n(){if(!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__>`u`||typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE!=`function`))try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(n)}catch(e){console.error(e)}}n(),t.exports=h()})),_=`modulepreload`,v=function(e){return`/`+e},y={},b=function(e,t,n){let r=Promise.resolve();if(t&&t.length>0){let e=document.getElementsByTagName(`link`),i=document.querySelector(`meta[property=csp-nonce]`),a=i?.nonce||i?.getAttribute(`nonce`);function o(e){return Promise.all(e.map(e=>Promise.resolve(e).then(e=>({status:`fulfilled`,value:e}),e=>({status:`rejected`,reason:e}))))}r=o(t.map(t=>{if(t=v(t,n),t in y)return;y[t]=!0;let r=t.endsWith(`.css`),i=r?`[rel="stylesheet"]`:``;if(n)for(let n=e.length-1;n>=0;n--){let i=e[n];if(i.href===t&&(!r||i.rel===`stylesheet`))return}else if(document.querySelector(`link[href="${t}"]${i}`))return;let o=document.createElement(`link`);if(o.rel=r?`stylesheet`:_,r||(o.as=`script`),o.crossOrigin=``,o.href=t,a&&o.setAttribute(`nonce`,a),document.head.appendChild(o),r)return new Promise((e,n)=>{o.addEventListener(`load`,e),o.addEventListener(`error`,()=>n(Error(`Unable to preload CSS for ${t}`)))})}))}function i(e){let t=new Event(`vite:preloadError`,{cancelable:!0});if(t.payload=e,window.dispatchEvent(t),!t.defaultPrevented)throw e}return r.then(t=>{for(let e of t||[])e.status===`rejected`&&i(e.reason);return e().catch(i)})},x=c(u(),1),ee=/^(?:[a-z][a-z0-9+.-]*:|[\\/]{2})/i,S=/^[\\/]{2}/;function C(e,t){return t+e.replace(/\\/g,`/`)}var te=`popstate`;function ne(e){return typeof e==`object`&&!!e&&`pathname`in e&&`search`in e&&`hash`in e&&`state`in e&&`key`in e}function re(e={}){function t(e,t){let n=t.state?.masked,{pathname:r,search:i,hash:a}=n||e.location;return se(``,{pathname:r,search:i,hash:a},t.state&&t.state.usr||null,t.state&&t.state.key||`default`,n?{pathname:e.location.pathname,search:e.location.search,hash:e.location.hash}:void 0)}function n(e,t){return typeof t==`string`?t:ce(t)}return ue(t,n,null,e)}function w(e,t){if(e===!1||e==null)throw Error(t)}function ie(e,t){if(!e){typeof console<`u`&&console.warn(t);try{throw Error(t)}catch{}}}function ae(){return Math.random().toString(36).substring(2,10)}function oe(e,t){return{usr:e.state,key:e.key,idx:t,masked:e.mask?{pathname:e.pathname,search:e.search,hash:e.hash}:void 0}}function se(e,t,n=null,r,i){return{pathname:typeof e==`string`?e:e.pathname,search:``,hash:``,...typeof t==`string`?le(t):t,state:n,key:t&&t.key||r||ae(),mask:i}}function ce({pathname:e=`/`,search:t=``,hash:n=``}){return t&&t!==`?`&&(e+=t.charAt(0)===`?`?t:`?`+t),n&&n!==`#`&&(e+=n.charAt(0)===`#`?n:`#`+n),e}function le(e){let t={};if(e){let n=e.indexOf(`#`);n>=0&&(t.hash=e.substring(n),e=e.substring(0,n));let r=e.indexOf(`?`);r>=0&&(t.search=e.substring(r),e=e.substring(0,r)),e&&(t.pathname=e)}return t}function ue(e,t,n,r={}){let{window:i=document.defaultView,v5Compat:a=!1}=r,o=i.history,s=`POP`,c=null,l=u();l??(l=0,o.replaceState({...o.state,idx:l},``));function u(){return(o.state||{idx:null}).idx}function d(){s=`POP`;let e=u(),t=e==null?null:e-l;l=e,c&&c({action:s,location:h.location,delta:t})}function f(e,t){s=`PUSH`;let r=ne(e)?e:se(h.location,e,t);n&&n(r,e),l=u()+1;let d=oe(r,l),f=h.createHref(r.mask||r);try{o.pushState(d,``,f)}catch(e){if(e instanceof DOMException&&e.name===`DataCloneError`)throw e;i.location.assign(f)}a&&c&&c({action:s,location:h.location,delta:1})}function p(e,t){s=`REPLACE`;let r=ne(e)?e:se(h.location,e,t);n&&n(r,e),l=u();let i=oe(r,l),d=h.createHref(r.mask||r);o.replaceState(i,``,d),a&&c&&c({action:s,location:h.location,delta:0})}function m(e){return T(i,e)}let h={get action(){return s},get location(){return e(i,o)},listen(e){if(c)throw Error(`A history only accepts one active listener`);return i.addEventListener(te,d),c=e,()=>{i.removeEventListener(te,d),c=null}},createHref(e){return t(i,e)},createURL:m,encodeLocation(e){let t=m(e);return{pathname:t.pathname,search:t.search,hash:t.hash}},push:f,replace:p,go(e){return o.go(e)}};return h}function T(e,t,n=!1){let r=`http://localhost`;e&&(r=e.location.origin===`null`?e.location.href:e.location.origin),w(r,`No window.location.(origin|href) available to create URL`);let i=typeof t==`string`?t:ce(t);return i=i.replace(/ $/,`%20`),!n&&S.test(i)&&(i=r+i),new URL(i,r)}function E(e,t,n=`/`){return de(e,t,n,!1)}function de(e,t,n,r,i){let a=ke((typeof t==`string`?le(t):t).pathname||`/`,n);if(a==null)return null;let o=i??pe(e),s=null,c=Oe(a);for(let e=0;s==null&&e<o.length;++e)s=we(o[e],c,r);return s}function fe(e,t){let{route:n,pathname:r,params:i}=e;return{id:n.id,pathname:r,params:i,data:t[n.id],loaderData:t[n.id],handle:n.handle}}function pe(e){let t=me(e);return O(t),t}function me(e,t=[],n=[],r=``,i=!1){let a=(e,a,o=i,s)=>{let c={relativePath:s===void 0?e.path||``:s,caseSensitive:e.caseSensitive===!0,childrenIndex:a,route:e};if(c.relativePath.startsWith(`/`)){if(!c.relativePath.startsWith(r)&&o)return;w(c.relativePath.startsWith(r),`Absolute route path "${c.relativePath}" nested under path "${r}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`),c.relativePath=c.relativePath.slice(r.length)}let l=Le([r,c.relativePath]),u=n.concat(c);e.children&&e.children.length>0&&(w(e.index!==!0,`Index routes must not have child routes. Please remove all child routes from route path "${l}".`),me(e.children,t,u,l,o)),!(e.path==null&&!e.index)&&t.push({path:l,score:Se(l,e.index),routesMeta:u.map((e,t)=>{let[n,r]=De(e.relativePath,e.caseSensitive,t===u.length-1);return{...e,matcher:n,compiledParams:r}})})};return e.forEach((e,t)=>{if(e.path===``||!e.path?.includes(`?`))a(e,t);else for(let n of D(e.path))a(e,t,!0,n)}),t}function D(e){let t=e.split(`/`);if(t.length===0)return[];let[n,...r]=t,i=n.endsWith(`?`),a=n.replace(/\?$/,``);if(r.length===0)return i?[a,``]:[a];let o=D(r.join(`/`)),s=[];return s.push(...o.map(e=>e===``?a:[a,e].join(`/`))),i&&s.push(...o),s.map(t=>e.startsWith(`/`)&&t===``?`/`:t)}function O(e){e.sort((e,t)=>e.score===t.score?Ce(e.routesMeta.map(e=>e.childrenIndex),t.routesMeta.map(e=>e.childrenIndex)):t.score-e.score)}var he=/^:[\w-]+$/,ge=3,_e=2,ve=1,ye=10,be=-2,xe=e=>e===`*`;function Se(e,t){let n=e.split(`/`),r=n.length;return n.some(xe)&&(r+=be),t&&(r+=_e),n.filter(e=>!xe(e)).reduce((e,t)=>e+(he.test(t)?ge:t===``?ve:ye),r)}function Ce(e,t){return e.length===t.length&&e.slice(0,-1).every((e,n)=>e===t[n])?e[e.length-1]-t[t.length-1]:0}function we(e,t,n=!1){let{routesMeta:r}=e,i={},a=`/`,o=[];for(let e=0;e<r.length;++e){let s=r[e],c=e===r.length-1,l=a===`/`?t:t.slice(a.length)||`/`,u={path:s.relativePath,caseSensitive:s.caseSensitive,end:c},d=s.matcher&&s.compiledParams?Ee(u,l,s.matcher,s.compiledParams):Te(u,l),f=s.route;if(!d&&c&&n&&!r[r.length-1].route.index&&(d=Te({path:s.relativePath,caseSensitive:s.caseSensitive,end:!1},l)),!d)return null;Object.assign(i,d.params),o.push({params:i,pathname:Le([a,d.pathname]),pathnameBase:ze(Le([a,d.pathnameBase])),route:f}),d.pathnameBase!==`/`&&(a=Le([a,d.pathnameBase]))}return o}function Te(e,t){typeof e==`string`&&(e={path:e,caseSensitive:!1,end:!0});let[n,r]=De(e.path,e.caseSensitive,e.end);return Ee(e,t,n,r)}function Ee(e,t,n,r){let i=t.match(n);if(!i)return null;let a=i[0],o=a.replace(/(.)\/+$/,`$1`),s=i.slice(1);return{params:r.reduce((e,{paramName:t,isOptional:n},r)=>{if(t===`*`){let e=s[r]||``;o=a.slice(0,a.length-e.length).replace(/(.)\/+$/,`$1`)}let i=s[r];return n&&!i?e[t]=void 0:e[t]=(i||``).replace(/%2F/g,`/`),e},{}),pathname:a,pathnameBase:o,pattern:e}}function De(e,t=!1,n=!0){ie(e===`*`||!e.endsWith(`*`)||e.endsWith(`/*`),`Route path "${e}" will be treated as if it were "${e.replace(/\*$/,`/*`)}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${e.replace(/\*$/,`/*`)}".`);let r=[],i=`^`+e.replace(/\/*\*?$/,``).replace(/^\/*/,`/`).replace(/[\\.*+^${}|()[\]]/g,`\\$&`).replace(/\/:([\w-]+)(\?)?/g,(e,t,n,i,a)=>{if(r.push({paramName:t,isOptional:n!=null}),n){let t=a.charAt(i+e.length);return t&&t!==`/`?`/([^\\/]*)`:`(?:/([^\\/]*))?`}return`/([^\\/]+)`}).replace(/\/([\w-]+)\?(\/|$)/g,`(/$1)?$2`);return e.endsWith(`*`)?(r.push({paramName:`*`}),i+=e===`*`||e===`/*`?`(.*)$`:`(?:\\/(.+)|\\/*)$`):n?i+=`\\/*$`:e!==``&&e!==`/`&&(i+=`(?:(?=\\/|$))`),[new RegExp(i,t?void 0:`i`),r]}function Oe(e){try{return e.split(`/`).map(e=>decodeURIComponent(e).replace(/\//g,`%2F`)).join(`/`)}catch(t){return ie(!1,`The URL path "${e}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${t}).`),e}}function ke(e,t){if(t===`/`)return e;if(!e.toLowerCase().startsWith(t.toLowerCase()))return null;let n=t.endsWith(`/`)?t.length-1:t.length,r=e.charAt(n);return r&&r!==`/`?null:e.slice(n)||`/`}function Ae(e,t=`/`){let{pathname:n,search:r=``,hash:i=``}=typeof e==`string`?le(e):e,a;return n?(n=Ie(n),a=n.startsWith(`/`)?je(n.substring(1),`/`):je(n,t)):a=t,{pathname:a,search:Be(r),hash:Ve(i)}}function je(e,t){let n=Re(t).split(`/`);return e.split(`/`).forEach(e=>{e===`..`?n.length>1&&n.pop():e!==`.`&&n.push(e)}),n.length>1?n.join(`/`):`/`}function Me(e,t,n,r){return`Cannot include a '${e}' character in a manually specified \`to.${t}\` field [${JSON.stringify(r)}].  Please separate it out to the \`to.${n}\` field. Alternatively you may provide the full path as a string in <Link to="..."> and the router will parse it for you.`}function Ne(e){return e.filter((e,t)=>t===0||e.route.path&&e.route.path.length>0)}function Pe(e){let t=Ne(e);return t.map((e,n)=>n===t.length-1?e.pathname:e.pathnameBase)}function Fe(e,t,n,r=!1){let i;typeof e==`string`?i=le(e):(i={...e},w(!i.pathname||!i.pathname.includes(`?`),Me(`?`,`pathname`,`search`,i)),w(!i.pathname||!i.pathname.includes(`#`),Me(`#`,`pathname`,`hash`,i)),w(!i.search||!i.search.includes(`#`),Me(`#`,`search`,`hash`,i)));let a=e===``||i.pathname===``,o=a?`/`:i.pathname,s;if(o==null)s=n;else{let e=t.length-1;if(!r&&o.startsWith(`..`)){let t=o.split(`/`);for(;t[0]===`..`;)t.shift(),--e;i.pathname=t.join(`/`)}s=e>=0?t[e]:`/`}let c=Ae(i,s),l=o&&o!==`/`&&o.endsWith(`/`),u=(a||o===`.`)&&n.endsWith(`/`);return!c.pathname.endsWith(`/`)&&(l||u)&&(c.pathname+=`/`),c}var Ie=e=>e.replace(/[\\/]{2,}/g,`/`),Le=e=>Ie(e.join(`/`)),Re=e=>e.replace(/\/+$/,``),ze=e=>Re(e).replace(/^\/*/,`/`),Be=e=>!e||e===`?`?``:e.startsWith(`?`)?e:`?`+e,Ve=e=>!e||e===`#`?``:e.startsWith(`#`)?e:`#`+e,He=class{constructor(e,t,n,r=!1){this.status=e,this.statusText=t||``,this.internal=r,n instanceof Error?(this.data=n.toString(),this.error=n):this.data=n}};function Ue(e){return e!=null&&typeof e.status==`number`&&typeof e.statusText==`string`&&typeof e.internal==`boolean`&&`data`in e}function We(e){return Le(e.map(e=>e.route.path).filter(Boolean))||`/`}var Ge=typeof window<`u`&&window.document!==void 0&&window.document.createElement!==void 0;function Ke(e,t){let n=e;if(typeof n!=`string`||!ee.test(n))return{absoluteURL:void 0,isExternal:!1,to:n};let r=n,i=!1;if(Ge)try{let e=new URL(window.location.href),r=S.test(n)?new URL(C(n,e.protocol)):new URL(n),a=ke(r.pathname,t);r.origin===e.origin&&a!=null?n=a+r.search+r.hash:i=!0}catch{ie(!1,`<Link to="${n}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`)}return{absoluteURL:r,isExternal:i,to:n}}Object.getOwnPropertyNames(Object.prototype).sort().join(`\0`);var qe=[`POST`,`PUT`,`PATCH`,`DELETE`];new Set(qe);var Je=[`GET`,...qe];new Set(Je);var Ye=[`about:`,`blob:`,`chrome:`,`chrome-untrusted:`,`content:`,`data:`,`devtools:`,`file:`,`filesystem:`,`javascript:`];function Xe(e){try{return Ye.includes(new URL(e).protocol)}catch{return!1}}var Ze=x.createContext(null);Ze.displayName=`DataRouter`;var Qe=x.createContext(null);Qe.displayName=`DataRouterState`;var $e=x.createContext(!1);function et(){return x.useContext($e)}var tt=x.createContext({isTransitioning:!1});tt.displayName=`ViewTransition`;var nt=x.createContext(new Map);nt.displayName=`Fetchers`;var rt=x.createContext(null);rt.displayName=`Await`;var it=x.createContext(null);it.displayName=`Navigation`;var at=x.createContext(null);at.displayName=`Location`;var ot=x.createContext({outlet:null,matches:[],isDataRoute:!1});ot.displayName=`Route`;var st=x.createContext(null);st.displayName=`RouteError`;var ct=`REACT_ROUTER_ERROR`,lt=`REDIRECT`,ut=`ROUTE_ERROR_RESPONSE`;function dt(e){if(e.startsWith(`${ct}:${lt}:{`))try{let t=JSON.parse(e.slice(28));if(typeof t==`object`&&t&&typeof t.status==`number`&&typeof t.statusText==`string`&&typeof t.location==`string`&&typeof t.reloadDocument==`boolean`&&typeof t.replace==`boolean`)return t}catch{}}function ft(e){if(e.startsWith(`${ct}:${ut}:{`))try{let t=JSON.parse(e.slice(40));if(typeof t==`object`&&t&&typeof t.status==`number`&&typeof t.statusText==`string`)return new He(t.status,t.statusText,t.data)}catch{}}function pt(e,{relative:t}={}){w(mt(),`useHref() may be used only in the context of a <Router> component.`);let{basename:n,navigator:r}=x.useContext(it),{hash:i,pathname:a,search:o}=yt(e,{relative:t}),s=a;return n!==`/`&&(s=a===`/`?n:Le([n,a])),r.createHref({pathname:s,search:o,hash:i})}function mt(){return x.useContext(at)!=null}function k(){return w(mt(),`useLocation() may be used only in the context of a <Router> component.`),x.useContext(at).location}var ht=`You should call navigate() in a React.useEffect(), not when your component is first rendered.`;function gt(e){x.useContext(it).static||x.useLayoutEffect(e)}function _t(){let{isDataRoute:e}=x.useContext(ot);return e?Rt():vt()}function vt(){w(mt(),`useNavigate() may be used only in the context of a <Router> component.`);let e=x.useContext(Ze),{basename:t,navigator:n}=x.useContext(it),{matches:r}=x.useContext(ot),{pathname:i}=k(),a=JSON.stringify(Pe(r)),o=x.useRef(!1);return gt(()=>{o.current=!0}),x.useCallback((r,s={})=>{if(ie(o.current,ht),!o.current)return;if(typeof r==`number`){n.go(r);return}let c=Fe(r,JSON.parse(a),i,s.relative===`path`);e==null&&t!==`/`&&(c.pathname=c.pathname===`/`?t:Le([t,c.pathname])),(s.replace?n.replace:n.push)(c,s.state,s)},[t,n,a,i,e])}x.createContext(null);function yt(e,{relative:t}={}){let{matches:n}=x.useContext(ot),{pathname:r}=k(),i=JSON.stringify(Pe(n));return x.useMemo(()=>Fe(e,JSON.parse(i),r,t===`path`),[e,i,r,t])}function bt(e,t){return xt(e,t)}function xt(e,t,n){w(mt(),`useRoutes() may be used only in the context of a <Router> component.`);let{navigator:r}=x.useContext(it),{matches:i}=x.useContext(ot),a=i[i.length-1],o=a?a.params:{},s=a?a.pathname:`/`,c=a?a.pathnameBase:`/`,l=a&&a.route;{let e=l&&l.path||``;Bt(s,!l||e.endsWith(`*`)||e.endsWith(`*?`),`You rendered descendant <Routes> (or called \`useRoutes()\`) at "${s}" (under <Route path="${e}">) but the parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
 
-Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}/*`}">.`)}let u=k(),d;if(t){let e=typeof t==`string`?le(t):t;w(c===`/`||e.pathname?.startsWith(c),`When overriding the location using \`<Routes location>\` or \`useRoutes(routes, location)\`, the location pathname must begin with the portion of the URL pathname that was matched by all parent routes. The current pathname base is "${c}" but pathname "${e.pathname}" was given in the \`location\` prop.`),d=e}else d=u;let f=d.pathname||`/`,p=f;if(c!==`/`){let e=c.replace(/^\//,``).split(`/`);p=`/`+f.replace(/^\//,``).split(`/`).slice(e.length).join(`/`)}let m=n&&n.state.matches.length?n.state.matches.map(e=>Object.assign(e,{route:n.manifest[e.route.id]||e.route})):E(e,{pathname:p});ie(l||m!=null,`No routes matched location "${d.pathname}${d.search}${d.hash}" `),ie(m==null||m[m.length-1].route.element!==void 0||m[m.length-1].route.Component!==void 0||m[m.length-1].route.lazy!==void 0,`Matched leaf route at location "${d.pathname}${d.search}${d.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`);let h=Ot(m&&m.map(e=>Object.assign({},e,{params:Object.assign({},o,e.params),pathname:Le([c,r.encodeLocation?r.encodeLocation(e.pathname.replace(/%/g,`%25`).replace(/\?/g,`%3F`).replace(/#/g,`%23`)).pathname:e.pathname]),pathnameBase:e.pathnameBase===`/`?c:Le([c,r.encodeLocation?r.encodeLocation(e.pathnameBase.replace(/%/g,`%25`).replace(/\?/g,`%3F`).replace(/#/g,`%23`)).pathname:e.pathnameBase])})),i,n);return t&&h?x.createElement(at.Provider,{value:{location:{pathname:`/`,search:``,hash:``,state:null,key:`default`,mask:void 0,...d},navigationType:`POP`}},h):h}function St(){let e=Lt(),t=Ue(e)?`${e.status} ${e.statusText}`:e instanceof Error?e.message:JSON.stringify(e),n=e instanceof Error?e.stack:null,r=`rgba(200,200,200, 0.5)`,i={padding:`0.5rem`,backgroundColor:r},a={padding:`2px 4px`,backgroundColor:r},o=null;return console.error(`Error handled by React Router default ErrorBoundary:`,e),o=x.createElement(x.Fragment,null,x.createElement(`p`,null,`💿 Hey developer 👋`),x.createElement(`p`,null,`You can provide a way better UX than this when your app throws errors by providing your own `,x.createElement(`code`,{style:a},`ErrorBoundary`),` or`,` `,x.createElement(`code`,{style:a},`errorElement`),` prop on your route.`)),x.createElement(x.Fragment,null,x.createElement(`h2`,null,`Unexpected Application Error!`),x.createElement(`h3`,{style:{fontStyle:`italic`}},t),n?x.createElement(`pre`,{style:i},n):null,o)}var Ct=x.createElement(St,null),wt=class extends x.Component{constructor(e){super(e),this.state={location:e.location,revalidation:e.revalidation,error:e.error}}static getDerivedStateFromError(e){return{error:e}}static getDerivedStateFromProps(e,t){return t.location!==e.location||t.revalidation!==`idle`&&e.revalidation===`idle`?{error:e.error,location:e.location,revalidation:e.revalidation}:{error:e.error===void 0?t.error:e.error,location:t.location,revalidation:e.revalidation||t.revalidation}}componentDidCatch(e,t){this.props.onError?this.props.onError(e,t):console.error(`React Router caught the following error during render`,e)}render(){let e=this.state.error;if(this.context&&typeof e==`object`&&e&&`digest`in e&&typeof e.digest==`string`){let t=ft(e.digest);t&&(e=t)}let t=e===void 0?this.props.children:x.createElement(ot.Provider,{value:this.props.routeContext},x.createElement(st.Provider,{value:e,children:this.props.component}));return this.context?x.createElement(Et,{error:e},t):t}};wt.contextType=$e;var Tt=new WeakMap;function Et({children:e,error:t}){let{basename:n}=x.useContext(it);if(typeof t==`object`&&t&&`digest`in t&&typeof t.digest==`string`){let e=dt(t.digest);if(e){let r=Tt.get(t);if(r)throw r;let i=Ke(e.location,n),a=i.absoluteURL||i.to;if(Xe(a))throw Error(`Invalid redirect location`);if(Ge&&!Tt.get(t))if(i.isExternal||e.reloadDocument)window.location.href=a;else{let n=Promise.resolve().then(()=>window.__reactRouterDataRouter.navigate(i.to,{replace:e.replace}));throw Tt.set(t,n),n}return x.createElement(`meta`,{httpEquiv:`refresh`,content:`0;url=${a}`})}}return e}function Dt({routeContext:e,match:t,children:n}){let r=x.useContext(Ze);return r&&r.static&&r.staticContext&&(t.route.errorElement||t.route.ErrorBoundary)&&(r.staticContext._deepestRenderedBoundaryId=t.route.id),x.createElement(ot.Provider,{value:e},n)}function Ot(e,t=[],n){let r=n?.state;if(e==null){if(!r)return null;if(r.errors)e=r.matches;else if(t.length===0&&!r.initialized&&r.matches.length>0)e=r.matches;else return null}let i=e,a=r?.errors;if(a!=null){let e=i.findIndex(e=>e.route.id&&a?.[e.route.id]!==void 0);w(e>=0,`Could not find a matching route for errors on route IDs: ${Object.keys(a).join(`,`)}`),i=i.slice(0,Math.min(i.length,e+1))}let o=!1,s=-1;if(n&&r){o=r.renderFallback;for(let e=0;e<i.length;e++){let t=i[e];if((t.route.HydrateFallback||t.route.hydrateFallbackElement)&&(s=e),t.route.id){let{loaderData:e,errors:a}=r,c=t.route.loader&&!e.hasOwnProperty(t.route.id)&&(!a||a[t.route.id]===void 0);if(t.route.lazy||c){n.isStatic&&(o=!0),i=s>=0?i.slice(0,s+1):[i[0]];break}}}}let c=n?.onError,l=r&&c?(e,t)=>{c(e,{location:r.location,params:r.matches?.[0]?.params??{},pattern:We(r.matches),errorInfo:t})}:void 0;return i.reduceRight((e,n,c)=>{let u,d=!1,f=null,p=null;r&&(u=a&&n.route.id?a[n.route.id]:void 0,f=n.route.errorElement||Ct,o&&(s<0&&c===0?(Bt(`route-fallback`,!1,"No `HydrateFallback` element provided to render during initial hydration"),d=!0,p=null):s===c&&(d=!0,p=n.route.hydrateFallbackElement||null)));let m=t.concat(i.slice(0,c+1)),h=()=>{let t;return t=u?f:d?p:n.route.Component?x.createElement(n.route.Component,null):n.route.element?n.route.element:e,x.createElement(Dt,{match:n,routeContext:{outlet:e,matches:m,isDataRoute:r!=null},children:t})};return r&&(n.route.ErrorBoundary||n.route.errorElement||c===0)?x.createElement(wt,{location:r.location,revalidation:r.revalidation,component:f,error:u,children:h(),routeContext:{outlet:null,matches:m,isDataRoute:!0},onError:l}):h()},null)}function kt(e){return`${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function At(e){let t=x.useContext(Ze);return w(t,kt(e)),t}function jt(e){let t=x.useContext(Qe);return w(t,kt(e)),t}function Mt(e){let t=x.useContext(ot);return w(t,kt(e)),t}function Nt(e){let t=Mt(e),n=t.matches[t.matches.length-1];return w(n.route.id,`${e} can only be used on routes that contain a unique "id"`),n.route.id}function Pt(){return Nt(`useRouteId`)}function Ft(){let e=jt(`useNavigation`);return x.useMemo(()=>{let{matches:t,historyAction:n,...r}=e.navigation;return r},[e.navigation])}function It(){let{matches:e,loaderData:t}=jt(`useMatches`);return x.useMemo(()=>e.map(e=>fe(e,t)),[e,t])}function Lt(){let e=x.useContext(st),t=jt(`useRouteError`),n=Nt(`useRouteError`);return e===void 0?t.errors?.[n]:e}function Rt(){let{router:e}=At(`useNavigate`),t=Nt(`useNavigate`),n=x.useRef(!1);return gt(()=>{n.current=!0}),x.useCallback(async(r,i={})=>{ie(n.current,ht),n.current&&(typeof r==`number`?await e.navigate(r):await e.navigate(r,{fromRouteId:t,...i}))},[e,t])}var zt={};function Bt(e,t,n){!t&&!zt[e]&&(zt[e]=!0,ie(!1,n))}x.memo(Vt);function Vt({routes:e,manifest:t,future:n,state:r,isStatic:i,onError:a}){return xt(e,void 0,{manifest:t,state:r,isStatic:i,onError:a,future:n})}function Ht(e){w(!1,`A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.`)}function Ut({basename:e=`/`,children:t=null,location:n,navigationType:r=`POP`,navigator:i,static:a=!1,useTransitions:o}){w(!mt(),`You cannot render a <Router> inside another <Router>. You should never have more than one in your app.`);let s=e.replace(/^\/*/,`/`),c=x.useMemo(()=>({basename:s,navigator:i,static:a,useTransitions:o,future:{}}),[s,i,a,o]);typeof n==`string`&&(n=le(n));let{pathname:l=`/`,search:u=``,hash:d=``,state:f=null,key:p=`default`,mask:m}=n,h=x.useMemo(()=>{let e=ke(l,s);return e==null?null:{location:{pathname:e,search:u,hash:d,state:f,key:p,mask:m},navigationType:r}},[s,l,u,d,f,p,r,m]);return ie(h!=null,`<Router basename="${s}"> is not able to match the URL "${l}${u}${d}" because it does not start with the basename, so the <Router> won't render anything.`),h==null?null:x.createElement(it.Provider,{value:c},x.createElement(at.Provider,{children:t,value:h}))}function Wt({children:e,location:t}){return bt(Gt(e),t)}x.Component;function Gt(e,t=[]){let n=[];return x.Children.forEach(e,(e,r)=>{if(!x.isValidElement(e))return;let i=[...t,r];if(e.type===x.Fragment){n.push.apply(n,Gt(e.props.children,i));return}w(e.type===Ht,`[${typeof e.type==`string`?e.type:e.type.name}] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`),w(!e.props.index||!e.props.children,`An index route cannot have child routes.`);let a={id:e.props.id||i.join(`-`),caseSensitive:e.props.caseSensitive,element:e.props.element,Component:e.props.Component,index:e.props.index,path:e.props.path,middleware:e.props.middleware,loader:e.props.loader,action:e.props.action,hydrateFallbackElement:e.props.hydrateFallbackElement,HydrateFallback:e.props.HydrateFallback,errorElement:e.props.errorElement,ErrorBoundary:e.props.ErrorBoundary,hasErrorBoundary:e.props.hasErrorBoundary===!0||e.props.ErrorBoundary!=null||e.props.errorElement!=null,shouldRevalidate:e.props.shouldRevalidate,handle:e.props.handle,lazy:e.props.lazy};e.props.children&&(a.children=Gt(e.props.children,i)),n.push(a)}),n}var Kt=`get`,qt=`application/x-www-form-urlencoded`;function Jt(e){return typeof HTMLElement<`u`&&e instanceof HTMLElement}function Yt(e){return Jt(e)&&e.tagName.toLowerCase()===`button`}function Xt(e){return Jt(e)&&e.tagName.toLowerCase()===`form`}function Zt(e){return Jt(e)&&e.tagName.toLowerCase()===`input`}function Qt(e){return!!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)}function $t(e,t){return e.button===0&&(!t||t===`_self`)&&!Qt(e)}var en=null;function tn(){if(en===null)try{new FormData(document.createElement(`form`),0),en=!1}catch{en=!0}return en}var nn=new Set([`application/x-www-form-urlencoded`,`multipart/form-data`,`text/plain`]);function rn(e){return e!=null&&!nn.has(e)?(ie(!1,`"${e}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${qt}"`),null):e}function an(e,t){let n,r,i,a,o;if(Xt(e)){let o=e.getAttribute(`action`);r=o?ke(o,t):null,n=e.getAttribute(`method`)||Kt,i=rn(e.getAttribute(`enctype`))||qt,a=new FormData(e)}else if(Yt(e)||Zt(e)&&(e.type===`submit`||e.type===`image`)){let o=e.form;if(o==null)throw Error(`Cannot submit a <button> or <input type="submit"> without a <form>`);let s=e.getAttribute(`formaction`)||o.getAttribute(`action`);if(r=s?ke(s,t):null,n=e.getAttribute(`formmethod`)||o.getAttribute(`method`)||Kt,i=rn(e.getAttribute(`formenctype`))||rn(o.getAttribute(`enctype`))||qt,a=new FormData(o,e),!tn()){let{name:t,type:n,value:r}=e;if(n===`image`){let e=t?`${t}.`:``;a.append(`${e}x`,`0`),a.append(`${e}y`,`0`)}else t&&a.append(t,r)}}else if(Jt(e))throw Error(`Cannot submit element that is not <form>, <button>, or <input type="submit|image">`);else n=Kt,r=null,i=qt,o=e;return a&&i===`text/plain`&&(o=a,a=void 0),{action:r,method:n.toLowerCase(),encType:i,formData:a,body:o}}Object.getOwnPropertyNames(Object.prototype).sort().join(`\0`);var on={"&":`\\u0026`,">":`\\u003e`,"<":`\\u003c`,"\u2028":`\\u2028`,"\u2029":`\\u2029`},sn=/[&><\u2028\u2029]/g;function cn(e){return e.replace(sn,e=>on[e])}function ln(e,t){if(e===!1||e==null)throw Error(t)}function un(e,t,n,r){let i=typeof e==`string`?new URL(e,typeof window>`u`?`server://singlefetch/`:window.location.origin):e;return n?i.pathname.endsWith(`/`)?i.pathname=`${i.pathname}_.${r}`:i.pathname=`${i.pathname}.${r}`:i.pathname===`/`?i.pathname=`_root.${r}`:t&&ke(i.pathname,t)===`/`?i.pathname=`${Re(t)}/_root.${r}`:i.pathname=`${Re(i.pathname)}.${r}`,i}async function dn(e,t){if(e.id in t)return t[e.id];try{let n=await b(()=>import(e.module),[]);return t[e.id]=n,n}catch(t){return console.error(`Error loading route module \`${e.module}\`, reloading page...`),console.error(t),window.__reactRouterContext&&window.__reactRouterContext.isSpaMode,window.location.reload(),new Promise(()=>{})}}function fn(e){return e!=null&&typeof e.page==`string`}function pn(e){return e==null?!1:e.href==null?e.rel===`preload`&&typeof e.imageSrcSet==`string`&&typeof e.imageSizes==`string`:typeof e.rel==`string`&&typeof e.href==`string`}async function mn(e,t,n){return yn((await Promise.all(e.map(async e=>{let r=t.routes[e.route.id];if(r){let e=await dn(r,n);return e.links?e.links():[]}return[]}))).flat(1).filter(pn).filter(e=>e.rel===`stylesheet`||e.rel===`preload`).map(e=>e.rel===`stylesheet`?{...e,rel:`prefetch`,as:`style`}:{...e,rel:`prefetch`}))}function hn(e,t,n,r,i,a){let o=(e,t)=>n[t]?e.route.id!==n[t].route.id:!0,s=(e,t)=>n[t].pathname!==e.pathname||n[t].route.path?.endsWith(`*`)&&n[t].params[`*`]!==e.params[`*`];return a===`assets`?t.filter((e,t)=>o(e,t)||s(e,t)):a===`data`?t.filter((t,a)=>{let c=r.routes[t.route.id];if(!c||!c.hasLoader)return!1;if(o(t,a)||s(t,a))return!0;if(t.route.shouldRevalidate){let r=t.route.shouldRevalidate({currentUrl:new URL(i.pathname+i.search+i.hash,window.origin),currentParams:n[0]?.params||{},nextUrl:new URL(e,window.origin),nextParams:t.params,defaultShouldRevalidate:!0});if(typeof r==`boolean`)return r}return!0}):[]}function gn(e,t,{includeHydrateFallback:n}={}){return _n(e.map(e=>{let r=t.routes[e.route.id];if(!r)return[];let i=[r.module];return r.clientActionModule&&(i=i.concat(r.clientActionModule)),r.clientLoaderModule&&(i=i.concat(r.clientLoaderModule)),n&&r.hydrateFallbackModule&&(i=i.concat(r.hydrateFallbackModule)),r.imports&&(i=i.concat(r.imports)),i}).flat(1))}function _n(e){return[...new Set(e)]}function vn(e){let t={},n=Object.keys(e).sort();for(let r of n)t[r]=e[r];return t}function yn(e,t){let n=new Set,r=new Set(t);return e.reduce((e,i)=>{if(t&&!fn(i)&&i.as===`script`&&i.href&&r.has(i.href))return e;let a=JSON.stringify(vn(i));return n.has(a)||(n.add(a),e.push({key:a,link:i})),e},[])}function bn(){let e=x.useContext(Ze);return ln(e,`You must render this element inside a <DataRouterContext.Provider> element`),e}function xn(){let e=x.useContext(Qe);return ln(e,`You must render this element inside a <DataRouterStateContext.Provider> element`),e}var Sn=x.createContext(void 0);Sn.displayName=`FrameworkContext`;function Cn(){let e=x.useContext(Sn);return ln(e,`You must render this element inside a <HydratedRouter> element`),e}function wn(e,t){let n=x.useContext(Sn),[r,i]=x.useState(!1),[a,o]=x.useState(!1),{onFocus:s,onBlur:c,onMouseEnter:l,onMouseLeave:u,onTouchStart:d}=t,f=x.useRef(null);x.useEffect(()=>{if(e===`render`&&o(!0),e===`viewport`){let e=new IntersectionObserver(e=>{e.forEach(e=>{o(e.isIntersecting)})},{threshold:.5});return f.current&&e.observe(f.current),()=>{e.disconnect()}}},[e]),x.useEffect(()=>{if(r){let e=setTimeout(()=>{o(!0)},100);return()=>{clearTimeout(e)}}},[r]);let p=()=>{i(!0)},m=()=>{i(!1),o(!1)};return n?e===`intent`?[a,f,{onFocus:Tn(s,p),onBlur:Tn(c,m),onMouseEnter:Tn(l,p),onMouseLeave:Tn(u,m),onTouchStart:Tn(d,p)}]:[a,f,{}]:[!1,f,{}]}function Tn(e,t){return n=>{e&&e(n),n.defaultPrevented||t(n)}}function En({page:e,...t}){let n=et(),{nonce:r}=Cn(),{router:i}=bn(),a=x.useMemo(()=>E(i.routes,e,i.basename),[i.routes,e,i.basename]);return a?(t.nonce==null&&r&&(t={...t,nonce:r}),n?x.createElement(On,{page:e,matches:a,...t}):x.createElement(kn,{page:e,matches:a,...t})):null}function Dn(e){let{manifest:t,routeModules:n}=Cn(),[r,i]=x.useState([]);return x.useEffect(()=>{let r=!1;return mn(e,t,n).then(e=>{r||i(e)}),()=>{r=!0}},[e,t,n]),r}function On({page:e,matches:t,...n}){let r=k(),{future:i}=Cn(),{basename:a}=bn(),o=x.useMemo(()=>{if(e===r.pathname+r.search+r.hash)return[];let n=un(e,a,i.v8_trailingSlashAwareDataRequests,`rsc`),o=!1,s=[];for(let e of t)typeof e.route.shouldRevalidate==`function`?o=!0:s.push(e.route.id);return o&&s.length>0&&n.searchParams.set(`_routes`,s.join(`,`)),[n.pathname+n.search]},[a,i.v8_trailingSlashAwareDataRequests,e,r,t]);return x.createElement(x.Fragment,null,o.map(e=>x.createElement(`link`,{key:e,rel:`prefetch`,as:`fetch`,href:e,...n})))}function kn({page:e,matches:t,...n}){let r=k(),{future:i,manifest:a,routeModules:o}=Cn(),{basename:s}=bn(),{loaderData:c,matches:l}=xn(),u=x.useMemo(()=>hn(e,t,l,a,r,`data`),[e,t,l,a,r]),d=x.useMemo(()=>hn(e,t,l,a,r,`assets`),[e,t,l,a,r]),f=x.useMemo(()=>{if(e===r.pathname+r.search+r.hash)return[];let n=new Set,l=!1;if(t.forEach(e=>{let t=a.routes[e.route.id];!t||!t.hasLoader||(!u.some(t=>t.route.id===e.route.id)&&e.route.id in c&&o[e.route.id]?.shouldRevalidate||t.hasClientLoader?l=!0:n.add(e.route.id))}),n.size===0)return[];let d=un(e,s,i.v8_trailingSlashAwareDataRequests,`data`);return l&&n.size>0&&d.searchParams.set(`_routes`,t.filter(e=>n.has(e.route.id)).map(e=>e.route.id).join(`,`)),[d.pathname+d.search]},[s,i.v8_trailingSlashAwareDataRequests,c,r,a,u,t,e,o]),p=x.useMemo(()=>gn(d,a),[d,a]),m=Dn(d);return x.createElement(x.Fragment,null,f.map(e=>x.createElement(`link`,{key:e,rel:`prefetch`,as:`fetch`,href:e,...n})),p.map(e=>x.createElement(`link`,{key:e,rel:`modulepreload`,href:e,...n})),m.map(({key:e,link:t})=>x.createElement(`link`,{key:e,nonce:n.nonce,...t,crossOrigin:t.crossOrigin??n.crossOrigin})))}function An(...e){return t=>{e.forEach(e=>{typeof e==`function`?e(t):e!=null&&(e.current=t)})}}x.Component;var jn=typeof window<`u`&&window.document!==void 0&&window.document.createElement!==void 0;try{jn&&(window.__reactRouterVersion=`7.18.0`)}catch{}function Mn({basename:e,children:t,useTransitions:n,window:r}){let i=x.useRef();i.current??=re({window:r,v5Compat:!0});let a=i.current,[o,s]=x.useState({action:a.action,location:a.location}),c=x.useCallback(e=>{n===!1?s(e):x.startTransition(()=>s(e))},[n]);return x.useLayoutEffect(()=>a.listen(c),[a,c]),x.createElement(Ut,{basename:e,children:t,location:o.location,navigationType:o.action,navigator:a,useTransitions:n})}function Nn({basename:e,children:t,history:n,useTransitions:r}){let[i,a]=x.useState({action:n.action,location:n.location}),o=x.useCallback(e=>{r===!1?a(e):x.startTransition(()=>a(e))},[r]);return x.useLayoutEffect(()=>n.listen(o),[n,o]),x.createElement(Ut,{basename:e,children:t,location:i.location,navigationType:i.action,navigator:n,useTransitions:r})}Nn.displayName=`unstable_HistoryRouter`;var Pn=x.forwardRef(function({onClick:e,discover:t=`render`,prefetch:n=`none`,relative:r,reloadDocument:i,replace:a,mask:o,state:s,target:c,to:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f,...p},m){let{basename:h,navigator:g,useTransitions:_}=x.useContext(it),v=typeof l==`string`&&ee.test(l),y=Ke(l,h);l=y.to;let b=pt(l,{relative:r}),S=k(),C=null;if(o){let e=Fe(o,[],S.mask?S.mask.pathname:`/`,!0);h!==`/`&&(e.pathname=e.pathname===`/`?h:Le([h,e.pathname])),C=g.createHref(e)}let[te,ne,re]=wn(n,p),w=Vn(l,{replace:a,mask:o,state:s,target:c,preventScrollReset:u,relative:r,viewTransition:d,defaultShouldRevalidate:f,useTransitions:_});function ie(t){e&&e(t),t.defaultPrevented||w(t)}let ae=!(y.isExternal||i),oe=x.createElement(`a`,{...p,...re,href:(ae?C:void 0)||y.absoluteURL||b,onClick:ae?ie:e,ref:An(m,ne),target:c,"data-discover":!v&&t===`render`?`true`:void 0});return te&&!v?x.createElement(x.Fragment,null,oe,x.createElement(En,{page:b})):oe});Pn.displayName=`Link`;var Fn=x.forwardRef(function({"aria-current":e=`page`,caseSensitive:t=!1,className:n=``,end:r=!1,style:i,to:a,viewTransition:o,children:s,...c},l){let u=yt(a,{relative:c.relative}),d=k(),f=x.useContext(Qe),{navigator:p,basename:m}=x.useContext(it),h=f!=null&&Zn(u)&&o===!0,g=p.encodeLocation?p.encodeLocation(u).pathname:u.pathname,_=d.pathname,v=f&&f.navigation&&f.navigation.location?f.navigation.location.pathname:null;t||(_=_.toLowerCase(),v=v?v.toLowerCase():null,g=g.toLowerCase()),v&&m&&(v=ke(v,m)||v);let y=g!==`/`&&g.endsWith(`/`)?g.length-1:g.length,b=_===g||!r&&_.startsWith(g)&&_.charAt(y)===`/`,ee=v!=null&&(v===g||!r&&v.startsWith(g)&&v.charAt(g.length)===`/`),S={isActive:b,isPending:ee,isTransitioning:h},C=b?e:void 0,te;te=typeof n==`function`?n(S):[n,b?`active`:null,ee?`pending`:null,h?`transitioning`:null].filter(Boolean).join(` `);let ne=typeof i==`function`?i(S):i;return x.createElement(Pn,{...c,"aria-current":C,className:te,ref:l,style:ne,to:a,viewTransition:o},typeof s==`function`?s(S):s)});Fn.displayName=`NavLink`;var In=x.forwardRef(({discover:e=`render`,fetcherKey:t,navigate:n,reloadDocument:r,replace:i,state:a,method:o=Kt,action:s,onSubmit:c,relative:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f,...p},m)=>{let{useTransitions:h}=x.useContext(it),g=Wn(),_=Gn(s,{relative:l}),v=o.toLowerCase()===`get`?`get`:`post`,y=typeof s==`string`&&ee.test(s);return x.createElement(`form`,{ref:m,method:v,action:_,onSubmit:r?c:e=>{if(c&&c(e),e.defaultPrevented)return;e.preventDefault();let r=e.nativeEvent.submitter,s=r?.getAttribute(`formmethod`)||o,p=()=>g(r||e.currentTarget,{fetcherKey:t,method:s,navigate:n,replace:i,state:a,relative:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f});h&&n!==!1?x.startTransition(()=>p()):p()},...p,"data-discover":!y&&e===`render`?`true`:void 0})});In.displayName=`Form`;function Ln({getKey:e,storageKey:t,...n}){let r=x.useContext(Sn),{basename:i}=x.useContext(it),a=k(),o=It();Yn({getKey:e,storageKey:t});let s=x.useMemo(()=>{if(!r||!e)return null;let t=Jn(a,o,i,e);return t===a.key?null:t},[]);if(!r||r.isSpaMode)return null;let c=((e,t)=>{if(!window.history.state||!window.history.state.key){let e=Math.random().toString(32).slice(2);window.history.replaceState({key:e},``)}try{let n=JSON.parse(sessionStorage.getItem(e)||`{}`)[t||window.history.state.key];typeof n==`number`&&window.scrollTo(0,n)}catch(t){console.error(t),sessionStorage.removeItem(e)}}).toString();return n.nonce==null&&r?.nonce&&(n.nonce=r.nonce),x.createElement(`script`,{...n,suppressHydrationWarning:!0,dangerouslySetInnerHTML:{__html:`(${c})(${cn(JSON.stringify(t||Kn))}, ${cn(JSON.stringify(s))})`}})}Ln.displayName=`ScrollRestoration`;function Rn(e){return`${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function zn(e){let t=x.useContext(Ze);return w(t,Rn(e)),t}function Bn(e){let t=x.useContext(Qe);return w(t,Rn(e)),t}function Vn(e,{target:t,replace:n,mask:r,state:i,preventScrollReset:a,relative:o,viewTransition:s,defaultShouldRevalidate:c,useTransitions:l}={}){let u=_t(),d=k(),f=yt(e,{relative:o});return x.useCallback(p=>{if($t(p,t)){p.preventDefault();let t=n===void 0?ce(d)===ce(f):n,m=()=>u(e,{replace:t,mask:r,state:i,preventScrollReset:a,relative:o,viewTransition:s,defaultShouldRevalidate:c});l?x.startTransition(()=>m()):m()}},[d,u,f,n,r,i,t,e,a,o,s,c,l])}var Hn=0,Un=()=>`__${String(++Hn)}__`;function Wn(){let{router:e}=zn(`useSubmit`),{basename:t}=x.useContext(it),n=Pt(),r=e.fetch,i=e.navigate;return x.useCallback(async(e,a={})=>{let{action:o,method:s,encType:c,formData:l,body:u}=an(e,t);a.navigate===!1?await r(a.fetcherKey||Un(),n,a.action||o,{defaultShouldRevalidate:a.defaultShouldRevalidate,preventScrollReset:a.preventScrollReset,formData:l,body:u,formMethod:a.method||s,formEncType:a.encType||c,flushSync:a.flushSync}):await i(a.action||o,{defaultShouldRevalidate:a.defaultShouldRevalidate,preventScrollReset:a.preventScrollReset,formData:l,body:u,formMethod:a.method||s,formEncType:a.encType||c,replace:a.replace,state:a.state,fromRouteId:n,flushSync:a.flushSync,viewTransition:a.viewTransition})},[r,i,t,n])}function Gn(e,{relative:t}={}){let{basename:n}=x.useContext(it),r=x.useContext(ot);w(r,`useFormAction must be used inside a RouteContext`);let[i]=r.matches.slice(-1),a={...yt(e||`.`,{relative:t})},o=k();if(e==null){a.search=o.search;let e=new URLSearchParams(a.search),t=e.getAll(`index`);if(t.some(e=>e===``)){e.delete(`index`),t.filter(e=>e).forEach(t=>e.append(`index`,t));let n=e.toString();a.search=n?`?${n}`:``}}return(!e||e===`.`)&&i.route.index&&(a.search=a.search?a.search.replace(/^\?/,`?index&`):`?index`),n!==`/`&&(a.pathname=a.pathname===`/`?n:Le([n,a.pathname])),ce(a)}var Kn=`react-router-scroll-positions`,qn={};function Jn(e,t,n,r){let i=null;return r&&(i=r(n===`/`?e:{...e,pathname:ke(e.pathname,n)||e.pathname},t)),i??=e.key,i}function Yn({getKey:e,storageKey:t}={}){let{router:n}=zn(`useScrollRestoration`),{restoreScrollPosition:r,preventScrollReset:i}=Bn(`useScrollRestoration`),{basename:a}=x.useContext(it),o=k(),s=It(),c=Ft();x.useEffect(()=>(window.history.scrollRestoration=`manual`,()=>{window.history.scrollRestoration=`auto`}),[]),Xn(x.useCallback(()=>{if(c.state===`idle`){let t=Jn(o,s,a,e);qn[t]=window.scrollY}try{sessionStorage.setItem(t||Kn,JSON.stringify(qn))}catch(e){ie(!1,`Failed to save scroll positions in sessionStorage, <ScrollRestoration /> will not work properly (${e}).`)}window.history.scrollRestoration=`auto`},[c.state,e,a,o,s,t])),typeof document<`u`&&(x.useLayoutEffect(()=>{try{let e=sessionStorage.getItem(t||Kn);e&&(qn=JSON.parse(e))}catch{}},[t]),x.useLayoutEffect(()=>{let t=n?.enableScrollRestoration(qn,()=>window.scrollY,e?(t,n)=>Jn(t,n,a,e):void 0);return()=>t&&t()},[n,a,e]),x.useLayoutEffect(()=>{if(r!==!1){if(typeof r==`number`){window.scrollTo(0,r);return}try{if(o.hash){let e=document.getElementById(decodeURIComponent(o.hash.slice(1)));if(e){e.scrollIntoView();return}}}catch{ie(!1,`"${o.hash.slice(1)}" is not a decodable element ID. The view will not scroll to it.`)}i!==!0&&window.scrollTo(0,0)}},[o,r,i]))}function Xn(e,t){let{capture:n}=t||{};x.useEffect(()=>{let t=n==null?void 0:{capture:n};return window.addEventListener(`pagehide`,e,t),()=>{window.removeEventListener(`pagehide`,e,t)}},[e,n])}function Zn(e,{relative:t}={}){let n=x.useContext(tt);w(n!=null,"`useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?");let{basename:r}=zn(`useViewTransitionState`),i=yt(e,{relative:t});if(!n.isTransitioning)return!1;let a=ke(n.currentLocation.pathname,r)||n.currentLocation.pathname,o=ke(n.nextLocation.pathname,r)||n.nextLocation.pathname;return Te(i.pathname,o)!=null||Te(i.pathname,a)!=null}var Qn=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),$n=o(((e,t)=>{t.exports=Qn()})),er=g(),A=$n();function j({html:e,className:t}){let n=(0,x.useRef)(null),r=_t();return(0,x.useEffect)(()=>{let e=n.current;if(!e)return;let t=e=>{let t=e.target.closest(`a`);if(!t)return;let n=t.getAttribute(`href`);n&&(n.startsWith(`http://`)||n.startsWith(`https://`)||n.startsWith(`//`)||n.startsWith(`mailto:`)||n.startsWith(`tel:`)||t.target===`_blank`||n.startsWith(`#`)||(e.preventDefault(),r(n)))};return e.addEventListener(`click`,t),()=>e.removeEventListener(`click`,t)},[r,e]),(0,A.jsx)(`div`,{ref:n,className:t,dangerouslySetInnerHTML:{__html:e}})}var tr=`<header>
+Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}/*`}">.`)}let u=k(),d;if(t){let e=typeof t==`string`?le(t):t;w(c===`/`||e.pathname?.startsWith(c),`When overriding the location using \`<Routes location>\` or \`useRoutes(routes, location)\`, the location pathname must begin with the portion of the URL pathname that was matched by all parent routes. The current pathname base is "${c}" but pathname "${e.pathname}" was given in the \`location\` prop.`),d=e}else d=u;let f=d.pathname||`/`,p=f;if(c!==`/`){let e=c.replace(/^\//,``).split(`/`);p=`/`+f.replace(/^\//,``).split(`/`).slice(e.length).join(`/`)}let m=n&&n.state.matches.length?n.state.matches.map(e=>Object.assign(e,{route:n.manifest[e.route.id]||e.route})):E(e,{pathname:p});ie(l||m!=null,`No routes matched location "${d.pathname}${d.search}${d.hash}" `),ie(m==null||m[m.length-1].route.element!==void 0||m[m.length-1].route.Component!==void 0||m[m.length-1].route.lazy!==void 0,`Matched leaf route at location "${d.pathname}${d.search}${d.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`);let h=Ot(m&&m.map(e=>Object.assign({},e,{params:Object.assign({},o,e.params),pathname:Le([c,r.encodeLocation?r.encodeLocation(e.pathname.replace(/%/g,`%25`).replace(/\?/g,`%3F`).replace(/#/g,`%23`)).pathname:e.pathname]),pathnameBase:e.pathnameBase===`/`?c:Le([c,r.encodeLocation?r.encodeLocation(e.pathnameBase.replace(/%/g,`%25`).replace(/\?/g,`%3F`).replace(/#/g,`%23`)).pathname:e.pathnameBase])})),i,n);return t&&h?x.createElement(at.Provider,{value:{location:{pathname:`/`,search:``,hash:``,state:null,key:`default`,mask:void 0,...d},navigationType:`POP`}},h):h}function St(){let e=Lt(),t=Ue(e)?`${e.status} ${e.statusText}`:e instanceof Error?e.message:JSON.stringify(e),n=e instanceof Error?e.stack:null,r=`rgba(200,200,200, 0.5)`,i={padding:`0.5rem`,backgroundColor:r},a={padding:`2px 4px`,backgroundColor:r},o=null;return console.error(`Error handled by React Router default ErrorBoundary:`,e),o=x.createElement(x.Fragment,null,x.createElement(`p`,null,`💿 Hey developer 👋`),x.createElement(`p`,null,`You can provide a way better UX than this when your app throws errors by providing your own `,x.createElement(`code`,{style:a},`ErrorBoundary`),` or`,` `,x.createElement(`code`,{style:a},`errorElement`),` prop on your route.`)),x.createElement(x.Fragment,null,x.createElement(`h2`,null,`Unexpected Application Error!`),x.createElement(`h3`,{style:{fontStyle:`italic`}},t),n?x.createElement(`pre`,{style:i},n):null,o)}var Ct=x.createElement(St,null),wt=class extends x.Component{constructor(e){super(e),this.state={location:e.location,revalidation:e.revalidation,error:e.error}}static getDerivedStateFromError(e){return{error:e}}static getDerivedStateFromProps(e,t){return t.location!==e.location||t.revalidation!==`idle`&&e.revalidation===`idle`?{error:e.error,location:e.location,revalidation:e.revalidation}:{error:e.error===void 0?t.error:e.error,location:t.location,revalidation:e.revalidation||t.revalidation}}componentDidCatch(e,t){this.props.onError?this.props.onError(e,t):console.error(`React Router caught the following error during render`,e)}render(){let e=this.state.error;if(this.context&&typeof e==`object`&&e&&`digest`in e&&typeof e.digest==`string`){let t=ft(e.digest);t&&(e=t)}let t=e===void 0?this.props.children:x.createElement(ot.Provider,{value:this.props.routeContext},x.createElement(st.Provider,{value:e,children:this.props.component}));return this.context?x.createElement(Et,{error:e},t):t}};wt.contextType=$e;var Tt=new WeakMap;function Et({children:e,error:t}){let{basename:n}=x.useContext(it);if(typeof t==`object`&&t&&`digest`in t&&typeof t.digest==`string`){let e=dt(t.digest);if(e){let r=Tt.get(t);if(r)throw r;let i=Ke(e.location,n),a=i.absoluteURL||i.to;if(Xe(a))throw Error(`Invalid redirect location`);if(Ge&&!Tt.get(t))if(i.isExternal||e.reloadDocument)window.location.href=a;else{let n=Promise.resolve().then(()=>window.__reactRouterDataRouter.navigate(i.to,{replace:e.replace}));throw Tt.set(t,n),n}return x.createElement(`meta`,{httpEquiv:`refresh`,content:`0;url=${a}`})}}return e}function Dt({routeContext:e,match:t,children:n}){let r=x.useContext(Ze);return r&&r.static&&r.staticContext&&(t.route.errorElement||t.route.ErrorBoundary)&&(r.staticContext._deepestRenderedBoundaryId=t.route.id),x.createElement(ot.Provider,{value:e},n)}function Ot(e,t=[],n){let r=n?.state;if(e==null){if(!r)return null;if(r.errors)e=r.matches;else if(t.length===0&&!r.initialized&&r.matches.length>0)e=r.matches;else return null}let i=e,a=r?.errors;if(a!=null){let e=i.findIndex(e=>e.route.id&&a?.[e.route.id]!==void 0);w(e>=0,`Could not find a matching route for errors on route IDs: ${Object.keys(a).join(`,`)}`),i=i.slice(0,Math.min(i.length,e+1))}let o=!1,s=-1;if(n&&r){o=r.renderFallback;for(let e=0;e<i.length;e++){let t=i[e];if((t.route.HydrateFallback||t.route.hydrateFallbackElement)&&(s=e),t.route.id){let{loaderData:e,errors:a}=r,c=t.route.loader&&!e.hasOwnProperty(t.route.id)&&(!a||a[t.route.id]===void 0);if(t.route.lazy||c){n.isStatic&&(o=!0),i=s>=0?i.slice(0,s+1):[i[0]];break}}}}let c=n?.onError,l=r&&c?(e,t)=>{c(e,{location:r.location,params:r.matches?.[0]?.params??{},pattern:We(r.matches),errorInfo:t})}:void 0;return i.reduceRight((e,n,c)=>{let u,d=!1,f=null,p=null;r&&(u=a&&n.route.id?a[n.route.id]:void 0,f=n.route.errorElement||Ct,o&&(s<0&&c===0?(Bt(`route-fallback`,!1,"No `HydrateFallback` element provided to render during initial hydration"),d=!0,p=null):s===c&&(d=!0,p=n.route.hydrateFallbackElement||null)));let m=t.concat(i.slice(0,c+1)),h=()=>{let t;return t=u?f:d?p:n.route.Component?x.createElement(n.route.Component,null):n.route.element?n.route.element:e,x.createElement(Dt,{match:n,routeContext:{outlet:e,matches:m,isDataRoute:r!=null},children:t})};return r&&(n.route.ErrorBoundary||n.route.errorElement||c===0)?x.createElement(wt,{location:r.location,revalidation:r.revalidation,component:f,error:u,children:h(),routeContext:{outlet:null,matches:m,isDataRoute:!0},onError:l}):h()},null)}function kt(e){return`${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function At(e){let t=x.useContext(Ze);return w(t,kt(e)),t}function jt(e){let t=x.useContext(Qe);return w(t,kt(e)),t}function Mt(e){let t=x.useContext(ot);return w(t,kt(e)),t}function Nt(e){let t=Mt(e),n=t.matches[t.matches.length-1];return w(n.route.id,`${e} can only be used on routes that contain a unique "id"`),n.route.id}function Pt(){return Nt(`useRouteId`)}function Ft(){let e=jt(`useNavigation`);return x.useMemo(()=>{let{matches:t,historyAction:n,...r}=e.navigation;return r},[e.navigation])}function It(){let{matches:e,loaderData:t}=jt(`useMatches`);return x.useMemo(()=>e.map(e=>fe(e,t)),[e,t])}function Lt(){let e=x.useContext(st),t=jt(`useRouteError`),n=Nt(`useRouteError`);return e===void 0?t.errors?.[n]:e}function Rt(){let{router:e}=At(`useNavigate`),t=Nt(`useNavigate`),n=x.useRef(!1);return gt(()=>{n.current=!0}),x.useCallback(async(r,i={})=>{ie(n.current,ht),n.current&&(typeof r==`number`?await e.navigate(r):await e.navigate(r,{fromRouteId:t,...i}))},[e,t])}var zt={};function Bt(e,t,n){!t&&!zt[e]&&(zt[e]=!0,ie(!1,n))}x.memo(Vt);function Vt({routes:e,manifest:t,future:n,state:r,isStatic:i,onError:a}){return xt(e,void 0,{manifest:t,state:r,isStatic:i,onError:a,future:n})}function Ht(e){w(!1,`A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.`)}function Ut({basename:e=`/`,children:t=null,location:n,navigationType:r=`POP`,navigator:i,static:a=!1,useTransitions:o}){w(!mt(),`You cannot render a <Router> inside another <Router>. You should never have more than one in your app.`);let s=e.replace(/^\/*/,`/`),c=x.useMemo(()=>({basename:s,navigator:i,static:a,useTransitions:o,future:{}}),[s,i,a,o]);typeof n==`string`&&(n=le(n));let{pathname:l=`/`,search:u=``,hash:d=``,state:f=null,key:p=`default`,mask:m}=n,h=x.useMemo(()=>{let e=ke(l,s);return e==null?null:{location:{pathname:e,search:u,hash:d,state:f,key:p,mask:m},navigationType:r}},[s,l,u,d,f,p,r,m]);return ie(h!=null,`<Router basename="${s}"> is not able to match the URL "${l}${u}${d}" because it does not start with the basename, so the <Router> won't render anything.`),h==null?null:x.createElement(it.Provider,{value:c},x.createElement(at.Provider,{children:t,value:h}))}function Wt({children:e,location:t}){return bt(Gt(e),t)}x.Component;function Gt(e,t=[]){let n=[];return x.Children.forEach(e,(e,r)=>{if(!x.isValidElement(e))return;let i=[...t,r];if(e.type===x.Fragment){n.push.apply(n,Gt(e.props.children,i));return}w(e.type===Ht,`[${typeof e.type==`string`?e.type:e.type.name}] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`),w(!e.props.index||!e.props.children,`An index route cannot have child routes.`);let a={id:e.props.id||i.join(`-`),caseSensitive:e.props.caseSensitive,element:e.props.element,Component:e.props.Component,index:e.props.index,path:e.props.path,middleware:e.props.middleware,loader:e.props.loader,action:e.props.action,hydrateFallbackElement:e.props.hydrateFallbackElement,HydrateFallback:e.props.HydrateFallback,errorElement:e.props.errorElement,ErrorBoundary:e.props.ErrorBoundary,hasErrorBoundary:e.props.hasErrorBoundary===!0||e.props.ErrorBoundary!=null||e.props.errorElement!=null,shouldRevalidate:e.props.shouldRevalidate,handle:e.props.handle,lazy:e.props.lazy};e.props.children&&(a.children=Gt(e.props.children,i)),n.push(a)}),n}var Kt=`get`,qt=`application/x-www-form-urlencoded`;function Jt(e){return typeof HTMLElement<`u`&&e instanceof HTMLElement}function Yt(e){return Jt(e)&&e.tagName.toLowerCase()===`button`}function Xt(e){return Jt(e)&&e.tagName.toLowerCase()===`form`}function Zt(e){return Jt(e)&&e.tagName.toLowerCase()===`input`}function Qt(e){return!!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)}function $t(e,t){return e.button===0&&(!t||t===`_self`)&&!Qt(e)}var en=null;function tn(){if(en===null)try{new FormData(document.createElement(`form`),0),en=!1}catch{en=!0}return en}var nn=new Set([`application/x-www-form-urlencoded`,`multipart/form-data`,`text/plain`]);function rn(e){return e!=null&&!nn.has(e)?(ie(!1,`"${e}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${qt}"`),null):e}function an(e,t){let n,r,i,a,o;if(Xt(e)){let o=e.getAttribute(`action`);r=o?ke(o,t):null,n=e.getAttribute(`method`)||Kt,i=rn(e.getAttribute(`enctype`))||qt,a=new FormData(e)}else if(Yt(e)||Zt(e)&&(e.type===`submit`||e.type===`image`)){let o=e.form;if(o==null)throw Error(`Cannot submit a <button> or <input type="submit"> without a <form>`);let s=e.getAttribute(`formaction`)||o.getAttribute(`action`);if(r=s?ke(s,t):null,n=e.getAttribute(`formmethod`)||o.getAttribute(`method`)||Kt,i=rn(e.getAttribute(`formenctype`))||rn(o.getAttribute(`enctype`))||qt,a=new FormData(o,e),!tn()){let{name:t,type:n,value:r}=e;if(n===`image`){let e=t?`${t}.`:``;a.append(`${e}x`,`0`),a.append(`${e}y`,`0`)}else t&&a.append(t,r)}}else if(Jt(e))throw Error(`Cannot submit element that is not <form>, <button>, or <input type="submit|image">`);else n=Kt,r=null,i=qt,o=e;return a&&i===`text/plain`&&(o=a,a=void 0),{action:r,method:n.toLowerCase(),encType:i,formData:a,body:o}}Object.getOwnPropertyNames(Object.prototype).sort().join(`\0`);var on={"&":`\\u0026`,">":`\\u003e`,"<":`\\u003c`,"\u2028":`\\u2028`,"\u2029":`\\u2029`},sn=/[&><\u2028\u2029]/g;function cn(e){return e.replace(sn,e=>on[e])}function ln(e,t){if(e===!1||e==null)throw Error(t)}function un(e,t,n,r){let i=typeof e==`string`?new URL(e,typeof window>`u`?`server://singlefetch/`:window.location.origin):e;return n?i.pathname.endsWith(`/`)?i.pathname=`${i.pathname}_.${r}`:i.pathname=`${i.pathname}.${r}`:i.pathname===`/`?i.pathname=`_root.${r}`:t&&ke(i.pathname,t)===`/`?i.pathname=`${Re(t)}/_root.${r}`:i.pathname=`${Re(i.pathname)}.${r}`,i}async function dn(e,t){if(e.id in t)return t[e.id];try{let n=await b(()=>import(e.module),[]);return t[e.id]=n,n}catch(t){return console.error(`Error loading route module \`${e.module}\`, reloading page...`),console.error(t),window.__reactRouterContext&&window.__reactRouterContext.isSpaMode,window.location.reload(),new Promise(()=>{})}}function fn(e){return e!=null&&typeof e.page==`string`}function pn(e){return e==null?!1:e.href==null?e.rel===`preload`&&typeof e.imageSrcSet==`string`&&typeof e.imageSizes==`string`:typeof e.rel==`string`&&typeof e.href==`string`}async function mn(e,t,n){return yn((await Promise.all(e.map(async e=>{let r=t.routes[e.route.id];if(r){let e=await dn(r,n);return e.links?e.links():[]}return[]}))).flat(1).filter(pn).filter(e=>e.rel===`stylesheet`||e.rel===`preload`).map(e=>e.rel===`stylesheet`?{...e,rel:`prefetch`,as:`style`}:{...e,rel:`prefetch`}))}function hn(e,t,n,r,i,a){let o=(e,t)=>n[t]?e.route.id!==n[t].route.id:!0,s=(e,t)=>n[t].pathname!==e.pathname||n[t].route.path?.endsWith(`*`)&&n[t].params[`*`]!==e.params[`*`];return a===`assets`?t.filter((e,t)=>o(e,t)||s(e,t)):a===`data`?t.filter((t,a)=>{let c=r.routes[t.route.id];if(!c||!c.hasLoader)return!1;if(o(t,a)||s(t,a))return!0;if(t.route.shouldRevalidate){let r=t.route.shouldRevalidate({currentUrl:new URL(i.pathname+i.search+i.hash,window.origin),currentParams:n[0]?.params||{},nextUrl:new URL(e,window.origin),nextParams:t.params,defaultShouldRevalidate:!0});if(typeof r==`boolean`)return r}return!0}):[]}function gn(e,t,{includeHydrateFallback:n}={}){return _n(e.map(e=>{let r=t.routes[e.route.id];if(!r)return[];let i=[r.module];return r.clientActionModule&&(i=i.concat(r.clientActionModule)),r.clientLoaderModule&&(i=i.concat(r.clientLoaderModule)),n&&r.hydrateFallbackModule&&(i=i.concat(r.hydrateFallbackModule)),r.imports&&(i=i.concat(r.imports)),i}).flat(1))}function _n(e){return[...new Set(e)]}function vn(e){let t={},n=Object.keys(e).sort();for(let r of n)t[r]=e[r];return t}function yn(e,t){let n=new Set,r=new Set(t);return e.reduce((e,i)=>{if(t&&!fn(i)&&i.as===`script`&&i.href&&r.has(i.href))return e;let a=JSON.stringify(vn(i));return n.has(a)||(n.add(a),e.push({key:a,link:i})),e},[])}function bn(){let e=x.useContext(Ze);return ln(e,`You must render this element inside a <DataRouterContext.Provider> element`),e}function xn(){let e=x.useContext(Qe);return ln(e,`You must render this element inside a <DataRouterStateContext.Provider> element`),e}var Sn=x.createContext(void 0);Sn.displayName=`FrameworkContext`;function Cn(){let e=x.useContext(Sn);return ln(e,`You must render this element inside a <HydratedRouter> element`),e}function wn(e,t){let n=x.useContext(Sn),[r,i]=x.useState(!1),[a,o]=x.useState(!1),{onFocus:s,onBlur:c,onMouseEnter:l,onMouseLeave:u,onTouchStart:d}=t,f=x.useRef(null);x.useEffect(()=>{if(e===`render`&&o(!0),e===`viewport`){let e=new IntersectionObserver(e=>{e.forEach(e=>{o(e.isIntersecting)})},{threshold:.5});return f.current&&e.observe(f.current),()=>{e.disconnect()}}},[e]),x.useEffect(()=>{if(r){let e=setTimeout(()=>{o(!0)},100);return()=>{clearTimeout(e)}}},[r]);let p=()=>{i(!0)},m=()=>{i(!1),o(!1)};return n?e===`intent`?[a,f,{onFocus:Tn(s,p),onBlur:Tn(c,m),onMouseEnter:Tn(l,p),onMouseLeave:Tn(u,m),onTouchStart:Tn(d,p)}]:[a,f,{}]:[!1,f,{}]}function Tn(e,t){return n=>{e&&e(n),n.defaultPrevented||t(n)}}function En({page:e,...t}){let n=et(),{nonce:r}=Cn(),{router:i}=bn(),a=x.useMemo(()=>E(i.routes,e,i.basename),[i.routes,e,i.basename]);return a?(t.nonce==null&&r&&(t={...t,nonce:r}),n?x.createElement(On,{page:e,matches:a,...t}):x.createElement(kn,{page:e,matches:a,...t})):null}function Dn(e){let{manifest:t,routeModules:n}=Cn(),[r,i]=x.useState([]);return x.useEffect(()=>{let r=!1;return mn(e,t,n).then(e=>{r||i(e)}),()=>{r=!0}},[e,t,n]),r}function On({page:e,matches:t,...n}){let r=k(),{future:i}=Cn(),{basename:a}=bn(),o=x.useMemo(()=>{if(e===r.pathname+r.search+r.hash)return[];let n=un(e,a,i.v8_trailingSlashAwareDataRequests,`rsc`),o=!1,s=[];for(let e of t)typeof e.route.shouldRevalidate==`function`?o=!0:s.push(e.route.id);return o&&s.length>0&&n.searchParams.set(`_routes`,s.join(`,`)),[n.pathname+n.search]},[a,i.v8_trailingSlashAwareDataRequests,e,r,t]);return x.createElement(x.Fragment,null,o.map(e=>x.createElement(`link`,{key:e,rel:`prefetch`,as:`fetch`,href:e,...n})))}function kn({page:e,matches:t,...n}){let r=k(),{future:i,manifest:a,routeModules:o}=Cn(),{basename:s}=bn(),{loaderData:c,matches:l}=xn(),u=x.useMemo(()=>hn(e,t,l,a,r,`data`),[e,t,l,a,r]),d=x.useMemo(()=>hn(e,t,l,a,r,`assets`),[e,t,l,a,r]),f=x.useMemo(()=>{if(e===r.pathname+r.search+r.hash)return[];let n=new Set,l=!1;if(t.forEach(e=>{let t=a.routes[e.route.id];!t||!t.hasLoader||(!u.some(t=>t.route.id===e.route.id)&&e.route.id in c&&o[e.route.id]?.shouldRevalidate||t.hasClientLoader?l=!0:n.add(e.route.id))}),n.size===0)return[];let d=un(e,s,i.v8_trailingSlashAwareDataRequests,`data`);return l&&n.size>0&&d.searchParams.set(`_routes`,t.filter(e=>n.has(e.route.id)).map(e=>e.route.id).join(`,`)),[d.pathname+d.search]},[s,i.v8_trailingSlashAwareDataRequests,c,r,a,u,t,e,o]),p=x.useMemo(()=>gn(d,a),[d,a]),m=Dn(d);return x.createElement(x.Fragment,null,f.map(e=>x.createElement(`link`,{key:e,rel:`prefetch`,as:`fetch`,href:e,...n})),p.map(e=>x.createElement(`link`,{key:e,rel:`modulepreload`,href:e,...n})),m.map(({key:e,link:t})=>x.createElement(`link`,{key:e,nonce:n.nonce,...t,crossOrigin:t.crossOrigin??n.crossOrigin})))}function An(...e){return t=>{e.forEach(e=>{typeof e==`function`?e(t):e!=null&&(e.current=t)})}}x.Component;var jn=typeof window<`u`&&window.document!==void 0&&window.document.createElement!==void 0;try{jn&&(window.__reactRouterVersion=`7.18.0`)}catch{}function Mn({basename:e,children:t,useTransitions:n,window:r}){let i=x.useRef();i.current??=re({window:r,v5Compat:!0});let a=i.current,[o,s]=x.useState({action:a.action,location:a.location}),c=x.useCallback(e=>{n===!1?s(e):x.startTransition(()=>s(e))},[n]);return x.useLayoutEffect(()=>a.listen(c),[a,c]),x.createElement(Ut,{basename:e,children:t,location:o.location,navigationType:o.action,navigator:a,useTransitions:n})}function Nn({basename:e,children:t,history:n,useTransitions:r}){let[i,a]=x.useState({action:n.action,location:n.location}),o=x.useCallback(e=>{r===!1?a(e):x.startTransition(()=>a(e))},[r]);return x.useLayoutEffect(()=>n.listen(o),[n,o]),x.createElement(Ut,{basename:e,children:t,location:i.location,navigationType:i.action,navigator:n,useTransitions:r})}Nn.displayName=`unstable_HistoryRouter`;var Pn=x.forwardRef(function({onClick:e,discover:t=`render`,prefetch:n=`none`,relative:r,reloadDocument:i,replace:a,mask:o,state:s,target:c,to:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f,...p},m){let{basename:h,navigator:g,useTransitions:_}=x.useContext(it),v=typeof l==`string`&&ee.test(l),y=Ke(l,h);l=y.to;let b=pt(l,{relative:r}),S=k(),C=null;if(o){let e=Fe(o,[],S.mask?S.mask.pathname:`/`,!0);h!==`/`&&(e.pathname=e.pathname===`/`?h:Le([h,e.pathname])),C=g.createHref(e)}let[te,ne,re]=wn(n,p),w=Vn(l,{replace:a,mask:o,state:s,target:c,preventScrollReset:u,relative:r,viewTransition:d,defaultShouldRevalidate:f,useTransitions:_});function ie(t){e&&e(t),t.defaultPrevented||w(t)}let ae=!(y.isExternal||i),oe=x.createElement(`a`,{...p,...re,href:(ae?C:void 0)||y.absoluteURL||b,onClick:ae?ie:e,ref:An(m,ne),target:c,"data-discover":!v&&t===`render`?`true`:void 0});return te&&!v?x.createElement(x.Fragment,null,oe,x.createElement(En,{page:b})):oe});Pn.displayName=`Link`;var Fn=x.forwardRef(function({"aria-current":e=`page`,caseSensitive:t=!1,className:n=``,end:r=!1,style:i,to:a,viewTransition:o,children:s,...c},l){let u=yt(a,{relative:c.relative}),d=k(),f=x.useContext(Qe),{navigator:p,basename:m}=x.useContext(it),h=f!=null&&Zn(u)&&o===!0,g=p.encodeLocation?p.encodeLocation(u).pathname:u.pathname,_=d.pathname,v=f&&f.navigation&&f.navigation.location?f.navigation.location.pathname:null;t||(_=_.toLowerCase(),v=v?v.toLowerCase():null,g=g.toLowerCase()),v&&m&&(v=ke(v,m)||v);let y=g!==`/`&&g.endsWith(`/`)?g.length-1:g.length,b=_===g||!r&&_.startsWith(g)&&_.charAt(y)===`/`,ee=v!=null&&(v===g||!r&&v.startsWith(g)&&v.charAt(g.length)===`/`),S={isActive:b,isPending:ee,isTransitioning:h},C=b?e:void 0,te;te=typeof n==`function`?n(S):[n,b?`active`:null,ee?`pending`:null,h?`transitioning`:null].filter(Boolean).join(` `);let ne=typeof i==`function`?i(S):i;return x.createElement(Pn,{...c,"aria-current":C,className:te,ref:l,style:ne,to:a,viewTransition:o},typeof s==`function`?s(S):s)});Fn.displayName=`NavLink`;var In=x.forwardRef(({discover:e=`render`,fetcherKey:t,navigate:n,reloadDocument:r,replace:i,state:a,method:o=Kt,action:s,onSubmit:c,relative:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f,...p},m)=>{let{useTransitions:h}=x.useContext(it),g=Wn(),_=Gn(s,{relative:l}),v=o.toLowerCase()===`get`?`get`:`post`,y=typeof s==`string`&&ee.test(s);return x.createElement(`form`,{ref:m,method:v,action:_,onSubmit:r?c:e=>{if(c&&c(e),e.defaultPrevented)return;e.preventDefault();let r=e.nativeEvent.submitter,s=r?.getAttribute(`formmethod`)||o,p=()=>g(r||e.currentTarget,{fetcherKey:t,method:s,navigate:n,replace:i,state:a,relative:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f});h&&n!==!1?x.startTransition(()=>p()):p()},...p,"data-discover":!y&&e===`render`?`true`:void 0})});In.displayName=`Form`;function Ln({getKey:e,storageKey:t,...n}){let r=x.useContext(Sn),{basename:i}=x.useContext(it),a=k(),o=It();Yn({getKey:e,storageKey:t});let s=x.useMemo(()=>{if(!r||!e)return null;let t=Jn(a,o,i,e);return t===a.key?null:t},[]);if(!r||r.isSpaMode)return null;let c=((e,t)=>{if(!window.history.state||!window.history.state.key){let e=Math.random().toString(32).slice(2);window.history.replaceState({key:e},``)}try{let n=JSON.parse(sessionStorage.getItem(e)||`{}`)[t||window.history.state.key];typeof n==`number`&&window.scrollTo(0,n)}catch(t){console.error(t),sessionStorage.removeItem(e)}}).toString();return n.nonce==null&&r?.nonce&&(n.nonce=r.nonce),x.createElement(`script`,{...n,suppressHydrationWarning:!0,dangerouslySetInnerHTML:{__html:`(${c})(${cn(JSON.stringify(t||Kn))}, ${cn(JSON.stringify(s))})`}})}Ln.displayName=`ScrollRestoration`;function Rn(e){return`${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function zn(e){let t=x.useContext(Ze);return w(t,Rn(e)),t}function Bn(e){let t=x.useContext(Qe);return w(t,Rn(e)),t}function Vn(e,{target:t,replace:n,mask:r,state:i,preventScrollReset:a,relative:o,viewTransition:s,defaultShouldRevalidate:c,useTransitions:l}={}){let u=_t(),d=k(),f=yt(e,{relative:o});return x.useCallback(p=>{if($t(p,t)){p.preventDefault();let t=n===void 0?ce(d)===ce(f):n,m=()=>u(e,{replace:t,mask:r,state:i,preventScrollReset:a,relative:o,viewTransition:s,defaultShouldRevalidate:c});l?x.startTransition(()=>m()):m()}},[d,u,f,n,r,i,t,e,a,o,s,c,l])}var Hn=0,Un=()=>`__${String(++Hn)}__`;function Wn(){let{router:e}=zn(`useSubmit`),{basename:t}=x.useContext(it),n=Pt(),r=e.fetch,i=e.navigate;return x.useCallback(async(e,a={})=>{let{action:o,method:s,encType:c,formData:l,body:u}=an(e,t);a.navigate===!1?await r(a.fetcherKey||Un(),n,a.action||o,{defaultShouldRevalidate:a.defaultShouldRevalidate,preventScrollReset:a.preventScrollReset,formData:l,body:u,formMethod:a.method||s,formEncType:a.encType||c,flushSync:a.flushSync}):await i(a.action||o,{defaultShouldRevalidate:a.defaultShouldRevalidate,preventScrollReset:a.preventScrollReset,formData:l,body:u,formMethod:a.method||s,formEncType:a.encType||c,replace:a.replace,state:a.state,fromRouteId:n,flushSync:a.flushSync,viewTransition:a.viewTransition})},[r,i,t,n])}function Gn(e,{relative:t}={}){let{basename:n}=x.useContext(it),r=x.useContext(ot);w(r,`useFormAction must be used inside a RouteContext`);let[i]=r.matches.slice(-1),a={...yt(e||`.`,{relative:t})},o=k();if(e==null){a.search=o.search;let e=new URLSearchParams(a.search),t=e.getAll(`index`);if(t.some(e=>e===``)){e.delete(`index`),t.filter(e=>e).forEach(t=>e.append(`index`,t));let n=e.toString();a.search=n?`?${n}`:``}}return(!e||e===`.`)&&i.route.index&&(a.search=a.search?a.search.replace(/^\?/,`?index&`):`?index`),n!==`/`&&(a.pathname=a.pathname===`/`?n:Le([n,a.pathname])),ce(a)}var Kn=`react-router-scroll-positions`,qn={};function Jn(e,t,n,r){let i=null;return r&&(i=r(n===`/`?e:{...e,pathname:ke(e.pathname,n)||e.pathname},t)),i??=e.key,i}function Yn({getKey:e,storageKey:t}={}){let{router:n}=zn(`useScrollRestoration`),{restoreScrollPosition:r,preventScrollReset:i}=Bn(`useScrollRestoration`),{basename:a}=x.useContext(it),o=k(),s=It(),c=Ft();x.useEffect(()=>(window.history.scrollRestoration=`manual`,()=>{window.history.scrollRestoration=`auto`}),[]),Xn(x.useCallback(()=>{if(c.state===`idle`){let t=Jn(o,s,a,e);qn[t]=window.scrollY}try{sessionStorage.setItem(t||Kn,JSON.stringify(qn))}catch(e){ie(!1,`Failed to save scroll positions in sessionStorage, <ScrollRestoration /> will not work properly (${e}).`)}window.history.scrollRestoration=`auto`},[c.state,e,a,o,s,t])),typeof document<`u`&&(x.useLayoutEffect(()=>{try{let e=sessionStorage.getItem(t||Kn);e&&(qn=JSON.parse(e))}catch{}},[t]),x.useLayoutEffect(()=>{let t=n?.enableScrollRestoration(qn,()=>window.scrollY,e?(t,n)=>Jn(t,n,a,e):void 0);return()=>t&&t()},[n,a,e]),x.useLayoutEffect(()=>{if(r!==!1){if(typeof r==`number`){window.scrollTo(0,r);return}try{if(o.hash){let e=document.getElementById(decodeURIComponent(o.hash.slice(1)));if(e){e.scrollIntoView();return}}}catch{ie(!1,`"${o.hash.slice(1)}" is not a decodable element ID. The view will not scroll to it.`)}i!==!0&&window.scrollTo(0,0)}},[o,r,i]))}function Xn(e,t){let{capture:n}=t||{};x.useEffect(()=>{let t=n==null?void 0:{capture:n};return window.addEventListener(`pagehide`,e,t),()=>{window.removeEventListener(`pagehide`,e,t)}},[e,n])}function Zn(e,{relative:t}={}){let n=x.useContext(tt);w(n!=null,"`useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?");let{basename:r}=zn(`useViewTransitionState`),i=yt(e,{relative:t});if(!n.isTransitioning)return!1;let a=ke(n.currentLocation.pathname,r)||n.currentLocation.pathname,o=ke(n.nextLocation.pathname,r)||n.nextLocation.pathname;return Te(i.pathname,o)!=null||Te(i.pathname,a)!=null}var Qn=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),$n=o(((e,t)=>{t.exports=Qn()})),er=g(),A=$n();function j({html:e,className:t}){let n=(0,x.useRef)(null),r=_t();return(0,x.useEffect)(()=>{let e=n.current;if(!e)return;let t=e=>{let t=e.target.closest(`a`);if(!t)return;let n=t.getAttribute(`href`);if(n&&!(n.startsWith(`http://`)||n.startsWith(`https://`)||n.startsWith(`//`)||n.startsWith(`mailto:`)||n.startsWith(`tel:`)||t.target===`_blank`)){if(n===`#`||n===``){e.preventDefault();return}n.startsWith(`#`)||(e.preventDefault(),r(n))}};return e.addEventListener(`click`,t),()=>e.removeEventListener(`click`,t)},[r,e]),(0,A.jsx)(`div`,{ref:n,className:t,dangerouslySetInnerHTML:{__html:e}})}var tr=`<header>
+  
   <nav
-    data-opai-animate
-    data-opai-animate-delay="0.8"
-    data-direction="top"
     class="bg-background-2/15 header-one border-stroke-3/18 fixed top-6 left-1/2 z-50 mx-auto flex w-full max-w-[350px] -translate-x-1/2 items-center justify-between rounded-[15px] border py-1.5 pr-5 pl-2 backdrop-blur-[80px] md:max-w-[640px] lg:max-w-[818px] lg:gap-12 lg:py-0 lg:pr-1.5 lg:pl-1.5 xl:max-w-[1024px] 2xl:max-w-[1290px]"
   >
-    <a href="/" class="flex items-center" aria-label="Ezitech home">
-      <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 0 220 50" aria-label="EZITECH" role="img" style="display:block">
-        <text x="0" y="40" font-family="IBM Plex Mono, monospace" font-size="42" font-weight="700" letter-spacing="2" fill="#ffffff">EZITECH</text>
-      </svg>
+    <a href="/" class="inline-flex items-center rounded-md bg-white px-2 py-1" aria-label="Ezitech home">
+      <img src="/images/logo/ezitech-nav.png" alt="Ezitech" style="height:16px;width:auto;max-height:16px;display:block" />
       <span class="sr-only">Ezitech</span>
     </a>
     <ul class="relative hidden items-center gap-6 lg:flex lg:gap-8">
@@ -352,101 +348,80 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
             id="services-mega-menu"
             class="dropdown-menu border-stroke-3/20 bg-background-14 pointer-events-none fixed top-full left-1/2 z-50 mt-2 w-full -translate-x-1/2 rounded-2xl border p-4 opacity-0 transition-all duration-300 lg:w-[980px]"
           >
-            <div class="grid grid-cols-12 gap-x-6 gap-y-6">
-              <!-- LEFT: 2 columns of icon + title + description -->
-              <div class="col-span-12 lg:col-span-8">
-                <div class="grid grid-cols-1 gap-x-4 gap-y-1 sm:grid-cols-2">
-                  <!-- Web Development -->
-                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
+            <div class="grid grid-cols-12 gap-x-5 gap-y-6">
+              <!-- COLUMN 1 -->
+              <div class="col-span-12 space-y-1 sm:col-span-6 lg:col-span-4">
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
                     <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                    <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 6L2 12l6 6M16 6l6 6-6 6" class="stroke-background-7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 6L2 12l6 6M16 6l6 6-6 6" class="!stroke-background-7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                     <div class="relative z-10">
-                      <p class="text-tagline-2 text-background-7 font-sora font-medium">Web Development</p>
-                      <p class="text-tagline-4 text-background-7/55 font-sora">Fast, scalable websites &amp; web apps.</p>
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">Web Development</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">Fast, scalable websites &amp; web apps.</p>
                     </div>
                   </a>
-                  <!-- AI & Automation -->
-                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
                     <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                    <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M2 12h4M18 12h4" class="stroke-background-7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="4" class="stroke-background-7" stroke-width="1.6"/></svg>
-                    </div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" class="!stroke-background-7" stroke-width="1.6"/><path d="M11 18h2" class="!stroke-background-7" stroke-width="1.6" stroke-linecap="round"/></svg></span>
                     <div class="relative z-10">
-                      <p class="text-tagline-2 text-background-7 font-sora font-medium">AI &amp; Automation</p>
-                      <p class="text-tagline-4 text-background-7/55 font-sora">Automate workflows with smart AI.</p>
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">Mobile App Development</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">iOS &amp; Android apps that scale.</p>
                     </div>
                   </a>
-                  <!-- Mobile App Development -->
-                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
                     <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                    <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" class="stroke-background-7" stroke-width="1.6"/><path d="M11 18h2" class="stroke-background-7" stroke-width="1.6" stroke-linecap="round"/></svg>
-                    </div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l9 4.5v9L12 22 3 17.5v-9L12 2z" class="!stroke-background-7" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
                     <div class="relative z-10">
-                      <p class="text-tagline-2 text-background-7 font-sora font-medium">Mobile App Development</p>
-                      <p class="text-tagline-4 text-background-7/55 font-sora">iOS &amp; Android apps that scale.</p>
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">Custom Software</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">Tailored systems for your business.</p>
                     </div>
                   </a>
-                  <!-- Machine Learning -->
-                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
                     <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                    <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="2.5" class="stroke-background-7" stroke-width="1.5"/><circle cx="5" cy="18" r="2.5" class="stroke-background-7" stroke-width="1.5"/><circle cx="19" cy="18" r="2.5" class="stroke-background-7" stroke-width="1.5"/><path d="M10.5 7L6.5 16M13.5 7l4 9" class="stroke-background-7" stroke-width="1.5"/></svg>
-                    </div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 16a4 4 0 010-8 5 5 0 019.6-1.5A3.5 3.5 0 0118 16H6z" class="!stroke-background-7" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
                     <div class="relative z-10">
-                      <p class="text-tagline-2 text-background-7 font-sora font-medium">Machine Learning</p>
-                      <p class="text-tagline-4 text-background-7/55 font-sora">Models that learn from your data.</p>
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">SaaS Products</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">Cloud platforms built to grow.</p>
                     </div>
                   </a>
-                  <!-- Custom Software Development -->
-                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
+              </div>
+
+              <!-- COLUMN 2 (items + Build button below) -->
+              <div class="col-span-12 sm:col-span-6 lg:col-span-4">
+                <div class="space-y-1">
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
                     <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                    <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l9 4.5v9L12 22 3 17.5v-9L12 2z" class="stroke-background-7" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                    </div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M2 12h4M18 12h4" class="!stroke-background-7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="4" class="!stroke-background-7" stroke-width="1.6"/></svg></span>
                     <div class="relative z-10">
-                      <p class="text-tagline-2 text-background-7 font-sora font-medium">Custom Software</p>
-                      <p class="text-tagline-4 text-background-7/55 font-sora">Tailored systems for your business.</p>
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">AI &amp; Automation</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">Automate workflows with smart AI.</p>
                     </div>
                   </a>
-                  <!-- UI/UX Design -->
-                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
                     <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                    <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19l7-7a2.8 2.8 0 00-4-4l-7 7-1 5 5-1z" class="stroke-background-7" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                    </div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="2.5" class="!stroke-background-7" stroke-width="1.5"/><circle cx="5" cy="18" r="2.5" class="!stroke-background-7" stroke-width="1.5"/><circle cx="19" cy="18" r="2.5" class="!stroke-background-7" stroke-width="1.5"/><path d="M10.5 7L6.5 16M13.5 7l4 9" class="!stroke-background-7" stroke-width="1.5"/></svg></span>
                     <div class="relative z-10">
-                      <p class="text-tagline-2 text-background-7 font-sora font-medium">UI/UX Design</p>
-                      <p class="text-tagline-4 text-background-7/55 font-sora">Clean, intuitive product design.</p>
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">Machine Learning</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">Models that learn from your data.</p>
                     </div>
                   </a>
-                  <!-- SaaS Development -->
-                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
                     <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                    <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 16a4 4 0 010-8 5 5 0 019.6-1.5A3.5 3.5 0 0118 16H6z" class="stroke-background-7" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                    </div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 19l7-7a2.8 2.8 0 00-4-4l-7 7-1 5 5-1z" class="!stroke-background-7" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
                     <div class="relative z-10">
-                      <p class="text-tagline-2 text-background-7 font-sora font-medium">SaaS Products</p>
-                      <p class="text-tagline-4 text-background-7/55 font-sora">Cloud platforms built to grow.</p>
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">UI/UX Design</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">Clean, intuitive product design.</p>
                     </div>
                   </a>
-                  <!-- Digital Marketing -->
-                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
                     <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                    <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 11l18-5v12L3 13v4H3z" class="stroke-background-7" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                    </div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 11l18-5v12L3 13v4H3z" class="!stroke-background-7" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
                     <div class="relative z-10">
-                      <p class="text-tagline-2 text-background-7 font-sora font-medium">Digital Marketing</p>
-                      <p class="text-tagline-4 text-background-7/55 font-sora">SEO, ads &amp; growth campaigns.</p>
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">Digital Marketing</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">SEO, ads &amp; growth campaigns.</p>
                     </div>
                   </a>
                 </div>
-
-                <div class="mt-4 pl-1">
+                <div class="mt-3 flex">
                   <a href="/contact" class="group bg-background-7 inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl px-6 py-[13px] transition-all duration-300">
                     <div class="h-full max-h-5 overflow-hidden">
                       <span class="font-ibm-plex-mono text-background-13/90 text-tagline-2 block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 group-hover:-translate-y-[105%]">Build Custom Software</span>
@@ -459,31 +434,29 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
                 </div>
               </div>
 
-              <!-- RIGHT: image + 2 highlighted items -->
+              <!-- COLUMN 3 (image card + 2 items) -->
               <div class="col-span-12 lg:col-span-4">
-                <figure class="mb-3 h-28 w-full overflow-hidden rounded-xl">
-                  <img src="/images/opai-img-160.jpg" alt="Ezitech workspace" class="h-full w-full object-cover" />
-                </figure>
-                <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
-                  <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                  <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" class="stroke-background-7" stroke-width="1.6" stroke-linecap="round"/></svg>
-                  </div>
-                  <div class="relative z-10">
-                    <p class="text-tagline-2 text-background-7 font-sora font-medium">ERP &amp; CRM Products</p>
-                    <p class="text-tagline-4 text-background-7/55 font-sora">ERP, POS, CRM &amp; HMS solutions.</p>
-                  </div>
+                <a href="/contact" class="group relative mb-2 flex h-24 w-full flex-col justify-end overflow-hidden rounded-xl p-3" style="background: radial-gradient(130% 130% at 100% 0%, #8d59ff 0%, #227eff 40%, #11141d 100%);">
+                  <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 75% 25%, rgba(255,255,255,0.7) 0, transparent 45%);"></div>
+                  <p class="relative z-10 font-sora text-tagline-2 font-semibold text-white">Start your project</p>
+                  <p class="relative z-10 font-sora text-tagline-4 text-white/80">Let's build together.</p>
                 </a>
-                <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-3 transition-all duration-300">
-                  <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
-                  <div class="border-stroke-3/15 bg-background-3 relative z-10 flex size-9 shrink-0 items-center justify-center rounded-lg border">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 16V4M7 9l5-5 5 5M5 20h14" class="stroke-background-7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </div>
-                  <div class="relative z-10">
-                    <p class="text-tagline-2 text-background-7 font-sora font-medium">Dedicated Team</p>
-                    <p class="text-tagline-4 text-background-7/55 font-sora">Hire a dedicated dev team.</p>
-                  </div>
-                </a>
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
+                    <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" class="!stroke-background-7" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                    <div class="relative z-10">
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">ERP &amp; CRM Products</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">ERP, POS, CRM &amp; HMS solutions.</p>
+                    </div>
+                  </a>
+                  <a href="/services" class="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
+                    <div class="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100"></div>
+                    <span class="relative z-10 mt-0.5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 16V4M7 9l5-5 5 5M5 20h14" class="!stroke-background-7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <div class="relative z-10">
+                      <p class="text-tagline-2 text-background-7 font-sora font-medium leading-tight">Dedicated Team</p>
+                      <p class="text-tagline-4 text-background-7/60 font-sora">Hire a dedicated dev team.</p>
+                    </div>
+                  </a>
               </div>
             </div>
           </div>
@@ -584,11 +557,9 @@ Mobile Menu
 >
   <div class="space-y-4 p-5 sm:p-8 lg:p-9">
     <div class="flex items-center justify-between">
-      <a href="/" class="flex items-center">
+      <a href="/" class="inline-flex items-center rounded-md bg-white px-2 py-1">
         <span class="sr-only">Home</span>
-        <svg xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 0 220 50" aria-label="EZITECH" role="img" style="display:block">
-          <text x="0" y="40" font-family="IBM Plex Mono, monospace" font-size="42" font-weight="700" letter-spacing="2" fill="#ffffff">EZITECH</text>
-        </svg>
+        <img src="/images/logo/ezitech-nav.png" alt="Ezitech" style="height:18px;width:auto;max-height:18px;display:block" />
       </a>
       <button
         class="nav-hamburger-close relative flex size-10 cursor-pointer flex-col items-center justify-center gap-1.5 rounded-full bg-white/10 transition-colors duration-200 hover:bg-white/20"
@@ -712,11 +683,9 @@ Mobile Menu
     <div class="grid grid-cols-12 gap-y-10 md:gap-10 lg:gap-6">
       <div class="col-span-12 lg:col-span-4">
         <div class="space-y-8" data-opai-animate data-delay="0.1">
-          <a href="/" class="flex items-center">
+          <a href="/" class="inline-flex items-center">
             <span class="sr-only">Ezitech</span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 0 220 50" aria-label="EZITECH" role="img" style="display:block">
-              <text x="0" y="40" font-family="IBM Plex Mono, monospace" font-size="42" font-weight="700" letter-spacing="2" fill="#ffffff" opacity="0.85">EZITECH</text>
-            </svg>
+            <img src="/images/logo/ezitech-footer-white.png" alt="Ezitech" style="height:26px;width:auto;max-height:26px;display:block" />
           </a>
           <div class="space-y-6">
             <p class="text-tagline-3 max-w-[420px] font-normal text-white/50">
@@ -799,6 +768,25 @@ Mobile Menu
       <div class="col-span-12 grid grid-cols-12 gap-8 lg:col-span-8">
         <div class="col-span-12 sm:col-span-4">
           <div class="space-y-2 text-left lg:text-right" data-opai-animate data-delay="0.2">
+            <p class="text-tagline-2 font-semibold text-white/90">Company</p>
+            <ul>
+              <li class="py-2">
+                <a href="/about" class="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">About Us</a>
+              </li>
+              <li class="py-2">
+                <a href="/services" class="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">Services</a>
+              </li>
+              <li class="py-2">
+                <a href="#" class="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">Careers</a>
+              </li>
+              <li class="py-2">
+                <a href="/contact" class="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-span-12 sm:col-span-4">
+          <div class="space-y-2 text-left lg:text-right" data-opai-animate data-delay="0.3">
             <p class="text-tagline-2 font-semibold text-white/90">Quick Links</p>
             <ul>
               <li class="py-2">
@@ -823,7 +811,7 @@ Mobile Menu
           </div>
         </div>
         <div class="col-span-12 sm:col-span-4">
-          <div class="space-y-2 text-left lg:text-right" data-opai-animate data-delay="0.3">
+          <div class="space-y-2 text-left lg:text-right" data-opai-animate data-delay="0.4">
             <p class="text-tagline-2 font-semibold text-white/90">Legal Policies</p>
             <ul>
               <li class="py-2">
@@ -837,25 +825,6 @@ Mobile Menu
               </li>
               <li class="py-2">
                 <a href="#" class="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">Cookie Policy</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-span-12 sm:col-span-4">
-          <div class="space-y-2 text-left lg:text-right" data-opai-animate data-delay="0.4">
-            <p class="text-tagline-2 font-semibold text-white/90">Company</p>
-            <ul>
-              <li class="py-2">
-                <a href="/about" class="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">About Us</a>
-              </li>
-              <li class="py-2">
-                <a href="/services" class="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">Services</a>
-              </li>
-              <li class="py-2">
-                <a href="#" class="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">Careers</a>
-              </li>
-              <li class="py-2">
-                <a href="/contact" class="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -895,9 +864,8 @@ Mobile Menu
     </div>
   </div>
 
-  <figure class="pointer-events-none absolute right-0 bottom-0 -z-0 h-full w-full select-none">
-    <img src="/images/gradient/opai-1.png" alt="footer-bg" class="h-full w-full object-cover" />
-  </figure>
+  <!-- Blue glow gradient (matches screenshot) -->
+  <div class="pointer-events-none absolute right-0 bottom-0 -z-0 h-full w-full select-none" style="background: radial-gradient(60% 80% at 78% 88%, rgba(34,126,255,0.45) 0%, rgba(34,126,255,0.18) 32%, rgba(13,16,23,0) 62%);"></div>
 
   <script src="/vendor/swiper.min.js"><\/script>
 <script src="/vendor/vanilla-infinite-marquee.min.js"><\/script>
@@ -913,209 +881,141 @@ Mobile Menu
 
   <script  src="/assets/main.js"><\/script>
 </footer>
-`;function rr({children:e}){let t=k();return(0,x.useEffect)(()=>{let e=e=>{let t=document.documentElement;e===`light`?t.classList.add(`light-theme`):t.classList.remove(`light-theme`);try{localStorage.setItem(`ezitech-theme`,e)}catch{}};try{e(localStorage.getItem(`ezitech-theme`)===`light`?`light`:`dark`)}catch{}let t=t=>{t.target.closest(`.theme-toggle`)&&(t.preventDefault(),e(document.documentElement.classList.contains(`light-theme`)?`dark`:`light`))};return document.addEventListener(`click`,t),()=>document.removeEventListener(`click`,t)},[]),(0,x.useEffect)(()=>{window.scrollTo(0,0);let e=[],t=()=>{try{window.ScrollTrigger&&typeof window.ScrollTrigger.refresh==`function`&&window.ScrollTrigger.refresh(!0)}catch{}document.querySelectorAll(`[data-opai-animate], [data-opai-avatar], [data-opai-border-expand]`).forEach(e=>{let t=window.getComputedStyle(e),n=parseFloat(t.opacity);!Number.isNaN(n)&&n<.05&&(e.style.opacity=`1`,e.style.filter=`none`,e.style.transform=`none`)}),document.querySelectorAll(`img`).forEach(e=>{let t=parseFloat(window.getComputedStyle(e).opacity);!Number.isNaN(t)&&t<.05&&(e.style.opacity=`1`,e.style.filter=`none`)})},n,r=requestAnimationFrame(()=>{n=requestAnimationFrame(()=>{try{typeof window.__opaiInit==`function`&&window.__opaiInit()}catch(e){console.warn(`re-init failed`,e)}e.push(setTimeout(t,250)),e.push(setTimeout(t,700)),e.push(setTimeout(t,1400)),e.push(setTimeout(()=>{let e=document.querySelectorAll(`.hero-slide`),t=document.querySelectorAll(`.hero-dot`),n=document.getElementById(`hero-slide-text`);if(!e.length||!n)return;let r=[`Custom Web & Software Development`,`SaaS Products`,`AI & Digital Transformation`,`Dedicated Development Team`],i=0;window.__heroSliderInterval&&clearInterval(window.__heroSliderInterval);let a=a=>{e[i].classList.add(`hidden`),e[i].classList.remove(`hero-slide-active`),t[i]?.classList.remove(`active`,`bg-white/80`),t[i]?.classList.add(`bg-white/30`),i=a,e[i].classList.remove(`hidden`),e[i].classList.add(`hero-slide-active`,`flex`),t[i]?.classList.add(`active`,`bg-white/80`),t[i]?.classList.remove(`bg-white/30`),n.style.opacity=`0`,n.style.transform=`translateY(10px)`,setTimeout(()=>{n.textContent=r[i],n.style.transition=`opacity 0.5s, transform 0.5s`,n.style.opacity=`1`,n.style.transform=`translateY(0)`},300)};t.forEach((e,t)=>{e.addEventListener(`click`,()=>{clearInterval(window.__heroSliderInterval),a(t),window.__heroSliderInterval=setInterval(()=>a((i+1)%r.length),3500)})}),window.__heroSliderInterval=setInterval(()=>a((i+1)%r.length),3500)},400))})});return()=>{cancelAnimationFrame(r),n&&cancelAnimationFrame(n),e.forEach(clearTimeout)}},[t.pathname]),(0,A.jsxs)(A.Fragment,{children:[(0,A.jsx)(j,{html:tr}),e,(0,A.jsx)(j,{html:nr}),(0,A.jsxs)(`button`,{type:`button`,className:`theme-toggle`,"aria-label":`Toggle light and dark theme`,style:{position:`fixed`,right:`20px`,bottom:`20px`,zIndex:9998,width:`48px`,height:`48px`,display:`flex`,alignItems:`center`,justifyContent:`center`,borderRadius:`9999px`,border:`1px solid rgba(124,142,165,0.35)`,background:`var(--color-background-3, #252a32)`,boxShadow:`0 8px 24px -6px rgba(0,0,0,0.4)`,cursor:`pointer`},children:[(0,A.jsx)(`span`,{className:`sr-only`,children:`Toggle theme`}),(0,A.jsxs)(`svg`,{className:`theme-icon-sun`,xmlns:`http://www.w3.org/2000/svg`,width:`20`,height:`20`,viewBox:`0 0 24 24`,fill:`none`,style:{position:`absolute`},children:[(0,A.jsx)(`circle`,{cx:`12`,cy:`12`,r:`4`,stroke:`var(--color-background-7,#f8f9fa)`,strokeWidth:`1.6`}),(0,A.jsx)(`path`,{d:`M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41`,stroke:`var(--color-background-7,#f8f9fa)`,strokeWidth:`1.6`,strokeLinecap:`round`})]}),(0,A.jsx)(`svg`,{className:`theme-icon-moon`,xmlns:`http://www.w3.org/2000/svg`,width:`20`,height:`20`,viewBox:`0 0 24 24`,fill:`none`,style:{position:`absolute`},children:(0,A.jsx)(`path`,{d:`M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z`,stroke:`var(--color-background-7,#11141d)`,strokeWidth:`1.6`,strokeLinecap:`round`,strokeLinejoin:`round`})})]})]})}var ir=`<main class="bg-background-5">
+`;function rr(){return(0,x.useEffect)(()=>{let e=()=>{document.querySelectorAll(`[data-ns-animate]`).forEach(e=>{e.style.setProperty(`opacity`,`1`,`important`),e.style.setProperty(`visibility`,`visible`,`important`),e.style.filter=`none`})};e();let t=setTimeout(e,100),n=setTimeout(e,500),r=document.getElementById(`subscribe-btn`);return r&&(r.addEventListener(`mouseenter`,()=>{r.style.backgroundColor=`#1a1a1c`,r.style.borderColor=`#000000`,r.style.color=`#ffffff`}),r.addEventListener(`mouseleave`,()=>{r.style.backgroundColor=`#864ffe`,r.style.borderColor=`#7c31f6`,r.style.color=`#ffffff`})),()=>{clearTimeout(t),clearTimeout(n)}},[]),(0,A.jsxs)(`section`,{className:`relative overflow-hidden z-10`,style:{paddingTop:`88px`,paddingBottom:`88px`,backgroundColor:`#13171e`},children:[(0,A.jsxs)(`div`,{className:`main-container`,children:[(0,A.jsxs)(`div`,{className:`text-center mb-8`,style:{display:`flex`,flexDirection:`column`,alignItems:`center`,gap:`20px`},children:[(0,A.jsx)(`span`,{style:{display:`inline-block`,padding:`6px 20px`,borderRadius:`9999px`,fontSize:`0.875rem`,backgroundColor:`rgba(198, 245, 111, 0.15)`,color:`#c6f56f`,fontWeight:`400`},children:`Subscribe`}),(0,A.jsxs)(`div`,{style:{display:`flex`,flexDirection:`column`,gap:`12px`},children:[(0,A.jsx)(`h2`,{style:{fontSize:`clamp(1.8rem, 4vw, 3.25rem)`,lineHeight:`120%`,fontWeight:`400`,color:`#fcfcfc`,margin:0},children:`Transform your finances from stress to success.`}),(0,A.jsx)(`p`,{style:{maxWidth:`534px`,margin:`0 auto`,color:`rgba(252,252,252,0.6)`,fontSize:`1rem`,fontWeight:`400`,lineHeight:`1.5`},children:`Take the first step toward a stronger financial future. start managing, saving, and growing your money with tools designed to make success simple.`})]})]}),(0,A.jsxs)(`div`,{style:{marginBottom:`38px`,display:`flex`,flexDirection:`column`,gap:`32px`},children:[(0,A.jsxs)(`form`,{action:`#`,method:`post`,style:{display:`flex`,flexWrap:`wrap`,alignItems:`center`,justifyContent:`center`,gap:`12px`},children:[(0,A.jsx)(`input`,{type:`email`,name:`email`,id:`userEmail`,placeholder:`Enter your email`,required:!0,style:{paddingLeft:`18px`,paddingRight:`18px`,paddingTop:`12px`,paddingBottom:`12px`,height:`48px`,maxWidth:`340px`,width:`85%`,backgroundColor:`transparent`,color:`rgba(252,252,252,0.9)`,borderRadius:`9999px`,border:`1px solid #2a333e`,outline:`none`,fontSize:`0.875rem`}}),(0,A.jsx)(`button`,{id:`subscribe-btn`,type:`submit`,style:{height:`48px`,padding:`0 20px`,backgroundColor:`#864ffe`,border:`1px solid #7c31f6`,borderRadius:`9999px`,color:`#ffffff`,fontSize:`0.875rem`,cursor:`pointer`,fontWeight:`400`,minWidth:`90px`,transition:`background-color 0.3s ease, border-color 0.3s ease`},children:(0,A.jsx)(`span`,{children:`Get started`})})]}),(0,A.jsxs)(`ul`,{style:{display:`flex`,alignItems:`center`,justifyContent:`center`,gap:`42px`,flexWrap:`wrap`,listStyle:`none`,margin:0,padding:0},children:[(0,A.jsxs)(`li`,{style:{display:`flex`,alignItems:`center`,gap:`8px`},children:[(0,A.jsx)(`span`,{style:{width:`20px`,height:`20px`,backgroundColor:`#fcfcfc`,borderRadius:`9999px`,display:`flex`,alignItems:`center`,justifyContent:`center`,flexShrink:0},children:(0,A.jsx)(`svg`,{xmlns:`http://www.w3.org/2000/svg`,width:`10`,height:`7`,viewBox:`0 0 10 7`,fill:`none`,children:(0,A.jsx)(`path`,{d:`M4.31661 6.75605L9.74905 1.42144C10.0836 1.0959 10.0836 0.569702 9.74905 0.244158C9.41446 -0.081386 8.87363 -0.081386 8.53904 0.244158L3.7116 4.99012L1.46096 2.78807C1.12636 2.46253 0.585538 2.46253 0.250945 2.78807C-0.0836483 3.11362 -0.0836483 3.63982 0.250945 3.96536L3.1066 6.75605C3.27347 6.91841 3.49253 7 3.7116 7C3.93067 7 4.14974 6.91841 4.31661 6.75605Z`,fill:`#1a1a1c`})})}),(0,A.jsx)(`p`,{style:{color:`#fcfcfc`,fontSize:`0.875rem`,margin:0},children:`Grow savings faster`})]}),(0,A.jsxs)(`li`,{style:{display:`flex`,alignItems:`center`,gap:`8px`},children:[(0,A.jsx)(`span`,{style:{width:`20px`,height:`20px`,backgroundColor:`#fcfcfc`,borderRadius:`9999px`,display:`flex`,alignItems:`center`,justifyContent:`center`,flexShrink:0},children:(0,A.jsx)(`svg`,{xmlns:`http://www.w3.org/2000/svg`,width:`10`,height:`7`,viewBox:`0 0 10 7`,fill:`none`,children:(0,A.jsx)(`path`,{d:`M4.31661 6.75605L9.74905 1.42144C10.0836 1.0959 10.0836 0.569702 9.74905 0.244158C9.41446 -0.081386 8.87363 -0.081386 8.53904 0.244158L3.7116 4.99012L1.46096 2.78807C1.12636 2.46253 0.585538 2.46253 0.250945 2.78807C-0.0836483 3.11362 -0.0836483 3.63982 0.250945 3.96536L3.1066 6.75605C3.27347 6.91841 3.49253 7 3.7116 7C3.93067 7 4.14974 6.91841 4.31661 6.75605Z`,fill:`#1a1a1c`})})}),(0,A.jsx)(`p`,{style:{color:`#fcfcfc`,fontSize:`0.875rem`,margin:0},children:`Track spending easily`})]})]})]})]}),(0,A.jsx)(`figure`,{className:`absolute pointer-events-none select-none`,style:{top:`-50%`,left:`-15%`,zIndex:-1,maxWidth:`600px`,width:`100%`},children:(0,A.jsx)(`img`,{src:`/images/ns-img-500.png`,alt:`Decorative gradient`,style:{width:`100%`,height:`100%`,objectFit:`cover`}})}),(0,A.jsx)(`figure`,{className:`absolute pointer-events-none select-none`,style:{bottom:`-35%`,right:`-10%`,zIndex:-1,maxWidth:`500px`,width:`100%`},children:(0,A.jsx)(`img`,{src:`/images/ns-img-505.png`,alt:`Decorative gradient`,style:{width:`100%`,height:`100%`,objectFit:`cover`}})})]})}function ir({children:e}){let t=k();return(0,x.useEffect)(()=>{let e=e=>{let t=document.documentElement,n=document.body;e===`light`?(t.classList.add(`light-theme`),t.classList.remove(`dark`),n.classList.remove(`dark`)):(t.classList.remove(`light-theme`),t.classList.add(`dark`),n.classList.add(`dark`));try{localStorage.setItem(`ezitech-theme`,e)}catch{}};try{e(localStorage.getItem(`ezitech-theme`)===`light`?`light`:`dark`)}catch{}let t=t=>{t.target.closest(`.theme-toggle`)&&(t.preventDefault(),e(document.documentElement.classList.contains(`light-theme`)?`dark`:`light`))};return document.addEventListener(`click`,t),()=>document.removeEventListener(`click`,t)},[]),(0,x.useEffect)(()=>{window.scrollTo(0,0);let e=[],t=()=>{document.querySelectorAll(`[data-opai-animate], [data-opai-avatar], [data-opai-border-expand], [data-ns-animate]`).forEach(e=>{e.style.setProperty(`opacity`,`1`,`important`),e.style.setProperty(`visibility`,`visible`,`important`),e.style.filter=`none`})},n=()=>{try{window.ScrollTrigger&&typeof window.ScrollTrigger.refresh==`function`&&window.ScrollTrigger.refresh(!0)}catch{}t()},r,i=requestAnimationFrame(()=>{r=requestAnimationFrame(()=>{try{typeof window.__opaiInit==`function`&&window.__opaiInit()}catch(e){console.warn(`re-init failed`,e)}t(),[0,60,150,300,600,1e3,1600].forEach(t=>e.push(setTimeout(n,t)));let r=()=>{let e=document.getElementById(`hero-slide-text`),t=document.querySelectorAll(`#hero-image-stack .hero-img`);if(document.getElementById(`hero-box-wrapper`),!e||t.length<2)return!1;let n=[[`Custom Web/Software Development`,`Web/Software`],[`SaaS Products & Platforms`,`SaaS Products`],[`AI & Digital Transformation`,`AI`],[`Dedicated Development Team`,`Dedicated`]],r=0,i=(t,n)=>{e.innerHTML=``;let r=n?t.split(n):[t],i=[];n&&r.length===2?(i.push({text:r[0],purple:!1}),i.push({text:n,purple:!0}),i.push({text:r[1],purple:!1})):i.push({text:t,purple:!1});let a=0;i.forEach(t=>{t.text.split(/(\s+)/).forEach(n=>{if(!n)return;if(/^\s+$/.test(n)){e.appendChild(document.createTextNode(n));return}let r=document.createElement(`span`);r.textContent=n,r.style.cssText=`
+                  display:inline-block;
+                  opacity:0;
+                  transform:translateX(-18px);
+                  transition:opacity 0.35s ease, transform 0.35s ease;
+                  transition-delay:${a*60}ms;
+                  ${t.purple?`color:#8d59ff;`:``}
+                `,e.appendChild(r),setTimeout(()=>{r.style.opacity=`1`,r.style.transform=`translateX(0)`},30+a*60),a++})})},a=(e,n,r)=>{let i=document.getElementById(`hero-box-wrapper`);if(!i){t.forEach((t,n)=>{t.style.setProperty(`opacity`,n===e?`1`:`0`,`important`),t.style.zIndex=n===e?`2`:`0`}),r();return}i.style.transition=`opacity 0.42s ease, transform 0.42s ease`,i.style.opacity=`0`,i.style.transform=`translateY(50px)`,setTimeout(()=>{t.forEach((t,n)=>{t.style.setProperty(`opacity`,n===e?`1`:`0`,`important`),t.style.zIndex=n===e?`2`:`0`}),i.style.transition=`none`,i.style.transform=`translateX(80px)`,i.style.opacity=`0`,setTimeout(()=>{i.style.transition=`opacity 0.42s ease, transform 0.42s ease`,i.style.opacity=`1`,i.style.transform=`translateX(0) translateY(0)`,setTimeout(r,430)},30)},440)};t.forEach((e,t)=>{e.style.setProperty(`opacity`,t===0?`1`:`0`,`important`),e.style.transition=`none`,e.style.zIndex=t===0?`2`:`0`}),i(n[0][0],n[0][1]),window.__heroSliderInterval&&clearInterval(window.__heroSliderInterval);let o=!1,s=(e,t)=>{let n=document.querySelectorAll(`.hero-slide`);n.length&&(n[t]&&(n[t].classList.add(`hidden`),n[t].classList.remove(`flex`)),n[e]&&(n[e].classList.remove(`hidden`),n[e].classList.add(`flex`)))},c=t=>{if(o)return;o=!0;let c=r;r=t,e.style.transition=`opacity 0.3s`,e.style.opacity=`0`,s(r,c),a(r,c,()=>{i(n[r][0],n[r][1]),e.style.transition=`opacity 0.3s`,e.style.opacity=`1`,o=!1})};return window.__heroSliderInterval=setInterval(()=>c((r+1)%n.length),5e3),!0};e.push(setTimeout(()=>{r()},400)),e.push(setTimeout(()=>{window.__heroSliderInterval||r()},900)),e.push(setTimeout(()=>{window.__heroSliderInterval||r()},1600))})});return()=>{cancelAnimationFrame(i),r&&cancelAnimationFrame(r),e.forEach(clearTimeout)}},[t.pathname]),(0,x.useEffect)(()=>{let e=setTimeout(()=>{let e=document.getElementById(`hero-slide-text`),t=document.querySelectorAll(`#hero-image-stack .hero-img`);if(document.getElementById(`hero-box-wrapper`),!e||t.length<2||window.__heroSliderInterval)return;let n=[[`Custom Web/Software Development`,`Web/Software`],[`SaaS Products & Platforms`,`SaaS Products`],[`AI & Digital Transformation`,`AI`],[`Dedicated Development Team`,`Dedicated`]],r=0,i=(t,n)=>{e.innerHTML=``;let r=n&&t.includes(n)?[{text:t.split(n)[0],p:!1},{text:n,p:!0},{text:t.split(n)[1],p:!1}]:[{text:t,p:!1}],i=0;r.forEach(t=>{t.text.split(/(\s+)/).forEach(n=>{if(!n)return;if(/^\s+$/.test(n)){e.appendChild(document.createTextNode(n));return}let r=document.createElement(`span`);r.textContent=n,r.style.cssText=`display:inline-block;opacity:0;transform:translateX(-18px);transition:opacity 0.35s ease ${i*60}ms,transform 0.35s ease ${i*60}ms;${t.p?`color:#8d59ff;`:``}`,e.appendChild(r),setTimeout(()=>{r.style.opacity=`1`,r.style.transform=`translateX(0)`},30+i*60),i++})})},a=(e,n,r)=>{let i=document.getElementById(`hero-box-wrapper`);if(!i){t.forEach((t,n)=>{t.style.setProperty(`opacity`,n===e?`1`:`0`,`important`),t.style.zIndex=n===e?`2`:`0`}),r();return}i.style.transition=`opacity 0.42s ease, transform 0.42s ease`,i.style.opacity=`0`,i.style.transform=`translateY(50px)`,setTimeout(()=>{t.forEach((t,n)=>{t.style.setProperty(`opacity`,n===e?`1`:`0`,`important`),t.style.zIndex=n===e?`2`:`0`}),i.style.transition=`none`,i.style.transform=`translateX(80px)`,i.style.opacity=`0`,setTimeout(()=>{i.style.transition=`opacity 0.42s ease, transform 0.42s ease`,i.style.opacity=`1`,i.style.transform=`translateX(0) translateY(0)`,setTimeout(r,430)},30)},440)};t.forEach((e,t)=>{e.style.setProperty(`opacity`,t===0?`1`:`0`,`important`),e.style.zIndex=t===0?`2`:`0`,e.style.transition=`none`}),i(n[0][0],n[0][1]);let o=!1,s=(e,t)=>{let n=document.querySelectorAll(`.hero-slide`);n.length&&(n[t]&&(n[t].classList.add(`hidden`),n[t].classList.remove(`flex`)),n[e]&&(n[e].classList.remove(`hidden`),n[e].classList.add(`flex`)))},c=t=>{if(o)return;o=!0;let c=r;r=t,e.style.transition=`opacity 0.3s`,e.style.opacity=`0`,s(r,c),a(r,c,()=>{i(n[r][0],n[r][1]),e.style.transition=`opacity 0.3s`,e.style.opacity=`1`,o=!1})};window.__heroSliderInterval=setInterval(()=>c((r+1)%n.length),5e3)},800);return()=>clearTimeout(e)},[]),(0,A.jsxs)(A.Fragment,{children:[(0,A.jsx)(j,{html:tr}),e,(0,A.jsx)(rr,{}),(0,A.jsx)(j,{html:nr}),(0,A.jsxs)(`button`,{type:`button`,className:`theme-toggle`,"aria-label":`Toggle light and dark theme`,style:{position:`fixed`,right:`20px`,bottom:`20px`,zIndex:9998,width:`48px`,height:`48px`,display:`flex`,alignItems:`center`,justifyContent:`center`,borderRadius:`9999px`,border:`1px solid rgba(124,142,165,0.35)`,background:`var(--color-background-3, #252a32)`,boxShadow:`0 8px 24px -6px rgba(0,0,0,0.4)`,cursor:`pointer`},children:[(0,A.jsx)(`span`,{className:`sr-only`,children:`Toggle theme`}),(0,A.jsxs)(`svg`,{className:`theme-icon-sun`,xmlns:`http://www.w3.org/2000/svg`,width:`20`,height:`20`,viewBox:`0 0 24 24`,fill:`none`,style:{position:`absolute`},children:[(0,A.jsx)(`circle`,{cx:`12`,cy:`12`,r:`4`,stroke:`var(--color-background-7,#f8f9fa)`,strokeWidth:`1.6`}),(0,A.jsx)(`path`,{d:`M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41`,stroke:`var(--color-background-7,#f8f9fa)`,strokeWidth:`1.6`,strokeLinecap:`round`})]}),(0,A.jsx)(`svg`,{className:`theme-icon-moon`,xmlns:`http://www.w3.org/2000/svg`,width:`20`,height:`20`,viewBox:`0 0 24 24`,fill:`none`,style:{position:`absolute`},children:(0,A.jsx)(`path`,{d:`M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z`,stroke:`var(--color-background-7,#11141d)`,strokeWidth:`1.6`,strokeLinecap:`round`,strokeLinejoin:`round`})})]})]})}var ar=`<main class="bg-background-5">
       <!-- ============================= Hero ============================= -->
 <section
-  class="bg-background-5 relative overflow-hidden pt-[150px] pb-16 md:pb-24 lg:pt-[200px] lg:pb-28 xl:pt-[220px] xl:pb-36 2xl:pb-44"
->
-  <div class="main-container relative z-20">
-    <div class="space-y-1.5 text-center md:space-y-3">
-      <!-- Hero text slider -->
-      <div id="hero-slider-wrap" style="overflow:hidden; min-height:1.2em;">
-        <h1
-          id="hero-slide-text"
-          class="text-is-heading-3 md:text-is-heading-2 lg:text-is-heading-1 font-normal text-white/90 max-md:leading-[1.1] transition-all duration-500"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          Custom Web &amp; Software Development
-        </h1>
-      </div>
-      <p class="text-tagline-2 font-normal text-white/60" data-opai-animate data-delay="0.2">
-        End-to-end digital solutions — SaaS, AI, and dedicated teams that scale with your business.
-      </p>
-    </div>
-    <div class="space-y-8 pt-13 lg:pt-18">
-      <div class="flex justify-center" data-opai-animate data-delay="0.3">
-        <a
-  href="/contact"
-  class="group bg-background-7 hover:border-stroke-3 w-[80%] sm:w-auto relative flex items-center justify-center gap-2 overflow-hidden rounded-xl border border-transparent px-6 py-[13px] transition-all duration-300 ease-in-out"
->
-  <div class="h-full max-h-5 overflow-hidden">
-    <span
-      class="font-ibm-plex-mono text-background-13/90 text-tagline-2 block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      Get Started
-    </span>
-    <span
-      class="font-ibm-plex-mono text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      Get Started
-    </span>
-  </div>
-  <div class="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
-    <span class="bg-background-6 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out">
-      <span class="stroke-background-10 absolute size-[16px] translate-x-[2.5px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </span>
-    </span>
-    <span class="stroke-background-10 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </span>
-  </div>
-</a>
-      </div>
+  class="bg-background-5 relative overflow-hidden"
+style="padding-top:180px;padding-bottom:240px;">
+  <div class="main-container relative z-20" style="display:flex;align-items:center;">
+    <div class="grid grid-cols-1 items-center lg:grid-cols-2 w-full" style="gap:3rem">
 
-      <!-- Avatars and Trust Indicator -->
-      <div class="flex items-center justify-center gap-4 max-[375px]:flex-col">
-        <div class="flex -space-x-2.5">
-          <img
-            data-opai-avatar
-            data-avatar-delay="0.1"
-            class="inline-block size-9 rounded-full ring-2 ring-white"
-            src="/images/opai-avatar-img-01.png"
-            alt="Avatar 1"
-          />
-          <img
-            data-opai-avatar
-            data-avatar-delay="0.2"
-            class="inline-block size-9 rounded-full ring-2 ring-white"
-            src="/images/opai-avatar-img-02.png"
-            alt="Avatar 2"
-          />
-          <img
-            data-opai-avatar
-            data-avatar-delay="0.3"
-            class="inline-block size-9 rounded-full ring-2 ring-white"
-            src="/images/opai-avatar-img-03.png"
-            alt="Avatar 3"
-          />
-          <img
-            data-opai-avatar
-            data-avatar-delay="0.4"
-            class="inline-block size-9 rounded-full ring-2 ring-white"
-            src="/images/opai-avatar-img-04.png"
-            alt="Avatar 4"
-          />
-          <div
-            data-opai-avatar
-            data-avatar-delay="0.5"
-            class="text-tagline-4 inline-flex size-9 items-center justify-center rounded-full bg-[#0d0d1280] font-medium text-white/80 ring-2 ring-white backdrop-blur-[6px]"
+      <!-- LEFT: content — CENTER aligned like reference -->
+      <div class="flex flex-col items-center text-center">
+
+        <!-- Heading slider -->
+        <div id="hero-slider-wrap" class="overflow-hidden w-full" style="min-height:1.2em;margin-bottom:1.25rem;">
+          <h1
+            id="hero-slide-text"
+            class="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal break-words text-white/90 leading-[1.1] transition-all duration-500"
+            data-opai-animate
+            data-delay="0.1"
           >
-            99+
+            Custom Web &amp; <span style="color:#8d59ff">Software</span> Development
+          </h1>
+        </div>
+
+        <!-- Description -->
+        <p class="text-tagline-2 font-normal text-white/60" style="max-width:500px;margin-bottom:2rem;" data-opai-animate data-delay="0.2">
+          We build powerful, scalable and user-centric digital solutions that drive growth and create lasting impact.
+        </p>
+
+        <!-- Get Started button -->
+        <div style="margin-bottom:1.5rem;" data-opai-animate data-delay="0.3">
+          <a href="/contact" class="group bg-background-7 hover:border-stroke-3 relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl border border-transparent px-6 py-[13px] transition-all duration-300 ease-in-out">
+            <div class="h-full max-h-5 overflow-hidden">
+              <span class="font-ibm-plex-mono text-background-13/90 text-tagline-2 block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]">Get Started</span>
+              <span class="font-ibm-plex-mono text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]">Get Started</span>
+            </div>
+            <div class="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
+              <span class="bg-background-6 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out">
+                <span class="stroke-background-10 absolute size-[16px] translate-x-[2.5px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </span>
+              <span class="stroke-background-10 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Avatars + Trust indicator -->
+        <div class="flex items-center gap-4" style="margin-bottom:1.75rem;" data-opai-animate data-delay="0.4">
+          <div class="flex -space-x-2.5">
+            <img data-opai-avatar data-avatar-delay="0.1" class="inline-block size-9 rounded-full ring-2 ring-white" src="/images/opai-avatar-img-01.png" alt="Avatar 1" />
+            <img data-opai-avatar data-avatar-delay="0.2" class="inline-block size-9 rounded-full ring-2 ring-white" src="/images/opai-avatar-img-02.png" alt="Avatar 2" />
+            <img data-opai-avatar data-avatar-delay="0.3" class="inline-block size-9 rounded-full ring-2 ring-white" src="/images/opai-avatar-img-03.png" alt="Avatar 3" />
+            <img data-opai-avatar data-avatar-delay="0.4" class="inline-block size-9 rounded-full ring-2 ring-white" src="/images/opai-avatar-img-04.png" alt="Avatar 4" />
+            <div data-opai-avatar data-avatar-delay="0.5" class="text-tagline-4 inline-flex size-9 items-center justify-center rounded-full bg-[#0d0d1280] font-medium text-white/80 ring-2 ring-white backdrop-blur-[6px]">99+</div>
+          </div>
+          <div class="text-left">
+            <p class="text-tagline-3 block font-medium text-white/90">Trusted by 20k+</p>
+            <p class="text-tagline-4 text-white/60">Customers across the globe</p>
           </div>
         </div>
-        <div class="text-left max-[375px]:text-center" data-opai-animate data-delay="0.4">
-          <p class="text-tagline-3 block font-medium text-white/90">Trusted by 20k+</p>
-          <p class="text-tagline-4 text-white/60">Customers across the globe</p>
+
+        <!-- Service pill tags (synced with slider) -->
+        <div data-opai-animate data-delay="0.5">
+          <div class="hero-slide hero-slide-active flex flex-wrap gap-2 justify-center">
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Web Development</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Custom Software</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Mobile Apps</span>
+          </div>
+          <div class="hero-slide hidden flex-wrap gap-2 justify-center">
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">SaaS Platform</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Cloud Products</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Scalable SaaS</span>
+          </div>
+          <div class="hero-slide hidden flex-wrap gap-2 justify-center">
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">AI Solutions</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Automation</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Digital Growth</span>
+          </div>
+          <div class="hero-slide hidden flex-wrap gap-2 justify-center">
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Dev Team</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Dedicated Team</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-tagline-3 font-medium text-white/80 backdrop-blur-sm">Expert Devs</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: image box — reference style (3D tilt, neon border, orbital ring) -->
+      <div class="relative flex w-full items-center justify-end" data-opai-animate data-delay="0.3" style="min-height:440px">
+        <div id="hero-box-wrapper" style="position:relative;width:360px;max-width:90vw;flex-shrink:0;">
+
+        <!-- Orbital ring -->
+        <div class="hero-orbit pointer-events-none absolute left-1/2 top-1/2 -z-0 -translate-x-1/2 -translate-y-1/2" style="width:118%;height:106%">
+          <svg class="h-full w-full" viewBox="0 0 600 600" fill="none" preserveAspectRatio="xMidYMid meet">
+            <ellipse cx="300" cy="300" rx="295" ry="188" stroke="rgba(141,89,255,0.55)" stroke-width="1.5" />
+            <circle cx="300" cy="112" r="5" fill="#a78bfa" />
+            <circle cx="595" cy="300" r="4" fill="#227eff" />
+            <circle cx="300" cy="488" r="5" fill="#8d59ff" />
+            <circle cx="5" cy="300" r="3.5" fill="#a78bfa" />
+            <circle cx="88" cy="148" r="3" fill="#227eff" />
+            <circle cx="512" cy="452" r="3.5" fill="#8d59ff" />
+          </svg>
+        </div>
+
+        <!-- bottom glow -->
+        <div class="pointer-events-none absolute bottom-0 left-1/2 -z-0 -translate-x-1/2 rounded-full blur-2xl" style="height:80px;width:240px;background:radial-gradient(circle,rgba(141,89,255,0.7) 0%,rgba(141,89,255,0) 70%);"></div>
+
+        <!-- tilted device -->
+        <div class="hero-tilt relative" style="width:88%">
+          <div class="pointer-events-none absolute inset-0 -z-10 rounded-[26px] border border-white/10 bg-white/5" style="transform:translate(32px,20px) scale(0.97)"></div>
+          <div class="pointer-events-none absolute inset-0 -z-10 rounded-[26px] border border-white/10 bg-white/5" style="transform:translate(16px,10px) scale(0.985)"></div>
+          <div id="hero-image-stack" class="relative overflow-hidden rounded-[26px]"
+            style="aspect-ratio:3/4;box-shadow:0 0 0 2.5px rgba(141,89,255,0.85),0 0 60px 12px rgba(141,89,255,0.55),0 0 120px 20px rgba(141,89,255,0.25),0 40px 80px -12px rgba(0,0,0,0.85);">
+            <img class="hero-img hero-img-active absolute inset-0 object-cover" style="width:100%;height:100%" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Web Development" />
+            <img class="hero-img absolute inset-0 object-cover" style="width:100%;height:100%;opacity:0" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80" alt="SaaS Products" />
+            <img class="hero-img absolute inset-0 object-cover" style="width:100%;height:100%;opacity:0" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80" alt="AI" />
+            <img class="hero-img absolute inset-0 object-cover" style="width:100%;height:100%;opacity:0" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="Dedicated Team" />
+            <div class="pointer-events-none absolute inset-0" style="background:linear-gradient(160deg,rgba(141,89,255,0.15) 0%,rgba(34,126,255,0.05) 50%,rgba(141,89,255,0.2) 100%);"></div>
+          </div>
+        </div>
         </div>
       </div>
-    </div>
 
-    <!-- Hero image slider (same pill design, content + image rotate together) -->
-    <div class="relative flex flex-wrap items-center justify-center gap-1 pt-10 sm:gap-4 md:pt-17 lg:pt-30">
-
-      <!-- Slide 1: Custom Web/Software Development -->
-      <div class="hero-slide hero-slide-active flex flex-wrap items-center justify-center gap-1 sm:gap-4">
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-155.png" alt="Custom Web Development" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Web Development</h3>
-          </figure>
-        </a>
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-156.png" alt="Software Development" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Custom Software</h3>
-          </figure>
-        </a>
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-157.png" alt="Software Solutions" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Mobile Apps</h3>
-          </figure>
-        </a>
-      </div>
-
-      <!-- Slide 2: SaaS Products -->
-      <div class="hero-slide hidden flex-wrap items-center justify-center gap-1 sm:gap-4">
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-158.jpg" alt="SaaS" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">SaaS Platform</h3>
-          </figure>
-        </a>
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-159.jpg" alt="Cloud Products" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Cloud Products</h3>
-          </figure>
-        </a>
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-160.jpg" alt="Scalable SaaS" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Scalable SaaS</h3>
-          </figure>
-        </a>
-      </div>
-
-      <!-- Slide 3: AI & Digital Transformation -->
-      <div class="hero-slide hidden flex-wrap items-center justify-center gap-1 sm:gap-4">
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-161.jpg" alt="AI" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">AI Solutions</h3>
-          </figure>
-        </a>
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-162.jpg" alt="Automation" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Automation</h3>
-          </figure>
-        </a>
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-163.jpg" alt="Digital Transformation" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Digital Growth</h3>
-          </figure>
-        </a>
-      </div>
-
-      <!-- Slide 4: Dedicated Development Team -->
-      <div class="hero-slide hidden flex-wrap items-center justify-center gap-1 sm:gap-4">
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-avatar-img-170.jpg" alt="Team" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Dev Team</h3>
-          </figure>
-        </a>
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-avatar-img-171.jpg" alt="Dedicated Team" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Dedicated Team</h3>
-          </figure>
-        </a>
-        <a href="/services">
-          <figure class="group relative inline-block h-[90px] w-[220px] overflow-hidden rounded-[140px] lg:h-[120px] lg:w-[250px] xl:h-[150px] xl:w-[300px]">
-            <img src="/images/opai-img-164.jpg" alt="Expert Developers" class="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-4" />
-            <h3 class="font-instrument-serif md:text-is-heading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-nowrap text-white/90 opacity-90 transition-opacity duration-300 ease-in-out group-hover:opacity-100">Expert Devs</h3>
-          </figure>
-        </a>
-      </div>
-
-      <!-- Slider dots -->
-      <div class="hero-dots absolute -bottom-8 left-1/2 flex -translate-x-1/2 gap-2 pt-2">
-        <button class="hero-dot active size-2 rounded-full bg-white/80 transition-all duration-300" data-slide="0"></button>
-        <button class="hero-dot size-2 rounded-full bg-white/30 transition-all duration-300" data-slide="1"></button>
-        <button class="hero-dot size-2 rounded-full bg-white/30 transition-all duration-300" data-slide="2"></button>
-        <button class="hero-dot size-2 rounded-full bg-white/30 transition-all duration-300" data-slide="3"></button>
-      </div>
     </div>
   </div>
+
 
   <!-- animate gradient --><!-- animate gradient -->
   <figure
@@ -5410,1417 +5310,623 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function ar(){return(0,A.jsx)(j,{html:ir})}var or=`<main class="bg-background-5">
-      <!-- about hero section  -->
+    </main>`;function or(){return(0,A.jsx)(j,{html:ar})}var sr=`<main class="bg-background-5">
 
-<section
-  class="bg-background-5 lp:pb-44 pt-39 pb-20 md:pb-30"
-  aria-label="About Ezitech - Company Overview"
->
-  <div class="main-container">
-    <div
-      class="flex flex-col items-start justify-between gap-x-15 gap-y-14 md:flex-row xl:gap-x-25"
-    >
-      <div class="w-full max-w-[470px]">
-        <div class="space-y-14">
-          <div class="space-y-3">
-            <h1
-              data-opai-animate
-              data-delay="0.1"
-              data-instant
-              class="text-instrument-serif text-is-heading-4 lg:text-is-heading-3 xl:text-is-heading-2 font-normal text-white/90"
-            >
-              Empowering the future with Ezitech
-            </h1>
-            <p
-              data-opai-animate
-              data-delay="0.2"
-              data-instant
-              class="text-tagline-3 lg:text-tagline-2 font-normal text-white/80"
-            >
-              Revolutionizing business operations with AI-driven innovation is
-              not just a trend; it's a necessity in today's fast-paced market.
-              Companies are leveraging advanced algorithms and machine learning
-              to streamline processes, enhance decision-making, and improve
-              customer experiences.
-            </p>
-          </div>
-          <div data-opai-animate data-delay="0.3" data-instant>
-            <a
-  href="/contact"
-  class="group bg-background-7 hover:border-stroke-3 w-fit relative flex items-center justify-center gap-2 overflow-hidden rounded-xl border border-transparent px-6 py-[13px] transition-all duration-300 ease-in-out"
->
-  <div class="h-full max-h-5 overflow-hidden">
-    <span
-      class="font-ibm-plex-mono text-background-13/90 text-tagline-2 block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      Get in touch
-    </span>
-    <span
-      class="font-ibm-plex-mono text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      Get in touch
-    </span>
-  </div>
+  <!-- ============================================================ -->
+  <!-- 1. HERO SECTION                                               -->
+  <!-- ============================================================ -->
+  <section class="bg-background-5 pt-39 pb-20 md:pb-30" aria-label="About Ezitech">
+    <div class="main-container">
 
-  <div class="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
-    <!-- circle  -->
-    <span
-      class="bg-background-6 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out"
-    >
-      <!-- arrow   -->
-      <span
-        class="stroke-background-10 absolute size-[16px] translate-x-[2.5px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-        >
-          <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </span>
-    </span>
-
-    <!-- arrow   -->
-    <span
-      class="stroke-background-10 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 18 18"
-        fill="none"
-      >
-        <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </span>
-  </div>
-</a>
-
-          </div>
-        </div>
-      </div>
-      <div class="flex-auto">
-        <div class="flex items-start gap-x-4 gap-y-6 md:gap-x-8">
-          <figure
-            data-opai-animate
-            data-delay="0.3"
-            data-instant
-            data-direction="top"
-            class="w-full max-w-[288px] overflow-hidden rounded-md md:rounded-xl"
-          >
-            <img
-              src="/images/opai-img-1.png"
-              alt="Ezitech team members collaborating on AI innovation and technology solutions"
-              class="size-full object-cover"
-              loading="lazy"
-            />
-          </figure>
-          <figure
-            data-opai-animate
-            data-delay="0.4"
-            data-instant
-            class="w-full max-w-[400px] overflow-hidden rounded-md md:rounded-xl"
-          >
-            <img
-              src="/images/opai-img-2.png"
-              alt="Ezitech artificial intelligence technology powering business transformation and digital innovation"
-              class="size-full object-cover"
-              loading="lazy"
-            />
-          </figure>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- ============================= Achievement ============================= -->
-<section class="bg-background-5 lp:py-44 relative overflow-hidden py-20 md:py-25 lg:py-30">
-  <div class="main-container relative z-20">
-    <div
-      class="flex flex-col items-center justify-center gap-x-15 gap-y-18 lg:flex-row lg:gap-y-0 xl:gap-x-25"
-    >
-      <div class="w-full space-y-8">
-        <div class="space-y-4">
-          <div data-opai-animate data-delay="0.1">
-            <span class="fill-opai-blue text-white flex items-center gap-x-1">
-  <span class="flex size-4 items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-      <path
-        d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z"
-      />
-    </svg>
-  </span>
-  <span class="font-inter-tight text-tagline-4 text-background-13/70 text-white font-normal">
-    Achievement
-  </span>
-</span>
-
-          </div>
-
-          <div class="space-y-3">
-            <h2
-              data-opai-animate
-              data-delay="0.2"
-              class="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white/90"
-            >
-              How Ezitech was born
-            </h2>
-            <p
-              data-opai-animate
-              data-delay="0.3"
-              class="text-tagline-2 max-w-[620px] font-normal text-white/60"
-            >
-              Ezitech was founded to make AI accessible for businesses. Our tools are trusted
-              globally for their simplicity, power, and real-world impact.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex flex-col items-stretch gap-x-3 gap-y-3 md:flex-row">
-          <div class="w-full space-y-3">
-            <!-- card one  -->
-            <div
-              data-opai-animate
-              data-delay="0.3"
-              class="bg-background-4 flex w-full items-center gap-x-3 rounded-sm p-8"
-            >
-              <h3
-                class="font-instrument-serif text-is-heading-5 flex items-center font-normal text-white/90"
-              >
-                <span
-                  data-counter
-                  data-number="95"
-                  data-speed="2000"
-                  data-interval="200"
-                  data-rooms="2"
-                  data-height-space="3"
-                >
-                  95</span
-                >%
-              </h3>
-              <p class="text-tagline-2 font-inter-tight font-normal text-white/90">
-                Customer satisfaction rate
-              </p>
-            </div>
-
-            <!-- card two  -->
-            <div
-              data-opai-animate
-              data-delay="0.4"
-              class="bg-background-4 w-full space-y-3 rounded-sm p-8"
-            >
-              <h3 class="text-is-heading-5 font-instrument-serif font-normal text-white/90">
-                Branding & identity
-              </h3>
-              <p
-                class="text-tagline-3 font-inter-tight w-full max-w-[242px] font-normal text-white/90"
-              >
-                We help brands unlock their unique identity, building recognition
-              </p>
-            </div>
-          </div>
-
-          <div class="w-full space-y-3">
-            <!-- card three  -->
-            <div
-              data-opai-animate
-              data-delay="0.5"
-              class="bg-background-4 w-full space-y-3 rounded-sm p-8"
-            >
-              <h3 class="text-is-heading-5 font-instrument-serif font-normal text-white/90">
-                Website design
-              </h3>
-              <p
-                class="text-tagline-3 font-inter-tight w-full max-w-[242px] font-normal text-white/90"
-              >
-                We help brands unlock their unique identity, building recognition
-              </p>
-            </div>
-
-            <!-- card  four  -->
-            <div
-              data-opai-animate
-              data-delay="0.6"
-              class="bg-background-4 flex flex-row items-center gap-x-4 gap-y-8 rounded-sm p-8 lg:flex-col xl:flex-row xl:gap-y-0"
-            >
-              <!-- avatar group  -->
-              <div class="flex items-center justify-center -space-x-2">
-                <figure
-                  data-opai-animate
-                  data-delay="0.3"
-                  data-direction="left"
-                  class="size-9 overflow-hidden rounded-full ring-2 ring-white"
-                >
-                  <img src="/images/opai-avatar-img-01.png" alt="avatar" />
-                </figure>
-                <figure
-                  data-opai-animate
-                  data-delay="0.4"
-                  data-direction="left"
-                  class="lp:block hidden size-9 overflow-hidden rounded-full ring-2 ring-white"
-                >
-                  <img src="/images/opai-avatar-img-02.png" alt="avatar" />
-                </figure>
-                <figure
-                  data-opai-animate
-                  data-delay="0.5"
-                  data-direction="left"
-                  class="lp:block hidden size-9 overflow-hidden rounded-full ring-2 ring-white"
-                >
-                  <img src="/images/opai-avatar-img-03.png" alt="avatar" />
-                </figure>
-                <figure
-                  data-opai-animate
-                  data-delay="0.6"
-                  data-direction="left"
-                  class="size-9 overflow-hidden rounded-full ring-2 ring-white"
-                >
-                  <img src="/images/opai-avatar-img-04.png" alt="avatar" />
-                </figure>
-
-                <div
-                  data-opai-animate
-                  data-delay="0.7"
-                  data-direction="left"
-                  class="bg-background-13/50 font-inter-tight text-tagline-4 flex size-9 items-center justify-center rounded-full font-normal text-white/80 ring-2 ring-white backdrop-blur-[5.5px]"
-                >
-                  99+
-                </div>
-              </div>
-
-              <p class="text-tagline-3 font-inter-tight font-normal text-white/60">
-                Sustainable creativity, timeless appeal.
-              </p>
-            </div>
-          </div>
-        </div>
+      <!-- Top badge -->
+      <div class="text-center mb-10" data-opai-animate data-delay="0.1" data-instant>
+        <span class="inline-flex items-center gap-x-2 rounded-full border border-opai-blue/30 bg-opai-blue/10 px-4 py-1.5">
+          <span class="size-1.5 rounded-full bg-opai-blue"></span>
+          <span class="font-ibm-plex-mono text-tagline-4 font-medium text-opai-blue tracking-wide uppercase">About Ezitech</span>
+        </span>
       </div>
 
-      <figure
-        data-opai-animate
-        data-delay="0.4"
-        class="h-[377px] w-full overflow-hidden rounded-lg lg:max-w-[451px] xl:h-[454px]"
-      >
-        <img src="/images/opai-img-3.png" alt="achievement" class="size-full object-cover" />
-      </figure>
-    </div>
-  </div>
-
-  <!-- Gradient Background -->
-  <div class="absolute bottom-0 left-0 z-4 h-[496px] w-full min-[2000px]:bottom-0 md:-bottom-4 md:h-[440px] lg:h-[596px] 2xl:h-[696px]">
-  <img
-    src="/images/gradient/opai-2.png"
-    alt="Top blend mode"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="high"
-    class="size-full bg-no-repeat"
-  />
-</div>
-
-</section>
-
-      <!-- process section -->
-<section class="lp:py-44 bg-background-7 py-20 md:py-25 lg:py-30">
-  <div class="main-container">
-    <div class="space-y-10 md:space-y-17.5">
-      <div class="space-y-4 text-center">
-        <div data-opai-animate data-delay="0.1">
-          <span class="fill-opai-blue justify-center flex items-center gap-x-1">
-  <span class="flex size-4 items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-      <path
-        d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z"
-      />
-    </svg>
-  </span>
-  <span class="font-inter-tight text-tagline-4 text-background-13/70 justify-center font-normal">
-    Process
-  </span>
-</span>
-
-        </div>
-        <div class="space-y-3">
-          <h2
-            data-opai-animate
-            data-delay="0.2"
-            class="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 text-background-13/90 font-normal"
-          >
-            Revolutionizing workflows with AI
-          </h2>
-          <p
-            data-opai-animate
-            data-delay="0.3"
-            class="text-tagline-2 text-background-13/60 font-inter-tight font-normal"
-          >
-            Empowering businesses with cutting-edge AI solutions.
-          </p>
-        </div>
-      </div>
-
-      <figure
-        data-opai-animate
-        data-delay="0.4"
-        class="h-[500px] max-w-full overflow-hidden rounded-lg md:h-[700px]"
-      >
-        <img src="/images/opai-img-4.png" alt="process" class="size-full object-cover" />
-      </figure>
-    </div>
-  </div>
-</section>
-
-      <!-- why choose us section -->
-<section class="lp:py-44 bg-background-7 py-20 md:py-25 lg:py-30">
-  <div class="main-container">
-    <div class="space-y-17.5">
-      <div class="space-y-4 text-center">
-        <div data-opai-animate data-delay="0.1">
-          <span class="fill-opai-blue justify-center flex items-center gap-x-1">
-  <span class="flex size-4 items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-      <path
-        d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z"
-      />
-    </svg>
-  </span>
-  <span class="font-inter-tight text-tagline-4 text-background-13/70 justify-center font-normal">
-    Why Choose Us
-  </span>
-</span>
-
-        </div>
-        <div class="space-y-3">
-          <h2
-            data-opai-animate
-            data-delay="0.2"
-            class="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 text-background-13/90 font-normal"
-          >
-            Why choose Ezitech?
-          </h2>
-          <p
-            data-opai-animate
-            data-delay="0.3"
-            class="text-tagline-2 text-background-13/60 font-inter-tight font-normal"
-          >
-            Unparalleled expertise and innovation.
-          </p>
-        </div>
-      </div>
-
-      <!-- cards  -->
-      <div
-        class="grid grid-cols-12 items-center justify-center gap-x-0 gap-y-6 md:gap-x-8 md:gap-y-8 lg:gap-y-0"
-      >
-        <!-- card one  -->
-        <div
-          data-opai-animate
-          data-delay="0.1"
-          class="bg-background-9 col-span-12 flex h-[240px] flex-col items-center justify-between rounded-lg p-8 md:col-span-6 lg:col-span-3"
-        >
-          <span class="ns-shape-10 !text-background-13 text-[45px] md:text-[36px]"></span>
-
-          <div class="space-y-2 text-center">
-            <h3 class="text-is-heading-5 text-background-13/90 font-instrument-serif font-normal">
-              Simplicity
-            </h3>
-            <p class="text-tagline-2 text-background-13/60 font-inter-tight font-normal">
-              Easy-to-use tools with powerful capabilities. cla
-            </p>
-          </div>
-        </div>
-
-        <!-- card two  -->
-        <div
-          data-opai-animate
-          data-delay="0.2"
-          class="bg-background-9 col-span-12 flex h-[240px] flex-col items-center justify-between rounded-lg p-8 md:col-span-6 lg:col-span-3"
-        >
-          <span class="ns-shape-11 !text-background-13 text-[45px] md:text-[36px]"></span>
-
-          <div class="space-y-2 text-center">
-            <h3 class="text-is-heading-5 text-background-13/90 font-instrument-serif font-normal">
-              Innovation
-            </h3>
-            <p class="text-tagline-2 text-background-13/60 font-inter-tight font-normal">
-              Always at the forefront of AI technology.
-            </p>
-          </div>
-        </div>
-        <!-- card three  -->
-        <div
-          data-opai-animate
-          data-delay="0.3"
-          class="bg-background-9 col-span-12 flex h-[240px] flex-col items-center justify-between rounded-lg p-8 md:col-span-6 lg:col-span-3"
-        >
-          <span class="ns-shape-13 !text-background-13 text-[45px] md:text-[36px]"></span>
-
-          <div class="space-y-2 text-center">
-            <h3 class="text-is-heading-5 text-background-13/90 font-instrument-serif font-normal">
-              Scalability
-            </h3>
-            <p class="text-tagline-2 text-background-13/60 font-inter-tight font-normal">
-              Solutions that grow with your business needs.
-            </p>
-          </div>
-        </div>
-        <!-- card four  -->
-        <div
-          data-opai-animate
-          data-delay="0.4"
-          class="bg-background-9 col-span-12 flex h-[240px] flex-col items-center justify-between rounded-lg p-8 md:col-span-6 lg:col-span-3"
-        >
-          <span class="ns-shape-14 !text-background-13 text-[45px] md:text-[36px]"></span>
-
-          <div class="space-y-2 text-center">
-            <h3 class="text-is-heading-5 text-background-13/90 font-instrument-serif font-normal">
-              Support
-            </h3>
-            <p class="text-tagline-2 text-background-13/60 font-inter-tight font-normal">
-              A dedicated team committed to your success.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- =================================================== Partner Ships =================================================== -->
-<section class="bg-background-7 lp:!py-44 !py-20 md:!py-25 lg:!py-30 pt-20 md:pt-30 lg:pt-44">
-  <div class="main-container space-y-10 md:space-y-17.5">
-    <div class="space-y-1.5 text-center md:space-y-3">
-      <div
-        class="flex items-center justify-center max-md:pb-3"
-        data-opai-animate
-        data-delay="0.1"
-      >
-        <span class="fill-opai-blue text-black flex items-center gap-x-1">
-  <span class="flex size-4 items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-      <path
-        d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z"
-      />
-    </svg>
-  </span>
-  <span class="font-inter-tight text-tagline-4 text-background-13/70 text-black font-normal">
-    Partnership
-  </span>
-</span>
-
-      </div>
-      <h2
-        class="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 text-background-13 pt-1 font-normal max-md:leading-[1.1]"
-        data-opai-animate
-        data-delay="0.2"
-      >
-        Certified by the Best
-      </h2>
-      <p
-        class="text-tagline-2 text-background-13/60 font-normal"
-        data-opai-animate
-        data-delay="0.3"
-      >
-        Discover expert tips, industry trends, and actionable strategies to
-        power your growth with Ezitech.
-      </p>
-    </div>
-    <!-- partner ships cards -->
-    <div
-      class="flex flex-col items-start justify-center gap-y-5 lg:flex-row"
-      data-opai-animate
-      data-delay="0.4"
-    >
-      <div
-        class="partner-ship-card active-partner-ship-card h-[420px] md:h-[333px]"
-      >
-        <a
-          href="/team-details"
-          class="bg-background-5 border-stroke-1/11 relative block h-full overflow-hidden rounded-lg border px-8 py-11 lg:rounded-none lg:rounded-l-lg"
-        >
-          <!-- left gradient  -->
-          <div
-            class="partner-ship-gradient pointer-events-none absolute top-1/2 -left-[46%] z-0 h-[256px] w-[500px] -translate-y-1/2 rounded-[500px] bg-[#B962E7] blur-[90px] select-none"
-          ></div>
-          <div class="relative z-10 space-y-8">
-            <figure class="size-13 rounded bg-white p-2.5">
-              <img
-                src="/images/icons/meta.png"
-                alt="meta"
-                class="size-full object-contain"
-              />
-            </figure>
-            <div class="flex justify-between gap-21">
-              <div>
-                <h3 class="text-is-heading-5 font-normal text-white">
-                  Meta Marketing Partner
-                </h3>
-                <p
-                  class="partner-ship-description text-tagline-2 font-inter-tight line-clamp-5 text-white/60 lg:line-clamp-3 xl:line-clamp-5"
-                >
-                  As a Meta Marketing Partner, we specialize in digital
-                  marketing strategies that leverage Meta's platforms to drive
-                  your business growth. Our tailored approaches and expert
-                  insights enhance your advertising efforts and broaden your
-                  audience reach, ensuring you remain a strong contender in the
-                  online marketing landscape.
-                </p>
-              </div>
-              <div>
-                <svg
-                  class="partner-ship-arrow-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="52"
-                  height="52"
-                  viewBox="0 0 52 52"
-                  fill="none"
-                >
-                  <path
-                    d="M15.168 36.8307L36.8346 15.1641"
-                    stroke="#F8F9FA"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M15.168 15.1641H36.8346V36.8307"
-                    stroke="#F8F9FA"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="partner-ship-card h-[420px] md:h-[333px]">
-        <a
-          href="/team-details"
-          class="bg-background-5 border-stroke-1/11 relative block h-full overflow-hidden rounded-lg border-r px-8 py-11 lg:rounded-none"
-        >
-          <!-- left gradient  -->
-          <div
-            class="partner-ship-gradient pointer-events-none absolute top-1/2 -left-[46%] z-0 h-[256px] w-[500px] -translate-y-1/2 rounded-[500px] bg-[#B962E7] blur-[90px] select-none"
-          ></div>
-
-          <div class="relative z-10 space-y-8">
-            <figure class="size-13 rounded bg-white p-2.5">
-              <img
-                src="/images/icons/google-ads-certified.png"
-                alt="google ads certified"
-                class="size-full object-contain"
-              />
-            </figure>
-            <div class="flex justify-between gap-21">
-              <div>
-                <h3 class="text-is-heading-5 font-normal text-white">
-                  Google Ads Certified Partner
-                </h3>
-                <p
-                  class="partner-ship-description text-tagline-2 font-inter-tight line-clamp-5 text-white/60 lg:line-clamp-3 xl:line-clamp-5"
-                >
-                  As a Google Ads Certified Partner, we specialize in digital
-                  marketing strategies that leverage Google's platforms to drive
-                  your business growth. Our tailored approaches and expert
-                  insights enhance your advertising efforts and broaden your
-                  audience reach, ensuring you remain a strong contender in the
-                  online marketing landscape.
-                </p>
-              </div>
-              <div>
-                <svg
-                  class="partner-ship-arrow-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="52"
-                  height="52"
-                  viewBox="0 0 52 52"
-                  fill="none"
-                >
-                  <path
-                    d="M15.168 36.8307L36.8346 15.1641"
-                    stroke="#F8F9FA"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M15.168 15.1641H36.8346V36.8307"
-                    stroke="#F8F9FA"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="partner-ship-card h-[420px] md:h-[333px]">
-        <a
-          href="/team-details"
-          class="bg-background-5 relative block h-full overflow-hidden rounded-lg px-8 py-11 lg:rounded-none lg:rounded-r-lg"
-        >
-          <!-- left gradient  -->
-          <div
-            class="partner-ship-gradient pointer-events-none absolute top-1/2 -left-[46%] z-0 h-[256px] w-[500px] -translate-y-1/2 rounded-[500px] bg-[#B962E7] blur-[90px] select-none"
-          ></div>
-
-          <div class="relative z-10 space-y-8">
-            <figure class="size-13 rounded bg-white p-2.5">
-              <img
-                src="/images/icons/klaviyo.png"
-                alt="klaviyo"
-                class="size-full object-contain"
-              />
-            </figure>
-            <div class="flex justify-between gap-21">
-              <div>
-                <h3 class="text-is-heading-5 font-normal text-white">
-                  Klaviyo Partner
-                </h3>
-                <p
-                  class="partner-ship-description text-tagline-2 font-inter-tight line-clamp-5 text-white/60 lg:line-clamp-3 xl:line-clamp-5"
-                >
-                  As a Klaviyo Partner, we specialize in digital marketing
-                  strategies that leverage Klaviyo's platforms to drive your
-                  business growth. Our tailored approaches and expert insights
-                  enhance your email marketing efforts and broaden your audience
-                  reach, ensuring you remain a strong contender in the online
-                  marketing landscape.
-                </p>
-              </div>
-              <div>
-                <svg
-                  class="partner-ship-arrow-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="52"
-                  height="52"
-                  viewBox="0 0 52 52"
-                  fill="none"
-                >
-                  <path
-                    d="M15.168 36.8307L36.8346 15.1641"
-                    stroke="#F8F9FA"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M15.168 15.1641H36.8346V36.8307"
-                    stroke="#F8F9FA"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="flex justify-center" data-opai-animate data-delay="0.1">
-      <a
-  href="/pricing"
-  class="group bg-background-14 {=$anchor-class} relative flex items-center justify-center gap-2 overflow-hidden rounded-xl px-6 py-[13px] transition-all duration-300 ease-in-out"
->
-  <div class="h-full max-h-5 overflow-hidden">
-    <span
-      class="font-ibm-plex-mono text-tagline-2 text-background-7 w-[85%] md:w-auto block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      Let’s get started
-    </span>
-    <span
-      class="font-ibm-plex-mono text-background-7 text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      Let’s get started
-    </span>
-  </div>
-
-  <div class="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
-    <!-- circle  -->
-    <span
-      class="bg-background-7 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out"
-    >
-      <!-- arrow   -->
-      <span
-        class="stroke-background-14 absolute size-[16px] translate-x-[2.5px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-        >
-          <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </span>
-    </span>
-
-    <!-- arrow   -->
-    <span
-      class="stroke-background-14 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 18 18"
-        fill="none"
-      >
-        <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </span>
-  </div>
-</a>
-
-    </div>
-  </div>
-</section>
-
-      <!-- faq section -->
-
-<section class="lp:py-44 bg-background-7 py-20 md:py-25 lg:py-30">
-  <div class="main-container">
-    <div
-      class="flex flex-col items-start gap-x-0 gap-y-10 lg:flex-row lg:gap-x-25 lg:gap-y-0"
-    >
-      <div class="space-y-12.5">
-        <div class="space-y-4">
-          <div data-opai-animate data-delay="0.1">
-            <span class="fill-opai-blue justify-center text-black lg:justify-start flex items-center gap-x-1">
-  <span class="flex size-4 items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-      <path
-        d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z"
-      />
-    </svg>
-  </span>
-  <span class="font-inter-tight text-tagline-4 text-background-13/70 justify-center text-black lg:justify-start font-normal">
-    FAQ
-  </span>
-</span>
-
-          </div>
-
-          <div class="space-y-3">
-            <h2
-              data-opai-animate
-              data-delay="0.2"
-              class="text-is-heading-2 font-instrument-serif text-background-13 text-center font-normal lg:text-left"
-            >
-              Frequently asked questions
-            </h2>
-            <p
-              data-opai-animate
-              data-delay="0.3"
-              class="text-tagline-2 text-background-13/60 font-inter-tight text-center font-normal lg:text-left"
-            >
-              Quick answers to common questions about our AI marketing services,
-              pricing, timelines, reporting, and how we improve results over
-              time.
-            </p>
-          </div>
-        </div>
-
-        <figure
-          data-opai-animate
-          data-delay="0.4"
-          class="h-[492px] w-full overflow-hidden rounded-sm lg:max-w-[587px]"
-        >
-          <img
-            src="/images/opai-img-5.png"
-            alt="faq"
-            class="size-full object-cover"
-          />
-        </figure>
-      </div>
-
-      <!-- faq  -->
-
-      <div class="accordion w-full lg:max-w-[595px]">
-        <!-- item one  -->
-        <div
-          class="accordion-item group border-b-stroke-3/25 relative z-10 w-full cursor-pointer overflow-hidden border-b"
-          data-opai-animate
-          data-delay="0.1"
-          data-default-open="true"
-        >
-          <h3
-            class="accordion-action font-inter-tight text-tagline-2 md:text-tagline-1 text-background-13/60 data-[state=open]:text-background-13/90 flex w-full cursor-pointer items-center justify-between pt-6 pb-6 text-left font-medium transition-all duration-300 ease-in-out group-data-[state=open]:!pb-4"
-          >
-            <button class="cursor-pointer text-left">
-              What does an AI marketing agency do?
-            </button>
-            <span
-  class="accordion-icon size-6 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180"
->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M6 9L12 15L18 9"
-      stroke="#0D0D12"
-      stroke-opacity="0.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</span>
-
-          </h3>
-          <div
-  class="accordion-content w-full transform-gpu [&_.split-text-line]:transform-gpu [&_.split-text-line]:[backface-visibility:hidden] [&_.split-text-line]:[transform-style:preserve-3d] [&_p]:transform-gpu [&_p]:[transform-style:preserve-3d]"
->
-  <p
-    class="text-tagline-3 sm:text-tagline-2 font-inter-tight w-full !px-0 text-background-13/60 cursor-text px-5 pb-5 text-left"
-  >
-    We plan, launch, and optimize campaigns using AI-assisted research, audience insights, creative testing, and automation. That includes paid ads, SEO, email, funnels, and tracking—so your marketing becomes measurable and scalable.
-  </p>
-</div>
-
-        </div>
-
-        <!-- item two  -->
-        <div
-          class="accordion-item group border-b-stroke-3/25 relative z-10 w-full cursor-pointer overflow-hidden border-b"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          <h3
-            class="accordion-action font-inter-tight text-tagline-2 md:text-tagline-1 text-background-13/60 data-[state=open]:text-background-13/90 flex w-full cursor-pointer items-center justify-between pt-6 pb-6 text-left font-medium transition-all duration-300 ease-in-out group-data-[state=open]:!pb-4"
-          >
-            <button class="cursor-pointer text-left">
-              Which channels do you manage?
-            </button>
-            <span
-  class="accordion-icon size-6 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180"
->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M6 9L12 15L18 9"
-      stroke="#0D0D12"
-      stroke-opacity="0.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</span>
-
-          </h3>
-          <div
-  class="accordion-content w-full transform-gpu [&_.split-text-line]:transform-gpu [&_.split-text-line]:[backface-visibility:hidden] [&_.split-text-line]:[transform-style:preserve-3d] [&_p]:transform-gpu [&_p]:[transform-style:preserve-3d]"
->
-  <p
-    class="text-tagline-3 sm:text-tagline-2 font-inter-tight w-full !px-0 text-background-13/60 cursor-text px-5 pb-5 text-left"
-  >
-    We manage Google Ads, Meta ads, landing pages and CRO, SEO (local + content), email marketing, and remarketing. We also connect your analytics stack so every channel reports the same truth.
-  </p>
-</div>
-
-        </div>
-
-        <!-- item three  -->
-        <div
-          class="accordion-item group border-b-stroke-3/25 relative z-10 w-full cursor-pointer overflow-hidden border-b"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          <h3
-            class="accordion-action font-inter-tight text-tagline-2 md:text-tagline-1 text-background-13/60 data-[state=open]:text-background-13/90 flex w-full cursor-pointer items-center justify-between pt-6 pb-6 text-left font-medium transition-all duration-300 ease-in-out group-data-[state=open]:!pb-4"
-          >
-            <button class="cursor-pointer text-left">
-              How does AI actually improve performance?
-            </button>
-            <span
-  class="accordion-icon size-6 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180"
->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M6 9L12 15L18 9"
-      stroke="#0D0D12"
-      stroke-opacity="0.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</span>
-
-          </h3>
-          <div
-  class="accordion-content w-full transform-gpu [&_.split-text-line]:transform-gpu [&_.split-text-line]:[backface-visibility:hidden] [&_.split-text-line]:[transform-style:preserve-3d] [&_p]:transform-gpu [&_p]:[transform-style:preserve-3d]"
->
-  <p
-    class="text-tagline-3 sm:text-tagline-2 font-inter-tight w-full !px-0 text-background-13/60 cursor-text px-5 pb-5 text-left"
-  >
-    AI helps us speed up research, generate and test more variations, spot patterns in data, and automate repetitive work. Human strategy still leads—AI helps us move faster and make smarter optimizations.
-  </p>
-</div>
-
-        </div>
-
-        <!-- item four  -->
-        <div
-          class="accordion-item group border-b-stroke-3/25 relative z-10 w-full cursor-pointer overflow-hidden border-b"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          <h3
-            class="accordion-action font-inter-tight text-tagline-2 md:text-tagline-1 text-background-13/60 data-[state=open]:text-background-13/90 flex w-full cursor-pointer items-center justify-between pt-6 pb-6 text-left font-medium transition-all duration-300 ease-in-out group-data-[state=open]:!pb-4"
-          >
-            <button class="cursor-pointer text-left">
-              How long until we see results?
-            </button>
-            <span
-  class="accordion-icon size-6 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180"
->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M6 9L12 15L18 9"
-      stroke="#0D0D12"
-      stroke-opacity="0.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</span>
-
-          </h3>
-          <div
-  class="accordion-content w-full transform-gpu [&_.split-text-line]:transform-gpu [&_.split-text-line]:[backface-visibility:hidden] [&_.split-text-line]:[transform-style:preserve-3d] [&_p]:transform-gpu [&_p]:[transform-style:preserve-3d]"
->
-  <p
-    class="text-tagline-3 sm:text-tagline-2 font-inter-tight w-full !px-0 text-background-13/60 cursor-text px-5 pb-5 text-left"
-  >
-    Paid ads can show signals in the first 7–14 days. Strong, stable performance typically builds over 30–90 days as we test creatives, refine targeting, and improve landing pages and conversion paths.
-  </p>
-</div>
-
-        </div>
-
-        <!-- item five  -->
-        <div
-          class="accordion-item group border-b-stroke-3/25 relative z-10 w-full cursor-pointer overflow-hidden border-b"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          <h3
-            class="accordion-action font-inter-tight text-tagline-2 md:text-tagline-1 text-background-13/60 data-[state=open]:text-background-13/90 flex w-full cursor-pointer items-center justify-between pt-6 pb-6 text-left font-medium transition-all duration-300 ease-in-out group-data-[state=open]:!pb-4"
-          >
-            <button class="cursor-pointer text-left">
-              Do you provide reporting and dashboards?
-            </button>
-            <span
-  class="accordion-icon size-6 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180"
->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M6 9L12 15L18 9"
-      stroke="#0D0D12"
-      stroke-opacity="0.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</span>
-
-          </h3>
-          <div
-  class="accordion-content w-full transform-gpu [&_.split-text-line]:transform-gpu [&_.split-text-line]:[backface-visibility:hidden] [&_.split-text-line]:[transform-style:preserve-3d] [&_p]:transform-gpu [&_p]:[transform-style:preserve-3d]"
->
-  <p
-    class="text-tagline-3 sm:text-tagline-2 font-inter-tight w-full !px-0 text-background-13/60 cursor-text px-5 pb-5 text-left"
-  >
-    Yes. You get clear weekly updates plus a live dashboard showing spend, leads, CAC/CPA, ROAS (when applicable), and funnel conversion rates. We focus on decisions—not just charts.
-  </p>
-</div>
-
-        </div>
-
-        <!-- item six  -->
-        <div
-          class="accordion-item group border-b-stroke-3/25 relative z-10 w-full cursor-pointer overflow-hidden border-b"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          <h3
-            class="accordion-action font-inter-tight text-tagline-2 md:text-tagline-1 text-background-13/60 data-[state=open]:text-background-13/90 flex w-full cursor-pointer items-center justify-between pt-6 pb-6 text-left font-medium transition-all duration-300 ease-in-out group-data-[state=open]:!pb-4"
-          >
-            <button class="cursor-pointer text-left">
-              What do you need from us to get started?
-            </button>
-            <span
-  class="accordion-icon size-6 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180"
->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M6 9L12 15L18 9"
-      stroke="#0D0D12"
-      stroke-opacity="0.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</span>
-
-          </h3>
-          <div
-  class="accordion-content w-full transform-gpu [&_.split-text-line]:transform-gpu [&_.split-text-line]:[backface-visibility:hidden] [&_.split-text-line]:[transform-style:preserve-3d] [&_p]:transform-gpu [&_p]:[transform-style:preserve-3d]"
->
-  <p
-    class="text-tagline-3 sm:text-tagline-2 font-inter-tight w-full !px-0 text-background-13/60 cursor-text px-5 pb-5 text-left"
-  >
-    Access to your ad accounts (or we create them), website/landing page URLs, brand assets, and a quick kickoff call. If tracking isn’t set up, we’ll help configure analytics and conversion events.
-  </p>
-</div>
-
-        </div>
-
-        <!-- item seven  -->
-        <div
-          class="accordion-item group border-b-stroke-3/25 relative z-10 w-full cursor-pointer overflow-hidden border-b"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          <h3
-            class="accordion-action font-inter-tight text-tagline-2 md:text-tagline-1 text-background-13/60 data-[state=open]:text-background-13/90 flex w-full cursor-pointer items-center justify-between pt-6 pb-6 text-left font-medium transition-all duration-300 ease-in-out group-data-[state=open]:!pb-4"
-          >
-            <button class="cursor-pointer text-left">
-              Do you work with small businesses or only big brands?
-            </button>
-            <span
-  class="accordion-icon size-6 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180"
->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M6 9L12 15L18 9"
-      stroke="#0D0D12"
-      stroke-opacity="0.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</span>
-
-          </h3>
-          <div
-  class="accordion-content w-full transform-gpu [&_.split-text-line]:transform-gpu [&_.split-text-line]:[backface-visibility:hidden] [&_.split-text-line]:[transform-style:preserve-3d] [&_p]:transform-gpu [&_p]:[transform-style:preserve-3d]"
->
-  <p
-    class="text-tagline-3 sm:text-tagline-2 font-inter-tight w-full !px-0 text-background-13/60 cursor-text px-5 pb-5 text-left"
-  >
-    Both. We tailor the plan to your stage—whether you’re launching your first campaigns or scaling an existing funnel. The goal is the same: consistent leads and profitable growth.
-  </p>
-</div>
-
-        </div>
-
-        <!-- item eight  -->
-        <div
-          class="accordion-item group border-b-stroke-3/25 relative z-10 w-full cursor-pointer overflow-hidden border-b"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          <h3
-            class="accordion-action font-inter-tight text-tagline-2 md:text-tagline-1 text-background-13/60 data-[state=open]:text-background-13/90 flex w-full cursor-pointer items-center justify-between pt-6 pb-6 text-left font-medium transition-all duration-300 ease-in-out group-data-[state=open]:!pb-4"
-          >
-            <button class="cursor-pointer text-left">
-              What’s included in your monthly retainer?
-            </button>
-            <span
-  class="accordion-icon size-6 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180"
->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M6 9L12 15L18 9"
-      stroke="#0D0D12"
-      stroke-opacity="0.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</span>
-
-          </h3>
-          <div
-  class="accordion-content w-full transform-gpu [&_.split-text-line]:transform-gpu [&_.split-text-line]:[backface-visibility:hidden] [&_.split-text-line]:[transform-style:preserve-3d] [&_p]:transform-gpu [&_p]:[transform-style:preserve-3d]"
->
-  <p
-    class="text-tagline-3 sm:text-tagline-2 font-inter-tight w-full !px-0 text-background-13/60 cursor-text px-5 pb-5 text-left"
-  >
-    Strategy, campaign setup, ongoing optimization, creative testing guidance, landing page and funnel recommendations, tracking support, and reporting. You’ll always know what we’re doing and why.
-  </p>
-</div>
-
-        </div>
-        <!-- item nine -->
-        <div
-          class="accordion-item group border-b-stroke-3/25 relative z-10 w-full cursor-pointer overflow-hidden border-b"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          <h3
-            class="accordion-action font-inter-tight text-tagline-2 md:text-tagline-1 text-background-13/60 data-[state=open]:text-background-13/90 flex w-full cursor-pointer items-center justify-between pt-6 pb-6 text-left font-medium transition-all duration-300 ease-in-out group-data-[state=open]:!pb-4"
-          >
-            <button class="cursor-pointer text-left">
-              Is there a minimum contract or long-term commitment?
-            </button>
-            <span
-  class="accordion-icon size-6 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180"
->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M6 9L12 15L18 9"
-      stroke="#0D0D12"
-      stroke-opacity="0.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</span>
-
-          </h3>
-          <div
-  class="accordion-content w-full transform-gpu [&_.split-text-line]:transform-gpu [&_.split-text-line]:[backface-visibility:hidden] [&_.split-text-line]:[transform-style:preserve-3d] [&_p]:transform-gpu [&_p]:[transform-style:preserve-3d]"
->
-  <p
-    class="text-tagline-3 sm:text-tagline-2 font-inter-tight w-full !px-0 text-background-13/60 cursor-text px-5 pb-5 text-left"
-  >
-    No long-term lock-ins. We work on flexible monthly retainers. If we’re not delivering value, you’re free to pause or stop—simple and transparent.
-  </p>
-</div>
-
-        </div>
-      </div>
-    </div>
-
-    <div data-opai-animate data-delay="0.5" class="mt-18">
-      <a
-  href="/contact"
-  class="group bg-background-14 w-fit mx-auto relative flex items-center justify-center gap-2 overflow-hidden rounded-xl px-6 py-[13px] transition-all duration-300 ease-in-out"
->
-  <div class="h-full max-h-5 overflow-hidden">
-    <span
-      class="font-ibm-plex-mono text-tagline-2 text-background-7 {=$class} block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      See All FAQ
-    </span>
-    <span
-      class="font-ibm-plex-mono text-background-7 text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      See All FAQ
-    </span>
-  </div>
-
-  <div class="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
-    <!-- circle  -->
-    <span
-      class="bg-background-7 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out"
-    >
-      <!-- arrow   -->
-      <span
-        class="stroke-background-14 absolute size-[16px] translate-x-[2.5px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-        >
-          <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </span>
-    </span>
-
-    <!-- arrow   -->
-    <span
-      class="stroke-background-14 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 18 18"
-        fill="none"
-      >
-        <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </span>
-  </div>
-</a>
-
-    </div>
-  </div>
-</section>
-
-      <!-- ================================ CTA ================================ -->
-
-<section
-  class="bg-background-6 !pt-20 md:!pt-30 lg:!pt-44 overflow-hidden py-14 md:py-20 lg:py-24 xl:py-28"
->
-  <div class="main-container">
-    <div class="space-y-14 pb-9">
-      <!-- Avatars  -->
-
-      <div class="flex items-center justify-center gap-x-2">
-        <img
-          data-opai-avatar
-          data-avatar-delay="0.1"
-          class="inline-block size-14 rounded-full"
-          src="/images/opai-avatar-img-05.png"
-          alt="Marketing Expert 1"
-        />
-        <img
-          data-opai-avatar
-          data-avatar-delay="0.2"
-          class="inline-block size-14 rounded-full"
-          src="/images/opai-avatar-img-06.png"
-          alt="Marketing Expert 2"
-        />
-        <img
-          data-opai-avatar
-          data-avatar-delay="0.3"
-          class="inline-block size-14 rounded-full"
-          src="/images/opai-avatar-img-07.png"
-          alt="Marketing Expert 3"
-        />
-        <img
-          data-opai-avatar
-          data-avatar-delay="0.4"
-          class="inline-block size-14 rounded-full"
-          src="/images/opai-avatar-img-08.png"
-          alt="Marketing Expert 4"
-        />
-      </div>
-      <div class="space-y-3">
-        <h2
-          class="text-is-heading-3 lg:text-is-heading-2 font-instrument-serif text-center font-normal tracking-[-2.4px] text-white/90"
-          data-opai-animate
-          data-delay="0.1"
-        >
-          <!-- line 1 -->
-          <span
-            class="inline-flex flex-wrap items-start justify-center gap-x-1 sm:flex-nowrap md:items-center"
-          >
-            <span class="w-full sm:w-auto">Turn clicks</span>
-            <span
-              class="cta-content-image inline-block h-[52px] w-[88px] overflow-hidden rounded-[300px] align-middle"
-            >
-              <img
-                src="/images/opai-img-24.png"
-                alt=""
-                aria-hidden="true"
-                class="h-full w-full object-cover"
-              />
-            </span>
-            <span class="w-full sm:w-auto">Into customers</span>
-          </span>
-
-          <br />
-
-          <!-- line 2 -->
-          <span class="inline-flex items-center justify-center gap-x-4">
-            <span
-              class="cta-content-image-2 inline-block size-12 -rotate-[20deg] overflow-hidden rounded-lg align-middle"
-            >
-              <img
-                src="/images/opai-avatar-img-25.png"
-                alt=""
-                aria-hidden="true"
-                class="h-full w-full object-cover"
-              />
-            </span>
-            <span>the smarter way</span>
-          </span>
-        </h2>
-
-        <p
-          class="text-tagline-2 mx-auto w-full max-w-[320px] text-center text-white/60"
-          data-opai-animate
-          data-delay="0.2"
-        >
-          No guesswork. We use AI + proven marketing systems to scale ads, SEO,
-          and conversion.
+      <!-- Heading + description centered -->
+      <div class="text-center max-w-4xl mx-auto space-y-5 mb-16">
+        <h1 data-opai-animate data-delay="0.2" data-instant
+            class="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white/90 leading-tight">
+          Building technology that<br class="hidden sm:block" />
+          empowers businesses worldwide
+        </h1>
+        <p data-opai-animate data-delay="0.3" data-instant
+           class="text-tagline-2 font-normal text-white/60 max-w-2xl mx-auto">
+          For over 15 years, Ezitech has been delivering innovative software solutions, SaaS products, and digital experiences that help businesses grow, scale, and succeed.
         </p>
       </div>
 
-      <div class="flex justify-center" data-opai-animate data-delay="0.3">
-        <a
-  href="/contact"
-  class="group bg-background-7 hover:border-stroke-3 {=$anchor-class} relative flex items-center justify-center gap-2 overflow-hidden rounded-xl border border-transparent px-6 py-[13px] transition-all duration-300 ease-in-out"
->
-  <div class="h-full max-h-5 overflow-hidden">
-    <span
-      class="font-ibm-plex-mono text-background-13/90 text-tagline-2 block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      Book a strategy call
-    </span>
-    <span
-      class="font-ibm-plex-mono text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
-    >
-      Book a strategy call
-    </span>
-  </div>
+      <!-- Stats Row -->
+      <div data-opai-animate data-delay="0.4" data-instant
+          style="display:grid; grid-template-columns: repeat(4,1fr); gap:24px; margin-bottom:80px;">
+        <div class="flex flex-col items-center gap-2 border-r border-stroke-1/10 last:border-r-0 md:border-r">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span class="text-3xl font-instrument-serif font-normal text-white/90">15+</span>
+          </div>
+          <p class="text-tagline-3 text-white/50 text-center">Years Experience</p>
+        </div>
+        <div class="flex flex-col items-center gap-2 border-r border-stroke-1/10 last:border-r-0 md:border-r">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4.5v9L12 22 3 17.5v-9L12 2z"/></svg>
+            <span class="text-3xl font-instrument-serif font-normal text-white/90">500+</span>
+          </div>
+          <p class="text-tagline-3 text-white/50 text-center">Projects Delivered</p>
+        </div>
+        <div class="flex flex-col items-center gap-2 border-r border-stroke-1/10 last:border-r-0 md:border-r">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <span class="text-3xl font-instrument-serif font-normal text-white/90">100+</span>
+          </div>
+          <p class="text-tagline-3 text-white/50 text-center">Happy Clients</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="text-3xl font-instrument-serif font-normal text-white/90">50+</span>
+          </div>
+          <p class="text-tagline-3 text-white/50 text-center">Experts on Team</p>
+        </div>
+      </div>
 
-  <div class="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
-    <!-- circle  -->
-    <span
-      class="bg-background-6 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out"
-    >
-      <!-- arrow   -->
-      <span
-        class="stroke-background-10 absolute size-[16px] translate-x-[2.5px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-        >
-          <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </span>
-    </span>
+      <!-- Our Story + Our Values side by side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+        <!-- Our Story -->
+        <div data-opai-animate data-delay="0.5" data-instant
+             class="bg-background-7 rounded-2xl p-8 space-y-4 border border-stroke-1/10">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="size-1.5 rounded-full bg-opai-blue"></span>
+            <span class="font-ibm-plex-mono text-tagline-4 text-opai-blue uppercase tracking-wide">Our Story</span>
+          </div>
+          <h2 class="font-instrument-serif text-is-heading-5 md:text-is-heading-4 font-normal text-white/90 leading-snug">
+            Driven by innovation.<br />Focused on impact.
+          </h2>
+          <p class="text-tagline-3 text-white/60 leading-relaxed">
+            Ezitech was founded with a single mission — to transform ideas into beautiful digital products. From startups to enterprises, we partner with businesses across the globe to solve complex problems with technology.
+          </p>
+          <p class="text-tagline-3 text-white/60 leading-relaxed">
+            We combine strategy, design, and engineering to build solutions that are scalable, secure, and performance-driven.
+          </p>
+          <a href="/contact"
+             class="inline-flex items-center gap-2 text-opai-blue text-tagline-3 font-medium mt-2 hover:gap-3 transition-all duration-300">
+            Learn more
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
 
-    <!-- arrow   -->
-    <span
-      class="stroke-background-10 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 18 18"
-        fill="none"
-      >
-        <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </span>
-  </div>
-</a>
+        <!-- Our Values -->
+        <div data-opai-animate data-delay="0.6" data-instant
+             class="bg-background-7 rounded-2xl p-8 border border-stroke-1/10 space-y-5">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="size-1.5 rounded-full bg-opai-blue"></span>
+            <span class="font-ibm-plex-mono text-tagline-4 text-opai-blue uppercase tracking-wide">Our Values</span>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-opai-blue/15">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              <div>
+                <p class="text-tagline-2 font-medium text-white/90">Innovation</p>
+                <p class="text-tagline-3 text-white/55">We embrace new ideas and technologies to build future-ready solutions.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-opai-blue/15">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg>
+              </span>
+              <div>
+                <p class="text-tagline-2 font-medium text-white/90">Quality</p>
+                <p class="text-tagline-3 text-white/55">We are committed to delivering excellence in every project.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-opai-blue/15">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              <div>
+                <p class="text-tagline-2 font-medium text-white/90">Transparency</p>
+                <p class="text-tagline-3 text-white/55">We believe in clear communication and long-term partnerships.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-opai-blue/15">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </span>
+              <div>
+                <p class="text-tagline-2 font-medium text-white/90">Client Success</p>
+                <p class="text-tagline-3 text-white/55">Your growth is our success. We go the extra mile, every time.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom 4 info cards -->
+      <div data-opai-animate data-delay="0.7" data-instant
+           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-background-7 rounded-xl p-6 border border-stroke-1/10 space-y-2">
+          <span class="flex size-9 items-center justify-center rounded-full bg-opai-blue/15">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          <h4 class="text-tagline-2 font-medium text-white/90">Our Mission</h4>
+          <p class="text-tagline-3 text-white/55">To empower businesses with innovative technology solutions that drive efficiency, growth, and long-term success.</p>
+        </div>
+        <div class="bg-background-7 rounded-xl p-6 border border-stroke-1/10 space-y-2">
+          <span class="flex size-9 items-center justify-center rounded-full bg-opai-blue/15">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <h4 class="text-tagline-2 font-medium text-white/90">Our Vision</h4>
+          <p class="text-tagline-3 text-white/55">To become a globally trusted technology partner recognized for innovation, quality, and digital transformation.</p>
+        </div>
+        <div class="bg-background-7 rounded-xl p-6 border border-stroke-1/10 space-y-2">
+          <span class="flex size-9 items-center justify-center rounded-full bg-opai-blue/15">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </span>
+          <h4 class="text-tagline-2 font-medium text-white/90">Our Approach</h4>
+          <p class="text-tagline-3 text-white/55">Agile, collaborative, and customer-first approach to deliver measurable results with speed and precision.</p>
+        </div>
+        <div class="bg-background-7 rounded-xl p-6 border border-stroke-1/10 space-y-2">
+          <span class="flex size-9 items-center justify-center rounded-full bg-opai-blue/15">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </span>
+          <h4 class="text-tagline-2 font-medium text-white/90">Global Reach</h4>
+          <p class="text-tagline-3 text-white/55">Proudly serving clients in multiple industries and countries with a global mindset and local understanding.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 2. MISSION & VISION CARDS (after hero/stats slider)          -->
+  <!-- ============================================================ -->
+  <section class="bg-background-5 py-20 md:py-25">
+    <div class="main-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Mission Card -->
+        <div data-opai-animate data-delay="0.1"
+             class="bg-background-7 rounded-2xl p-8 flex flex-col md:flex-row items-start gap-6 border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 group">
+          <div class="flex-shrink-0 size-14 rounded-full bg-opai-blue/15 flex items-center justify-center group-hover:bg-opai-blue/25 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
+          <div class="flex-1 space-y-3">
+            <h3 class="font-instrument-serif text-is-heading-5 font-normal text-white/90">Our Mission</h3>
+            <p class="text-tagline-2 text-white/60 leading-relaxed">To empower businesses with innovative technology solutions that drive efficiency, growth, and long-term success.</p>
+            <div class="pt-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div class="hidden md:flex flex-shrink-0 w-20 h-20 items-center justify-center">
+            <svg viewBox="0 0 100 100" class="w-full h-full opacity-40" style="color:#8d59ff">
+              <polygon points="50,15 85,80 15,80" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <polygon points="35,60 50,38 65,60" fill="none" stroke="currentColor" stroke-width="2"/>
+              <line x1="50" y1="15" x2="50" y2="5" stroke="currentColor" stroke-width="2"/>
+              <circle cx="50" cy="5" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Vision Card -->
+        <div data-opai-animate data-delay="0.2"
+             class="bg-background-7 rounded-2xl p-8 flex flex-col md:flex-row items-start gap-6 border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 group">
+          <div class="flex-shrink-0 size-14 rounded-full bg-opai-blue/15 flex items-center justify-center group-hover:bg-opai-blue/25 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <div class="flex-1 space-y-3">
+            <h3 class="font-instrument-serif text-is-heading-5 font-normal text-white/90">Our Vision</h3>
+            <p class="text-tagline-2 text-white/60 leading-relaxed">To become a globally trusted technology partner recognized for innovation, quality, and digital transformation.</p>
+            <div class="pt-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div class="hidden md:flex flex-shrink-0 w-20 h-20 items-center justify-center">
+            <svg viewBox="0 0 100 100" class="w-full h-full opacity-40" style="color:#8d59ff">
+              <line x1="25" y1="75" x2="75" y2="25" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="75" cy="25" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="75" cy="25" r="3" fill="currentColor"/>
+              <line x1="40" y1="88" x2="25" y2="75" stroke="currentColor" stroke-width="2.5"/>
+              <line x1="55" y1="88" x2="40" y2="88" stroke="currentColor" stroke-width="2"/>
+              <path d="M60,25 Q75,10 90,25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 3. OUR STORY + NUMBERS TIMELINE (2022-2026)                  -->
+  <!-- ============================================================ -->
+  <section class="bg-background-7 py-20 md:py-25">
+    <div class="main-container space-y-16">
+
+      <!-- Story heading -->
+      <div class="max-w-4xl mx-auto text-center space-y-5">
+        <div data-opai-animate data-delay="0.1">
+          <span class="inline-flex items-center justify-center gap-x-1.5">
+            <span class="fill-opai-blue flex size-4 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z" fill="#8d59ff"/></svg>
+            </span>
+            <span class="font-inter-tight text-tagline-4 text-white/50 font-normal">Our Story</span>
+          </span>
+        </div>
+        <h2 data-opai-animate data-delay="0.2"
+            class="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white/90">
+          The Journey of Ezitech Solutions
+        </h2>
+        <p data-opai-animate data-delay="0.3"
+           class="text-tagline-2 text-white/60 font-inter-tight font-normal max-w-3xl mx-auto leading-relaxed">
+          Ezitech Solutions is a technology-driven software company committed to helping businesses accelerate growth through innovative digital solutions. Backed by years of industry experience, we specialize in custom software development, web applications, mobile apps, SaaS platforms, and AI-powered solutions.
+        </p>
+        <p data-opai-animate data-delay="0.35"
+           class="text-tagline-2 text-white/60 font-inter-tight font-normal max-w-3xl mx-auto leading-relaxed">
+          Our mission is to bridge the gap between business challenges and technology by delivering reliable, scalable, and future-ready products that create measurable impact.
+        </p>
+      </div>
+
+      <!-- Numbers Timeline -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div data-opai-animate data-delay="0.1"
+             class="bg-background-5 p-8 rounded-xl text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 space-y-2">
+          <div class="font-instrument-serif text-5xl font-normal text-opai-blue">15+</div>
+          <p class="text-tagline-2 text-white/70 font-medium">Years Experience</p>
+          <p class="text-tagline-3 text-white/40">Industry expertise since</p>
+          <span class="inline-block font-ibm-plex-mono text-tagline-4 text-opai-blue/70 border border-opai-blue/20 rounded-full px-3 py-0.5 mt-1">2022</span>
+        </div>
+        <div data-opai-animate data-delay="0.2"
+             class="bg-background-5 p-8 rounded-xl text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 space-y-2">
+          <div class="font-instrument-serif text-5xl font-normal text-opai-blue">500+</div>
+          <p class="text-tagline-2 text-white/70 font-medium">Successful Projects</p>
+          <p class="text-tagline-3 text-white/40">Delivered with precision</p>
+          <span class="inline-block font-ibm-plex-mono text-tagline-4 text-opai-blue/70 border border-opai-blue/20 rounded-full px-3 py-0.5 mt-1">2023</span>
+        </div>
+        <div data-opai-animate data-delay="0.3"
+             class="bg-background-5 p-8 rounded-xl text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 space-y-2">
+          <div class="font-instrument-serif text-5xl font-normal text-opai-blue">100+</div>
+          <p class="text-tagline-2 text-white/70 font-medium">Happy Clients</p>
+          <p class="text-tagline-3 text-white/40">Across multiple industries</p>
+          <span class="inline-block font-ibm-plex-mono text-tagline-4 text-opai-blue/70 border border-opai-blue/20 rounded-full px-3 py-0.5 mt-1">2024</span>
+        </div>
+        <div data-opai-animate data-delay="0.4"
+             class="bg-background-5 p-8 rounded-xl text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 space-y-2">
+          <div class="font-instrument-serif text-5xl font-normal text-opai-blue">40+</div>
+          <p class="text-tagline-2 text-white/70 font-medium">Expert Developers</p>
+          <p class="text-tagline-3 text-white/40">Growing team of specialists</p>
+          <span class="inline-block font-ibm-plex-mono text-tagline-4 text-opai-blue/70 border border-opai-blue/20 rounded-full px-3 py-0.5 mt-1">2025–26</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 4. DEVELOPMENT PROCESS                                       -->
+  <!-- ============================================================ -->
+  <section class="bg-background-5 py-20 md:py-25">
+    <div class="main-container space-y-16">
+
+      <div class="text-center space-y-4">
+        <div data-opai-animate data-delay="0.1">
+          <span class="inline-flex items-center justify-center gap-x-1.5">
+            <span class="fill-opai-blue flex size-4 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z" fill="#8d59ff"/></svg>
+            </span>
+            <span class="font-inter-tight text-tagline-4 text-white/50 font-normal">Process</span>
+          </span>
+        </div>
+        <h2 data-opai-animate data-delay="0.2"
+            class="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white/90">
+          Our Development Process
+        </h2>
+        <p data-opai-animate data-delay="0.3"
+           class="text-tagline-2 text-white/60 font-inter-tight font-normal max-w-xl mx-auto">
+          From discovery to delivery — we build with precision.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Step 1 -->
+        <div data-opai-animate data-delay="0.1"
+             class="bg-background-7 p-8 rounded-xl border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 space-y-4 group">
+          <div class="flex items-center justify-between">
+            <span class="font-instrument-serif text-6xl font-normal text-opai-blue/30 group-hover:text-opai-blue/50 transition-colors duration-300">01</span>
+            <span class="flex size-10 items-center justify-center rounded-full bg-opai-blue/15">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </span>
+          </div>
+          <div>
+            <h3 class="font-instrument-serif text-is-heading-5 font-normal text-white/90 mb-1">Discover</h3>
+            <p class="text-tagline-3 font-medium" style="color:#8d59ff">Requirements Analysis &amp; Strategic Planning</p>
+          </div>
+          <p class="text-tagline-3 text-white/60 leading-relaxed">
+            We understand your business objectives, challenges, and project requirements to build the right solution.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div data-opai-animate data-delay="0.2"
+             class="bg-background-7 p-8 rounded-xl border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 space-y-4 group">
+          <div class="flex items-center justify-between">
+            <span class="font-instrument-serif text-6xl font-normal text-opai-blue/30 group-hover:text-opai-blue/50 transition-colors duration-300">02</span>
+            <span class="flex size-10 items-center justify-center rounded-full bg-opai-blue/15">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </span>
+          </div>
+          <div>
+            <h3 class="font-instrument-serif text-is-heading-5 font-normal text-white/90 mb-1">Develop</h3>
+            <p class="text-tagline-3 font-medium" style="color:#8d59ff">Agile Design &amp; Development</p>
+          </div>
+          <p class="text-tagline-3 text-white/60 leading-relaxed">
+            Our experts design, develop, and continuously improve products through agile development cycles.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div data-opai-animate data-delay="0.3"
+             class="bg-background-7 p-8 rounded-xl border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 space-y-4 group">
+          <div class="flex items-center justify-between">
+            <span class="font-instrument-serif text-6xl font-normal text-opai-blue/30 group-hover:text-opai-blue/50 transition-colors duration-300">03</span>
+            <span class="flex size-10 items-center justify-center rounded-full bg-opai-blue/15">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+          </div>
+          <div>
+            <h3 class="font-instrument-serif text-is-heading-5 font-normal text-white/90 mb-1">Deliver</h3>
+            <p class="text-tagline-3 font-medium" style="color:#8d59ff">Testing, Deployment &amp; Optimization</p>
+          </div>
+          <p class="text-tagline-3 text-white/60 leading-relaxed">
+            We ensure quality, security, and performance before deployment while providing ongoing support.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 5. LEADERSHIP & TEAM                                         -->
+  <!-- ============================================================ -->
+  <section class="bg-background-7 py-20 md:py-25">
+    <div class="main-container space-y-16">
+
+      <div class="text-center space-y-4">
+        <div data-opai-animate data-delay="0.1">
+          <span class="inline-flex items-center justify-center gap-x-1.5">
+            <span class="fill-opai-blue flex size-4 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z" fill="#8d59ff"/></svg>
+            </span>
+            <span class="font-inter-tight text-tagline-4 text-white/50 font-normal">Our Team</span>
+          </span>
+        </div>
+        <h2 data-opai-animate data-delay="0.2"
+            class="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white/90">
+          Our innovative, dynamic,<br class="hidden sm:block" /> and talented team
+        </h2>
+        <p data-opai-animate data-delay="0.3"
+           class="text-tagline-2 text-white/60 font-inter-tight font-normal max-w-xl mx-auto">
+          Our innovative, dynamic, and talented team is the driving force behind our success. Each member brings a unique blend of expertise.
+        </p>
+      </div>
+
+      <!-- Team Grid — crypto-marketing-about layout -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5">
+
+        <!-- CEO -->
+        <div data-opai-animate data-delay="0.1"
+             class="bg-background-5 rounded-2xl p-5 text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 group space-y-3">
+          <div class="relative mx-auto size-20 rounded-full overflow-hidden border-2 border-stroke-1/20 group-hover:border-opai-blue/40 transition-all duration-300">
+            <div class="size-full bg-gradient-to-br from-opai-blue/60 to-purple-700 flex items-center justify-center">
+              <span class="font-instrument-serif text-xl font-bold text-white">CE</span>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-tagline-2 font-medium text-white/90 leading-tight">CEO &amp; Founder</h4>
+            <p class="text-tagline-4 text-white/50 mt-0.5">Strategic Vision</p>
+          </div>
+          <div class="flex items-center justify-center gap-2 pt-1">
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Manager -->
+        <div data-opai-animate data-delay="0.2"
+             class="bg-background-5 rounded-2xl p-5 text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 group space-y-3">
+          <div class="relative mx-auto size-20 rounded-full overflow-hidden border-2 border-stroke-1/20 group-hover:border-opai-blue/40 transition-all duration-300">
+            <div class="size-full bg-gradient-to-br from-purple-600 to-opai-blue/60 flex items-center justify-center">
+              <span class="font-instrument-serif text-xl font-bold text-white">PM</span>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-tagline-2 font-medium text-white/90 leading-tight">Project Manager</h4>
+            <p class="text-tagline-4 text-white/50 mt-0.5">Execution Excellence</p>
+          </div>
+          <div class="flex items-center justify-center gap-2 pt-1">
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Lead Engineer -->
+        <div data-opai-animate data-delay="0.3"
+             class="bg-background-5 rounded-2xl p-5 text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 group space-y-3">
+          <div class="relative mx-auto size-20 rounded-full overflow-hidden border-2 border-stroke-1/20 group-hover:border-opai-blue/40 transition-all duration-300">
+            <div class="size-full bg-gradient-to-br from-opai-blue/80 to-blue-700 flex items-center justify-center">
+              <span class="font-instrument-serif text-xl font-bold text-white">LE</span>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-tagline-2 font-medium text-white/90 leading-tight">Lead Software Engineer</h4>
+            <p class="text-tagline-4 text-white/50 mt-0.5">Technical Leadership</p>
+          </div>
+          <div class="flex items-center justify-center gap-2 pt-1">
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- UI/UX Designer -->
+        <div data-opai-animate data-delay="0.4"
+             class="bg-background-5 rounded-2xl p-5 text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 group space-y-3">
+          <div class="relative mx-auto size-20 rounded-full overflow-hidden border-2 border-stroke-1/20 group-hover:border-opai-blue/40 transition-all duration-300">
+            <div class="size-full bg-gradient-to-br from-pink-600/80 to-opai-blue/60 flex items-center justify-center">
+              <span class="font-instrument-serif text-xl font-bold text-white">UI</span>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-tagline-2 font-medium text-white/90 leading-tight">UI/UX Designer</h4>
+            <p class="text-tagline-4 text-white/50 mt-0.5">User-Centered Design</p>
+          </div>
+          <div class="flex items-center justify-center gap-2 pt-1">
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- AI Engineer -->
+        <div data-opai-animate data-delay="0.5"
+             class="bg-background-5 rounded-2xl p-5 text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 group space-y-3">
+          <div class="relative mx-auto size-20 rounded-full overflow-hidden border-2 border-stroke-1/20 group-hover:border-opai-blue/40 transition-all duration-300">
+            <div class="size-full bg-gradient-to-br from-emerald-600/80 to-opai-blue/60 flex items-center justify-center">
+              <span class="font-instrument-serif text-xl font-bold text-white">AI</span>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-tagline-2 font-medium text-white/90 leading-tight">AI Engineer</h4>
+            <p class="text-tagline-4 text-white/50 mt-0.5">Intelligent Systems</p>
+          </div>
+          <div class="flex items-center justify-center gap-2 pt-1">
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- QA Engineer -->
+        <div data-opai-animate data-delay="0.6"
+             class="bg-background-5 rounded-2xl p-5 text-center border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 group space-y-3">
+          <div class="relative mx-auto size-20 rounded-full overflow-hidden border-2 border-stroke-1/20 group-hover:border-opai-blue/40 transition-all duration-300">
+            <div class="size-full bg-gradient-to-br from-orange-600/80 to-opai-blue/60 flex items-center justify-center">
+              <span class="font-instrument-serif text-xl font-bold text-white">QA</span>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-tagline-2 font-medium text-white/90 leading-tight">QA Engineer</h4>
+            <p class="text-tagline-4 text-white/50 mt-0.5">Quality Assurance</p>
+          </div>
+          <div class="flex items-center justify-center gap-2 pt-1">
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="text-white/30 hover:text-opai-blue transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            </a>
+          </div>
+        </div>
 
       </div>
     </div>
+  </section>
 
-    <div
-      data-opai-animate
-      data-delay="0.4"
-      data-duration="3"
-      data-direction="right"
-      data-spring
-    >
-      <figure class="flex justify-end">
-        <img src="/images/vector-01.svg" alt="CTA Image" />
-      </figure>
+  <!-- ============================================================ -->
+  <!-- 6. CLIENT SUCCESS / REVIEWS                                  -->
+  <!-- ============================================================ -->
+  <section class="bg-background-5 py-20 md:py-25 border-t border-stroke-1/10">
+    <div class="main-container space-y-16">
+
+      <div class="text-center space-y-4">
+        <div data-opai-animate data-delay="0.1">
+          <span class="inline-block bg-opai-blue/10 text-opai-blue px-4 py-1.5 rounded-full font-ibm-plex-mono text-tagline-4 font-medium">Reviews</span>
+        </div>
+        <h2 data-opai-animate data-delay="0.2"
+            class="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white/90 max-w-3xl mx-auto">
+          Hear from our customers about their experiences with us
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div data-opai-animate data-delay="0.1"
+             class="bg-background-7 p-6 rounded-xl border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 flex flex-col justify-between space-y-6">
+          <p class="text-tagline-2 text-white/70 italic leading-relaxed">
+            "Outstanding service and innovative solutions. The team's responsiveness and expertise have been invaluable to our business growth."
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t border-stroke-1/10">
+            <div class="size-10 rounded-full bg-gradient-to-br from-opai-blue/60 to-purple-600/60 flex items-center justify-center shrink-0">
+              <span class="text-tagline-4 font-bold text-white">MC</span>
+            </div>
+            <div>
+              <div class="text-tagline-3 font-medium text-white/90">Michael Chen</div>
+              <div class="text-tagline-4 text-white/50">CEO, TechCorp</div>
+            </div>
+          </div>
+        </div>
+
+        <div data-opai-animate data-delay="0.2"
+             class="bg-background-7 p-6 rounded-xl border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 flex flex-col justify-between space-y-6">
+          <p class="text-tagline-2 text-white/70 italic leading-relaxed">
+            "The automation features have saved us countless hours. A game-changer for our business operations and team productivity."
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t border-stroke-1/10">
+            <div class="size-10 rounded-full bg-gradient-to-br from-emerald-600/60 to-opai-blue/60 flex items-center justify-center shrink-0">
+              <span class="text-tagline-4 font-bold text-white">AR</span>
+            </div>
+            <div>
+              <div class="text-tagline-3 font-medium text-white/90">Alex Rodriguez</div>
+              <div class="text-tagline-4 text-white/50">Operations Manager</div>
+            </div>
+          </div>
+        </div>
+
+        <div data-opai-animate data-delay="0.3"
+             class="bg-background-7 p-6 rounded-xl border border-stroke-1/10 hover:border-opai-blue/30 transition-all duration-300 flex flex-col justify-between space-y-6">
+          <p class="text-tagline-2 text-white/70 italic leading-relaxed">
+            "The platform's intuitive interface and powerful features have revolutionized our workflow. Customer support is top-notch."
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t border-stroke-1/10">
+            <div class="size-10 rounded-full bg-gradient-to-br from-pink-600/60 to-opai-blue/60 flex items-center justify-center shrink-0">
+              <span class="text-tagline-4 font-bold text-white">DJ</span>
+            </div>
+            <div>
+              <div class="text-tagline-3 font-medium text-white/90">David Johnson</div>
+              <div class="text-tagline-4 text-white/50">Marketing Director</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-    </main>`;function sr(){return(0,A.jsx)(j,{html:or})}var cr=`<main class="bg-background-5">
+</main>`;function cr(){return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`instant`})},[k().key]),(0,A.jsx)(j,{html:sr})}var lr=`<main class="bg-background-5">
       <!-- ============================= Services ============================= -->
 <section
   class="bg-background-5 pt-39 pb-20 md:pt-44 md:pb-32 lg:pt-52 lg:pb-38 xl:pt-56 xl:pb-44"
@@ -7654,7 +6760,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function lr(){return(0,A.jsx)(j,{html:cr})}var ur=`<main class="bg-background-7">
+    </main>`;function ur(){return(0,A.jsx)(j,{html:lr})}var dr=`<main class="bg-background-7">
       <!-- service details hero -->
 
 <section class="bg-background-5 relative overflow-hidden pt-34 pb-28 md:pt-39">
@@ -8104,7 +7210,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function dr(){return(0,A.jsx)(j,{html:ur})}var fr=`<main class="bg-background-5">
+    </main>`;function fr(){return(0,A.jsx)(j,{html:dr})}var pr=`<main class="bg-background-5">
       <!-- pricing plan section -->
 
 <section class="price-scope pt-28 md:pt-39">
@@ -10245,7 +9351,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function pr(){return(0,A.jsx)(j,{html:fr})}var mr=`<main class="bg-background-5">
+    </main>`;function mr(){return(0,A.jsx)(j,{html:pr})}var hr=`<main class="bg-background-5">
       <!-- team hero  -->
 
 <section class="pt-34 md:pt-39">
@@ -11939,7 +11045,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function hr(){return(0,A.jsx)(j,{html:mr})}var gr=`<main class="bg-background-5">
+    </main>`;function gr(){return(0,A.jsx)(j,{html:hr})}var _r=`<main class="bg-background-5">
       <!-- team details hero section  -->
 <section class="pt-28 md:pt-39">
   <div class="main-container">
@@ -12375,7 +11481,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function _r(){return(0,A.jsx)(j,{html:gr})}var vr=`<main class="bg-background-5">
+    </main>`;function vr(){return(0,A.jsx)(j,{html:_r})}var yr=`<main class="bg-background-5">
       <!-- blog hero  -->
 <section class="relative overflow-hidden pt-33 pb-10 md:pt-39 lg:pb-20">
   <div class="main-container">
@@ -13195,7 +12301,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function yr(){return(0,A.jsx)(j,{html:vr})}var br=`<main class="bg-background-5">
+    </main>`;function br(){return(0,A.jsx)(j,{html:yr})}var xr=`<main class="bg-background-5">
       <!-- blog details hero -->
 <section class="bg-background-6 relative overflow-hidden pt-36 pb-20 md:pt-39 md:pb-30 lg:pb-44">
   <div class="main-container relative z-10">
@@ -14007,7 +13113,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function xr(){return(0,A.jsx)(j,{html:br})}var Sr=`<main class="bg-background-5">
+    </main>`;function Sr(){return(0,A.jsx)(j,{html:xr})}var Cr=`<main class="bg-background-5">
       <!-- case study hero  -->
 
 <section class="lp:pb-44 pt-39 pb-20 md:pb-25 lg:pt-44 lg:pb-30 xl:pt-52">
@@ -15393,7 +14499,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function Cr(){return(0,A.jsx)(j,{html:Sr})}var wr=`<main class="bg-background-5">
+    </main>`;function wr(){return(0,A.jsx)(j,{html:Cr})}var Tr=`<main class="bg-background-5">
       <!-- case study details hero  -->
 <section class="relative overflow-hidden pt-36 pb-20 md:pt-39 md:pb-30 lg:pb-44">
   <div class="main-container relative z-10">
@@ -16135,7 +15241,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function Tr(){return(0,A.jsx)(j,{html:wr})}var Er=`<main class="bg-background-5">
+    </main>`;function Er(){return(0,A.jsx)(j,{html:Tr})}var Dr=`<main class="bg-background-5">
       <!-- contact hero -->
 
 <section class="lp:pb-44 relative overflow-hidden pt-28 pb-20 md:pt-39 md:pb-25 lg:pb-30">
@@ -16658,7 +15764,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function Dr(){return(0,A.jsx)(j,{html:Er})}var Or=`<main class="bg-background-5">
+    </main>`;function Or(){return(0,A.jsx)(j,{html:Dr})}var kr=`<main class="bg-background-5">
       <!-- login form -->
 <section class="pt-34 pb-12 2xl:pt-44">
   <div class="main-container">
@@ -16914,7 +16020,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function kr(){return(0,A.jsx)(j,{html:Or})}var Ar=`<main class="bg-background-5">
+    </main>`;function Ar(){return(0,A.jsx)(j,{html:kr})}var jr=`<main class="bg-background-5">
       <!-- signup form -->
 <section class="pt-34 pb-12 2xl:pt-44">
   <div class="main-container">
@@ -17156,7 +16262,7 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function jr(){return(0,A.jsx)(j,{html:Ar})}var Mr=`<main class="bg-background-5">
+    </main>`;function Mr(){return(0,A.jsx)(j,{html:jr})}var Nr=`<main class="bg-background-5">
       <section class="pt-28 pb-20 md:pt-39 md:pb-30 lg:pb-44">
   <div class="main-container">
     <div class="space-y-[70px]">
@@ -17248,4 +16354,4 @@ Mobile Menu
   </div>
 </section>
 
-    </main>`;function Nr(){return(0,A.jsx)(j,{html:Mr})}function Pr(){return(0,A.jsx)(Mn,{children:(0,A.jsx)(rr,{children:(0,A.jsxs)(Wt,{children:[(0,A.jsx)(Ht,{path:`/`,element:(0,A.jsx)(ar,{})}),(0,A.jsx)(Ht,{path:`/about`,element:(0,A.jsx)(sr,{})}),(0,A.jsx)(Ht,{path:`/services`,element:(0,A.jsx)(lr,{})}),(0,A.jsx)(Ht,{path:`/service-details`,element:(0,A.jsx)(dr,{})}),(0,A.jsx)(Ht,{path:`/pricing`,element:(0,A.jsx)(pr,{})}),(0,A.jsx)(Ht,{path:`/team`,element:(0,A.jsx)(hr,{})}),(0,A.jsx)(Ht,{path:`/team-details`,element:(0,A.jsx)(_r,{})}),(0,A.jsx)(Ht,{path:`/blog`,element:(0,A.jsx)(yr,{})}),(0,A.jsx)(Ht,{path:`/blog-details`,element:(0,A.jsx)(xr,{})}),(0,A.jsx)(Ht,{path:`/case-study`,element:(0,A.jsx)(Cr,{})}),(0,A.jsx)(Ht,{path:`/case-study-details`,element:(0,A.jsx)(Tr,{})}),(0,A.jsx)(Ht,{path:`/contact`,element:(0,A.jsx)(Dr,{})}),(0,A.jsx)(Ht,{path:`/login`,element:(0,A.jsx)(kr,{})}),(0,A.jsx)(Ht,{path:`/signup`,element:(0,A.jsx)(jr,{})}),(0,A.jsx)(Ht,{path:`*`,element:(0,A.jsx)(Nr,{})})]})})})}(0,er.createRoot)(document.getElementById(`root`)).render((0,A.jsx)(x.StrictMode,{children:(0,A.jsx)(Pr,{})}));
+    </main>`;function Pr(){return(0,A.jsx)(j,{html:Nr})}function Fr(){return(0,A.jsx)(Mn,{children:(0,A.jsx)(ir,{children:(0,A.jsxs)(Wt,{children:[(0,A.jsx)(Ht,{path:`/`,element:(0,A.jsx)(or,{})}),(0,A.jsx)(Ht,{path:`/about`,element:(0,A.jsx)(cr,{})}),(0,A.jsx)(Ht,{path:`/services`,element:(0,A.jsx)(ur,{})}),(0,A.jsx)(Ht,{path:`/service-details`,element:(0,A.jsx)(fr,{})}),(0,A.jsx)(Ht,{path:`/pricing`,element:(0,A.jsx)(mr,{})}),(0,A.jsx)(Ht,{path:`/team`,element:(0,A.jsx)(gr,{})}),(0,A.jsx)(Ht,{path:`/team-details`,element:(0,A.jsx)(vr,{})}),(0,A.jsx)(Ht,{path:`/blog`,element:(0,A.jsx)(br,{})}),(0,A.jsx)(Ht,{path:`/blog-details`,element:(0,A.jsx)(Sr,{})}),(0,A.jsx)(Ht,{path:`/case-study`,element:(0,A.jsx)(wr,{})}),(0,A.jsx)(Ht,{path:`/case-study-details`,element:(0,A.jsx)(Er,{})}),(0,A.jsx)(Ht,{path:`/contact`,element:(0,A.jsx)(Or,{})}),(0,A.jsx)(Ht,{path:`/login`,element:(0,A.jsx)(Ar,{})}),(0,A.jsx)(Ht,{path:`/signup`,element:(0,A.jsx)(Mr,{})}),(0,A.jsx)(Ht,{path:`*`,element:(0,A.jsx)(Pr,{})})]})})})}(0,er.createRoot)(document.getElementById(`root`)).render((0,A.jsx)(x.StrictMode,{children:(0,A.jsx)(Fr,{})}));
