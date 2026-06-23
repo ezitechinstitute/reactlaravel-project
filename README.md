@@ -1,4 +1,4 @@
-# AI Marketing Agency — React + Vite
+# EZITECH
 
 This is the React + Vite conversion of the original HTML/CSS/JS template
 (Tailwind v4 + GSAP/Swiper/Lenis animations).
