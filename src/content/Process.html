@@ -450,7 +450,9 @@ CTA v1 section
         aria-label="Use Case Overview"
     >
         <div class="main-container">
-            <div class="flex items-center flex-col lg:flex-row justify-between">
+            <div
+                class="flex items-center flex-col lg:flex-row justify-between gap-8 lg:gap-0"
+            >
                 <div
                     class="xl:max-w-[720px] w-full space-y-5 text-center lg:text-left"
                 >
@@ -480,15 +482,13 @@ CTA v1 section
                     </div>
                 </div>
 
-                <div
-                    class="lg:basis-[420px] space-y-4 md:ml-0 xl:ml-[60px] w-full sm:w-[80%] md:w-[60%]"
-                >
+                <div class="lg:basis-[420px] space-y-4 xl:ml-[60px] w-full">
                     <form
                         data-ns-animate
                         data-delay="0.6"
                         action="#"
                         method="post"
-                        class="flex items-center flex-col gap-5 sm:flex-row justify-start lg:gap-3"
+                        class="flex items-stretch flex-col gap-3 sm:flex-row sm:items-center sm:gap-5 lg:gap-3 justify-start"
                     >
                         <input
                             type="email"
@@ -496,19 +496,19 @@ CTA v1 section
                             id="userEmail-cta-v1"
                             placeholder="Enter your email"
                             required
-                            class="px-4 shadow-1 h-10 py-2 text-sm placeholder:text-secondary/50 rounded-full border border-gray-200 focus:border-primary-600 lg:max-w-[280px] md:w-[68%] w-full max-[376px]:w-full dark:border-stroke-7 dark:placeholder:text-accent/60 focus:outline-none dark:focus:border-primary-400 dark:text-accent placeholder:font-normal font-normal"
+                            class="px-4 shadow-1 h-10 py-2 text-sm placeholder:text-secondary/50 rounded-full border border-gray-200 focus:border-primary-600 w-full sm:flex-1 lg:max-w-[280px] dark:border-stroke-7 dark:placeholder:text-accent/60 focus:outline-none dark:focus:border-primary-400 dark:text-accent placeholder:font-normal font-normal"
                         />
 
                         <button
                             type="submit"
-                            class="btn btn-sm btn-primary h-10 w-full sm:w-[28%] lg:w-auto hover:btn-secondary dark:hover:btn-accent text-sm"
+                            class="btn btn-sm btn-primary h-10 w-full sm:w-auto hover:btn-secondary dark:hover:btn-accent text-sm shrink-0"
                             style="text-transform: none"
                         >
                             <span>Get started</span>
                         </button>
                     </form>
                     <ul
-                        class="flex flex-row items-center justify-center gap-x-4 sm:gap-x-6 sm:gap-y-0 gap-y-5 lg:justify-start"
+                        class="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 lg:justify-start"
                     >
                         <li
                             data-ns-animate
