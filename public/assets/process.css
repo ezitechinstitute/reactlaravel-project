@@ -1,0 +1,61 @@
+/* Ensure body background matches the page in dark mode */
+html.dark body {
+    background-color: var(--color-background-5);
+}
+/* Ensure body background matches the page in light mode */
+html.light-theme body {
+    background-color: var(--color-background-5);
+}
+
+.accordion-arrow {
+    transition: transform 0.3s ease-in-out;
+}
+.accordion-item[data-state="open"] .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+/* ── Page heading: responsive sizing ── */
+.page-heading {
+    font-size: var(--text-heading-6);
+    line-height: var(--text-heading-6--line-height);
+}
+@media (min-width: 40rem) {
+    .page-heading {
+        font-size: var(--text-heading-4);
+        line-height: var(--text-heading-4--line-height);
+    }
+}
+@media (min-width: 64rem) {
+    .page-heading {
+        font-size: var(--text-heading-2);
+        line-height: var(--text-heading-2--line-height);
+    }
+}
+
+.process-card {
+    grid-column: span 12 / span 12;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 48rem) {
+    .process-card {
+        grid-column: span 6 / span 6;
+    }
+    /* Center the lone item (Step 5) in the last row */
+    @media (max-width: 63.999rem) {
+        .process-card:last-child {
+            grid-column-start: 4;
+        }
+    }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 64rem) {
+    .process-card {
+        grid-column: span 4 / span 4;
+    }
+    /* Center the last row: offset Step 4 so Steps 4+5 sit centered */
+    .process-card--offset {
+        grid-column-start: 3;
+    }
+}

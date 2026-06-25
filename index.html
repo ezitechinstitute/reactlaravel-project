@@ -1,56 +1,63 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="title" content="Ezitech || Software, AI & Digital Innovation" />
-    <meta name="description" content="Ezitech — Software Development, AI Solutions, and Digital Innovation. Web, mobile, and AI-powered products plus professional internship programs." />
-    <meta name="author" content="Ezitech" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..600&family=Instrument+Serif:wght@400..600&family=Inter+Tight:wght@300..600&family=Manrope:wght@300..600&family=Sora:wght@300..600&family=Space+Grotesk:wght@300..600&family=IBM+Plex+Mono:wght@300;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
-    <title>Ezitech || Software, AI &amp; Digital Innovation</title>
-    <link rel="stylesheet" href="/assets/main.css" />
-    <link rel="stylesheet" href="/assets/theme.css" />
-    <!-- Apply saved theme before paint to avoid a flash of the wrong theme -->
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem("ezitech-theme");
-          if (t === "light") {
-            document.documentElement.classList.add("light-theme");
-          }
-        } catch (e) {}
-      })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta
+            name="title"
+            content="Ezitech || Software, AI & Digital Innovation"
+        />
+        <meta
+            name="description"
+            content="Ezitech — Software Development, AI Solutions, and Digital Innovation. Web, mobile, and AI-powered products plus professional internship programs."
+        />
+        <meta name="author" content="Ezitech" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..600&family=Instrument+Serif:wght@400..600&family=Inter+Tight:wght@300..600&family=Manrope:wght@300..600&family=Sora:wght@300..600&family=Space+Grotesk:wght@300..600&family=IBM+Plex+Mono:wght@300;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+            rel="stylesheet"
+        />
+        <title>Ezitech || Software, AI &amp; Digital Innovation</title>
+        <link rel="stylesheet" href="/assets/main.css" />
+        <link rel="stylesheet" href="/assets/theme.css" />
+        <link rel="stylesheet" href="/assets/process.css" />
+        <!-- Apply saved theme before paint to avoid a flash of the wrong theme -->
+        <script>
+            (function () {
+                try {
+                    var t = localStorage.getItem("ezitech-theme");
+                    if (t === "light") {
+                        document.documentElement.classList.add("light-theme");
+                    }
+                } catch (e) {}
+            })();
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Vendor libraries: gsap first, then plugins, then the rest -->
-    <script src="/vendor/gsap.min.js"></script>
-    <script src="/vendor/scroll-trigger.min.js"></script>
-    <script src="/vendor/split-text.min.js"></script>
-    <script src="/vendor/motion-path.min.js"></script>
-    <script src="/vendor/draw-svg.min.js"></script>
-    <script src="/vendor/gsap-flip.min.js"></script>
-    <script src="/vendor/springer.min.js"></script>
-    <script src="/vendor/swiper.min.js"></script>
-    <script src="/vendor/vanilla-infinite-marquee.min.js"></script>
-    <script src="/vendor/lenis.min.js"></script>
-    <script src="/vendor/number-counter.js"></script>
-    <!-- SPA-wrapped site script: defines window.__opaiInit() -->
-    <script src="/assets/main.spa.js"></script>
-  </body>
+        <!-- Vendor libraries: gsap first, then plugins, then the rest -->
+        <script src="/vendor/gsap.min.js"></script>
+        <script src="/vendor/scroll-trigger.min.js"></script>
+        <script src="/vendor/split-text.min.js"></script>
+        <script src="/vendor/motion-path.min.js"></script>
+        <script src="/vendor/draw-svg.min.js"></script>
+        <script src="/vendor/gsap-flip.min.js"></script>
+        <script src="/vendor/springer.min.js"></script>
+        <script src="/vendor/swiper.min.js"></script>
+        <script src="/vendor/vanilla-infinite-marquee.min.js"></script>
+        <script src="/vendor/lenis.min.js"></script>
+        <script src="/vendor/number-counter.js"></script>
+        <!-- SPA-wrapped site script: defines window.__opaiInit() -->
+        <script src="/assets/main.spa.js"></script>
+    </body>
 </html>
