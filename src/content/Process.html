@@ -25,7 +25,7 @@ process Steps section
             </div>
             <div class="grid grid-cols-12 gap-y-5 md:gap-8">
                 <!-- Top Row -->
-                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                <div class="process-card">
                     <div
                         data-ns-animate
                         data-delay="0.3"
@@ -61,7 +61,7 @@ process Steps section
                         </div>
                     </div>
                 </div>
-                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                <div class="process-card">
                     <div
                         data-ns-animate
                         data-delay="0.4"
@@ -97,7 +97,7 @@ process Steps section
                         </div>
                     </div>
                 </div>
-                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                <div class="process-card">
                     <div
                         data-ns-animate
                         data-delay="0.5"
@@ -134,9 +134,7 @@ process Steps section
                     </div>
                 </div>
                 <!-- Bottom Row -->
-                <div
-                    class="col-span-12 md:col-span-6 lg:col-span-4 lg:col-start-3"
-                >
+                <div class="process-card process-card--offset">
                     <div
                         data-ns-animate
                         data-delay="0.6"
@@ -172,7 +170,7 @@ process Steps section
                         </div>
                     </div>
                 </div>
-                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                <div class="process-card">
                     <div
                         data-ns-animate
                         data-delay="0.7"
@@ -218,7 +216,11 @@ FAQ section
     <section class="md:pt-[100px] pt-[50px] md:pb-[200px] pb-[100px]">
         <div class="main-container">
             <div class="text-center space-y-5 max-w-[620px] mx-auto mb-[70px]">
-                <span data-ns-animate data-delay="0.1" class="badge badge-cyan"
+                <span
+                    data-ns-animate
+                    data-delay="0.1"
+                    class="badge badge-cyan"
+                    style="text-transform: none"
                     >Faq</span
                 >
                 <div class="space-y-3">
@@ -451,10 +453,10 @@ CTA v1 section
     >
         <div class="main-container">
             <div
-                class="flex flex-col xl:flex-row items-center justify-between gap-8 xl:gap-10"
+                class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10"
             >
                 <div
-                    class="w-full xl:max-w-[720px] space-y-8 text-center xl:text-left"
+                    class="w-full md:max-w-[720px] space-y-8 text-center md:text-left"
                 >
                     <span
                         data-ns-animate
@@ -467,9 +469,11 @@ CTA v1 section
                         <h2
                             data-ns-animate
                             data-delay="0.4"
-                            class="text-secondary dark:text-accent text-heading-5 sm:text-heading-5 lg:text-heading-4"
+                            class="text-secondary dark:text-accent cta-heading"
                         >
-                            Build a complete website using the assistance
+                            Build a complete website<br
+                                class="cta-break"
+                            />using the assistance
                         </h2>
                         <p
                             data-ns-animate
@@ -483,14 +487,14 @@ CTA v1 section
                 </div>
 
                 <div
-                    class="w-full max-w-lg mx-auto xl:mx-0 xl:basis-[420px] space-y-4 xl:ml-[60px]"
+                    class="w-full max-w-lg mx-auto md:mx-0 md:basis-[420px] space-y-4 md:ml-[60px]"
                 >
                     <form
                         data-ns-animate
                         data-delay="0.6"
                         action="#"
                         method="post"
-                        class="flex flex-col md:flex-row items-stretch md:items-center gap-3 justify-center xl:justify-start"
+                        class="flex flex-col md:flex-row items-stretch md:items-center gap-3 justify-center md:justify-start"
                     >
                         <input
                             type="email"
@@ -510,7 +514,7 @@ CTA v1 section
                         </button>
                     </form>
                     <ul
-                        class="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 xl:justify-start"
+                        class="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 md:justify-start"
                     >
                         <li
                             data-ns-animate
@@ -575,11 +579,87 @@ CTA v1 section
     </section>
 
     <style>
+        /* Ensure body background matches the page in dark mode */
+        html.dark body {
+            background-color: var(--color-background-5);
+        }
+
         .accordion-arrow {
             transition: transform 0.3s ease-in-out;
         }
         .accordion-item[data-state="open"] .accordion-arrow {
             transform: rotate(180deg);
+        }
+
+        /* ── CTA heading: responsive sizing & line break ── */
+        .cta-heading {
+            font-size: var(--text-heading-5);
+            line-height: var(--text-heading-5--line-height);
+        }
+        .cta-break {
+            display: none;
+        }
+
+        @media (min-width: 48rem) {
+            .cta-heading {
+                font-size: var(--text-heading-3);
+                line-height: var(--text-heading-3--line-height);
+            }
+            .cta-break {
+                display: block;
+            }
+            .md\:text-left {
+                text-align: left;
+            }
+            .md\:max-w-\[720px\] {
+                max-width: 720px;
+            }
+            .md\:mx-0 {
+                margin-inline: 0;
+            }
+            .md\:basis-\[420px\] {
+                flex-basis: 420px;
+            }
+            .md\:ml-\[60px\] {
+                margin-left: 60px;
+            }
+            .md\:justify-start {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (min-width: 64rem) {
+            .cta-heading {
+                font-size: var(--text-heading-2);
+                line-height: var(--text-heading-2--line-height);
+            }
+        }
+        .process-card {
+            grid-column: span 12 / span 12;
+        }
+
+        /* Tablet: 2 columns */
+        @media (min-width: 48rem) {
+            .process-card {
+                grid-column: span 6 / span 6;
+            }
+            /* Center the lone item (Step 5) in the last row */
+            @media (max-width: 63.999rem) {
+                .process-card:last-child {
+                    grid-column-start: 4;
+                }
+            }
+        }
+
+        /* Desktop: 3 columns */
+        @media (min-width: 64rem) {
+            .process-card {
+                grid-column: span 4 / span 4;
+            }
+            /* Center the last row: offset Step 4 so Steps 4+5 sit centered */
+            .process-card--offset {
+                grid-column-start: 3;
+            }
         }
     </style>
 </main>
