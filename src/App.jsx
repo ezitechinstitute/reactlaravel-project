@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import ServiceDetails from "./pages/ServiceDetails";
+import Process from "./pages/Process";
 import Pricing from "./pages/Pricing";
 import Team from "./pages/Team";
 import TeamDetails from "./pages/TeamDetails";
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/service-details" element={<ServiceDetails />} />
+        <Route path="/process" element={<Process />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/team" element={<Team />} />
         <Route path="/team-details" element={<TeamDetails />} />

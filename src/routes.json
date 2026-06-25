@@ -20,6 +20,11 @@
     "comp": "ServiceDetails"
   },
   {
+    "file": "process.html",
+    "route": "/process",
+    "comp": "Process"
+  },
+  {
     "file": "pricing.html",
     "route": "/pricing",
     "comp": "Pricing"
