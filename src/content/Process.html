@@ -583,6 +583,10 @@ CTA v1 section
         html.dark body {
             background-color: var(--color-background-5);
         }
+        /* Ensure body background matches the page in light mode */
+        html.light-theme body {
+            background-color: var(--color-background-5);
+        }
 
         .accordion-arrow {
             transition: transform 0.3s ease-in-out;
