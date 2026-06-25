@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -41,3 +42,20 @@ export default function App() {
     </BrowserRouter>
   );
 }
+=======
+import { useState } from 'react'
+import Hero from './components/Hero'
+import Work from './Components/Work'
+import './App.css'
+
+function App() {
+  return (
+    <>
+      <Hero />
+      <Work />
+    </>
+  )
+}
+
+export default App
+>>>>>>> add new file to career page

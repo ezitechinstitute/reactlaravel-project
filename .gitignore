@@ -8,6 +8,10 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+<<<<<<< HEAD
+=======
+dist
+>>>>>>> add new file to career page
 dist-ssr
 *.local
 
@@ -21,6 +25,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
  
 # Laravel 
 backend/vendor/ 
@@ -36,3 +41,5 @@ backend/.phpstorm.meta.php
 backend/_ide_helper.php 
 backend/composer.lock 
 backend/.php-cs-fixer.cache 
+=======
+>>>>>>> add new file to career page

@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
   "name": "ai-marketing-agency-react",
   "private": true,
   "version": "1.0.0",
+=======
+  "name": "latest",
+  "private": true,
+  "version": "0.0.0",
+>>>>>>> add new file to career page
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +16,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.18.0"
@@ -24,5 +31,20 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
     "vite": "^8.0.12"
+=======
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^7.2.4"
+>>>>>>> add new file to career page
   }
 }
