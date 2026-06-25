@@ -8,7 +8,7 @@ process Steps section
                 <h2
                     data-ns-animate
                     data-delay="0.3"
-                    class="mx-auto max-w-[552px] text-heading-5 sm:text-heading-4 lg:text-heading-2 text-secondary dark:text-accent"
+                    class="mx-auto max-w-[552px] page-heading text-secondary dark:text-accent"
                 >
                     From sign-up to success in just a few steps
                 </h2>
@@ -593,6 +593,24 @@ CTA v1 section
         }
         .accordion-item[data-state="open"] .accordion-arrow {
             transform: rotate(180deg);
+        }
+
+        /* ── Page heading: responsive sizing ── */
+        .page-heading {
+            font-size: var(--text-heading-6);
+            line-height: var(--text-heading-6--line-height);
+        }
+        @media (min-width: 40rem) {
+            .page-heading {
+                font-size: var(--text-heading-4);
+                line-height: var(--text-heading-4--line-height);
+            }
+        }
+        @media (min-width: 64rem) {
+            .page-heading {
+                font-size: var(--text-heading-2);
+                line-height: var(--text-heading-2--line-height);
+            }
         }
 
         /* ── CTA heading: responsive sizing & line break ── */
