@@ -5305,6 +5305,97 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ===== Clients Marquee ===== */
+
+.clients-marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fade edges - left */
+.clients-marquee-fade-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 8%;
+  /* background: linear-gradient(to right, black, transparent); */
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Fade edges - right */
+.clients-marquee-fade-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 8%;
+  /* background: linear-gradient(to left, black, transparent); */
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Track - flex row */
+.clients-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: max-content;
+}
+
+/* Logo items */
+.clients-logo-item {
+  min-width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.clients-logo-item img {
+  width: auto;
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+}
+
+/* Left scroll animation */
+.clients-scroll-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+/* Right scroll animation */
+.clients-scroll-right {
+  animation: marquee-right 30s linear infinite;
+}
+
+/* Keyframes */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* -50% kyunki items duplicate hain */
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Hover par pause */
+.clients-marquee-wrapper:hover .clients-scroll-left,
+.clients-marquee-wrapper:hover .clients-scroll-right {
+  animation-play-state: paused;
+}
+
+
 [data-opai-animate] {
   opacity: 0;
 }
