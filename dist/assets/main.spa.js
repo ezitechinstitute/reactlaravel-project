@@ -2106,4 +2106,3 @@ __opaiPush(() => {
   swiperAnimation.init();
 });
 
-try { window.__opaiInit && window.__opaiInit(); } catch(e){ console.warn(e); }

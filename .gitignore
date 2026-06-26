@@ -1,5 +1,50 @@
-# Logs
-logs
+# ── Dependencies ────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ── Build output ─────────────────────────────────────────────────
+dist/
+dist-ssr/
+build/
+
+# ── Vite cache ───────────────────────────────────────────────────
+.vite/
+vite.config.js.timestamp-*
+
+# ── Environment variables ─────────────────────────────────────────
+# Sensitive data — KABHI push mat karo
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# ── Editor files ─────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── OS files ─────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Logs ─────────────────────────────────────────────────────────
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,32 +52,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist-ssr
-*.local
+# ── Testing ──────────────────────────────────────────────────────
+coverage/
+*.lcov
+.nyc_output/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
- 
-# Laravel 
-backend/vendor/ 
-backend/.env 
-backend/.env.* 
-backend/storage/ 
-backend/bootstrap/cache/ 
-backend/public/hot 
-backend/public/storage 
-backend/storage/*.key 
-backend/.phpunit.result.cache 
-backend/.phpstorm.meta.php 
-backend/_ide_helper.php 
-backend/composer.lock 
-backend/.php-cs-fixer.cache 
+# ── Misc ─────────────────────────────────────────────────────────
+*.local
+.cache/
+.parcel-cache/
+.turbo/
