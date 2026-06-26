@@ -161,6 +161,29 @@
   margin-top: 8px;
 }
 
+/* Process Steps — Dark mode */
+html.dark .process-section {
+  background-color: #11141d;
+  color: #fcfcfc;
+}
+
+html.dark .process-section-title,
+html.dark .process-step-label,
+html.dark .process-icon,
+html.dark .process-card-title {
+  color: #fcfcfc;
+}
+
+html.dark .process-card {
+  background-color: #0d1017;
+}
+
+html.dark .process-section-subtitle,
+html.dark .process-card-desc,
+html.dark .process-card-list {
+  color: rgba(252, 252, 252, 0.6);
+}
+
 /* ── FAQ Section ────────────────────────────────────────────────── */
 .faq-section {
   background-color: #f4f5f8;
@@ -281,6 +304,36 @@
   font-size: 1rem;
   line-height: 1.5;
   color: rgba(26, 26, 28, 0.6);
+}
+
+/* FAQ — Dark mode */
+html.dark .faq-section {
+  background-color: #11141d;
+  color: #fcfcfc;
+}
+
+html.dark .faq-badge {
+  background-color: rgba(252, 252, 252, 0.1);
+  color: #fcfcfc;
+}
+
+html.dark .faq-title,
+html.dark .faq-question,
+html.dark .faq-icon {
+  color: #fcfcfc;
+}
+
+html.dark .faq-item {
+  background-color: #0d1017;
+}
+
+html.dark .faq-subtitle,
+html.dark .faq-answer {
+  color: rgba(252, 252, 252, 0.6);
+}
+
+html.dark .faq-answer {
+  border-top-color: rgba(252, 252, 252, 0.1);
 }
 
 /* ── CTA Section ────────────────────────────────────────────────── */
@@ -510,6 +563,48 @@
   width: 10px;
   height: 7px;
   fill: #ffffff;
+}
+
+/* CTA — Dark mode */
+html.dark .cta-section {
+  background-color: #11141d;
+  color: #fcfcfc;
+}
+
+html.dark .cta-badge {
+  background-color: rgba(252, 252, 252, 0.1);
+  color: #fcfcfc;
+}
+
+html.dark .cta-title {
+  color: #fcfcfc;
+}
+
+html.dark .cta-subtitle,
+html.dark .cta-check-item {
+  color: rgba(252, 252, 252, 0.6);
+}
+
+html.dark .cta-input {
+  background-color: #0d1017;
+  border-color: rgba(252, 252, 252, 0.15);
+  color: #fcfcfc;
+}
+
+html.dark .cta-input::placeholder {
+  color: rgba(252, 252, 252, 0.5);
+}
+
+html.dark .cta-input:focus {
+  border-color: #8d59ff;
+}
+
+html.dark .cta-check-icon {
+  background-color: #fcfcfc;
+}
+
+html.dark .cta-check-icon svg {
+  fill: #1a1a1c;
 }
 
 
