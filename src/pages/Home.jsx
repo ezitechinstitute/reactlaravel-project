@@ -1236,9 +1236,10 @@ style={{ paddingTop: "180px", paddingBottom: "240px" }}>
 
       
 
-      <div
-        className="integration-circle-animation absolute bottom-[6%] left-1/2 w-[800px] -translate-x-1/2 md:w-[899px]"
+            <div
+        className="absolute bottom-[6%] left-1/2 w-[800px] -translate-x-1/2 md:w-[899px]"
       >
+        <div className="integration-circle-animation">
         <svg viewBox="-30 -30 1520 1520" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="740" cy="744" r="699.5" stroke="#7c8ea500" />
           
@@ -1374,6 +1375,7 @@ style={{ paddingTop: "180px", paddingBottom: "240px" }}>
             <image href="/images/icons/github.svg" x="17" y="17" width="38" height="38" />
           </g>
         </svg>
+        </div>
       </div>
     </div>
   </div>

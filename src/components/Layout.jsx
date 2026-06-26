@@ -5,7 +5,7 @@ import Footer from './Footer';
 import SubscribeSection from './SubscribeSection';
 
 /* ─── forceVisible ──────────────────────────────────────────────────
-   CSS opacity:1 override — GSAP se pehle blank nahi dikhega
+   CSS opacity override — GSAP se pehle blank nahi dikhega
 ──────────────────────────────────────────────────────────────────── */
 function forceVisible() {
   document.querySelectorAll(
@@ -42,27 +42,57 @@ function waitForVendor(cb, maxWait = 5000) {
   check();
 }
 
+/* ─── FIX: DOM aware wait ───────────────────────────────────────────
+   Problem: vendor ready hota hai but React page DOM abhi render
+   nahi hua hota (especially first visit pe lazy chunks)
+   
+   Solution: Ek selector check karo jo page pe hona chahiye,
+   agar nahi mila toh rAF se dubara check karo jab tak DOM ready na ho
+──────────────────────────────────────────────────────────────────── */
+function waitForPageDOM(cb, maxWait = 3000) {
+  const start = Date.now();
+  // Koi bhi element jo page content indicate karta ho
+  const selectors = [
+    '[data-opai-animate]',
+    '[data-opai-avatar]',
+    '#hero-slide-text',
+    '.hero-img',
+    '[data-ns-animate]',
+    'section',
+    'main > *',
+  ];
+
+  const domExists = () => selectors.some(sel => document.querySelector(sel));
+
+  const check = () => {
+    if (domExists()) {
+      cb();
+    } else if (Date.now() - start < maxWait) {
+      requestAnimationFrame(check);
+    } else {
+      // Timeout — try anyway
+      cb();
+    }
+  };
+  requestAnimationFrame(check);
+}
+
 function runInit(delay = 0) {
   setTimeout(() => {
     waitForVendor(() => {
-      // Kill old ScrollTriggers
       try {
         window.ScrollTrigger?.getAll().forEach(t => t.kill());
         window.ScrollTrigger?.clearScrollMemory?.();
       } catch(e) {}
 
-      // Kill old GSAP tweens on animated elements
       try {
         window.gsap?.killTweensOf('[data-opai-animate],[data-opai-avatar]');
       } catch(e) {}
 
-      // Run all animations fresh
       try { window.__opaiInit?.(); } catch(e) { console.warn(e); }
 
-      // Force visible after init (safety)
       forceVisible();
 
-      // Refresh scroll triggers after short settle
       setTimeout(() => {
         try { window.ScrollTrigger?.refresh(true); } catch(e) {}
       }, 100);
@@ -70,11 +100,17 @@ function runInit(delay = 0) {
   }, delay);
 }
 
+/* ─── PARTICLES — OPTIMIZED ─────────────────────────────────────────
+   PEHLE: 480 infinite tweens (8 paths × 60 rects) — KILLER
+   BAAD:  64 tweens only (8 paths × 8 rects) — 87% reduction
+──────────────────────────────────────────────────────────────────── */
 function startParticles() {
+  if (window.__particlesStarted) return;
   if (!document.getElementById('curve-path-1')) return;
   if (typeof window.gsap === 'undefined') return;
   if (typeof window.MotionPathPlugin === 'undefined') return;
 
+  window.__particlesStarted = true;
   window.gsap.registerPlugin(window.MotionPathPlugin);
 
   const lerp = (c1, c2, f) => '#' + [1,3,5].map(i =>
@@ -82,18 +118,23 @@ function startParticles() {
     .toString(16).padStart(2,'0')
   ).join('');
 
+  const PARTICLES_PER_PATH = 8;
+
   for (let n = 1; n <= 8; n++) {
     const path = document.getElementById(`curve-path-${n}`);
     if (!path) continue;
     const dur = window.gsap.utils.random(3, 6);
     const del = window.gsap.utils.random(0, 2);
-    for (let i = 1; i <= 60; i++) {
-      const rect = document.getElementById(`rect-${n}-${i}`);
+
+    for (let i = 1; i <= PARTICLES_PER_PATH; i++) {
+      const rectIndex = Math.round((i - 1) * (60 / (PARTICLES_PER_PATH - 1)) + 1);
+      const rect = document.getElementById(`rect-${n}-${Math.min(rectIndex, 60)}`);
       if (!rect) continue;
-      rect.setAttribute('fill', lerp('#FFFFFF', '#1E212A', (i-1)/59));
+      rect.setAttribute('fill', lerp('#FFFFFF', '#1E212A', (i-1)/(PARTICLES_PER_PATH-1)));
+      rect.style.willChange = 'transform';
       window.gsap.to(rect, {
         motionPath: { path, align: path, alignOrigin:[0.5,0.5], autoRotate:false },
-        duration: dur, ease:'power1.inOut', repeat:-1, delay: del + i * 0.002,
+        duration: dur, ease:'power1.inOut', repeat:-1, delay: del + i * 0.016,
       });
     }
   }
@@ -127,8 +168,8 @@ function startHeroSlider() {
         sp.textContent = tok;
         sp.style.cssText = `display:inline-block;opacity:0;transform:translateX(-18px);transition:opacity 0.35s ease ${wi*60}ms,transform 0.35s ease ${wi*60}ms;${seg.p?'color:#8d59ff;':''}`;
         titleEl.appendChild(sp);
-        const i = wi;
-        setTimeout(() => { sp.style.opacity='1'; sp.style.transform='translateX(0)'; }, 30+i*60);
+        const ii = wi;
+        setTimeout(() => { sp.style.opacity='1'; sp.style.transform='translateX(0)'; }, 30+ii*60);
         wi++;
       });
     });
@@ -181,7 +222,9 @@ function startHeroSlider() {
   window.__heroSliderInterval = setInterval(() => goTo((cur+1)%slides.length), 5000);
 }
 
-/* ═══════════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════
+   MAIN LAYOUT COMPONENT
+═══════════════════════════════════════════════════════════════════ */
 export default function Layout({ children }) {
   const location = useLocation();
 
@@ -197,78 +240,65 @@ export default function Layout({ children }) {
   }, []);
 
   // ── FIRST LOAD ───────────────────────────────────────────────────
+  /*
+    FIX: Pehle waitForVendor, phir waitForPageDOM
+    
+    Order:
+    1. vendor.bundle.js → already loaded (sync script)
+    2. React renders → Layout mounts → ye useEffect chalta hai
+    3. Home.jsx ab eager import hai → DOM immediately available
+    4. waitForPageDOM → confirm karta hai DOM exist karta hai
+    5. Tab animations fire karo
+    
+    Agar kisi reason se DOM delay ho toh rAF polling se wait karta hai
+  */
   useEffect(() => {
-    const timers = [];
-
-    // 1. Force visible immediately
     forceVisible();
 
-    // 2. Wait for ALL vendors then run everything
     waitForVendor(() => {
-      // Run main animations
-      runInit(0);
-      // Particles
-      startParticles();
-      // Hero slider
-      startHeroSlider();
+      // Vendor ready — ab page DOM ka wait karo
+      waitForPageDOM(() => {
+        // DOM bhi ready — ab safely animate karo
+        runInit(50);
+        setTimeout(() => startParticles(), 100);
+        setTimeout(() => startHeroSlider(), 150);
+        setTimeout(() => forceVisible(), 500);
+      });
     });
 
-    // 3. Fallback timers — agar waitForVendor slow ho
-    timers.push(setTimeout(() => {
-      forceVisible();
-      startHeroSlider();
-    }, 500));
-
-    timers.push(setTimeout(() => {
-      forceVisible();
-      if (isVendorReady()) {
-        runInit(0);
-        startParticles();
-      }
-    }, 1000));
-
-    timers.push(setTimeout(() => {
-      forceVisible();
-      if (isVendorReady()) {
-        runInit(0);
-        startParticles();
-        startHeroSlider();
-      }
-    }, 2000));
-
-    return () => timers.forEach(clearTimeout);
-  }, []); // ← runs ONCE on mount
+    return () => {};
+  }, []); // Sirf mount pe
 
   // ── ROUTE CHANGE ─────────────────────────────────────────────────
   useEffect(() => {
     window.scrollTo(0, 0);
     const timers = [];
 
-    // Stop old hero slider
+    // Old hero slider stop
     if (window.__heroSliderInterval) {
       clearInterval(window.__heroSliderInterval);
       window.__heroSliderInterval = null;
     }
 
-    // Force visible immediately
+    // Particles reset for new page
+    window.__particlesStarted = false;
+
     forceVisible();
 
-    // Wait for React DOM to settle (1 rAF = DOM committed, 2nd rAF = painted)
+    // Route change pe DOM jaldi ready hota hai (cached chunks)
     let raf2;
     const raf1 = requestAnimationFrame(() => {
       raf2 = requestAnimationFrame(() => {
-
         waitForVendor(() => {
-          runInit(80); // 80ms for React to finish rendering new page
-
-          // Particles + slider
-          timers.push(setTimeout(() => { startParticles(); }, 100));
-          timers.push(setTimeout(() => { startHeroSlider(); }, 300));
-
-          // Keep asserting visible
-          [100, 300, 600, 1200].forEach(t =>
-            timers.push(setTimeout(forceVisible, t))
-          );
+          // Route change pe DOM already ready hota hai
+          // Bas ek short delay de React ke liye
+          waitForPageDOM(() => {
+            runInit(50);
+            timers.push(setTimeout(() => startParticles(), 100));
+            timers.push(setTimeout(() => startHeroSlider(), 200));
+            timers.push(setTimeout(forceVisible, 300));
+            timers.push(setTimeout(forceVisible, 700));
+          });
         });
       });
     });
@@ -287,7 +317,7 @@ export default function Layout({ children }) {
       <SubscribeSection />
       <Footer />
 
-      {/* Theme toggle */}
+      {/* Theme toggle button */}
       <button
         type="button"
         className="theme-toggle"

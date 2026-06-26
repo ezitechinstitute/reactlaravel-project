@@ -2,7 +2,12 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 
-const Home             = lazy(() => import('./pages/Home'))
+// FIX: Home eager import karo (lazy nahi)
+// Kyunki first visit pe Home ka DOM chahiye animations ke liye
+// Baki pages lazy reh sakte hain — unhe first visit pe koi issue nahi
+import Home from './pages/Home'
+
+// Baki pages lazy (performance optimization)
 const About            = lazy(() => import('./pages/About'))
 const Services         = lazy(() => import('./pages/Services'))
 const ServiceDetails   = lazy(() => import('./pages/ServiceDetails'))
@@ -33,6 +38,7 @@ export default function App() {
       <Layout>
         <Suspense fallback={<Loader />}>
           <Routes>
+            {/* Home eager hai — Suspense fallback nahi dikhega */}
             <Route path="/"                   element={<Home />} />
             <Route path="/about"              element={<About />} />
             <Route path="/services"           element={<Services />} />

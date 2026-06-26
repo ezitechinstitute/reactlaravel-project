@@ -6,21 +6,142 @@
  * ⚠️  public/assets/main.css touch mat karo — template ka core CSS hai
  * ✅  Apni saari custom CSS yahan likho
  *
- * Usage:
- *   Already import hai main.jsx mein — bas yahan class banao aur
- *   JSX mein className="your-class" se use karo
  * ═══════════════════════════════════════════════════════════════
  */
 
-/* ── Example: Custom card ───────────────────────────────────────
-.custom-card {
-  border: 1px solid rgba(141, 89, 255, 0.3);
-  border-radius: 16px;
-  transition: transform 0.3s ease;
-}
-.custom-card:hover {
-  transform: translateY(-4px);
-}
-─────────────────────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   PERFORMANCE FIXES — GPU Acceleration & Paint Optimization
+   ══════════════════════════════════════════════════════════════ */
 
-/* Apni CSS yahan add karo ↓ */
+/* 1. GSAP Animated elements — GPU layer force karo
+   Yeh browser ko batata hai ke in elements pe animation aane wala hai
+   Isse browser inhe alag compositor layer pe rakhta hai → smooth animation */
+[data-opai-animate],
+[data-opai-avatar],
+[data-opai-border-expand] {
+  will-change: opacity, transform;
+}
+
+/* 2. Hero section elements — critical animations */
+#hero-box-wrapper,
+.hero-tilt,
+.hero-orbit {
+  will-change: transform, opacity;
+  transform: translateZ(0); /* force GPU layer */
+}
+
+/* 3. Hero slider text — word animations */
+#hero-slide-text span {
+  will-change: opacity, transform;
+}
+
+/* 4. Circle animation (Tech Stack section)
+   CSS animation hai — GPU accelerate karo */
+.integration-circle-animation {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* 5. Marquee testimonial cards */
+.cards-marquee-container,
+.cards-marquee-container > * {
+  will-change: transform;
+}
+
+/* 6. Swiper slides — transition ke waqt GPU pe rakhna */
+.swiper-slide,
+.swiper-wrapper {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 7. Partner ship cards — hover animation */
+.partner-ship-card {
+  will-change: transform, opacity;
+}
+
+/* 8. Service items — hover slide animation */
+.service-item {
+  will-change: padding-left;
+}
+
+/* 9. Blog images — hover scale */
+.blog-card img {
+  will-change: transform;
+}
+
+/* 10. Why-choose-us cards — hover glow */
+.why-choose-us-card {
+  will-change: transform;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   REMOVE will-change after animation complete
+   (will-change hamesha ON rakhna bhi bad hai — memory leak)
+   Yeh scroll se bahar jaane pe will-change hata deta hai
+   ══════════════════════════════════════════════════════════════ */
+
+/* Once GSAP "once: true" wali animations complete ho jayen,
+   will-change hata dene ke liye — GSAP automatically element
+   ko original state mein le aata hai. Hum extra cleanup nahi
+   karte kyunki "once:true" use hua hai data-opai-animate pe */
+
+/* ══════════════════════════════════════════════════════════════
+   SMOOTH SCROLL OPTIMIZATION
+   ══════════════════════════════════════════════════════════════ */
+
+/* Lenis smooth scroll ke saath better rendering */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   IMAGE LOADING OPTIMIZATION
+   ══════════════════════════════════════════════════════════════ */
+
+/* Prevent layout shift during image load */
+.hero-img {
+  contain: layout paint;
+}
+
+img {
+  content-visibility: auto;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   REDUCE MOTION — Accessibility + Performance
+   ══════════════════════════════════════════════════════════════ */
+
+/* Jo users "reduce motion" prefer karte hain unke liye
+   aur low-end devices pe performance better hogi */
+@media (prefers-reduced-motion: reduce) {
+  .integration-circle-animation {
+    animation: none !important;
+  }
+  
+  [data-opai-animate] {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #hero-slide-text span {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   APNI CUSTOM CSS YAHAN ADD KARO ↓
+   ══════════════════════════════════════════════════════════════ */
