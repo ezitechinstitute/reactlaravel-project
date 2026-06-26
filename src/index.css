@@ -163,7 +163,7 @@
 
 /* Process Steps — Dark mode */
 html.dark .process-section {
-  background-color: #11141d;
+  background-color: #181d26;
   color: #fcfcfc;
 }
 
@@ -308,7 +308,7 @@ html.dark .process-card-list {
 
 /* FAQ — Dark mode */
 html.dark .faq-section {
-  background-color: #11141d;
+  background-color: #181d26;
   color: #fcfcfc;
 }
 
@@ -567,7 +567,7 @@ html.dark .faq-answer {
 
 /* CTA — Dark mode */
 html.dark .cta-section {
-  background-color: #11141d;
+  background-color: #13171e;
   color: #fcfcfc;
 }
 
