@@ -1,6 +1,461 @@
-import RawHtml from "../components/RawHtml";
-import html from "../content/ServiceDetails.html?raw";
+import SEO from '../components/SEO'
+import { Link } from 'react-router-dom'
 
 export default function ServiceDetails() {
-  return <RawHtml html={html} />;
+  return (
+    <>
+      <SEO title="Service Details" url="/service-details" />
+<main className="bg-background-7">
+      
+
+<section className="bg-background-5 relative overflow-hidden pt-34 pb-28 md:pt-39">
+  <div className="main-container relative z-20">
+    <div className="space-y-14">
+      <div className="space-y-3 text-center">
+        <h2
+          data-opai-animate
+          data-delay="0.1"
+          data-instant
+          className="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 text-background-13/90 font-normal"
+        >
+          Data insights & predictions
+        </h2>
+        <p
+          data-opai-animate
+          data-delay="0.1"
+          data-instant
+          className="text-tagline-2 text-background-13/60 font-inter-tight mx-auto w-full max-w-[514px] font-normal"
+        >
+          Ezitech’s Diagram Generator transforms your thoughts, prompts, or
+          outlines into clean, professional diagrams, no design tools required.
+        </p>
+      </div>
+
+      <div data-opai-animate data-delay="0.3" data-instant>
+        <a
+  href="/pricing"
+  className="group bg-background-14 w-fit mx-auto relative flex items-center justify-center gap-2 overflow-hidden rounded-xl px-6 py-[13px] transition-all duration-300 ease-in-out"
+>
+  <div className="h-full max-h-5 overflow-hidden">
+    <span
+      className="font-ibm-plex-mono text-tagline-2 text-background-7 {=$class} block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
+    >
+      Generate a diagram now
+    </span>
+    <span
+      className="font-ibm-plex-mono text-background-7 text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
+    >
+      Generate a diagram now
+    </span>
+  </div>
+
+  <div className="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
+    
+    <span
+      className="bg-background-7 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out"
+    >
+      
+      <span
+        className="stroke-background-14 absolute size-[16px] translate-x-[2.5px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path d="M6.75 13.5L11.25 9L6.75 4.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+    </span>
+
+    
+    <span
+      className="stroke-background-14 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+      >
+        <path d="M6.75 13.5L11.25 9L6.75 4.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  </div>
+</a>
+
+      </div>
+    </div>
+  </div>
+
+  
+  <div className="absolute bottom-0 left-0 z-4 h-[646px] w-full min-[2000px]:bottom-0 md:-bottom-4 md:h-[580px] lg:h-[596px] 2xl:h-[696px]">
+  <img
+    src="/images/gradient/opai-2.png"
+    alt="Top blend mode"
+    loading="lazy"
+    decoding="async"
+    fetchPriority="high"
+    className="size-full bg-no-repeat"
+  />
+</div>
+
+</section>
+
+      
+
+<section className="relative z-10">
+  <div className="main-container">
+    <div data-opai-animate data-delay="0.4" className="service-details-markdown pt-10">
+      <h2>Data insights & predictions</h2>
+      <p>
+        Unlock the true potential of your business with advanced data intelligence. Our Data
+        Insights & Predictions service transforms raw information into clear, actionable strategies
+        that help you make smarter decisions, faster. Using cutting-edge AI models, real-time
+        analytics, and predictive algorithms, we uncover hidden patterns, forecast future trends,
+        and provide a complete understanding of your customers, market, and operations.
+
+        <span>
+          From identifying growth opportunities to reducing risks and optimizing performance, our
+          insights empower you to stay ahead of the competition. Whether you need predictive sales
+          analysis, customer behavior forecasting, operational efficiency tracking, or market trend
+          predictions — we turn complex data into simple, powerful recommendations that drive
+          business success.
+        </span>
+      </p>
+
+      <img src="/images/opai-img-6.png" alt="data insights & predictions" />
+
+      <p>
+        Our Data Insights & Predictions service transforms raw information into clear, actionable
+        strategies that help you make smarter decisions, faster. Using cutting-edge AI models,
+        real-time analytics, and predictive algorithms, we uncover hidden patterns, forecast future
+        trends, and provide a complete understanding of your customers, market, and operations.
+        <span>
+          From identifying growth opportunities to reducing risks and optimizing performance, our
+          insights empower you to stay ahead of the competition. Whether you need predictive sales
+          analysis, customer behavior forecasting, operational efficiency tracking, or market trend
+          predictions — we turn complex data into simple, powerful recommendations that drive
+          business success.
+        </span>
+      </p>
+
+      <p>
+        Transform your business decisions with intelligent data-driven clarity. Our Data Insights &
+        Predictions service goes beyond basic analytics — we combine AI-powered algorithms,
+        real-time tracking, and deep data exploration to reveal what’s happening in your business
+        and what will happen next.
+        <span>
+          We analyze customer behavior, market shifts, operational performance, and historical
+          patterns to deliver clear insights you can act on instantly. From forecasting sales and
+          predicting user trends to identifying risks and discovering untapped opportunities, we
+          help you understand the full story behind your data.
+        </span>
+
+        <span>
+          Our predictive solutions empower you to stay proactive, not reactive — giving you the
+          confidence to plan your strategies, optimize your processes, and scale with precision.
+          Whether you're improving customer engagement, strengthening decision-making, or preparing
+          for future growth, we ensure your data becomes your most valuable advantage.
+        </span>
+
+        <span>
+          If you want an even longer, more technical, or more marketing-style version, just tell me!
+        </span>
+      </p>
+
+      <h3>What we do</h3>
+      <ul>
+        <li>Convert raw data into clear, meaningful insights</li>
+        <li>Identify key behavior trends, performance gaps, and opportunities</li>
+        <li>Use machine learning to forecast future results and market movements</li>
+        <li>Deliver real-time dashboards for ongoing monitoring</li>
+        <li>Provide actionable recommendations for strategic planning</li>
+      </ul>
+
+      <h3>Key benefits</h3>
+      <ul>
+        <li>Make business decisions with confidence</li>
+        <li>Understand customer needs before they appear</li>
+        <li>Reduce risks and operational inefficiencies</li>
+        <li>Predict future demand, sales, or engagement</li>
+        <li>Improve long-term growth strategies</li>
+        <li>Stay ahead of competitors with real-time intel</li>
+      </ul>
+
+      <h3>Use cases</h3>
+      <ul>
+        <li>Sales forecasting & revenue prediction</li>
+        <li>Customer behavior and churn analysis</li>
+        <li>Market trend prediction</li>
+        <li>Product performance insights</li>
+        <li>Operational efficiency analytics</li>
+        <li>Risk detection & prevention</li>
+      </ul>
+
+      <h3>Why choose us</h3>
+      <p>
+        We combine advanced AI technology with clear, user-friendly reporting. Our approach ensures
+        you don’t just get data — you get insights that guide action, boost performance, and
+        accelerate measurable growth.
+      </p>
+    </div>
+  </div>
+</section>
+
+      
+<section className="py-14 md:py-24 lg:py-28 xl:py-36 2xl:py-44">
+  <div className="main-container space-y-10 md:space-y-20">
+    <div className="space-y-4">
+      <div className="flex items-center" data-opai-animate data-delay="0.1">
+        <span className="fill-opai-blue text-background-13/90 flex items-center gap-x-1">
+  <span className="flex size-4 items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+      <path
+        d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z"
+      />
+    </svg>
+  </span>
+  <span className="font-inter-tight text-tagline-4 text-background-13/70 text-background-13/90 font-normal">
+    Our Process
+  </span>
+</span>
+
+      </div>
+      <h2
+        className="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 text-background-13/90 font-normal max-md:leading-[1.1]"
+        data-opai-animate
+        data-delay="0.2"
+      >
+        How we work
+      </h2>
+    </div>
+
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div data-opai-animate data-delay="0.3">
+        <h2
+          className="text-is-heading-3 md:text-is-heading-2 lg:text-is-heading-1 webkit-bg-clip-text bg-[linear-gradient(180deg,_#0D1017_0%,_rgba(13,16,23,0.40)_100%)] bg-clip-text font-normal text-transparent"
+        >
+          1
+        </h2>
+        <h3 className="text-is-heading-5 text-background-13/90 -mt-1 font-normal lg:mb-2">
+          Free Consultation & Audit
+        </h3>
+        <p className="text-tagline-2 font-inter-tight text-background-13/60 lg:max-w-[260px]">
+          Create your account and explore with a 7-day free trial.
+        </p>
+      </div>
+      <div data-opai-animate data-delay="0.4">
+        <h2
+          className="text-is-heading-3 md:text-is-heading-2 lg:text-is-heading-1 webkit-bg-clip-text bg-[linear-gradient(180deg,_#0D1017_0%,_rgba(13,16,23,0.40)_100%)] bg-clip-text font-normal text-transparent"
+        >
+          2
+        </h2>
+        <h3 className="text-is-heading-5 text-background-13/90 -mt-1 font-normal lg:mb-2">
+          AI-Driven Strategy
+        </h3>
+        <p className="text-tagline-2 font-inter-tight text-background-13/60 lg:max-w-[260px]">
+          Co-build a roadmap that blends predictive insights with human creativity.
+        </p>
+      </div>
+      <div data-opai-animate data-delay="0.5">
+        <h2
+          className="text-is-heading-3 md:text-is-heading-2 lg:text-is-heading-1 webkit-bg-clip-text bg-[linear-gradient(180deg,_#0D1017_0%,_rgba(13,16,23,0.40)_100%)] bg-clip-text font-normal text-transparent"
+        >
+          3
+        </h2>
+        <h3 className="text-is-heading-5 text-background-13/90 -mt-1 font-normal lg:mb-2">
+          Launch, Test, and Optimize
+        </h3>
+        <p className="text-tagline-2 font-inter-tight text-background-13/60 lg:max-w-[260px]">
+          Deploy experiences, run iterative experiments, and scale what works.
+        </p>
+      </div>
+      <div data-opai-animate data-delay="0.6">
+        <h2
+          className="text-is-heading-3 md:text-is-heading-2 lg:text-is-heading-1 webkit-bg-clip-text bg-[linear-gradient(180deg,_#0D1017_0%,_rgba(13,16,23,0.40)_100%)] bg-clip-text font-normal text-transparent"
+        >
+          4
+        </h2>
+        <h3 className="text-is-heading-5 text-background-13/90 -mt-1 font-normal lg:mb-2">
+          Monthly Reports & Growth
+        </h3>
+        <p className="text-tagline-2 font-inter-tight text-background-13/60 lg:max-w-[260px]">
+          Stay in the loop with transparent reporting and optimization insights.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+<section
+  className="bg-background-6 !bg-background-6 !pt-20 md:!pt-30 lg:!pt-44 overflow-hidden py-14 md:py-20 lg:py-24 xl:py-28"
+>
+  <div className="main-container">
+    <div className="space-y-14 pb-9">
+      
+
+      <div className="flex items-center justify-center gap-x-2">
+        <img
+          data-opai-avatar
+          data-avatar-delay="0.1"
+          className="inline-block size-14 rounded-full"
+          src="/images/opai-avatar-img-05.png"
+          alt="Marketing Expert 1"
+        />
+        <img
+          data-opai-avatar
+          data-avatar-delay="0.2"
+          className="inline-block size-14 rounded-full"
+          src="/images/opai-avatar-img-06.png"
+          alt="Marketing Expert 2"
+        />
+        <img
+          data-opai-avatar
+          data-avatar-delay="0.3"
+          className="inline-block size-14 rounded-full"
+          src="/images/opai-avatar-img-07.png"
+          alt="Marketing Expert 3"
+        />
+        <img
+          data-opai-avatar
+          data-avatar-delay="0.4"
+          className="inline-block size-14 rounded-full"
+          src="/images/opai-avatar-img-08.png"
+          alt="Marketing Expert 4"
+        />
+      </div>
+      <div className="space-y-3">
+        <h2
+          className="text-is-heading-3 lg:text-is-heading-2 font-instrument-serif text-center font-normal tracking-[-2.4px] text-white/90"
+          data-opai-animate
+          data-delay="0.1"
+        >
+          
+          <span
+            className="inline-flex flex-wrap items-start justify-center gap-x-1 sm:flex-nowrap md:items-center"
+          >
+            <span className="w-full sm:w-auto">Turn clicks</span>
+            <span
+              className="cta-content-image inline-block h-[52px] w-[88px] overflow-hidden rounded-[300px] align-middle"
+            >
+              <img
+                src="/images/opai-img-24.png"
+                alt=""
+                aria-hidden="true"
+                className="h-full w-full object-cover"
+              />
+            </span>
+            <span className="w-full sm:w-auto">Into customers</span>
+          </span>
+
+          <br />
+
+          
+          <span className="inline-flex items-center justify-center gap-x-4">
+            <span
+              className="cta-content-image-2 inline-block size-12 -rotate-[20deg] overflow-hidden rounded-lg align-middle"
+            >
+              <img
+                src="/images/opai-avatar-img-25.png"
+                alt=""
+                aria-hidden="true"
+                className="h-full w-full object-cover"
+              />
+            </span>
+            <span>the smarter way</span>
+          </span>
+        </h2>
+
+        <p
+          className="text-tagline-2 mx-auto w-full max-w-[320px] text-center text-white/60"
+          data-opai-animate
+          data-delay="0.2"
+        >
+          No guesswork. We use AI + proven marketing systems to scale ads, SEO,
+          and conversion.
+        </p>
+      </div>
+
+      <div className="flex justify-center" data-opai-animate data-delay="0.3">
+        <a
+  href="/contact"
+  className="group bg-background-7 hover:border-stroke-3 {=$anchor-class} relative flex items-center justify-center gap-2 overflow-hidden rounded-xl border border-transparent px-6 py-[13px] transition-all duration-300 ease-in-out"
+>
+  <div className="h-full max-h-5 overflow-hidden">
+    <span
+      className="font-ibm-plex-mono text-background-13/90 text-tagline-2 block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
+    >
+      Book a strategy call
+    </span>
+    <span
+      className="font-ibm-plex-mono text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
+    >
+      Book a strategy call
+    </span>
+  </div>
+
+  <div className="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
+    
+    <span
+      className="bg-background-6 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out"
+    >
+      
+      <span
+        className="stroke-background-10 absolute size-[16px] translate-x-[2.5px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path d="M6.75 13.5L11.25 9L6.75 4.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+    </span>
+
+    
+    <span
+      className="stroke-background-10 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+      >
+        <path d="M6.75 13.5L11.25 9L6.75 4.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  </div>
+</a>
+
+      </div>
+    </div>
+
+    <div
+      data-opai-animate
+      data-delay="0.4"
+      data-duration="3"
+      data-direction="right"
+      data-spring
+    >
+      <figure className="flex justify-end">
+        <img src="/images/vector-01.svg" alt="CTA Image" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+    </main>
+    </>
+  )
 }

@@ -1,6 +1,534 @@
-import RawHtml from "../components/RawHtml";
-import html from "../content/Contact.html?raw";
+import SEO from '../components/SEO'
+import { Link } from 'react-router-dom'
 
 export default function Contact() {
-  return <RawHtml html={html} />;
+  return (
+    <>
+      <SEO title="Contact Us" url="/contact" />
+<main className="bg-background-5">
+      
+
+<section className="lp:pb-44 relative overflow-hidden pt-28 pb-20 md:pt-39 md:pb-25 lg:pb-30">
+  <div className="main-container relative z-10">
+    <div className="space-y-14 lg:space-y-[70px] xl:space-y-[120px]">
+      <div className="space-y-3 text-center">
+        <h2
+          data-opai-animate
+          data-delay="0.1"
+          data-instant
+          className="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-instrument-serif font-normal text-white/90"
+        >
+          Let’s talk, we’re here to help
+        </h2>
+        <p
+          data-opai-animate
+          data-delay="0.2"
+          data-instant
+          className="text-tagline-2 font-inter-tight font-normal text-white/60"
+        >
+          Got any questions or how Ezitech can help your business thrive? We're here for you.
+        </p>
+      </div>
+
+      <div className="flex w-full flex-col items-center justify-between gap-y-14 lg:flex-row">
+        <div className="flex flex-col justify-between gap-y-10 lg:h-[606px]">
+          <div className="space-y-4">
+            <div data-opai-animate data-delay="0.1" data-instant>
+              <span className="fill-opai-blue text-white/60 flex items-center gap-x-1">
+  <span className="flex size-4 items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+      <path
+        d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z"
+      />
+    </svg>
+  </span>
+  <span className="font-inter-tight text-tagline-4 text-background-13/70 text-white/60 font-normal">
+    Contact Us
+  </span>
+</span>
+
+            </div>
+            <h3
+              data-opai-animate
+              data-delay="0.2"
+              data-instant
+              className="text-is-heading-5 md:text-is-heading-3 lg:text-is-heading-2 font-instrument-serif max-w-[400px] font-normal text-white/90"
+            >
+              Reach out — We’ll get back within 24 hours
+            </h3>
+          </div>
+          <div className="grid grid-cols-12 gap-4">
+            
+            <div
+              data-opai-animate
+              data-delay="0.3"
+              data-instant
+              className="bg-background-6 col-span-12 flex basis-1/2 gap-x-4 rounded-lg p-6 md:col-span-6 lg:col-span-12"
+            >
+              <span className="bg-background-1 flex size-13 items-center justify-center rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" className="size-7">
+  <path
+    d="M4.66927 4.66663H23.3359C24.6193 4.66663 25.6693 5.71663 25.6693 6.99996V21C25.6693 22.2833 24.6193 23.3333 23.3359 23.3333H4.66927C3.38594 23.3333 2.33594 22.2833 2.33594 21V6.99996C2.33594 5.71663 3.38594 4.66663 4.66927 4.66663Z"
+    stroke="white"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M25.6693 7L14.0026 15.1667L2.33594 7"
+    stroke="white"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>
+
+              </span>
+              <div>
+                <p className="text-tagline-2 font-inter-tight font-normal text-white">Email</p>
+                <a
+                  href="mailto:support@ezitech.org"
+                  className="text-tagline-3 font-inter-tight font-normal text-white/60"
+                >
+                  support@ezitech.org
+                </a>
+              </div>
+            </div>
+
+            
+            <div
+              data-opai-animate
+              data-delay="0.4"
+              data-instant
+              className="bg-background-6 col-span-12 flex gap-x-4 rounded-lg p-6 md:col-span-6 lg:col-span-12"
+            >
+              <span className="bg-background-1 flex size-13 items-center justify-center rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" className="size-7">
+  <path
+    d="M17.4375 4.375C18.9208 4.77393 20.2733 5.55562 21.3595 6.64176C22.4456 7.72791 23.2273 9.08039 23.6262 10.5637"
+    stroke="white"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M16.5312 7.75659C17.4213 7.99595 18.2327 8.46496 18.8844 9.11665C19.5361 9.76834 20.0051 10.5798 20.2445 11.4698"
+    stroke="white"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M10.1146 13.6517C11.0222 15.5073 12.5264 17.0046 14.3861 17.9038C14.5221 17.9682 14.6726 17.9962 14.8228 17.9848C14.9729 17.9735 15.1175 17.9232 15.2423 17.839L17.9806 16.013C18.1017 15.9323 18.241 15.883 18.386 15.8697C18.5309 15.8564 18.6769 15.8794 18.8107 15.9368L23.9335 18.1323C24.1075 18.2062 24.2528 18.3347 24.3475 18.4983C24.4421 18.662 24.481 18.852 24.4583 19.0397C24.2964 20.3067 23.6782 21.4713 22.7195 22.3153C21.7608 23.1593 20.5273 23.625 19.25 23.625C15.3049 23.625 11.5214 22.0579 8.73179 19.2683C5.94218 16.4787 4.375 12.6951 4.375 8.75005C4.37507 7.47274 4.84071 6.23925 5.68475 5.28054C6.52878 4.32182 7.69332 3.70364 8.96033 3.54172C9.14803 3.519 9.33803 3.5579 9.5017 3.65256C9.66538 3.74722 9.79385 3.8925 9.86778 4.06652L12.0652 9.19379C12.122 9.32641 12.1452 9.47103 12.1326 9.61477C12.12 9.75851 12.0721 9.8969 11.9931 10.0176L10.1735 12.7979C10.0906 12.923 10.0417 13.0674 10.0314 13.217C10.021 13.3667 10.0497 13.5165 10.1146 13.6517V13.6517Z"
+    stroke="white"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>
+
+              </span>
+              <div>
+                <p className="text-tagline-2 font-inter-tight font-normal text-white">Phone</p>
+                <a
+                  className="text-tagline-3 font-inter-tight font-normal text-white/60"
+                  href="tel:+923377777860"
+                  target="_blank"
+                >
+                  +92 337 7777860
+                </a>
+              </div>
+            </div>
+
+            
+            <div
+              data-opai-animate
+              data-delay="0.5"
+              data-instant
+              className="bg-background-6 col-span-12 flex gap-x-4 rounded-lg p-6"
+            >
+              <span className="bg-background-1 flex size-13 items-center justify-center rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" className="size-7">
+  <path
+    d="M14 14.875C15.933 14.875 17.5 13.308 17.5 11.375C17.5 9.442 15.933 7.875 14 7.875C12.067 7.875 10.5 9.442 10.5 11.375C10.5 13.308 12.067 14.875 14 14.875Z"
+    stroke="white"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M22.75 11.375C22.75 19.25 14 25.375 14 25.375C14 25.375 5.25 19.25 5.25 11.375C5.25 9.05436 6.17187 6.82876 7.81282 5.18782C9.45376 3.54687 11.6794 2.625 14 2.625C16.3206 2.625 18.5462 3.54687 20.1872 5.18782C21.8281 6.82876 22.75 9.05436 22.75 11.375V11.375Z"
+    stroke="white"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>
+
+              </span>
+              <div>
+                <p className="text-tagline-2 font-inter-tight font-normal text-white">Location</p>
+                <a
+                  href="https://www.google.com/maps"
+                  target="_blank"
+                  className="text-tagline-3 font-inter-tight font-normal text-white/60"
+                >
+                  Office #304-B, Amna Plaza, Peshawar Rd, Rawalpindi, 46000
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <form
+          data-opai-animate
+          data-delay="0.3"
+          data-instant
+          action="#"
+          className="bg-background-5 w-full max-w-[500px] rounded-xl p-6 xl:max-w-[595px]"
+        >
+          
+          <fieldset className="mb-6 space-y-2">
+            <label
+              htmlFor="name"
+              className="text-inter-tight text-tagline-2 inline-block font-normal text-white/90"
+              >Your name</label
+            >
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              className="border-stroke-3/25 focus-within:border-stroke-3/70 w-full rounded-md border px-4.5 py-3 text-white/90 placeholder:text-white/60 focus-within:outline-none"
+              required
+              aria-label="Your name"
+            />
+          </fieldset>
+
+          
+          <fieldset className="mb-6 space-y-2">
+            <label
+              htmlFor="email"
+              className="text-inter-tight text-tagline-2 inline-block font-normal text-white/90"
+              >Your email</label
+            >
+            <input
+              type="text"
+              id="subject"
+              placeholder="Enter your email"
+              className="border-stroke-3/25 focus-within:border-stroke-3/70 w-full rounded-md border px-4.5 py-3 text-white/90 placeholder:text-white/60 focus-within:outline-none"
+              required
+              aria-label="Your email"
+            />
+          </fieldset>
+
+          
+          <fieldset className="mb-4 space-y-2">
+            <label
+              htmlFor="message"
+              className="text-inter-tight text-tagline-2 inline-block font-normal text-white/90"
+              >Your message</label
+            >
+            <textarea
+              id="message"
+              placeholder="Enter your message"
+              className="border-stroke-3/25 focus-within:border-stroke-3/70 h-45.5 w-full rounded-md border px-4.5 py-3 text-white/90 placeholder:text-white/60 focus-within:outline-none"
+            ></textarea>
+          </fieldset>
+
+          
+          <fieldset className="flex items-center justify-between gap-x-5">
+            <label className="flex cursor-pointer items-center gap-1.5">
+              <input
+                type="checkbox"
+                name="terms"
+                required=""
+                className="peer sr-only"
+                aria-label="I accept with the Terms of uses and privacy policy"
+              />
+              <span
+                className="border-stroke-3/40 peer-checked:border-primary-500 peer-checked:border-stroke-1/60 relative size-5 cursor-pointer rounded-[2px] border after:absolute after:top-1/2 after:left-1/2 after:size-3 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-[2px] after:bg-white/60 after:opacity-0 peer-checked:after:opacity-100"
+              ></span>
+              <span
+                className="text-tagline-3 font-medium text-white/60 select-none peer-checked:text-white/90"
+              >
+                I accept with the Terms of uses and privacy policy
+              </span>
+            </label>
+          </fieldset>
+
+          
+
+          <button
+  type="submit"
+  className="group bg-background-7 hover:border-stroke-3 mt-9 relative flex items-center justify-center gap-2 overflow-hidden rounded-xl border border-transparent px-6 py-[13px] transition-all duration-300 ease-in-out"
+>
+  <div className="h-full max-h-5 overflow-hidden">
+    <span
+      className="font-ibm-plex-mono text-background-13/90 text-tagline-2 block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
+    >
+      Submit request
+    </span>
+    <span
+      className="font-ibm-plex-mono text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]"
+    >
+      Submit request
+    </span>
+  </div>
+
+  <div className="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
+    
+    <span
+      className="bg-background-6 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out"
+    >
+      
+      <span
+        className="stroke-background-10 absolute size-[16px] -translate-x-[8px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path d="M6.75 13.5L11.25 9L6.75 4.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+    </span>
+
+    
+    <span
+      className="stroke-background-10 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+      >
+        <path d="M6.75 13.5L11.25 9L6.75 4.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  </div>
+</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div>
+  <div
+    className="bg-opai-purple absolute bottom-[9%] left-1/2 z-1 mx-auto h-[304px] w-[70%] -translate-x-1/2 rounded-[420px] blur-[142px]"
+  ></div>
+
+  <div
+    className="bg-opai-purple absolute bottom-[6%] left-1/2 z-2 h-[345px] w-[110%] -translate-x-1/2 rounded-[420px] mix-blend-color-dodge blur-[162px]"
+  ></div>
+
+  <div
+    className="bg-background-7 absolute bottom-0 left-1/2 z-3 h-[297px] w-[110%] -translate-x-1/2 rounded-[120px] blur-[107px]"
+  ></div>
+  <div
+    className="bg-background-7 absolute -bottom-10 left-1/2 z-4 h-[175px] w-[110%] -translate-x-1/2 rounded-[80px] blur-[28px]"
+  ></div>
+  <div
+    className="bg-background-7 absolute -bottom-5 left-1/2 z-5 h-[55px] w-[110%] -translate-x-1/2 rounded-[80px] blur-[28px]"
+  ></div>
+
+  <div className="bg-background-7 absolute -bottom-4 left-0 z-6 h-[55px] w-40 blur-[10px]"></div>
+  <div className="bg-background-7 absolute right-0 -bottom-4 z-6 h-[55px] w-40 blur-[10px]"></div>
+</div>
+
+</section>
+
+      
+<section className="bg-background-7 lp:py-44 py-20 md:py-25 lg:py-30">
+  <div className="main-container">
+    <figure
+      data-opai-animate
+      data-delay="0.1"
+      className="h-[500px] w-full overflow-hidden rounded-xl md:h-[806px]"
+    >
+      <img src="/images/opai-img-49.png" alt="live chat support" className="size-full object-cover" />
+    </figure>
+  </div>
+</section>
+
+      
+<section className="bg-background-7">
+  <div className="main-container">
+    <div className="space-y-14 md:space-y-[70px]">
+      <div className="space-y-3 text-center">
+        <h2
+          data-opai-animate
+          data-delay="0.1"
+          className="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 text-background-13/90"
+        >
+          Find us on the map
+        </h2>
+        <p
+          data-opai-animate
+          data-delay="0.2"
+          className="font-inter-tight text-tagline-2 text-background-13/60"
+        >
+          Check out our global office location on the map or get directions.
+        </p>
+      </div>
+
+      <figure data-opai-animate data-delay="0.3" className="h-[512px] w-full overflow-hidden">
+        <img src="/images/opai-img-50.svg" alt="find us on the map" className="w-full" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+      
+<section className="bg-background-7 py-20 md:py-30 lg:py-44">
+  <div className="main-container">
+    <div className="space-y-[70px]">
+      <div className="space-y-3 text-center">
+        <h2
+          data-opai-animate
+          data-delay="0.1"
+          className="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-it-heading-2 text-background-13/90"
+        >
+          Follow us on social media
+        </h2>
+        <p
+          data-opai-animate
+          data-delay="0.2"
+          className="font-inter-tight text-tagline-2 text-background-13/60"
+        >
+          Stay connected with us and explore the latest AI trends:
+        </p>
+      </div>
+
+      
+      <div
+        className="mx-auto grid max-w-[850px] grid-cols-12 items-center justify-center gap-y-6 md:gap-x-8 md:gap-y-0"
+      >
+        
+        <div data-opai-animate data-delay="0.3" className="col-span-12 md:col-span-4">
+          <div
+            className="border-stroke-3/18 space-y-6 rounded-lg border bg-white p-6 text-center transition-transform duration-450 ease-in-out hover:scale-105 lg:p-14"
+          >
+            <span className="mx-auto flex size-9 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" className="mx-auto">
+  <path
+    d="M29.25 5.625H6.75C6.12868 5.625 5.625 6.12868 5.625 6.75V29.25C5.625 29.8713 6.12868 30.375 6.75 30.375H29.25C29.8713 30.375 30.375 29.8713 30.375 29.25V6.75C30.375 6.12868 29.8713 5.625 29.25 5.625Z"
+    stroke="#0D1017"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M16.875 15.7501V24.7501"
+    stroke="#0D1017"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M12.375 15.7501V24.7501"
+    stroke="#0D1017"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M16.875 19.6876C16.875 18.6433 17.2898 17.6418 18.0283 16.9034C18.7667 16.165 19.7682 15.7501 20.8125 15.7501C21.8568 15.7501 22.8583 16.165 23.5967 16.9034C24.3352 17.6418 24.75 18.6433 24.75 19.6876V24.7501"
+    stroke="#0D1017"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M12.375 12.9375C13.307 12.9375 14.0625 12.182 14.0625 11.25C14.0625 10.318 13.307 9.5625 12.375 9.5625C11.443 9.5625 10.6875 10.318 10.6875 11.25C10.6875 12.182 11.443 12.9375 12.375 12.9375Z"
+    fill="#0D1017"
+  />
+</svg>
+
+            </span>
+            <p
+              className="font-inter-tight text-tagline-1 text-background-13/90 font-normal text-nowrap"
+            >
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Ezitech on LinkedIn (opens in new tab)"
+              >
+                Linkedin: <span className="text-background-13/60">@ezitech</span>
+              </a>
+            </p>
+          </div>
+        </div>
+
+        
+        <div data-opai-animate data-delay="0.4" className="col-span-12 md:col-span-4">
+          <div
+            className="border-stroke-3/18 space-y-6 rounded-lg border bg-white p-6 text-center transition-transform duration-450 ease-in-out hover:scale-105 lg:p-14"
+          >
+            <span className="mx-auto flex size-9 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="stroke-background-6 size-full fill-none">
+  <path
+    d="M19.2955 5L13.1929 11.2933M11.1136 13.4375L4.75 20M4.75 5L16.1136 20H19.75L8.38636 5H4.75Z"
+    stroke="#0D1017"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>
+
+            </span>
+            <p
+              className="font-inter-tight text-tagline-1 text-background-13/90 font-normal text-nowrap"
+            >
+              <a
+                href="https://x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Ezitech on X / Twitter (opens in new tab)"
+              >
+                Twitter: <span className="text-background-13/60">@ezitech</span>
+              </a>
+            </p>
+          </div>
+        </div>
+        
+        <div data-opai-animate data-delay="0.5" className="col-span-12 md:col-span-4">
+          <div
+            className="border-stroke-3/18 space-y-6 rounded-lg border bg-white p-6 text-center transition-transform duration-450 ease-in-out hover:scale-105 lg:p-14"
+          >
+            <span className="mx-auto flex size-9 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" className="stroke-background-6 mx-auto fill-none">
+  <path
+    d="M18 23.625C21.1066 23.625 23.625 21.1066 23.625 18C23.625 14.8934 21.1066 12.375 18 12.375C14.8934 12.375 12.375 14.8934 12.375 18C12.375 21.1066 14.8934 23.625 18 23.625Z"
+    strokeMiterlimit="10"
+  />
+  <path
+    d="M24.1875 5.0625H11.8125C8.08458 5.0625 5.0625 8.08458 5.0625 11.8125V24.1875C5.0625 27.9154 8.08458 30.9375 11.8125 30.9375H24.1875C27.9154 30.9375 30.9375 27.9154 30.9375 24.1875V11.8125C30.9375 8.08458 27.9154 5.0625 24.1875 5.0625Z"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M25.3125 12.375C26.2445 12.375 27 11.6195 27 10.6875C27 9.75552 26.2445 9 25.3125 9C24.3805 9 23.625 9.75552 23.625 10.6875C23.625 11.6195 24.3805 12.375 25.3125 12.375Z"
+    fill="#0D1017"
+  />
+</svg>
+
+            </span>
+            <p
+              className="font-inter-tight text-tagline-1 text-background-13/90 font-normal text-nowrap"
+            >
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Ezitech on Instagram (opens in new tab)"
+              >
+                Instagram: <span className="text-background-13/60">@ezitech</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+    </>
+  )
 }

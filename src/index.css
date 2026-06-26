@@ -1,0 +1,26 @@
+/*
+ * ═══════════════════════════════════════════════════════════════
+ * Ezitech — Custom Global Styles
+ * ═══════════════════════════════════════════════════════════════
+ *
+ * ⚠️  public/assets/main.css touch mat karo — template ka core CSS hai
+ * ✅  Apni saari custom CSS yahan likho
+ *
+ * Usage:
+ *   Already import hai main.jsx mein — bas yahan class banao aur
+ *   JSX mein className="your-class" se use karo
+ * ═══════════════════════════════════════════════════════════════
+ */
+
+/* ── Example: Custom card ───────────────────────────────────────
+.custom-card {
+  border: 1px solid rgba(141, 89, 255, 0.3);
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.custom-card:hover {
+  transform: translateY(-4px);
+}
+─────────────────────────────────────────────────────────────── */
+
+/* Apni CSS yahan add karo ↓ */
