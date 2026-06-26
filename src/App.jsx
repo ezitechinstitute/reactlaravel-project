@@ -16,6 +16,7 @@ const CaseStudyDetails = lazy(() => import('./pages/CaseStudyDetails'))
 const Contact          = lazy(() => import('./pages/Contact'))
 const Login            = lazy(() => import('./pages/Login'))
 const Signup           = lazy(() => import('./pages/Signup'))
+const Process          = lazy(() => import('./pages/Process'))
 const NotFound         = lazy(() => import('./pages/NotFound'))
 
 function Loader() {
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="/blog-details"       element={<BlogDetails />} />
             <Route path="/case-study"         element={<CaseStudy />} />
             <Route path="/case-study-details" element={<CaseStudyDetails />} />
+            <Route path="/process"           element={<Process />} />
             <Route path="/contact"            element={<Contact />} />
             <Route path="/login"              element={<Login />} />
             <Route path="/signup"             element={<Signup />} />
