@@ -1,0 +1,406 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* Reset removed to avoid global conflicts */
+
+.flow-section {
+  background: #0f111a;
+  color: white;
+  padding: 40px 7%;
+  min-height: 100vh;
+}
+
+.flow-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  border-bottom: 1px solid #1c1e2a;
+  padding-bottom: 0px;
+}
+
+.flow-tabs button {
+  background: none;
+  border: none;
+  color: #7d8293;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  padding-bottom: 18px;
+  position: relative;
+}
+
+.flow-tabs .active {
+  color: white;
+  border-bottom: 2px solid #7c3aed;
+}
+
+.flow-container {
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* --- Left Column Elements --- */
+.flow-left {
+  flex: 1.1;
+}
+
+.flow-left h2 {
+  font-size: 54px;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.flow-left .description {
+  margin-top: 24px;
+  color: #7d8293;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 460px;
+}
+
+.flow-features {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Pure CSS Minimalist Outline Icons */
+.feature-icon {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid #a1a5b7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.icon-cylinder {
+  border-radius: 50% / 30%;
+  position: relative;
+}
+.icon-cylinder::after {
+  content: '';
+  position: absolute;
+  top: 30%; left: -1.5px; right: -1.5px; bottom: 0;
+  border: 1.5px solid #a1a5b7;
+  border-radius: 50% / 30%;
+  border-top: none;
+}
+
+.icon-sphere {
+  border-radius: 50%;
+  position: relative;
+}
+.icon-sphere::after {
+  content: '';
+  position: absolute;
+  top: 20%; bottom: 20%; left: 0; right: 0;
+  border: 1.5px solid #a1a5b7;
+  border-radius: 50%;
+  border-left: none; border-right: none;
+}
+
+.icon-split {
+  border-radius: 50%;
+  position: relative;
+}
+.icon-split::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 45%;
+  height: 1.5px;
+  background: #a1a5b7;
+}
+
+.feature h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #ffffff;
+}
+
+.feature span {
+  color: #7d8293;
+  font-size: 14px;
+}
+
+.flow-btn {
+  margin-top: 45px;
+  background: transparent;
+  border: 1px solid #2e3245;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.flow-btn:hover {
+  background: #1c1e2a;
+}
+
+/* --- Right Column Layout --- */
+.flow-right {
+  flex: 0.9;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.person-card {
+  width: 380px;
+  height: 440px;
+  background: #fcae96;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.person-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Background Loops Wireframe */
+.shape-lines {
+  position: absolute;
+  left: -20px;
+  top: 35%;
+  z-index: 1;
+}
+
+.shape-lines span {
+  display: block;
+  width: 130px;
+  height: 60px;
+  border: 1.5px solid #23252f;
+  border-radius: 50%;
+  margin-top: -42px;
+  transform: rotate(-15deg);
+}
+
+/* Floating Card 1: Assigned Profile */
+.assigned-card {
+  position: absolute;
+  right: -20px;
+  top: 55%;
+  background: #ffffff;
+  color: #0f111a;
+  width: 155px;
+  padding: 14px;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  z-index: 3;
+}
+
+.assigned-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.avatar-group {
+  display: flex;
+  position: relative;
+  width: 60px;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.avatar {
+  width: 18px;
+  height: 18px;
+  background: #edd095;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.avatar-arrow {
+  width: 18px;
+  height: 18px;
+  background: #e1f541;
+  border-radius: 50%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.assigned-meta {
+  text-align: right;
+}
+
+.assigned-meta small {
+  font-size: 11px;
+  color: #7d8293;
+  display: block;
+}
+
+.assigned-meta h3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.stars {
+  font-size: 10px;
+  color: #6366f1;
+  margin: 10px 0;
+  letter-spacing: 1px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.card-actions button {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 5px 8px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-follow {
+  background: #6366f1;
+  color: white;
+}
+
+.btn-msg {
+  background: #0f111a;
+  color: white;
+}
+
+/* Floating Card 2: Total Saving Bar */
+.earning-card {
+  position: absolute;
+  right: -50px;
+  bottom: 15px;
+  background: #ffffff;
+  color: #0f111a;
+  width: 290px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  z-index: 4;
+}
+
+.earning-card small {
+  color: #7d8293;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.earning-card h4 {
+  margin-top: 4px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.bar {
+  margin-top: 22px;
+  height: 5px;
+  background: #ededf2;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  width: 88%;
+  height: 100%;
+  background: #6366f1;
+}
+
+.bar-footer {
+  margin-top: 10px;
+  display: flex;
+  font-size: 11px;
+  font-weight: 500;
+  color: #0f111a;
+}
+
+.bar-footer span:first-child {
+  color: #7d8293;
+}
+
+.bar-footer span:nth-child(2) {
+  margin-left: auto;
+  font-weight: 600;
+}
+
+.percentage {
+  margin-left: 6px;
+  color: #7d8293;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .flow-container {
+    flex-direction: column;
+    gap: 80px;
+    text-align: center;
+    padding-top: 50px;
+  }
+  .flow-left .description {
+    margin-inline: auto;
+  }
+  .feature {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .flow-right {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .earning-card {
+    right: 10%;
+  }
+  .assigned-card {
+    right: 15%;
+  }
+}
+
+@media (max-width: 576px) {
+  .flow-tabs {
+    gap: 20px;
+  }
+  .flow-left h2 {
+    font-size: 36px;
+  }
+  .person-card {
+    width: 290px;
+    height: 350px;
+  }
+  .earning-card {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 20px auto 0;
+    width: 100%;
+    max-width: 290px;
+  }
+  .assigned-card {
+    display: none; /* Hide complex abstract configurations on tiny screens */
+  }
+}

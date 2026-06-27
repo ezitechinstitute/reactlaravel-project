@@ -144,7 +144,7 @@ export default function Navbar() {
               <div id="company-list-menu"
                 className={`dropdown-menu border-stroke-3/20 bg-background-14 absolute top-full left-1/2 z-50 mt-2 w-[280px] -translate-x-1/2 rounded-2xl border p-4 ${activeMenu === 'company' ? 'active' : ''}`}>
                 <ul className="w-full space-y-2">
-                  <DropItem to="#"           icon={I.bag}   label="Careers" />
+                  <DropItem to="/careers"    icon={I.bag}   label="Careers" />
                   <DropItem to="#"           icon={I.users} label="Partners" />
                   <DropItem to="/case-study" icon={I.star}  label="Success Stories" />
                   <DropItem to="#"           icon={I.help}  label="FAQs" />
@@ -313,7 +313,7 @@ export default function Navbar() {
                 {/* Mobile accordion items */}
                 {[
                   { key: 'about', label: 'About', links: [['Our Story','/about'],['University Collaborations','/about'],['Our Team','/team'],['MoUs','/about']] },
-                  { key: 'company', label: 'Company', links: [['Careers','#'],['Partners','#'],['Success Stories','/case-study'],['FAQs','#']] },
+                  { key: 'company', label: 'Company', links: [['Careers','/careers'],['Partners','#'],['Success Stories','/case-study'],['FAQs','#']] },
                 ].map(({ key, label, links }) => (
                   <li key={key} className="space-y-2">
                     <button className="mobile-menu-toggle flex w-full cursor-pointer items-center justify-between py-2.5"
