@@ -36,23 +36,23 @@ function DropItem({ to, icon, label, desc }) {
 
 /* ─── SVG Icons ─────────────────────────────────────────────────────── */
 const I = {
-  story: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 16.5A7.5 7.5 0 109 1.5a7.5 7.5 0 000 15z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 12V8.25M9 6h.0075" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-  uni:   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5l7.5 3.75L9 9 1.5 5.25 9 1.5z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M1.5 12.75L9 16.5l7.5-3.75M1.5 9L9 12.75 16.5 9" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-  team:  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M13 15.75v-1.5a3 3 0 00-3-3H4.75a3 3 0 00-3 3v1.5" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M7.375 8.25a3 3 0 100-6 3 3 0 000 6z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M16.25 15.75v-1.5a3 3 0 00-2.25-2.9" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-  doc:   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5.25 1.5h6L15 5.25v9.75a1.5 1.5 0 01-1.5 1.5h-8.25A1.5 1.5 0 013.75 15V3a1.5 1.5 0 011.5-1.5z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M10.5 1.5v3.75h3.75M6.75 9.75h4.5M6.75 12.75h4.5" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-  bag:   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M15 6H3C2.17 6 1.5 6.67 1.5 7.5V15C1.5 15.83 2.17 16.5 3 16.5H15C15.83 16.5 16.5 15.83 16.5 15V7.5C16.5 6.67 15.83 6 15 6Z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 6V4.5C12 3.67 11.33 3 10.5 3H7.5C6.67 3 6 3.67 6 4.5V6" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-  star:  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5L11.32 6.2L16.5 6.95L12.75 10.6L13.64 15.77L9 13.33L4.37 15.77L5.25 10.6L1.5 6.95L6.68 6.2L9 1.5Z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-  help:  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 16.5C13.14 16.5 16.5 13.14 16.5 9C16.5 4.86 13.14 1.5 9 1.5C4.86 1.5 1.5 4.86 1.5 9C1.5 13.14 4.86 16.5 9 16.5Z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M6.82 6.75C7.37 5.24 9.32 4.54 10.63 5.28C11.94 6.03 12.16 7.71 11.19 8.5C10.65 8.93 8.94 9.75 8.94 9.75" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 12.75H9.0075" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-  users: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M13 15.75V14.25C13 12.73 11.77 11.25 10 11.25H4.75C2.98 11.25 1.75 12.73 1.75 14.25V15.75" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M7.375 8.25C9.03 8.25 10.375 6.91 10.375 5.25C10.375 3.59 9.03 2.25 7.375 2.25C5.72 2.25 4.375 3.59 4.375 5.25C4.375 6.91 5.72 8.25 7.375 8.25Z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M16.25 15.75v-1.5c0-.95-.65-1.76-1.5-2.12" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/><path d="M11.5 2.35c.85.35 1.5 1.17 1.5 2.12s-.65 1.77-1.5 2.12" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+  story: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 16.5A7.5 7.5 0 109 1.5a7.5 7.5 0 000 15z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M9 12V8.25M9 6h.0075" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  uni: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5l7.5 3.75L9 9 1.5 5.25 9 1.5z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M1.5 12.75L9 16.5l7.5-3.75M1.5 9L9 12.75 16.5 9" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  team: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M13 15.75v-1.5a3 3 0 00-3-3H4.75a3 3 0 00-3 3v1.5" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M7.375 8.25a3 3 0 100-6 3 3 0 000 6z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M16.25 15.75v-1.5a3 3 0 00-2.25-2.9" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  doc: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5.25 1.5h6L15 5.25v9.75a1.5 1.5 0 01-1.5 1.5h-8.25A1.5 1.5 0 013.75 15V3a1.5 1.5 0 011.5-1.5z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M10.5 1.5v3.75h3.75M6.75 9.75h4.5M6.75 12.75h4.5" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  bag: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M15 6H3C2.17 6 1.5 6.67 1.5 7.5V15C1.5 15.83 2.17 16.5 3 16.5H15C15.83 16.5 16.5 15.83 16.5 15V7.5C16.5 6.67 15.83 6 15 6Z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M12 6V4.5C12 3.67 11.33 3 10.5 3H7.5C6.67 3 6 3.67 6 4.5V6" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  star: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5L11.32 6.2L16.5 6.95L12.75 10.6L13.64 15.77L9 13.33L4.37 15.77L5.25 10.6L1.5 6.95L6.68 6.2L9 1.5Z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  help: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 16.5C13.14 16.5 16.5 13.14 16.5 9C16.5 4.86 13.14 1.5 9 1.5C4.86 1.5 1.5 4.86 1.5 9C1.5 13.14 4.86 16.5 9 16.5Z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M6.82 6.75C7.37 5.24 9.32 4.54 10.63 5.28C11.94 6.03 12.16 7.71 11.19 8.5C10.65 8.93 8.94 9.75 8.94 9.75" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M9 12.75H9.0075" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  users: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M13 15.75V14.25C13 12.73 11.77 11.25 10 11.25H4.75C2.98 11.25 1.75 12.73 1.75 14.25V15.75" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M7.375 8.25C9.03 8.25 10.375 6.91 10.375 5.25C10.375 3.59 9.03 2.25 7.375 2.25C5.72 2.25 4.375 3.59 4.375 5.25C4.375 6.91 5.72 8.25 7.375 8.25Z" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M16.25 15.75v-1.5c0-.95-.65-1.76-1.5-2.12" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /><path d="M11.5 2.35c.85.35 1.5 1.17 1.5 2.12s-.65 1.77-1.5 2.12" className="!stroke-background-7" strokeLinecap="round" strokeLinejoin="round" /></svg>,
 }
 
 /* ═══════════════════════════════════════════════════════════════════ */
 export default function Navbar() {
-  const location            = useLocation()
-  const [activeMenu, setActiveMenu]   = useState(null)  // 'about' | 'company' | 'services'
-  const [mobileOpen, setMobileOpen]   = useState(false)
+  const location = useLocation()
+  const [activeMenu, setActiveMenu] = useState(null)  // 'about' | 'company' | 'services'
+  const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileSubmenu, setMobileSubmenu] = useState(null)
-  const [scrolled, setScrolled]       = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const timerRef = useRef(null)
 
   /* Close mobile on route change */
@@ -125,9 +125,9 @@ export default function Navbar() {
                 className={`dropdown-menu border-stroke-3/20 bg-background-14 absolute top-full left-1/2 z-50 mt-2 w-[300px] -translate-x-1/2 rounded-2xl border p-4 ${activeMenu === 'about' ? 'active' : ''}`}>
                 <ul className="w-full space-y-2">
                   <DropItem to="/about" icon={I.story} label="Our Story" />
-                  <DropItem to="/about" icon={I.uni}   label="University Collaborations" />
-                  <DropItem to="/team"  icon={I.team}  label="Our Team" />
-                  <DropItem to="/about" icon={I.doc}   label="MoUs" />
+                  <DropItem to="/about" icon={I.uni} label="University Collaborations" />
+                  <DropItem to="/team" icon={I.team} label="Our Team" />
+                  <DropItem to="/about" icon={I.doc} label="MoUs" />
                 </ul>
               </div>
             </li>
@@ -144,10 +144,10 @@ export default function Navbar() {
               <div id="company-list-menu"
                 className={`dropdown-menu border-stroke-3/20 bg-background-14 absolute top-full left-1/2 z-50 mt-2 w-[280px] -translate-x-1/2 rounded-2xl border p-4 ${activeMenu === 'company' ? 'active' : ''}`}>
                 <ul className="w-full space-y-2">
-                  <DropItem to="#"           icon={I.bag}   label="Careers" />
-                  <DropItem to="#"           icon={I.users} label="Partners" />
-                  <DropItem to="/case-study" icon={I.star}  label="Success Stories" />
-                  <DropItem to="#"           icon={I.help}  label="FAQs" />
+                  <DropItem to="#" icon={I.bag} label="Careers" />
+                  <DropItem to="#" icon={I.users} label="Partners" />
+                  <DropItem to="/case-study" icon={I.star} label="Success Stories" />
+                  <DropItem to="#" icon={I.help} label="FAQs" />
                 </ul>
               </div>
             </li>
@@ -167,7 +167,7 @@ export default function Navbar() {
                   {/* Col 1 */}
                   <div className="col-span-12 space-y-1 sm:col-span-6 lg:col-span-4">
                     {[
-                      { icon: 'M8 6L2 12l6 6M16 6l6 6-6 6', label: 'Web Development',    desc: 'Fast, scalable websites & web apps.' },
+                      { icon: 'M8 6L2 12l6 6M16 6l6 6-6 6', label: 'Web Development', desc: 'Fast, scalable websites & web apps.' },
                       { icon: 'M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zM11 18h2', label: 'Mobile App Development', desc: 'iOS & Android apps that scale.' },
                       { icon: 'M12 2l9 4.5v9L12 22 3 17.5v-9L12 2z', label: 'Custom Software', desc: 'Tailored systems for your business.' },
                       { icon: 'M6 16a4 4 0 010-8 5 5 0 019.6-1.5A3.5 3.5 0 0118 16H6z', label: 'SaaS Products', desc: 'Cloud platforms built to grow.' },
@@ -190,10 +190,10 @@ export default function Navbar() {
                   <div className="col-span-12 sm:col-span-6 lg:col-span-4">
                     <div className="space-y-1">
                       {[
-                        { icon: 'M12 2v4M12 18v4M2 12h4M18 12h4', label: 'AI & Automation',   desc: 'Automate workflows with smart AI.' },
+                        { icon: 'M12 2v4M12 18v4M2 12h4M18 12h4', label: 'AI & Automation', desc: 'Automate workflows with smart AI.' },
                         { icon: 'M12 5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM5 18a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM19 18a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM10.5 7L6.5 16M13.5 7l4 9', label: 'Machine Learning', desc: 'Models that learn from your data.' },
-                        { icon: 'M12 19l7-7a2.8 2.8 0 00-4-4l-7 7-1 5 5-1z', label: 'UI/UX Design',       desc: 'Clean, intuitive product design.' },
-                        { icon: 'M3 11l18-5v12L3 13v4H3z', label: 'Digital Marketing',  desc: 'SEO, ads & growth campaigns.' },
+                        { icon: 'M12 19l7-7a2.8 2.8 0 00-4-4l-7 7-1 5 5-1z', label: 'UI/UX Design', desc: 'Clean, intuitive product design.' },
+                        { icon: 'M3 11l18-5v12L3 13v4H3z', label: 'Digital Marketing', desc: 'SEO, ads & growth campaigns.' },
                       ].map(({ icon, label, desc }) => (
                         <Link key={label} to="/services" className="group/card relative flex items-start gap-3 rounded-xl p-2 transition-all duration-300">
                           <div className="group-hover/card:bg-background-3 absolute inset-0 z-0 rounded-xl opacity-0 transition-all duration-400 group-hover/card:opacity-100" />
@@ -217,7 +217,7 @@ export default function Navbar() {
                         </div>
                         <span className="bg-background-6 flex size-6 items-center justify-center rounded-full">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 18 18" fill="none">
-                            <path d="M6.75 13.5L11.25 9L6.75 4.5" className="stroke-background-10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M6.75 13.5L11.25 9L6.75 4.5" className="stroke-background-10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </span>
                       </Link>
@@ -256,9 +256,9 @@ export default function Navbar() {
             {/* Simple links */}
             {[
               { to: '/case-study', label: 'Portfolio' },
-              { to: '#',          label: 'Internships' },
-              { to: '/blog',      label: 'Blog' },
-              { to: '#',          label: 'LMS' },
+              { to: '#', label: 'Internships' },
+              { to: '/blog', label: 'Blog' },
+              { to: '#', label: 'LMS' },
             ].map(({ to, label }) => (
               <li key={label} className="nav-link-item group/nav-item relative py-4">
                 <NavGlow />
@@ -312,8 +312,8 @@ export default function Navbar() {
 
                 {/* Mobile accordion items */}
                 {[
-                  { key: 'about', label: 'About', links: [['Our Story','/about'],['University Collaborations','/about'],['Our Team','/team'],['MoUs','/about']] },
-                  { key: 'company', label: 'Company', links: [['Careers','#'],['Partners','#'],['Success Stories','/case-study'],['FAQs','#']] },
+                  { key: 'about', label: 'About', links: [['Our Story', '/about'], ['University Collaborations', '/about'], ['Our Team', '/team'], ['MoUs', '/about']] },
+                  { key: 'company', label: 'Company', links: [['Careers', '#'], ['Partners', '#'], ['Success Stories', '/case-study'], ['FAQs', '#']] },
                 ].map(({ key, label, links }) => (
                   <li key={key} className="space-y-2">
                     <button className="mobile-menu-toggle flex w-full cursor-pointer items-center justify-between py-2.5"
@@ -352,19 +352,19 @@ export default function Navbar() {
                   {mobileSubmenu === 'services' && (
                     <ul>
                       <li><Link to="/services" className="text-tagline-3 ml-4 block py-1.5 font-semibold text-white/90" onClick={() => setMobileOpen(false)}>Software Development</Link></li>
-                      {['Web Development','Mobile App Development','Custom Software Development','SaaS Development'].map(l => (
+                      {['Web Development', 'Mobile App Development', 'Custom Software Development', 'SaaS Development'].map(l => (
                         <li key={l}><Link to="/services" className="text-tagline-3 ml-7 block py-1.5 font-normal text-white/70 hover:text-white/90" onClick={() => setMobileOpen(false)}>{l}</Link></li>
                       ))}
                       <li><Link to="/services" className="text-tagline-3 ml-4 block py-1.5 font-semibold text-white/90" onClick={() => setMobileOpen(false)}>AI Solutions</Link></li>
-                      {['AI & Automation','Machine Learning','Chatbot Development'].map(l => (
+                      {['AI & Automation', 'Machine Learning', 'Chatbot Development'].map(l => (
                         <li key={l}><Link to="/services" className="text-tagline-3 ml-7 block py-1.5 font-normal text-white/70 hover:text-white/90" onClick={() => setMobileOpen(false)}>{l}</Link></li>
                       ))}
                       <li><Link to="/services" className="text-tagline-3 ml-4 block py-1.5 font-semibold text-white/90" onClick={() => setMobileOpen(false)}>Design & Marketing</Link></li>
-                      {['UI/UX Design','Digital Marketing','SEO Services'].map(l => (
+                      {['UI/UX Design', 'Digital Marketing', 'SEO Services'].map(l => (
                         <li key={l}><Link to="/services" className="text-tagline-3 ml-7 block py-1.5 font-normal text-white/70 hover:text-white/90" onClick={() => setMobileOpen(false)}>{l}</Link></li>
                       ))}
                       <li><Link to="/services" className="text-tagline-3 ml-4 block py-1.5 font-semibold text-white/90" onClick={() => setMobileOpen(false)}>Products</Link></li>
-                      {['ERP Solution','POS System','CRM Solution','Hospital Management System'].map(l => (
+                      {['ERP Solution', 'POS System', 'CRM Solution', 'Hospital Management System'].map(l => (
                         <li key={l}><Link to="/services" className="text-tagline-3 ml-7 block py-1.5 font-normal text-white/70 hover:text-white/90" onClick={() => setMobileOpen(false)}>{l}</Link></li>
                       ))}
                       <li className="mt-3">
@@ -374,7 +374,7 @@ export default function Navbar() {
                   )}
                 </li>
 
-                {[['Portfolio','/case-study'],['Internships','#'],['Blog','/blog'],['LMS','#']].map(([l,t]) => (
+                {[['Portfolio', '/case-study'], ['Internships', '#'], ['Blog', '/blog'], ['LMS', '#']].map(([l, t]) => (
                   <li key={l}>
                     <Link to={t} className="font-sora text-tagline-2 block py-2.5 font-normal text-white/90 hover:text-white" onClick={() => setMobileOpen(false)}>{l}</Link>
                   </li>
