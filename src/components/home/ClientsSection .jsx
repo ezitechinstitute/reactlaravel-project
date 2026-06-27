@@ -60,7 +60,7 @@ export default function ClientsSection() {
       <style>{`
         .logos-marquee-container [class*="marquee"],
         .logos-right-marquee-container [class*="marquee"] {
-          animation-duration: 110s !important;
+          animation-duration: 250s !important;
         }
       `}</style>
 

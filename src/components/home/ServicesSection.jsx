@@ -106,7 +106,7 @@ export default function ServicesStackSection() {
               Trusted by 100+ businesses in retail, healthcare, tech, and more.
             </p>
 
-            <div className="pt-4" data-opai-animate data-delay="0.3">
+            <div className="pt-4" data-opai-animate data-delay="0.3" >
               <Link
                 to="/services"
                 className="group bg-background-7 hover:border-stroke-3 w-[85%] sm:w-fit mx-auto lg:mx-0 relative flex items-center justify-center gap-2 overflow-hidden rounded-xl border border-transparent px-6 py-[13px] transition-all duration-300 ease-in-out"
