@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/assets/main.css" />
     <link rel="stylesheet" href="/assets/theme.css" />
 
+    <!-- Theme apply before render -->
     <script>
       (function(){
         try{
@@ -26,6 +27,7 @@
       })();
     </script>
 
+    <!-- FIX: Elements visible rakhna jab tak GSAP initialize na ho -->
     <style>
       [data-opai-animate],
       [data-opai-avatar],
@@ -39,16 +41,31 @@
         opacity: 1 !important;
         z-index: 2;
       }
+      /* FIX: Page load pe flash prevent karna */
+      #root:empty {
+        min-height: 100vh;
+      }
     </style>
 
     <title>Ezitech || Software, AI &amp; Digital Innovation</title>
-    <script type="module" crossorigin src="/assets/index-BQuG8J6M.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-x1XGuNl0.css">
+    <script type="module" crossorigin src="/assets/index-NrxV4glT.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-xJceDhn0.css">
   </head>
   <body>
     <div id="root"></div>
 
+    <!-- vendor.bundle.js pehle synchronously load hota hai -->
     <script src="/vendor.bundle.js"></script>
-    <script src="/assets/main.spa.js"></script>
+    <script src="/assets/main.spa.js"></script>
+
+    <!--
+      FIX: main.jsx type="module" se pehle ek flag set karo
+      Yeh batata hai ke vendor ready hai, React sirf mount hone ka wait kar raha hai
+    -->
+    <script>
+      window.__vendorReady = true;
+      window.__animPending = false;
+    </script>
+
   </body>
 </html>
