@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-// import SEO from "../components/SEO";
+import SEO from "../components/SEO";
 
 /* ─────────────────────────────────────────
    INLINE STYLES (all 5 sections combined)
