@@ -47,7 +47,7 @@ export default function SubscribeSection() {
     >
       <div className="main-container">
         <div className="text-center mb-8" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-          
+
           <span style={{
             display: 'inline-block',
             padding: '6px 20px',
@@ -87,7 +87,7 @@ export default function SubscribeSection() {
         </div>
 
         <div style={{ marginBottom: '38px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
-          
+
           <form
             action="#"
             method="post"

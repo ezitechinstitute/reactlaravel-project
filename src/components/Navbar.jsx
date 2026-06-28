@@ -147,7 +147,7 @@ export default function Navbar() {
                   <DropItem to="#"           icon={I.bag}   label="Careers" />
                   <DropItem to="#"           icon={I.users} label="Partners" />
                   <DropItem to="/case-study" icon={I.star}  label="Success Stories" />
-                  <DropItem to="#"           icon={I.help}  label="FAQs" />
+                  <DropItem to="/process"    icon={I.help}  label="FAQs" />
                 </ul>
               </div>
             </li>
@@ -313,7 +313,7 @@ export default function Navbar() {
                 {/* Mobile accordion items */}
                 {[
                   { key: 'about', label: 'About', links: [['Our Story','/about'],['University Collaborations','/about'],['Our Team','/team'],['MoUs','/about']] },
-                  { key: 'company', label: 'Company', links: [['Careers','#'],['Partners','#'],['Success Stories','/case-study'],['FAQs','#']] },
+                  { key: 'company', label: 'Company', links: [['Careers','#'],['Partners','#'],['Success Stories','/case-study'],['FAQs','/process']] },
                 ].map(({ key, label, links }) => (
                   <li key={key} className="space-y-2">
                     <button className="mobile-menu-toggle flex w-full cursor-pointer items-center justify-between py-2.5"
