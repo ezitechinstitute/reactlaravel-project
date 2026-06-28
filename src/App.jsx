@@ -49,7 +49,7 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/service-details" element={<ServiceDetails />} />
             <Route path="/pricing" element={<Pricing />} />
-            {/* <Route path="/team"               element={<Team />} /> */}
+            {/* <Route path="/team" element={<Team />} /> */}
             <Route path="/team-details" element={<TeamDetails />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog-details" element={<BlogDetails />} />
@@ -59,7 +59,7 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/team" element={<OurTeam />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

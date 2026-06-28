@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+
 import SubscribeSection from './SubscribeSection';
 
 /* ─── forceVisible ──────────────────────────────────────────────────
@@ -83,18 +84,18 @@ function runInit(delay = 0) {
       try {
         window.ScrollTrigger?.getAll().forEach(t => t.kill());
         window.ScrollTrigger?.clearScrollMemory?.();
-      } catch(e) {}
+      } catch (e) { }
 
       try {
         window.gsap?.killTweensOf('[data-opai-animate],[data-opai-avatar]');
-      } catch(e) {}
+      } catch (e) { }
 
-      try { window.__opaiInit?.(); } catch(e) { console.warn(e); }
+      try { window.__opaiInit?.(); } catch (e) { console.warn(e); }
 
       forceVisible();
 
       setTimeout(() => {
-        try { window.ScrollTrigger?.refresh(true); } catch(e) {}
+        try { window.ScrollTrigger?.refresh(true); } catch (e) { }
       }, 100);
     });
   }, delay);
@@ -113,9 +114,9 @@ function startParticles() {
   window.__particlesStarted = true;
   window.gsap.registerPlugin(window.MotionPathPlugin);
 
-  const lerp = (c1, c2, f) => '#' + [1,3,5].map(i =>
-    Math.round(parseInt(c1.slice(i,i+2),16) + (parseInt(c2.slice(i,i+2),16) - parseInt(c1.slice(i,i+2),16)) * f)
-    .toString(16).padStart(2,'0')
+  const lerp = (c1, c2, f) => '#' + [1, 3, 5].map(i =>
+    Math.round(parseInt(c1.slice(i, i + 2), 16) + (parseInt(c2.slice(i, i + 2), 16) - parseInt(c1.slice(i, i + 2), 16)) * f)
+      .toString(16).padStart(2, '0')
   ).join('');
 
   const PARTICLES_PER_PATH = 8;
@@ -130,11 +131,11 @@ function startParticles() {
       const rectIndex = Math.round((i - 1) * (60 / (PARTICLES_PER_PATH - 1)) + 1);
       const rect = document.getElementById(`rect-${n}-${Math.min(rectIndex, 60)}`);
       if (!rect) continue;
-      rect.setAttribute('fill', lerp('#FFFFFF', '#1E212A', (i-1)/(PARTICLES_PER_PATH-1)));
+      rect.setAttribute('fill', lerp('#FFFFFF', '#1E212A', (i - 1) / (PARTICLES_PER_PATH - 1)));
       rect.style.willChange = 'transform';
       window.gsap.to(rect, {
-        motionPath: { path, align: path, alignOrigin:[0.5,0.5], autoRotate:false },
-        duration: dur, ease:'power1.inOut', repeat:-1, delay: del + i * 0.016,
+        motionPath: { path, align: path, alignOrigin: [0.5, 0.5], autoRotate: false },
+        duration: dur, ease: 'power1.inOut', repeat: -1, delay: del + i * 0.016,
       });
     }
   }
@@ -142,23 +143,23 @@ function startParticles() {
 
 function startHeroSlider() {
   const titleEl = document.getElementById('hero-slide-text');
-  const imgs    = document.querySelectorAll('#hero-image-stack .hero-img');
+  const imgs = document.querySelectorAll('#hero-image-stack .hero-img');
   if (!titleEl || imgs.length < 2) return;
   if (window.__heroSliderInterval) return;
 
   const slides = [
     ['Custom Web/Software Development', 'Web/Software'],
-    ['SaaS Products & Platforms',       'SaaS Products'],
-    ['AI & Digital Transformation',     'AI'],
-    ['Dedicated Development Team',      'Dedicated'],
+    ['SaaS Products & Platforms', 'SaaS Products'],
+    ['AI & Digital Transformation', 'AI'],
+    ['Dedicated Development Team', 'Dedicated'],
   ];
   let cur = 0;
 
   const renderWords = (text, hl) => {
     titleEl.innerHTML = '';
     const segs = hl && text.includes(hl)
-      ? [{t:text.split(hl)[0],p:false},{t:hl,p:true},{t:text.split(hl)[1],p:false}]
-      : [{t:text,p:false}];
+      ? [{ t: text.split(hl)[0], p: false }, { t: hl, p: true }, { t: text.split(hl)[1], p: false }]
+      : [{ t: text, p: false }];
     let wi = 0;
     segs.forEach(seg => {
       seg.t.split(/(\s+)/).forEach(tok => {
@@ -166,10 +167,10 @@ function startHeroSlider() {
         if (/^\s+$/.test(tok)) { titleEl.appendChild(document.createTextNode(tok)); return; }
         const sp = document.createElement('span');
         sp.textContent = tok;
-        sp.style.cssText = `display:inline-block;opacity:0;transform:translateX(-18px);transition:opacity 0.35s ease ${wi*60}ms,transform 0.35s ease ${wi*60}ms;${seg.p?'color:#8d59ff;':''}`;
+        sp.style.cssText = `display:inline-block;opacity:0;transform:translateX(-18px);transition:opacity 0.35s ease ${wi * 60}ms,transform 0.35s ease ${wi * 60}ms;${seg.p ? 'color:#8d59ff;' : ''}`;
         titleEl.appendChild(sp);
         const ii = wi;
-        setTimeout(() => { sp.style.opacity='1'; sp.style.transform='translateX(0)'; }, 30+ii*60);
+        setTimeout(() => { sp.style.opacity = '1'; sp.style.transform = 'translateX(0)'; }, 30 + ii * 60);
         wi++;
       });
     });
@@ -178,26 +179,26 @@ function startHeroSlider() {
   const animateBox = (next, done) => {
     const box = document.getElementById('hero-box-wrapper');
     if (!box) {
-      imgs.forEach((im,i) => { im.style.setProperty('opacity',i===next?'1':'0','important'); im.style.zIndex=i===next?'2':'0'; });
+      imgs.forEach((im, i) => { im.style.setProperty('opacity', i === next ? '1' : '0', 'important'); im.style.zIndex = i === next ? '2' : '0'; });
       done(); return;
     }
-    box.style.transition='opacity 0.42s ease,transform 0.42s ease';
-    box.style.opacity='0'; box.style.transform='translateY(50px)';
+    box.style.transition = 'opacity 0.42s ease,transform 0.42s ease';
+    box.style.opacity = '0'; box.style.transform = 'translateY(50px)';
     setTimeout(() => {
-      imgs.forEach((im,i) => { im.style.setProperty('opacity',i===next?'1':'0','important'); im.style.zIndex=i===next?'2':'0'; });
-      box.style.transition='none'; box.style.transform='translateX(80px)'; box.style.opacity='0';
+      imgs.forEach((im, i) => { im.style.setProperty('opacity', i === next ? '1' : '0', 'important'); im.style.zIndex = i === next ? '2' : '0'; });
+      box.style.transition = 'none'; box.style.transform = 'translateX(80px)'; box.style.opacity = '0';
       setTimeout(() => {
-        box.style.transition='opacity 0.42s ease,transform 0.42s ease';
-        box.style.opacity='1'; box.style.transform='translateX(0) translateY(0)';
+        box.style.transition = 'opacity 0.42s ease,transform 0.42s ease';
+        box.style.opacity = '1'; box.style.transform = 'translateX(0) translateY(0)';
         setTimeout(done, 430);
       }, 30);
     }, 440);
   };
 
-  imgs.forEach((im,i) => {
-    im.style.setProperty('opacity',i===0?'1':'0','important');
-    im.style.zIndex=i===0?'2':'0';
-    im.style.transition='none';
+  imgs.forEach((im, i) => {
+    im.style.setProperty('opacity', i === 0 ? '1' : '0', 'important');
+    im.style.zIndex = i === 0 ? '2' : '0';
+    im.style.transition = 'none';
   });
   renderWords(slides[0][0], slides[0][1]);
 
@@ -206,20 +207,20 @@ function startHeroSlider() {
     const pills = document.querySelectorAll('.hero-slide');
     if (!pills.length) return;
     if (pills[prev]) { pills[prev].classList.add('hidden'); pills[prev].classList.remove('flex'); }
-    if (pills[idx])  { pills[idx].classList.remove('hidden'); pills[idx].classList.add('flex'); }
+    if (pills[idx]) { pills[idx].classList.remove('hidden'); pills[idx].classList.add('flex'); }
   };
   const goTo = (idx) => {
-    if (busy) return; busy=true;
-    const prev=cur; cur=idx;
-    titleEl.style.transition='opacity 0.3s'; titleEl.style.opacity='0';
+    if (busy) return; busy = true;
+    const prev = cur; cur = idx;
+    titleEl.style.transition = 'opacity 0.3s'; titleEl.style.opacity = '0';
     switchPills(cur, prev);
     animateBox(cur, () => {
       renderWords(slides[cur][0], slides[cur][1]);
-      titleEl.style.transition='opacity 0.3s'; titleEl.style.opacity='1';
-      busy=false;
+      titleEl.style.transition = 'opacity 0.3s'; titleEl.style.opacity = '1';
+      busy = false;
     });
   };
-  window.__heroSliderInterval = setInterval(() => goTo((cur+1)%slides.length), 5000);
+  window.__heroSliderInterval = setInterval(() => goTo((cur + 1) % slides.length), 5000);
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -232,11 +233,11 @@ export default function Layout({ children }) {
   useEffect(() => {
     const apply = t => {
       const r = document.documentElement, b = document.body;
-      if (t==='light') { r.classList.add('light-theme'); r.classList.remove('dark'); b.classList.remove('dark'); }
+      if (t === 'light') { r.classList.add('light-theme'); r.classList.remove('dark'); b.classList.remove('dark'); }
       else { r.classList.remove('light-theme'); r.classList.add('dark'); b.classList.add('dark'); }
-      try { localStorage.setItem('ezitech-theme', t); } catch {}
+      try { localStorage.setItem('ezitech-theme', t); } catch { }
     };
-    try { apply(localStorage.getItem('ezitech-theme')==='light'?'light':'dark'); } catch {}
+    try { apply(localStorage.getItem('ezitech-theme') === 'light' ? 'light' : 'dark'); } catch { }
   }, []);
 
   // ── FIRST LOAD ───────────────────────────────────────────────────
@@ -266,7 +267,7 @@ export default function Layout({ children }) {
       });
     });
 
-    return () => {};
+    return () => { };
   }, []); // Sirf mount pe
 
   // ── ROUTE CHANGE ─────────────────────────────────────────────────
@@ -324,7 +325,7 @@ export default function Layout({ children }) {
         onClick={() => {
           const isLight = document.documentElement.classList.contains('light-theme');
           const next = isLight ? 'dark' : 'light';
-          if (next==='light') {
+          if (next === 'light') {
             document.documentElement.classList.add('light-theme');
             document.documentElement.classList.remove('dark');
             document.body.classList.remove('dark');
@@ -333,24 +334,24 @@ export default function Layout({ children }) {
             document.documentElement.classList.add('dark');
             document.body.classList.add('dark');
           }
-          try { localStorage.setItem('ezitech-theme', next); } catch {}
+          try { localStorage.setItem('ezitech-theme', next); } catch { }
         }}
         aria-label="Toggle theme"
         style={{
-          position:'fixed', right:'20px', bottom:'20px', zIndex:9998,
-          width:'48px', height:'48px', display:'flex', alignItems:'center',
-          justifyContent:'center', borderRadius:'9999px',
-          border:'1px solid rgba(124,142,165,0.35)',
-          background:'var(--color-background-3,#252a32)',
-          boxShadow:'0 8px 24px -6px rgba(0,0,0,0.4)', cursor:'pointer'
+          position: 'fixed', right: '20px', bottom: '20px', zIndex: 9998,
+          width: '48px', height: '48px', display: 'flex', alignItems: 'center',
+          justifyContent: 'center', borderRadius: '9999px',
+          border: '1px solid rgba(124,142,165,0.35)',
+          background: 'var(--color-background-3,#252a32)',
+          boxShadow: '0 8px 24px -6px rgba(0,0,0,0.4)', cursor: 'pointer'
         }}
       >
-        <svg className="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{position:'absolute'}}>
-          <circle cx="12" cy="12" r="4" stroke="var(--color-background-7,#f8f9fa)" strokeWidth="1.6"/>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="var(--color-background-7,#f8f9fa)" strokeWidth="1.6" strokeLinecap="round"/>
+        <svg className="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ position: 'absolute' }}>
+          <circle cx="12" cy="12" r="4" stroke="var(--color-background-7,#f8f9fa)" strokeWidth="1.6" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="var(--color-background-7,#f8f9fa)" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
-        <svg className="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{position:'absolute'}}>
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="var(--color-background-7,#11141d)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg className="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ position: 'absolute' }}>
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="var(--color-background-7,#11141d)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
     </>
