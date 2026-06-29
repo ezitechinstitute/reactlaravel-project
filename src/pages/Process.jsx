@@ -6,7 +6,7 @@ import { useGSAP } from '../hooks/useAnimation'
 /* ─── Accordion Item ─────────────────────────────────────────────── */
 function AccordionItem({ question, answer, isOpen, onToggle }) {
   return (
-    <div className="faq-item faq-animate">
+    <div className="faq-item">
       <button className="faq-button" onClick={onToggle}>
         <span className="faq-question">{question}</span>
         <span
@@ -53,11 +53,12 @@ function StepCard({
   title,
   description,
   items = [],
+  delay = '0.3',
   colClass = '',
 }) {
   return (
     <div className={`col-span-12 md:col-span-6 lg:col-span-4 ${colClass}`}>
-      <div className="process-card process-animate">
+      <div data-delay={delay} className="process-card process-animate">
         <div className="process-card-header">
           <span className="process-step-label">{step}</span>
           <span className={`process-icon ${iconClass}`}></span>
@@ -148,49 +149,34 @@ const faqs = [
 export default function Process() {
   const [openFaq, setOpenFaq] = useState(null)
 
-  const processRef = useGSAP((gsap, _ScrollTrigger, el) => {
-    gsap.from(el.querySelectorAll('.process-animate'), {
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 80%',
-        once: true,
-      },
+  const reveal = (gsap, elements) => {
+    Array.from(elements).forEach((item) => {
+      const delay = parseFloat(item.dataset.delay || 0)
+      gsap.from(item, {
+        opacity: 0,
+        filter: 'blur(16px)',
+        y: 60,
+        duration: 0.6,
+        delay,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 90%',
+        },
+      })
     })
+  }
+
+  const processRef = useGSAP((gsap, _ScrollTrigger, el) => {
+    reveal(gsap, el.querySelectorAll('.process-animate'))
   })
 
   const faqRef = useGSAP((gsap, _ScrollTrigger, el) => {
-    gsap.from(el.querySelectorAll('.faq-animate'), {
-      opacity: 0,
-      y: 30,
-      duration: 0.7,
-      stagger: 0.08,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        once: true,
-      },
-    })
+    reveal(gsap, el.querySelectorAll('.faq-animate'))
   })
 
   const ctaRef = useGSAP((gsap, _ScrollTrigger, el) => {
-    gsap.from(el.querySelectorAll('.cta-animate'), {
-      opacity: 0,
-      y: 35,
-      duration: 0.7,
-      stagger: 0.1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        once: true,
-      },
-    })
+    reveal(gsap, el.querySelectorAll('.cta-animate'))
   })
 
   return (
@@ -201,10 +187,10 @@ export default function Process() {
       <section ref={processRef} className="process-section">
         <div className="main-container">
           <div className="process-section-header">
-            <h2 className="process-animate process-section-title">
+            <h2 data-delay="0.3" className="process-animate process-section-title">
               From sign-up to success in just a few steps
             </h2>
-            <p className="process-animate process-section-subtitle">
+            <p data-delay="0.4" className="process-animate process-section-subtitle">
               We make it easy to Get started, simple to scale, and seamless to succeed. Whether
               you&apos;re using one feature or the full suite, Nexsas is built to support you every
               step of the way.
@@ -227,21 +213,21 @@ export default function Process() {
       <section ref={faqRef} className="faq-section">
         <div className="main-container">
           <div className="faq-header">
-            <span className="faq-animate faq-badge">
+            <span data-delay="0.1" className="faq-animate faq-badge">
               Faq
             </span>
             <div className="faq-title-wrap">
-              <h2 className="faq-animate faq-title">
+              <h2 data-delay="0.2" className="faq-animate faq-title">
                 Commonly asked questions
               </h2>
-              <p className="faq-animate faq-subtitle">
+              <p data-delay="0.3" className="faq-animate faq-subtitle">
                 By offering concise and informative responses, this section helps users find
                 solutions without the need to contact customer support, saving time
               </p>
             </div>
           </div>
 
-          <div className="faq-list">
+          <div data-delay="0.4" className="faq-list faq-animate">
             {faqs.map((faq, i) => (
               <AccordionItem
                 key={i}
@@ -260,21 +246,21 @@ export default function Process() {
         <div className="main-container">
           <div className="cta-row">
             <div className="cta-content">
-              <span className="cta-animate cta-badge">
+              <span data-delay="0.3" className="cta-animate cta-badge">
                 Get started
               </span>
               <div className="cta-text">
-                <h2 className="cta-animate cta-title">
+                <h2 data-delay="0.4" className="cta-animate cta-title">
                   Build a complete website using the assistance
                 </h2>
-                <p className="cta-animate cta-subtitle">
+                <p data-delay="0.5" className="cta-animate cta-subtitle">
                   Start your free trial today and see your ideas come to life easily and creatively.
                 </p>
               </div>
             </div>
 
             <div className="cta-form-wrap">
-              <form onSubmit={(e) => e.preventDefault()} className="cta-form cta-animate">
+              <form data-delay="0.6" onSubmit={(e) => e.preventDefault()} className="cta-form cta-animate">
                 <input
                   type="email"
                   name="email"
@@ -288,7 +274,7 @@ export default function Process() {
                 </button>
               </form>
               <ul className="cta-checklist">
-                <li className="cta-animate cta-check-item">
+                <li data-delay="0.7" className="cta-animate cta-check-item">
                   <span className="cta-check-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -303,7 +289,7 @@ export default function Process() {
                   </span>
                   <p>No credit card required</p>
                 </li>
-                <li className="cta-animate cta-check-item">
+                <li data-delay="0.8" className="cta-animate cta-check-item">
                   <span className="cta-check-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
