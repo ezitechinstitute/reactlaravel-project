@@ -29,6 +29,7 @@ import { useEffect, useRef } from 'react'
  * @param {Array}   deps  - Dependencies (default: [])
  */
 export function useAnimation(fn, deps = []) {
+
   useEffect(() => {
     // Wait for DOM + vendor scripts to be ready
     const timer = setTimeout(() => {
