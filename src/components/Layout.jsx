@@ -5,11 +5,7 @@ import Footer from './Footer';
 import SubscribeSection from './SubscribeSection';
 
 /* ─── forceVisible ──────────────────────────────────────────────────
-<<<<<<< Updated upstream
-   CSS opacity:1 override — GSAP se pehle blank nahi dikhega
-=======
    CSS opacity override — GSAP se pehle blank nahi dikhega
->>>>>>> Stashed changes
 ──────────────────────────────────────────────────────────────────── */
 function forceVisible() {
   document.querySelectorAll(
@@ -46,12 +42,6 @@ function waitForVendor(cb, maxWait = 5000) {
   check();
 }
 
-<<<<<<< Updated upstream
-function runInit(delay = 0) {
-  setTimeout(() => {
-    waitForVendor(() => {
-      // Kill old ScrollTriggers
-=======
 /* ─── FIX: DOM aware wait ───────────────────────────────────────────
    Problem: vendor ready hota hai but React page DOM abhi render
    nahi hua hota (especially first visit pe lazy chunks)
@@ -90,34 +80,19 @@ function waitForPageDOM(cb, maxWait = 3000) {
 function runInit(delay = 0) {
   setTimeout(() => {
     waitForVendor(() => {
->>>>>>> Stashed changes
       try {
         window.ScrollTrigger?.getAll().forEach(t => t.kill());
         window.ScrollTrigger?.clearScrollMemory?.();
       } catch(e) {}
 
-<<<<<<< Updated upstream
-      // Kill old GSAP tweens on animated elements
-=======
->>>>>>> Stashed changes
       try {
         window.gsap?.killTweensOf('[data-opai-animate],[data-opai-avatar]');
       } catch(e) {}
 
-<<<<<<< Updated upstream
-      // Run all animations fresh
-      try { window.__opaiInit?.(); } catch(e) { console.warn(e); }
-
-      // Force visible after init (safety)
-      forceVisible();
-
-      // Refresh scroll triggers after short settle
-=======
       try { window.__opaiInit?.(); } catch(e) { console.warn(e); }
 
       forceVisible();
 
->>>>>>> Stashed changes
       setTimeout(() => {
         try { window.ScrollTrigger?.refresh(true); } catch(e) {}
       }, 100);
@@ -125,24 +100,17 @@ function runInit(delay = 0) {
   }, delay);
 }
 
-<<<<<<< Updated upstream
-function startParticles() {
-=======
 /* ─── PARTICLES — OPTIMIZED ─────────────────────────────────────────
    PEHLE: 480 infinite tweens (8 paths × 60 rects) — KILLER
    BAAD:  64 tweens only (8 paths × 8 rects) — 87% reduction
 ──────────────────────────────────────────────────────────────────── */
 function startParticles() {
   if (window.__particlesStarted) return;
->>>>>>> Stashed changes
   if (!document.getElementById('curve-path-1')) return;
   if (typeof window.gsap === 'undefined') return;
   if (typeof window.MotionPathPlugin === 'undefined') return;
 
-<<<<<<< Updated upstream
-=======
   window.__particlesStarted = true;
->>>>>>> Stashed changes
   window.gsap.registerPlugin(window.MotionPathPlugin);
 
   const lerp = (c1, c2, f) => '#' + [1,3,5].map(i =>
@@ -150,25 +118,13 @@ function startParticles() {
     .toString(16).padStart(2,'0')
   ).join('');
 
-<<<<<<< Updated upstream
-=======
   const PARTICLES_PER_PATH = 8;
 
->>>>>>> Stashed changes
   for (let n = 1; n <= 8; n++) {
     const path = document.getElementById(`curve-path-${n}`);
     if (!path) continue;
     const dur = window.gsap.utils.random(3, 6);
     const del = window.gsap.utils.random(0, 2);
-<<<<<<< Updated upstream
-    for (let i = 1; i <= 60; i++) {
-      const rect = document.getElementById(`rect-${n}-${i}`);
-      if (!rect) continue;
-      rect.setAttribute('fill', lerp('#FFFFFF', '#1E212A', (i-1)/59));
-      window.gsap.to(rect, {
-        motionPath: { path, align: path, alignOrigin:[0.5,0.5], autoRotate:false },
-        duration: dur, ease:'power1.inOut', repeat:-1, delay: del + i * 0.002,
-=======
 
     for (let i = 1; i <= PARTICLES_PER_PATH; i++) {
       const rectIndex = Math.round((i - 1) * (60 / (PARTICLES_PER_PATH - 1)) + 1);
@@ -179,7 +135,6 @@ function startParticles() {
       window.gsap.to(rect, {
         motionPath: { path, align: path, alignOrigin:[0.5,0.5], autoRotate:false },
         duration: dur, ease:'power1.inOut', repeat:-1, delay: del + i * 0.016,
->>>>>>> Stashed changes
       });
     }
   }
@@ -213,13 +168,8 @@ function startHeroSlider() {
         sp.textContent = tok;
         sp.style.cssText = `display:inline-block;opacity:0;transform:translateX(-18px);transition:opacity 0.35s ease ${wi*60}ms,transform 0.35s ease ${wi*60}ms;${seg.p?'color:#8d59ff;':''}`;
         titleEl.appendChild(sp);
-<<<<<<< Updated upstream
-        const i = wi;
-        setTimeout(() => { sp.style.opacity='1'; sp.style.transform='translateX(0)'; }, 30+i*60);
-=======
         const ii = wi;
         setTimeout(() => { sp.style.opacity='1'; sp.style.transform='translateX(0)'; }, 30+ii*60);
->>>>>>> Stashed changes
         wi++;
       });
     });
@@ -272,13 +222,9 @@ function startHeroSlider() {
   window.__heroSliderInterval = setInterval(() => goTo((cur+1)%slides.length), 5000);
 }
 
-<<<<<<< Updated upstream
-/* ═══════════════════════════════════════════════════════════════════ */
-=======
 /* ═══════════════════════════════════════════════════════════════════
    MAIN LAYOUT COMPONENT
 ═══════════════════════════════════════════════════════════════════ */
->>>>>>> Stashed changes
 export default function Layout({ children }) {
   const location = useLocation();
 
@@ -294,80 +240,6 @@ export default function Layout({ children }) {
   }, []);
 
   // ── FIRST LOAD ───────────────────────────────────────────────────
-<<<<<<< Updated upstream
-  useEffect(() => {
-    const timers = [];
-
-    // 1. Force visible immediately
-    forceVisible();
-
-    // 2. Wait for ALL vendors then run everything
-    waitForVendor(() => {
-      // Run main animations
-      runInit(0);
-      // Particles
-      startParticles();
-      // Hero slider
-      startHeroSlider();
-    });
-
-    // 3. Fallback timers — agar waitForVendor slow ho
-    timers.push(setTimeout(() => {
-      forceVisible();
-      startHeroSlider();
-    }, 500));
-
-    timers.push(setTimeout(() => {
-      forceVisible();
-      if (isVendorReady()) {
-        runInit(0);
-        startParticles();
-      }
-    }, 1000));
-
-    timers.push(setTimeout(() => {
-      forceVisible();
-      if (isVendorReady()) {
-        runInit(0);
-        startParticles();
-        startHeroSlider();
-      }
-    }, 2000));
-
-    return () => timers.forEach(clearTimeout);
-  }, []); // ← runs ONCE on mount
-
-  // ── ROUTE CHANGE ─────────────────────────────────────────────────
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const timers = [];
-
-    // Stop old hero slider
-    if (window.__heroSliderInterval) {
-      clearInterval(window.__heroSliderInterval);
-      window.__heroSliderInterval = null;
-    }
-
-    // Force visible immediately
-    forceVisible();
-
-    // Wait for React DOM to settle (1 rAF = DOM committed, 2nd rAF = painted)
-    let raf2;
-    const raf1 = requestAnimationFrame(() => {
-      raf2 = requestAnimationFrame(() => {
-
-        waitForVendor(() => {
-          runInit(80); // 80ms for React to finish rendering new page
-
-          // Particles + slider
-          timers.push(setTimeout(() => { startParticles(); }, 100));
-          timers.push(setTimeout(() => { startHeroSlider(); }, 300));
-
-          // Keep asserting visible
-          [100, 300, 600, 1200].forEach(t =>
-            timers.push(setTimeout(forceVisible, t))
-          );
-=======
   /*
     FIX: Pehle waitForVendor, phir waitForPageDOM
     
@@ -427,7 +299,6 @@ export default function Layout({ children }) {
             timers.push(setTimeout(forceVisible, 300));
             timers.push(setTimeout(forceVisible, 700));
           });
->>>>>>> Stashed changes
         });
       });
     });
@@ -446,11 +317,7 @@ export default function Layout({ children }) {
       <SubscribeSection />
       <Footer />
 
-<<<<<<< Updated upstream
-      {/* Theme toggle */}
-=======
       {/* Theme toggle button */}
->>>>>>> Stashed changes
       <button
         type="button"
         className="theme-toggle"
