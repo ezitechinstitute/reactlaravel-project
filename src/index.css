@@ -6,6 +6,152 @@
  * ⚠️  public/assets/main.css touch mat karo — template ka core CSS hai
  * ✅  Apni saari custom CSS yahan likho
  *
+ * ═══════════════════════════════════════════════════════════════
+ */
+
+/* ══════════════════════════════════════════════════════════════
+   PERFORMANCE FIXES — GPU Acceleration & Paint Optimization
+   ══════════════════════════════════════════════════════════════ */
+
+/* 1. GSAP Animated elements — GPU layer force karo
+   Yeh browser ko batata hai ke in elements pe animation aane wala hai
+   Isse browser inhe alag compositor layer pe rakhta hai → smooth animation */
+[data-opai-animate],
+[data-opai-avatar],
+[data-opai-border-expand] {
+  will-change: opacity, transform;
+}
+
+/* 2. Hero section elements — critical animations */
+#hero-box-wrapper,
+.hero-tilt,
+.hero-orbit {
+  will-change: transform, opacity;
+  transform: translateZ(0); /* force GPU layer */
+}
+
+/* 3. Hero slider text — word animations */
+#hero-slide-text span {
+  will-change: opacity, transform;
+}
+
+/* 4. Circle animation (Tech Stack section)
+   CSS animation hai — GPU accelerate karo */
+.integration-circle-animation {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* 5. Marquee testimonial cards */
+.cards-marquee-container,
+.cards-marquee-container > * {
+  will-change: transform;
+}
+
+/* 6. Swiper slides — transition ke waqt GPU pe rakhna */
+.swiper-slide,
+.swiper-wrapper {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 7. Partner ship cards — hover animation */
+.partner-ship-card {
+  will-change: transform, opacity;
+}
+
+/* 8. Service items — hover slide animation */
+.service-item {
+  will-change: padding-left;
+}
+
+/* 9. Blog images — hover scale */
+.blog-card img {
+  will-change: transform;
+}
+
+/* 10. Why-choose-us cards — hover glow */
+.why-choose-us-card {
+  will-change: transform;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   REMOVE will-change after animation complete
+   (will-change hamesha ON rakhna bhi bad hai — memory leak)
+   Yeh scroll se bahar jaane pe will-change hata deta hai
+   ══════════════════════════════════════════════════════════════ */
+
+/* Once GSAP "once: true" wali animations complete ho jayen,
+   will-change hata dene ke liye — GSAP automatically element
+   ko original state mein le aata hai. Hum extra cleanup nahi
+   karte kyunki "once:true" use hua hai data-opai-animate pe */
+
+/* ══════════════════════════════════════════════════════════════
+   SMOOTH SCROLL OPTIMIZATION
+   ══════════════════════════════════════════════════════════════ */
+
+/* Lenis smooth scroll ke saath better rendering */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   IMAGE LOADING OPTIMIZATION
+   ══════════════════════════════════════════════════════════════ */
+
+/* Prevent layout shift during image load */
+.hero-img {
+  contain: layout paint;
+}
+
+img {
+  content-visibility: auto;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   REDUCE MOTION — Accessibility + Performance
+   ══════════════════════════════════════════════════════════════ */
+
+/* Jo users "reduce motion" prefer karte hain unke liye
+   aur low-end devices pe performance better hogi */
+@media (prefers-reduced-motion: reduce) {
+  .integration-circle-animation {
+    animation: none !important;
+  }
+  
+  [data-opai-animate] {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #hero-slide-text span {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   APNI CUSTOM CSS YAHAN ADD KARO ↓
+   ══════════════════════════════════════════════════════════════ *//*
+ * ═══════════════════════════════════════════════════════════════
+ * Ezitech — Custom Global Styles
+ * ═══════════════════════════════════════════════════════════════
+ *
+ * ⚠️  public/assets/main.css touch mat karo — template ka core CSS hai
+ * ✅  Apni saari custom CSS yahan likho
+ *
  * Usage:
  *   Already import hai main.jsx mein — bas yahan class banao aur
  *   JSX mein className="your-class" se use karo
@@ -24,3 +170,586 @@
 ─────────────────────────────────────────────────────────────── */
 
 /* Apni CSS yahan add karo ↓ */
+
+/* ── Process Steps Section ──────────────────────────────────────── */
+.process-section {
+  background-color: #f4f5f8;
+  color: #1a1a1c;
+  padding: 128px 0 100px;
+}
+
+@media (min-width: 640px) {
+  .process-section {
+    padding-top: 144px;
+  }
+}
+
+@media (min-width: 768px) {
+  .process-section {
+    padding-top: 168px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .process-section {
+    padding-top: 180px;
+  }
+}
+
+.process-section-header {
+  margin-bottom: 72px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .process-grid {
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .process-step-center {
+    grid-column-start: 3;
+  }
+}
+
+.process-section-title {
+  max-width: 552px;
+  margin-inline: auto;
+  font-size: 3.25rem;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #1a1a1c;
+}
+
+.process-section-subtitle {
+  max-width: 692px;
+  margin-inline: auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 28, 0.6);
+}
+
+.process-card {
+  background-color: #fcfcfd;
+  border-radius: 20px;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (min-width: 640px) {
+  .process-card {
+    padding: 32px;
+  }
+}
+
+.process-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.process-step-label {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1a1a1c;
+}
+
+.process-icon {
+  font-size: 52px;
+  line-height: 1;
+  color: #1a1a1c;
+}
+
+.process-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.process-card-title {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #1a1a1c;
+}
+
+.process-card-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 28, 0.6);
+}
+
+.process-card-list {
+  list-style: disc inside;
+  margin: 0;
+  padding: 0;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 28, 0.6);
+}
+
+.process-card-list li:not(:first-child) {
+  margin-top: 8px;
+}
+
+/* Process Steps — Dark mode */
+html.dark .process-section {
+  background-color: #181d26;
+  color: #fcfcfc;
+}
+
+html.dark .process-section-title,
+html.dark .process-step-label,
+html.dark .process-icon,
+html.dark .process-card-title {
+  color: #fcfcfc;
+}
+
+html.dark .process-card {
+  background-color: #0d1017;
+}
+
+html.dark .process-section-subtitle,
+html.dark .process-card-desc,
+html.dark .process-card-list {
+  color: rgba(252, 252, 252, 0.6);
+}
+
+/* ── FAQ Section ────────────────────────────────────────────────── */
+.faq-section {
+  background-color: #f4f5f8;
+  color: #1a1a1c;
+  padding: 50px 0 100px;
+}
+
+@media (min-width: 768px) {
+  .faq-section {
+    padding: 100px 0 200px;
+  }
+}
+
+.faq-header {
+  max-width: 620px;
+  margin: 0 auto 70px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.faq-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  background-color: #cdf5f8;
+  color: #1a1a1c;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.faq-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-title {
+  font-size: 3.25rem;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #1a1a1c;
+}
+
+.faq-subtitle {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 28, 0.6);
+}
+
+.faq-list {
+  max-width: 850px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background-color: #fcfcfd;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+@media (min-width: 640px) {
+  .faq-item {
+    padding: 32px;
+  }
+}
+
+.faq-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.faq-question {
+  flex: 1;
+  text-align: left;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1a1a1c;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #1a1a1c;
+  transition: transform 0.3s ease;
+}
+
+.faq-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.faq-answer {
+  border-top: 1px solid rgba(26, 26, 28, 0.1);
+  padding-top: 24px;
+  padding-bottom: 0;
+  margin-top: 24px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 28, 0.6);
+}
+
+/* FAQ — Dark mode */
+html.dark .faq-section {
+  background-color: #181d26;
+  color: #fcfcfc;
+}
+
+html.dark .faq-badge {
+  background-color: rgba(252, 252, 252, 0.1);
+  color: #c6f56f;
+}
+
+html.dark .faq-title,
+html.dark .faq-question,
+html.dark .faq-icon {
+  color: #fcfcfc;
+}
+
+html.dark .faq-item {
+  background-color: #0d1017;
+}
+
+html.dark .faq-subtitle,
+html.dark .faq-answer {
+  color: rgba(252, 252, 252, 0.6);
+}
+
+html.dark .faq-answer {
+  border-top-color: rgba(252, 252, 252, 0.1);
+}
+
+/* ── CTA Section ────────────────────────────────────────────────── */
+.cta-section {
+  background-color: #ffffff;
+  color: #1a1a1c;
+  padding: 50px 0;
+}
+
+@media (min-width: 768px) {
+  .cta-section {
+    padding: 80px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-section {
+    padding: 112px 0;
+  }
+}
+
+.cta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+@media (min-width: 1024px) {
+  .cta-row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 60px;
+  }
+}
+
+.cta-content {
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .cta-content {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  background-color: #fdf7bc;
+  color: #1a1a1c;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cta-title {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #1a1a1c;
+}
+
+@media (min-width: 640px) {
+  .cta-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-title {
+    font-size: 3.25rem;
+  }
+}
+
+.cta-subtitle {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 28, 0.6);
+}
+
+.cta-form-wrap {
+  width: 100%;
+  max-width: 466px;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .cta-form-wrap {
+    flex: 0 0 466px;
+    margin-left: 100px;
+    padding-top: 67px;
+  }
+}
+
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .cta-form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+.cta-input {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 12px 18px;
+  border-radius: 9999px;
+  border: 1px solid rgba(26, 26, 28, 0.15);
+  background-color: #ffffff;
+  color: #1a1a1c;
+  font-size: 1rem;
+  line-height: 1.5;
+  outline: none;
+}
+
+@media (min-width: 640px) {
+  .cta-input {
+    flex: 1;
+    width: auto;
+  }
+}
+
+.cta-input::placeholder {
+  color: rgba(26, 26, 28, 0.5);
+}
+
+.cta-input:focus {
+  border-color: #8d59ff;
+}
+
+.cta-button {
+  width: 100%;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 9999px;
+  border: none;
+  background-color: #8d59ff;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .cta-button {
+    width: auto;
+  }
+}
+
+.cta-button:hover {
+  background-color: #7440e6;
+}
+
+.cta-checklist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .cta-checklist {
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-checklist {
+    justify-content: flex-start;
+  }
+}
+
+.cta-check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 28, 0.6);
+}
+
+.cta-check-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #1a1a1c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-check-icon svg {
+  width: 10px;
+  height: 7px;
+  fill: #ffffff;
+}
+
+/* CTA — Dark mode */
+html.dark .cta-section {
+  background-color: #13171e;
+  color: #fcfcfc;
+}
+
+html.dark .cta-badge {
+  background-color: rgba(252, 252, 252, 0.1);
+  color: #83e7ee;
+}
+
+html.dark .cta-title {
+  color: #fcfcfc;
+}
+
+html.dark .cta-subtitle,
+html.dark .cta-check-item {
+  color: rgba(252, 252, 252, 0.6);
+}
+
+html.dark .cta-input {
+  background-color: #0d1017;
+  border-color: rgba(252, 252, 252, 0.15);
+  color: #fcfcfc;
+}
+
+html.dark .cta-input::placeholder {
+  color: rgba(252, 252, 252, 0.5);
+}
+
+html.dark .cta-input:focus {
+  border-color: #8d59ff;
+}
+
+html.dark .cta-check-icon {
+  background-color: #fcfcfc;
+}
+
+html.dark .cta-check-icon svg {
+  fill: #1a1a1c;
+}
+
