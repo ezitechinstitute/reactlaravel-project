@@ -3,11 +3,6 @@ import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-import SubscribeSection from './SubscribeSection';
-
-/* ─── forceVisible ──────────────────────────────────────────────────
-   CSS opacity override — GSAP se pehle blank nahi dikhega
-──────────────────────────────────────────────────────────────────── */
 function forceVisible() {
   document.querySelectorAll(
     '[data-opai-animate],[data-opai-avatar],[data-opai-border-expand],[data-ns-animate]'
@@ -43,16 +38,8 @@ function waitForVendor(cb, maxWait = 5000) {
   check();
 }
 
-/* ─── FIX: DOM aware wait ───────────────────────────────────────────
-   Problem: vendor ready hota hai but React page DOM abhi render
-   nahi hua hota (especially first visit pe lazy chunks)
-   
-   Solution: Ek selector check karo jo page pe hona chahiye,
-   agar nahi mila toh rAF se dubara check karo jab tak DOM ready na ho
-──────────────────────────────────────────────────────────────────── */
 function waitForPageDOM(cb, maxWait = 3000) {
   const start = Date.now();
-  // Koi bhi element jo page content indicate karta ho
   const selectors = [
     '[data-opai-animate]',
     '[data-opai-avatar]',
@@ -71,7 +58,6 @@ function waitForPageDOM(cb, maxWait = 3000) {
     } else if (Date.now() - start < maxWait) {
       requestAnimationFrame(check);
     } else {
-      // Timeout — try anyway
       cb();
     }
   };
@@ -101,10 +87,6 @@ function runInit(delay = 0) {
   }, delay);
 }
 
-/* ─── PARTICLES — OPTIMIZED ─────────────────────────────────────────
-   PEHLE: 480 infinite tweens (8 paths × 60 rects) — KILLER
-   BAAD:  64 tweens only (8 paths × 8 rects) — 87% reduction
-──────────────────────────────────────────────────────────────────── */
 function startParticles() {
   if (window.__particlesStarted) return;
   if (!document.getElementById('curve-path-1')) return;
@@ -229,7 +211,6 @@ function startHeroSlider() {
 export default function Layout({ children }) {
   const location = useLocation();
 
-  // ── Theme ────────────────────────────────────────────────────────
   useEffect(() => {
     const apply = t => {
       const r = document.documentElement, b = document.body;
@@ -240,59 +221,35 @@ export default function Layout({ children }) {
     try { apply(localStorage.getItem('ezitech-theme') === 'light' ? 'light' : 'dark'); } catch { }
   }, []);
 
-  // ── FIRST LOAD ───────────────────────────────────────────────────
-  /*
-    FIX: Pehle waitForVendor, phir waitForPageDOM
-    
-    Order:
-    1. vendor.bundle.js → already loaded (sync script)
-    2. React renders → Layout mounts → ye useEffect chalta hai
-    3. Home.jsx ab eager import hai → DOM immediately available
-    4. waitForPageDOM → confirm karta hai DOM exist karta hai
-    5. Tab animations fire karo
-    
-    Agar kisi reason se DOM delay ho toh rAF polling se wait karta hai
-  */
   useEffect(() => {
     forceVisible();
-
     waitForVendor(() => {
-      // Vendor ready — ab page DOM ka wait karo
       waitForPageDOM(() => {
-        // DOM bhi ready — ab safely animate karo
         runInit(50);
         setTimeout(() => startParticles(), 100);
         setTimeout(() => startHeroSlider(), 150);
         setTimeout(() => forceVisible(), 500);
       });
     });
-
     return () => { };
-  }, []); // Sirf mount pe
+  }, []);
 
-  // ── ROUTE CHANGE ─────────────────────────────────────────────────
   useEffect(() => {
     window.scrollTo(0, 0);
     const timers = [];
 
-    // Old hero slider stop
     if (window.__heroSliderInterval) {
       clearInterval(window.__heroSliderInterval);
       window.__heroSliderInterval = null;
     }
 
-    // Particles reset for new page
     window.__particlesStarted = false;
-
     forceVisible();
 
-    // Route change pe DOM jaldi ready hota hai (cached chunks)
     let raf2;
     const raf1 = requestAnimationFrame(() => {
       raf2 = requestAnimationFrame(() => {
         waitForVendor(() => {
-          // Route change pe DOM already ready hota hai
-          // Bas ek short delay de React ke liye
           waitForPageDOM(() => {
             runInit(50);
             timers.push(setTimeout(() => startParticles(), 100));
@@ -315,7 +272,6 @@ export default function Layout({ children }) {
     <>
       <Navbar />
       <main>{children}</main>
-      <SubscribeSection />
       <Footer />
 
       {/* Theme toggle button */}
