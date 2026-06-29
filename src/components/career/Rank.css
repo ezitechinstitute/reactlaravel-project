@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+.rank-section {
+  background-color: #000000;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+.rank-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hides scrollbar on Firefox */
+}
+
+/* Hides scrollbar on Chrome, Safari, and Opera */
+.rank-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Base Card Style */
+.rank-card {
+  background-color: #111318;
+  border: 1px solid #1c1f26;
+  border-radius: 16px;
+  min-width: 260px;
+  height: 180px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Left Cut-off Visual Effect Card */
+.rank-card.cut-off-left {
+  min-width: 120px;
+  opacity: 0.15;
+  border-right: 1px solid #1c1f26;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  justify-content: flex-end;
+}
+
+/* Special Glow Card (First Complete Card) */
+.rank-card.glow-card {
+  position: relative;
+  background: radial-gradient(
+    circle at top right,
+    rgba(43, 62, 140, 0.6) 0%,
+    rgba(17, 19, 24, 1) 60%
+  );
+  border: 1px solid #232a3d;
+}
+
+.rank-card.glow-card .metric-value {
+  color: #ebd863; /* Distinct golden-yellow tint */
+}
+
+/* Card Content Typography */
+.metric-label {
+  color: #6c727f;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.metric-value {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 500;
+  margin: auto 0;
+  letter-spacing: -0.5px;
+}
+
+.metric-description {
+  color: #4b515d;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Floating Red Side Badge */
+.floating-badge {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #d6594c;
+  color: #ffffff;
+  padding: 12px 14px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.3);
+}
+
+.badge-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.badge-icon {
+  font-size: 14px;
+}
+
+/* --- Responsive Layout Breakpoints --- */
+@media (max-width: 768px) {
+  .rank-container {
+    padding: 0 20px;
+    gap: 16px;
+  }
+  
+  .rank-card {
+    min-width: 220px;
+    height: 160px;
+    padding: 18px;
+  }
+
+  .metric-value {
+    font-size: 26px;
+  }
+  
+  .rank-card.cut-off-left {
+    display: none; /* Hide edge styling on small screens */
+  }
+}

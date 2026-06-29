@@ -57,7 +57,7 @@ export default function Footer() {
               <div className="space-y-2 text-left lg:text-right" data-opai-animate data-delay="0.2">
                 <p className="text-tagline-2 font-semibold text-white/90">Company</p>
                 <ul>
-                  {[['About Us','/about'],['Services','/services'],['Careers','#'],['Contact Us','/contact']].map(([l,t]) => (
+                  {[['About Us','/about'],['Services','/services'],['Careers','/careers'],['Contact Us','/contact']].map(([l,t]) => (
                     <li key={l} className="py-2"><Link to={t} className="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">{l}</Link></li>
                   ))}
                 </ul>
