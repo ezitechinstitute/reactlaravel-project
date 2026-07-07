@@ -167,6 +167,28 @@ html.light-theme .sidebar .stroke-white\/90 {
   stroke: #11141d !important;
 }
 
+html.light-theme .sidebar__link,
+html.light-theme .sidebar__accordion-toggle,
+html.light-theme .sidebar__accordion-label {
+  color: #11141d;
+}
+
+html.light-theme .sidebar__submenu-link {
+  color: rgba(17, 20, 29, 0.75);
+}
+
+html.light-theme .sidebar__submenu-link:hover {
+  color: #11141d;
+  background: rgba(17, 20, 29, 0.05);
+}
+
+html.light-theme .sidebar__close-icon-line {
+  background-color: #11141d;
+}
+
+html.light-theme .sidebar__accordion-arrow svg path {
+  stroke: #11141d;
+}
 /* footer surface in light mode */
 html.light-theme footer.bg-background-6 {
   background-color: #f3f5f7 !important;

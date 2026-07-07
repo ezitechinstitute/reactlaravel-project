@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Navbar from './Navbar';
+import Navbar from './Navbar/Navbar.jsx';
 import Footer from './Footer';
 import SubscribeSection from './SubscribeSection';
 
