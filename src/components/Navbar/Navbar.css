@@ -1,6 +1,5 @@
 /* ─── DESIGN TOKENS & SYSTEM VARIABLE OVERRIDES ────────────────────── */
 :root {
-  /* Set your exact original navbar background values here */
   --nav-bg-solid: #1d2231;
   --nav-bg-scrolled: rgba(17, 20, 29, 0.85);
   --nav-margin-top: 1rem;
@@ -11,8 +10,6 @@
   --color-text-main: #ffffff;
   --color-text-muted: rgba(255, 255, 255, 0.7);
   --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --bg-dropdown: #161a26;
-  --bg-card-hover: rgba(255, 255, 255, 0.03);
   
   /* Layout Bounds */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -35,15 +32,17 @@
   max-width: 1280px;
   margin: var(--nav-margin-top) auto 0 auto;
   padding: 1rem 2rem;
-  background-color: var(--nav-bg-solid);
+  
+  /* FIX: Use an rgba or hex-alpha value directly on the background, NOT master opacity */
+  background-color: rgba(29, 34, 49, 0.95); /* Adjusted to match your #1d2231 color at 95% opacity */
+  
   border-radius: 12px;
-  /*border: 1px solid var(--color-border-subtle);*/
-  backdrop-filter: blur(0px);
-  pointer-events: auto; /* Re-enables interaction safely */
+  backdrop-filter: blur(8px); /* Optional: Adds a sleek glass effect over elements behind it */
+  pointer-events: auto; 
   transition: var(--transition-smooth);
 }
 
-/* Scrolled Layout Modifier Modifier */
+/* Scrolled Layout Modifier */
 .nav--scrolled {
   background-color: var(--nav-bg-scrolled);
   backdrop-filter: blur(12px);
@@ -59,8 +58,8 @@
 }
 
 .nav__logo-img {
-  height: 50px;
-  width: auto;
+  height: 40px;
+  width: 150px;
   object-fit: contain;
 }
 
@@ -76,7 +75,7 @@
 
 @media (max-width: 1024px) {
   .nav__menu {
-    display: none; /* Hide standard nav on mobile viewports */
+    display: none;
   }
 }
 
@@ -101,308 +100,8 @@
   transition: var(--transition-smooth);
 }
 
-.nav__link:hover,
-.nav__item--active .nav__link {
+.nav__link:hover {
   color: var(--color-text-main);
-}
-
-.nav__link-arrow {
-  display: inline-flex;
-  align-items: center;
-  transition: transform 0.25s ease;
-}
-
-.nav__item--active .nav__link-arrow {
-  transform: rotate(180deg);
-}
-
-.nav__arrow-path {
-  stroke: currentColor;
-  stroke-width: 1.6;
-}
-
-/* Hover Glow Infrastructure */
-.nav__glow {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: var(--transition-smooth);
-}
-
-.nav__item:hover .nav__glow {
-  opacity: 1;
-}
-
-.nav__glow-line {
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
-}
-
-/* ─── DROPDOWN & MEGA MENU ARCHITECTURE ───────────────────────────── */
-.nav__dropdown-bridge {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  display: none;
-}
-
-.nav__item:hover .nav__dropdown-bridge {
-  display: block;
-}
-
-.dropdown {
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background-color: var(--bg-dropdown);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 12px;
-  padding: 1rem;
-  width: 260px;
-  opacity: 0;
-  visibility: hidden;
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
-}
-
-.dropdown--active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-.dropdown__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-/* Standard Inner Link Configuration */
-.dropdown__link {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  border-radius: 8px;
-  color: var(--color-text-main);
-  text-decoration: none;
-  transition: var(--transition-smooth);
-}
-
-.dropdown__link-bg {
-  position: absolute;
-  inset: 0;
-  background-color: var(--bg-card-hover);
-  border-radius: 8px;
-  opacity: 0;
-  transition: var(--transition-smooth);
-}
-
-.dropdown__link:hover .dropdown__link-bg {
-  opacity: 1;
-}
-
-.dropdown__link-icon {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
-}
-
-.dropdown__link-content {
-  position: relative;
-  z-index: 1;
-}
-
-.dropdown__link-title {
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin: 0;
-}
-
-.dropdown__link-desc {
-  font-size: 0.775rem;
-  color: var(--color-text-muted);
-  margin: 0.15rem 0 0 0;
-}
-
-/* Mega Dropdown Size Mapping Overrides */
-.dropdown--mega {
-  width: 90vw;
-  max-width: 1000px;
-  padding: 1.75rem;
-}
-
-.megamenu__grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-
-.megamenu__col {
-  grid-span: 12;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-@media (min-width: 1024px) {
-  .megamenu__col {
-    grid-column: span 4 / span 4;
-  }
-}
-
-/* Mega Menu Cards */
-.megamenu__card {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 0.85rem;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--color-text-main);
-  transition: var(--transition-smooth);
-}
-
-.megamenu__card-hover-bg {
-  position: absolute;
-  inset: 0;
-  background-color: var(--bg-card-hover);
-  border-radius: 10px;
-  opacity: 0;
-  transition: var(--transition-smooth);
-}
-
-.megamenu__card:hover .megamenu__card-hover-bg {
-  opacity: 1;
-}
-
-.megamenu__card-icon-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  background-color: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.megamenu__card-icon-path {
-  stroke: var(--color-text-muted);
-}
-
-.megamenu__card:hover .megamenu__card-icon-path {
-  stroke: var(--color-primary);
-}
-
-.megamenu__card-info {
-  position: relative;
-}
-
-.megamenu__card-title {
-  font-size: 0.925rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.megamenu__card-desc {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  margin: 0.25rem 0 0 0;
-  line-height: 1.4;
-}
-
-.megamenu__card-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-/* Call to Action Container Layout */
-.megamenu__action-wrapper {
-  margin-top: auto;
-  padding-top: 0.5rem;
-}
-
-.megamenu__cta-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--color-border-subtle);
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  text-decoration: none;
-  color: var(--color-text-main);
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: var(--transition-smooth);
-}
-
-.megamenu__cta-btn:hover {
-  border-color: var(--color-secondary);
-  background-color: rgba(34, 126, 255, 0.05);
-}
-
-.megamenu__cta-icon-circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background-color: #ffffff;
-  border-radius: 50%;
-}
-
-.megamenu__cta-icon-circle svg path {
-  stroke: var(--nav-bg-solid);
-}
-
-/* Featured Column Modifications */
-.megamenu__promo-banner {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 110px;
-  padding: 1.25rem;
-  border-radius: 12px;
-  text-decoration: none;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-  background: radial-gradient(130% 130% at 100% 0%, #8d59ff 0%, #227eff 40%, #11141d 100%);
-}
-
-.megamenu__promo-title {
-  color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0;
-  z-index: 1;
-}
-
-.megamenu__promo-subtitle {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.85rem;
-  margin: 0.15rem 0 0 0;
-  z-index: 1;
 }
 
 /* ─── ACTION BUTTONS / CALL TO ACTIONS ────────────────────────────── */
@@ -435,7 +134,7 @@
 
 @media (max-width: 1024px) {
   .nav__cta-container {
-    display: none; /* Emphasize layout compactness on smaller grids */
+    display: none;
   }
 }
 
@@ -540,7 +239,6 @@
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-
 .sidebar__content {
   overflow-y: auto;
   flex: 1;
@@ -567,7 +265,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-/* Mobile Accoridon Elements */
+/* Mobile Accordion Elements */
 .sidebar__accordion-toggle {
   display: flex;
   align-items: center;

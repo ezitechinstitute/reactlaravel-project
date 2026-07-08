@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Icons.css - Styles for Arrow and NavGlow Components
+   ========================================================================== */
+
+/* ─── ARROW ICON STYLES ───────────────────────────────────────────── */
+.nav__arrow-path {
+  stroke: currentColor;
+  stroke-width: 1.6;
+  transition: transform 0.25s ease;
+  transform-origin: center;
+}
+
+/* Rotates the SVG path when the parent nav item is active or hovered */
+.nav__item--active .nav__arrow-path,
+.nav__item:hover .nav__arrow-path {
+  transform: rotate(180deg);
+}
+
+
+/* ─── NAV HOVER GLOW DECORATORS ───────────────────────────────────── */
+.nav__glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  /* Uses the smooth transition token from your main layout if available, otherwise defaults */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Triggers the glow visibility when hovering over the parent navigation item */
+.nav__item:hover .nav__glow {
+  opacity: 1;
+}
+
+/* Top horizontal accent line */
+.nav__glow-line {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8d59ff, transparent);
+}
+
+/* Soft ambient downward gradient */
+.nav__glow-gradient {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 20px;
+  background: linear-gradient(180deg, rgba(141, 89, 255, 0.15), transparent);
+  pointer-events: none;
+}

@@ -52,7 +52,6 @@ export default function Home() {
         card.style.willChange = 'transform, opacity'
         card.style.zIndex = i + 1
 
-        // Har card pin hoti hai jab woh viewport top pe aati hai
         const t1 = window.ScrollTrigger.create({
           trigger: card,
           start: `top ${STICKY_TOP + i * 20}px`,
