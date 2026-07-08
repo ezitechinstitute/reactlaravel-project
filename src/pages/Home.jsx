@@ -2100,6 +2100,29 @@ useEffect(() => {
         </section>
 
 
+        {/* ========================= CTA Section ========================= */}
+        <section className="relative overflow-hidden py-20 md:py-28" style={{ background: 'linear-gradient(135deg, #2067BD 0%, #3275DB 50%, #4a8fe7 100%)' }}>
+          <div className="main-container relative z-10">
+            <div className="mx-auto max-w-3xl text-center" data-opai-animate data-delay="0.1">
+              <h2 className="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white mb-4">
+                Ready to Transform Your Business?
+              </h2>
+              <p className="text-tagline-2 font-inter-tight text-white/80 max-w-2xl mx-auto mb-10">
+                Let's build something amazing together. Get in touch with our team today.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link to="/contact" className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-3.5 text-tagline-2 font-medium text-[#2067BD] hover:bg-white/90 transition-all duration-300" data-opai-animate data-delay="0.2">
+                  Start Your Project
+                </Link>
+                <Link to="/services" className="inline-flex items-center justify-center rounded-xl border-2 border-white px-8 py-3.5 text-tagline-2 font-medium text-white hover:bg-white/10 transition-all duration-300" data-opai-animate data-delay="0.3">
+                  Explore Services
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="pointer-events-none absolute inset-0 -z-0 opacity-20" style={{ background: 'radial-gradient(60% 60% at 30% 40%, rgba(255,255,255,0.4) 0%, transparent 70%)' }} />
+        </section>
+
       </main>
     </>
   )

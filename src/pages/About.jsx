@@ -388,8 +388,133 @@ export default function About() {
   </section>
 
   
-  
-  
+  <section className="bg-background-5 py-20 md:py-25">
+    <div className="main-container space-y-16">
+
+      <div className="text-center space-y-4">
+        <div data-opai-animate data-delay="0.1">
+          <span className="inline-flex items-center justify-center gap-x-1.5">
+            <span className="fill-opai-blue flex size-4 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z" fill="#8d59ff"/></svg>
+            </span>
+            <span className="font-inter-tight text-tagline-4 text-white/50 font-normal">Technologies</span>
+          </span>
+        </div>
+        <h2 data-opai-animate data-delay="0.2"
+            className="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white/90">
+          Technologies We Work With
+        </h2>
+        <p data-opai-animate data-delay="0.3"
+           className="text-tagline-2 text-white/60 font-inter-tight font-normal max-w-xl mx-auto">
+          Modern stack for modern solutions
+        </p>
+      </div>
+
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div data-opai-animate data-delay="0.1"
+             className="bg-background-7 p-6 rounded-xl border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 space-y-4">
+          <div className="flex items-center gap-3">
+            <span className="flex size-8 items-center justify-center rounded-lg bg-opai-blue/15">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <h3 className="font-inter-tight text-tagline-2 font-medium text-white/90">Frontend</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">React</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Next.js</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Vue.js</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Angular</span>
+          </div>
+        </div>
+
+        <div data-opai-animate data-delay="0.15"
+             className="bg-background-7 p-6 rounded-xl border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 space-y-4">
+          <div className="flex items-center gap-3">
+            <span className="flex size-8 items-center justify-center rounded-lg bg-opai-blue/15">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </span>
+            <h3 className="font-inter-tight text-tagline-2 font-medium text-white/90">Backend</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Node.js</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Python</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">PHP</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Go</span>
+          </div>
+        </div>
+
+        <div data-opai-animate data-delay="0.2"
+             className="bg-background-7 p-6 rounded-xl border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 space-y-4">
+          <div className="flex items-center gap-3">
+            <span className="flex size-8 items-center justify-center rounded-lg bg-opai-blue/15">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </span>
+            <h3 className="font-inter-tight text-tagline-2 font-medium text-white/90">Database</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">PostgreSQL</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">MongoDB</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">MySQL</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Redis</span>
+          </div>
+        </div>
+
+        <div data-opai-animate data-delay="0.25"
+             className="bg-background-7 p-6 rounded-xl border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 space-y-4">
+          <div className="flex items-center gap-3">
+            <span className="flex size-8 items-center justify-center rounded-lg bg-opai-blue/15">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+            </span>
+            <h3 className="font-inter-tight text-tagline-2 font-medium text-white/90">Cloud & DevOps</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">AWS</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Docker</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Kubernetes</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Azure</span>
+          </div>
+        </div>
+
+        <div data-opai-animate data-delay="0.3"
+             className="bg-background-7 p-6 rounded-xl border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 space-y-4">
+          <div className="flex items-center gap-3">
+            <span className="flex size-8 items-center justify-center rounded-lg bg-opai-blue/15">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 014 4c0 2-2 4-4 6-2-2-4-4-4-6a4 4 0 014-4z"/><path d="M12 14c4 0 8 2 8 4v2H4v-2c0-2 4-4 8-4z"/></svg>
+            </span>
+            <h3 className="font-inter-tight text-tagline-2 font-medium text-white/90">AI/ML</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">TensorFlow</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">PyTorch</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">OpenAI</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">LangChain</span>
+          </div>
+        </div>
+
+        <div data-opai-animate data-delay="0.35"
+             className="bg-background-7 p-6 rounded-xl border border-stroke-1/10 hover:border-opai-blue/40 transition-all duration-300 space-y-4">
+          <div className="flex items-center gap-3">
+            <span className="flex size-8 items-center justify-center rounded-lg bg-opai-blue/15">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d59ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16"/><path d="M9 4v5"/><path d="M15 4v5"/><path d="M9 15v5"/><path d="M15 15v5"/><path d="M4 15h16"/></svg>
+            </span>
+            <h3 className="font-inter-tight text-tagline-2 font-medium text-white/90">Mobile</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">React Native</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Flutter</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Swift</span>
+            <span className="px-3 py-1.5 rounded-lg bg-background-5 border border-stroke-1/10 text-tagline-4 text-white/70">Kotlin</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
   <section className="bg-background-7 py-20 md:py-25">
     <div className="main-container space-y-16">
 
@@ -617,6 +742,32 @@ export default function About() {
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  
+  <section className="py-20 md:py-25" style={{ background: 'linear-gradient(135deg, #2067BD, #3275DB)' }}>
+    <div className="main-container">
+      <div data-opai-animate data-delay="0.1"
+           className="text-center space-y-8 max-w-3xl mx-auto">
+        <h2 className="font-instrument-serif text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white leading-tight">
+          Let's Build Something Extraordinary Together
+        </h2>
+        <p className="text-tagline-2 text-white/80 font-inter-tight font-normal max-w-2xl mx-auto leading-relaxed">
+          Ready to start your next project? Our team is here to bring your vision to life.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link to="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-white text-opai-blue px-8 py-3.5 text-tagline-2 font-medium hover:bg-white/90 transition-all duration-300">
+            Contact Us
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </Link>
+          <Link to="/services"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 text-white px-8 py-3.5 text-tagline-2 font-medium hover:bg-white/10 hover:border-white transition-all duration-300">
+            View Our Services
+          </Link>
+        </div>
       </div>
     </div>
   </section>

@@ -1,75 +1,39 @@
-import React from 'react';
-import './login.css';
-
-const Login = () => {
+export default function Login() {
   return (
-    <section className="login-hero-wrapper">
-      
-      {/* Pure CSS 3D Graphics (Left & Right) */}
-      <div className="left-graphic-wrapper">
-        <div className="glass-shard s1"></div>
-        <div className="glass-shard s2"></div>
-        <div className="glass-shard s3"></div>
-      </div>
-      
-      <div className="right-graphic-wrapper">
-        <div className="glass-torus-outer"></div>
-        <div className="glass-torus-inner"></div>
-      </div>
-
-      <div className="login-container">
-        
-        {/* Top Badge */}
-        <div className="login-badge">
-          Subscribe
-        </div>
-
-        {/* Main Heading */}
-        <h1 className="login-title">
-          Transform your finances from stress to success.
-        </h1>
-
-        {/* Subheading */}
-        <p className="login-desc">
-          Take the first step toward a stronger financial future, start managing, saving,
-          and growing your money with tools designed to make success simple.
-        </p>
-
-        {/* Form Row */}
-        <div className="login-form-row">
-          <div className="login-input-wrapper">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="login-input" 
-            />
-          </div>
-          <button className="login-btn-primary">Get started</button>
-        </div>
-
-        {/* Checkmarks */}
-        <div className="login-checkmarks">
-          <div className="check-item">
-            <span className="check-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </span>
-            <span>Grow savings faster</span>
-          </div>
-          <div className="check-item">
-            <span className="check-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </span>
-            <span>Track spending easily</span>
+    <section className="bg-background-5 pb-20 md:pb-30 lg:pb-44">
+      <div className="main-container">
+        <div className="bg-background-6 border-stroke-1/11 relative overflow-hidden rounded-xl border p-8 md:p-12 lg:p-16">
+          <div className="bg-[#2067BD]/5 absolute inset-0"></div>
+          <div className="relative z-10 mx-auto max-w-2xl text-center">
+            <div data-opai-animate data-delay="0.1">
+              <span className="font-inter-tight text-tagline-4 text-white/50 mb-4 inline-block">Don't see the right role?</span>
+            </div>
+            <h2 className="font-instrument-serif text-is-heading-5 md:text-is-heading-4 font-normal text-white/90 mb-4" data-opai-animate data-delay="0.2">
+              We're always looking for passionate talent.
+            </h2>
+            <p className="font-inter-tight text-tagline-2 text-white/60 mb-8 max-w-lg mx-auto" data-opai-animate data-delay="0.3">
+              Send us your resume and we'll keep you in mind for future opportunities.
+            </p>
+            <form className="mx-auto max-w-md space-y-4" data-opai-animate data-delay="0.4">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <input type="text" placeholder="Your Name" className="border-stroke-3/25 focus-within:border-stroke-3/70 w-full rounded-lg border bg-transparent px-4 py-3 text-sm text-white/90 placeholder:text-white/40 focus-within:outline-none" />
+                <input type="email" placeholder="Your Email" className="border-stroke-3/25 focus-within:border-stroke-3/70 w-full rounded-lg border bg-transparent px-4 py-3 text-sm text-white/90 placeholder:text-white/40 focus-within:outline-none" />
+              </div>
+              <div className="border-stroke-3/25 focus-within:border-stroke-3/70 flex cursor-pointer items-center gap-3 rounded-lg border border-dashed px-4 py-3 transition-colors hover:border-white/30">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="size-5 text-white/40">
+                  <path d="M21 15V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M17 8L12 3L7 8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 3V15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="text-sm text-white/40">Upload Resume</span>
+              </div>
+              <button type="submit" className="w-full rounded-lg px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:opacity-90" style={{ background: 'linear-gradient(135deg, #2067BD, #3275DB)' }}>
+                Submit Resume
+              </button>
+            </form>
           </div>
         </div>
-
       </div>
     </section>
-  );
-};
-
-export default Login;
+  )
+}

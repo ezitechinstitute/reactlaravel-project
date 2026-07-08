@@ -120,7 +120,7 @@ export default function Navbar() {
                   <SimpleDropItem to="/about" label="About Us" />
                   <SimpleDropItem to="/team" label="Our Team" />
                   <SimpleDropItem to="/process" label="Our Process" />
-                  <SimpleDropItem to="#" label="Careers" />
+                  <SimpleDropItem to="/careers" label="Careers" />
                   <SimpleDropItem to="#" label="Partners & Collaborations" />
                   <SimpleDropItem to="#" label="Life at Ezitech" />
                 </ul>
@@ -298,7 +298,7 @@ export default function Navbar() {
                   </button>
                   {mobileSubmenu === 'company' && (
                     <ul>
-                      {[['About Us','/about'],['Our Team','/team'],['Our Process','/process'],['Careers','#'],['Partners & Collaborations','#'],['Life at Ezitech','#']].map(([l,t]) => (
+                      {[['About Us','/about'],['Our Team','/team'],['Our Process','/process'],['Careers','/careers'],['Partners & Collaborations','#'],['Life at Ezitech','#']].map(([l,t]) => (
                         <li key={l}>
                           <Link to={t} className="text-tagline-3 ml-4 block py-2.5 font-normal text-white/80 hover:text-white/90"
                             onClick={() => setMobileOpen(false)}>{l}</Link>

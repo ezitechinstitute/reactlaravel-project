@@ -1,118 +1,60 @@
-import React from "react";
-import "./Flow.css";
+const steps = [
+  {
+    number: "01",
+    title: "Submit Application",
+    description: "Send us your resume and portfolio through our application form."
+  },
+  {
+    number: "02",
+    title: "Technical Interview",
+    description: "Show us your skills in a live coding session or technical discussion."
+  },
+  {
+    number: "03",
+    title: "Offer & Onboarding",
+    description: "Join the team and start making an impact from day one."
+  }
+]
 
-const Flow = () => {
+export default function Flow() {
   return (
-    <section className="flow-section">
-      <div className="flow-tabs">
-        <button>For beginners</button>
-        <button>For active traders</button>
-        <button className="active">For institutions</button>
-      </div>
-
-      <div className="flow-container">
-        {/* Left Side Elements */}
-        <div className="flow-left">
-          <h2>
-            Custom Solutions
-            <br />
-            Designed for Institutional
-            <br />
-            Traders
-          </h2>
-
-          <p className="description">
-            No matter if you're just starting out or overseeing vast
-            portfolios, our tailored solutions for institutional traders are
-            here to support you.
+    <section className="bg-background-5 py-20 md:py-30 lg:py-44">
+      <div className="main-container">
+        <div className="mb-14 space-y-3 text-center md:mb-20">
+          <p className="font-inter-tight text-tagline-4 text-white/50" data-opai-animate data-delay="0.1">
+            Our Process
           </p>
-
-          <div className="flow-features">
-            <div className="feature">
-              <div className="feature-icon icon-cylinder"></div>
-              <div>
-                <h4>Practice mode</h4>
-                <span>Understand the needs of novice traders.</span>
-              </div>
-            </div>
-
-            <div className="feature">
-              <div className="feature-icon icon-sphere"></div>
-              <div>
-                <h4>Interactive guides</h4>
-                <span>Track your trading performance indicators.</span>
-              </div>
-            </div>
-
-            <div className="feature">
-              <div className="feature-icon icon-split"></div>
-              <div>
-                <h4>Step-by-step trade setup</h4>
-                <span>Reveal overlooked patterns in trading data.</span>
-              </div>
-            </div>
-          </div>
-
-          <button className="flow-btn">Start learning</button>
+          <h2 className="font-instrument-serif text-is-heading-4 md:text-is-heading-3 font-normal text-white/90" data-opai-animate data-delay="0.2">
+            How to Apply
+          </h2>
         </div>
-
-        {/* Right Side Cards and Illustration */}
-        <div className="flow-right">
-          {/* Abstract background loops */}
-          <div className="shape-lines">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div className="person-card">
-            <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1000"
-              alt="Trader Profile"
-            />
-          </div>
-
-          {/* Assigned Card */}
-          <div className="assigned-card">
-            <div className="assigned-header">
-              <div className="avatar-group">
-                <span className="avatar"></span>
-                <span className="avatar"></span>
-                <span className="avatar"></span>
-                <span className="avatar-arrow">↗</span>
+        <div className="grid gap-6 md:grid-cols-3">
+          {steps.map((step, i) => (
+            <div key={i} className="relative" data-opai-animate data-delay={`${0.3 + i * 0.1}`}>
+              <div className="bg-background-6 border-stroke-1/11 rounded-xl border p-8 h-full">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-inter-tight text-tagline-3 text-white/40">{step.number}</span>
+                  <span className="flex size-12 items-center justify-center rounded-full bg-[#2067BD]/10 text-[#2067BD]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="size-6">
+                      <path d="M5 12H19" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M12 5L19 12L12 19" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </div>
+                <h3 className="font-instrument-serif text-xl font-normal text-white/90 mb-3">{step.title}</h3>
+                <p className="font-inter-tight text-tagline-2 text-white/60">{step.description}</p>
               </div>
-              <div className="assigned-meta">
-                <small>Assigned</small>
-                <h3>32</h3>
-              </div>
+              {i < steps.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-3 z-10 text-white/20">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="size-6">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              )}
             </div>
-            <div className="stars">★★★★★</div>
-            <div className="card-actions">
-              <button className="btn-follow">+ Follow</button>
-              <button className="btn-msg">Message</button>
-            </div>
-          </div>
-
-          {/* Earnings / Savings Card */}
-          <div className="earning-card">
-            <small>Total saving</small>
-            <h4>$56,324</h4>
-
-            <div className="bar">
-              <div className="fill"></div>
-            </div>
-
-            <div className="bar-footer">
-              <span>May</span>
-              <span>$53,224</span>
-              <span className="percentage">88%</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
-  );
-};
-
-export default Flow;
+  )
+}
