@@ -1,0 +1,205 @@
+/* =====================================================================
+   SubscribeSection — component-scoped styles.
+
+   Ported 1:1 from the inline style={{}} objects this component used
+   to carry (see the Footer component for why: this project ships a
+   static pre-built Tailwind bundle, so relying on ad-hoc utility
+   classes here would risk the same "class doesn't exist" failure
+   mode). The few genuine Tailwind utilities it did use (relative,
+   overflow-hidden, z-10, absolute, pointer-events-none, select-none)
+   are folded in here too so the component carries zero utility
+   classes, only `main-container` (the shared page-width container).
+   ===================================================================== */
+
+.subscribe {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  padding-block: 88px;
+  background-color: #13171e;
+}
+
+/* ─── Header: badge + heading + description ─────────────────────── */
+
+.subscribe__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.subscribe__badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  background-color: rgba(198, 245, 111, 0.15);
+  color: #c6f56f;
+}
+
+.subscribe__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.subscribe__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3.25rem);
+  line-height: 120%;
+  font-weight: 400;
+  color: #fcfcfc;
+}
+
+.subscribe__description {
+  margin: 0 auto;
+  max-width: 534px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(252, 252, 252, 0.6);
+}
+
+/* ─── Form + benefits ─────────────────────────────────────────────── */
+
+.subscribe__body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 38px;
+}
+
+.subscribe__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.subscribe__form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+.subscribe__input {
+  height: 48px;
+  flex: 1 1 180px;
+  min-width: 0;
+  padding: 12px 18px;
+  background-color: transparent;
+  color: rgba(252, 252, 252, 0.9);
+  border-radius: 9999px;
+  border: 1px solid #2a333e;
+  outline: none;
+  font-size: 0.875rem;
+}
+
+.subscribe__textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 12px 18px;
+  background-color: transparent;
+  color: rgba(252, 252, 252, 0.9);
+  border-radius: 16px;
+  border: 1px solid #2a333e;
+  outline: none;
+  font-size: 0.875rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.subscribe__input::placeholder,
+.subscribe__textarea::placeholder {
+  color: rgba(252, 252, 252, 0.4);
+}
+
+.subscribe__button {
+  align-self: center;
+  height: 48px;
+  min-width: 90px;
+  padding: 0 20px;
+  background-color: #864ffe;
+  border: 1px solid #7c31f6;
+  border-radius: 9999px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.subscribe__button:hover {
+  background-color: #1a1a1c;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+.subscribe__benefits {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.subscribe__benefit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subscribe__benefit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background-color: #fcfcfc;
+}
+
+.subscribe__benefit-text {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #fcfcfc;
+}
+
+/* ─── Decorative background glows ───────────────────────────────── */
+
+.subscribe__glow {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.subscribe__glow--top-left {
+  top: -50%;
+  left: -15%;
+  max-width: 600px;
+}
+
+.subscribe__glow--bottom-right {
+  bottom: -35%;
+  right: -10%;
+  max-width: 500px;
+}
+
+.subscribe__glow-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
