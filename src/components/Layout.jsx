@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar/Navbar.jsx';
-import Footer from './Footer';
+import Footer from './Footer/Footer.jsx';
 import SubscribeSection from './SubscribeSection';
 
 /* ─── forceVisible ──────────────────────────────────────────────────
