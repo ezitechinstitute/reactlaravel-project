@@ -10,6 +10,7 @@ function Dropdown({
   return (
     <div
       id={id}
+      data-lenis-prevent
       className={`dropdown ${active ? "dropdown--active" : ""} ${className}`}
     >
       <div className="dropdown__container">

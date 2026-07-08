@@ -26,6 +26,11 @@ export const COMPANY_MENU = [
         label: "Our Process",
         desc: "See how we transform ideas into scalable digital solutions.",
       },
+    ],
+  },
+  {
+    title: "Join & Connect",
+    items: [
       {
         to: "/careers",
         icon: NAV_ICONS.career,
@@ -222,7 +227,7 @@ export const PRODUCTS_MENU = [
 
 export const INDUSTRIES_MENU = [
   {
-    title: "Industry Expertise",
+    title: "Core Industries",
     items: [
       {
         to: "/industries/healthcare",
@@ -248,6 +253,11 @@ export const INDUSTRIES_MENU = [
         label: "Real Estate",
         desc: "Property management and real estate solutions for modern businesses.",
       },
+    ],
+  },
+  {
+    title: "Enterprise Sectors",
+    items: [
       {
         to: "/industries/manufacturing",
         icon: NAV_ICONS.manufacturing,
@@ -275,7 +285,6 @@ export const INDUSTRIES_MENU = [
     ],
   },
 ];
-
 /* ===========================================================
    PORTFOLIO
 =========================================================== */
@@ -299,7 +308,6 @@ export const PORTFOLIO_MENU = [
     ],
   },
 ];
-
 /* ===========================================================
    INTERNSHIPS
 =========================================================== */
