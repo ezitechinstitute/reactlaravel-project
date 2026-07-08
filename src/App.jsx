@@ -5,18 +5,18 @@ import Layout from './components/Layout'
 // FIX: Home eager import karo (lazy nahi)
 // Kyunki first visit pe Home ka DOM chahiye animations ke liye
 // Baki pages lazy reh sakte hain — unhe first visit pe koi issue nahi
-import Home from './pages/Home'
+import Home from './pages/Home/Home.jsx'
 
 // Baki pages lazy (performance optimization)
-const About            = lazy(() => import('./pages/About'))
-const Services         = lazy(() => import('./pages/Services'))
+const About            = lazy(() => import('./pages/About/About.jsx'))
+const Services         = lazy(() => import('./pages/Services/Services.jsx'))
 const ServiceDetails   = lazy(() => import('./pages/ServiceDetails'))
-const Pricing          = lazy(() => import('./pages/Pricing'))
-const Team             = lazy(() => import('./pages/Team'))
+const Pricing          = lazy(() => import('./pages/Pricing/Pricing.jsx'))
+const Team             = lazy(() => import('./pages/Team/Team.jsx'))
 const TeamDetails      = lazy(() => import('./pages/TeamDetails'))
 const Blog             = lazy(() => import('./pages/Blog'))
 const BlogDetails      = lazy(() => import('./pages/BlogDetails'))
-const CaseStudy        = lazy(() => import('./pages/CaseStudy'))
+const CaseStudy        = lazy(() => import('./pages/CaseStudy/CaseStudy.jsx'))
 const CaseStudyDetails = lazy(() => import('./pages/CaseStudyDetails'))
 const Contact          = lazy(() => import('./pages/Contact'))
 const Login            = lazy(() => import('./pages/Login'))

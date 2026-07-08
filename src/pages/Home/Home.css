@@ -1,0 +1,386 @@
+/* ===========================================================
+   Home.css — styles extracted 1:1 from inline `style={{...}}`
+   objects that used to live in Home.jsx. Values are copied
+   verbatim; this file adds no new visual behavior.
+
+   NOTE: existing Tailwind/utility `className` strings elsewhere
+   in Home.jsx are untouched — this file only covers what used
+   to be inline `style` objects.
+=========================================================== */
+
+/* ── Hero ──────────────────────────────────────────────────── */
+
+.home-hero-section {
+  padding-top: 180px;
+  padding-bottom: 240px;
+}
+
+.home-hero-container {
+  display: flex;
+  align-items: center;
+}
+
+.home-hero-grid {
+  gap: 3rem;
+}
+
+.home-hero-slider-wrap {
+  min-height: 1.2em;
+  margin-bottom: 1.25rem;
+}
+
+.home-accent-purple {
+  color: #8d59ff;
+}
+
+.home-hero-desc {
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.home-hero-cta-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.home-hero-trust-wrap {
+  margin-bottom: 1.75rem;
+}
+
+.home-hero-visual {
+  min-height: 440px;
+}
+
+.home-hero-box-wrapper {
+  position: relative;
+  width: 360px;
+  max-width: 90vw;
+  flex-shrink: 0;
+}
+
+.home-hero-orbit-svg-wrap {
+  width: 118%;
+  height: 106%;
+}
+
+.home-hero-glow {
+  height: 80px;
+  width: 240px;
+  background: radial-gradient(circle, rgba(141, 89, 255, 0.7) 0%, rgba(141, 89, 255, 0) 70%);
+}
+
+.home-hero-tilt {
+  width: 88%;
+}
+
+.home-hero-tilt-layer-1 {
+  transform: translate(32px, 20px) scale(0.97);
+}
+
+.home-hero-tilt-layer-2 {
+  transform: translate(16px, 10px) scale(0.985);
+}
+
+.home-hero-image-stack {
+  aspect-ratio: 3/4;
+  box-shadow:
+    0 0 0 2.5px rgba(141, 89, 255, 0.85),
+    0 0 60px 12px rgba(141, 89, 255, 0.55),
+    0 0 120px 20px rgba(141, 89, 255, 0.25),
+    0 40px 80px -12px rgba(0, 0, 0, 0.85);
+}
+
+.home-hero-img {
+  width: 100%;
+  height: 100%;
+}
+
+.home-hero-img--hidden {
+  opacity: 0;
+}
+
+.home-hero-img-overlay {
+  background: linear-gradient(160deg, rgba(141, 89, 255, 0.15) 0%, rgba(34, 126, 255, 0.05) 50%, rgba(141, 89, 255, 0.2) 100%);
+}
+
+/* ── Client logo marquee ──────────────────────────────────── */
+
+@keyframes home-marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes home-marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.logos-track-left {
+  display: flex;
+  width: max-content;
+  animation: home-marquee-left 60s linear infinite;
+}
+.logos-track-right {
+  display: flex;
+  width: max-content;
+  animation: home-marquee-right 60s linear infinite;
+}
+.logos-track-left:hover,
+.logos-track-right:hover {
+  animation-play-state: paused;
+}
+
+.home-clients-wrap {
+  max-width: 1290px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.home-clients-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.home-clients-heading {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.home-clients-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.home-clients-row {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-clients-fade-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 8%;
+  background: linear-gradient(to right, var(--color-background-4), transparent);
+  z-index: 10;
+}
+
+.home-clients-fade-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 8%;
+  background: linear-gradient(to left, var(--color-background-4), transparent);
+  z-index: 10;
+}
+
+.home-client-logo-fig {
+  min-width: 120px;
+  margin: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-client-logo-img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  filter: var(--logo-filter, brightness(0) invert(0.4));
+  opacity: 0.7;
+}
+
+/* ── Services (stack cards) ───────────────────────────────── */
+
+.home-services-section {
+  z-index: 10;
+  isolation: isolate;
+}
+
+.home-services-desc {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.home-service-card {
+  background-color: var(--color-background-6);
+  border: 1px solid rgba(124, 142, 165, 0.15);
+}
+
+.home-service-icon-color,
+.home-service-title-color {
+  color: var(--color-background-10);
+}
+
+.home-service-desc-color {
+  color: var(--color-background-10);
+  opacity: 0.6;
+}
+
+.home-service-link {
+  border: 1px solid rgba(124, 142, 165, 0.3);
+  background-color: transparent;
+}
+
+.home-service-link-text {
+  color: var(--color-background-10);
+  opacity: 0.75;
+}
+
+.home-service-link-icon {
+  color: var(--color-background-10);
+  opacity: 0.6;
+}
+
+.home-cards-end-marker {
+  height: 1px;
+  margin-top: 0;
+}
+
+/* ── Counter ───────────────────────────────────────────────── */
+
+.home-counter-wrap {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+}
+
+.home-counter-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: block;
+  position: relative;
+}
+
+.home-counter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.home-counter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.home-counter-bar {
+  width: 100%;
+  height: 5px;
+  border-radius: 2px;
+  background-color: #8d59ff;
+}
+
+.home-counter-num {
+  color: #8d59ff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.home-counter-title {
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.home-counter-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Enterprise Software Solutions ────────────────────────── */
+
+.home-ent-header {
+  margin-bottom: 5rem;
+}
+
+/* ── Tech Stack ────────────────────────────────────────────── */
+
+.home-ts-heading-wrap {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.home-ts-demo-btn {
+  background-color: #d4f53c;
+  color: #0d1017;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  width: 210px;
+  height: 48px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.home-ts-demo-icon {
+  background-color: #0d1017;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+.home-ts-demo-icon--hover {
+  left: 166px;
+}
+
+.home-ts-demo-text {
+  position: absolute;
+  left: 52px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 5;
+}
+.home-ts-demo-text--hover {
+  left: 16px;
+}
+
+/* ── Industries We Serve ──────────────────────────────────── */
+
+.home-ind-tabs-spacing {
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+}
+
+.home-ind-bg-healthcare {
+  background: linear-gradient(135deg, #d1fae5 0%, #6ee7b7 100%);
+}
+.home-ind-bg-education {
+  background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);
+}
+.home-ind-bg-retail {
+  background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
+}
+.home-ind-bg-realestate {
+  background: linear-gradient(135deg, #e0f2fe 0%, #7dd3fc 100%);
+}
+.home-ind-bg-manufacturing {
+  background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+}
+.home-ind-bg-logistics {
+  background: linear-gradient(135deg, #d1fae5 0%, #34d399 100%);
+}
+
+/* ── Team preview ──────────────────────────────────────────── */
+
+.home-team-track-container {
+  padding-right: 0.75rem;
+}
+
+.home-team-track {
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}

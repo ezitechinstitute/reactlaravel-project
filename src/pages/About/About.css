@@ -1,0 +1,27 @@
+/* =====================================================================
+   About — component-scoped styles.
+
+   This page still uses the project's pre-built Tailwind bundle
+   (public/assets/main.css) for all of its existing className strings —
+   those are left untouched. This file only holds the handful of rules
+   that used to live as inline style={{...}} objects, ported 1:1 to
+   real classes so the computed output is unchanged.
+   ===================================================================== */
+
+/* Hero stats bar wrapper (4-up grid under the hero copy) */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+/* Decorative geometric icon inside the big Mission / Vision cards */
+.about-decorative-icon {
+  color: #8d59ff;
+}
+
+/* Colored subtitle line under each process step title */
+.about-process-step-subtitle {
+  color: #8d59ff;
+}

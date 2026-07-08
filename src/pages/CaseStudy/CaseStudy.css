@@ -1,0 +1,12 @@
+/* =====================================================================
+   CaseStudy — component-scoped styles.
+
+   Unlike Footer/Navbar/SubscribeSection, this page carried zero
+   inline style={{}} objects to begin with — it was already pure
+   Tailwind utility classNames. This refactor pass only extracts the
+   repeated card/stat data into CaseStudyData.js and dedupes the JSX
+   via .map(); it does not touch the styling system. The project
+   ships a static pre-built Tailwind bundle (public/assets/main.css)
+   rather than compiling on demand, so introducing new utility
+   classes here isn't safe — there is nothing to add to this file.
+   ===================================================================== */

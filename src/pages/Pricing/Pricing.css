@@ -1,0 +1,15 @@
+/* =====================================================================
+   Pricing — component-scoped styles.
+
+   Like Services/CaseStudy, this page carried no inline
+   style={{...}} objects to port over, and per the cleanup scope for
+   this pass its existing Tailwind/utility className strings (and the
+   already-shipped custom classes such as .price-scope,
+   .price-switcher-input, .price-label-monthly/-yearly,
+   .cards-marquee-container, .gradient-hidden, etc., all of which are
+   already defined in the static public/assets/main.css bundle) are
+   left untouched rather than reauthored here. This file exists to
+   match the folder-per-component shape used elsewhere
+   (Component.jsx + Component.css + ComponentData.js) and is kept as
+   a placeholder in case component-scoped rules are needed later.
+   ===================================================================== */
