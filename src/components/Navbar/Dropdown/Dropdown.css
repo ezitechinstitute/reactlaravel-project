@@ -12,7 +12,7 @@
     transform: translateX(-50%) translateY(15px);
 
     width: 950px;
-    max-width: calc(100vw-80px);
+    max-width: calc(100vw - 40px);
     max-height: 60vh;
     overflow-y: auto;
 
@@ -60,7 +60,41 @@
 
 }
 
+/* ===============================
+   Alignment Modifiers
+   (for menu items near the left/right
+   edges of the navbar, so the dropdown
+   doesn't overflow the viewport)
+================================ */
 
+.dropdown--align-left {
+
+    left: 0;
+
+    transform: translateY(15px);
+
+}
+
+.dropdown--align-left.dropdown--active {
+
+    transform: translateY(0);
+
+}
+
+.dropdown--align-right {
+
+    left: auto;
+    right: 0;
+
+    transform: translateY(15px);
+
+}
+
+.dropdown--align-right.dropdown--active {
+
+    transform: translateY(0);
+
+}
 
 /* ===============================
    Dropdown Inner Layout

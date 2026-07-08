@@ -4,6 +4,14 @@ import { Arrow, NavGlow } from "./Icons.jsx";
 function NavItem({ item, activeMenu, onEnter, onLeave }) {
   const isActive = activeMenu === item.key;
 
+  // Determine alignment modifiers safely based on your menu positioning
+  let alignmentClass = "";
+  if (item.key === "company") {
+    alignmentClass = "dropdown--align-left";
+  } else if (item.key === "internships") {
+    alignmentClass = "dropdown--align-right";
+  }
+
   return (
     <li
       className={`nav__item nav__item--has-dropdown ${isActive ? "nav__item--active" : ""}`}
@@ -22,7 +30,12 @@ function NavItem({ item, activeMenu, onEnter, onLeave }) {
         </span>
       </button>
       <div className="nav__dropdown-bridge" />
-      <Dropdown id={`${item.key}-menu`} active={isActive} sections={item.sections} />
+      <Dropdown
+        id={`${item.key}-menu`}
+        active={isActive}
+        sections={item.sections}
+        className={alignmentClass}
+      />
     </li>
   );
 }
