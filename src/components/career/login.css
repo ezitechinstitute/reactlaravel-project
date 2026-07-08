@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap');
+
+/* Reset removed to avoid global conflicts */
+
+.login-hero-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0d1017;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 80px 20px;
+  font-family: 'Inter Tight', sans-serif;
+}
+
+/* ============================================
+   Main Container
+============================================ */
+.login-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+/* ============================================
+   Top Badge
+============================================ */
+.login-badge {
+  display: inline-block;
+  background-color: rgba(101, 163, 13, 0.15);
+  border: 1px solid rgba(101, 163, 13, 0.3);
+  padding: 8px 24px;
+  border-radius: 999px;
+  color: #bef264; /* Light chartreuse text */
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ============================================
+   Typography
+============================================ */
+.login-title {
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.08;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .login-title {
+    font-size: 68px;
+  }
+}
+
+.login-desc {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Form Row (Input & Button)
+============================================ */
+.login-form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 540px;
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .login-form-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+}
+
+/* The dark rounded wrapper around the input */
+.login-input-wrapper {
+  flex: 1;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 16px 24px;
+  transition: border-color 0.3s ease;
+}
+
+.login-input-wrapper:focus-within {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* The actual transparent input field */
+.login-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: 'Inter Tight', sans-serif;
+}
+
+.login-input::placeholder {
+  color: #94a3b8;
+}
+
+/* The purple pill button */
+.login-btn-primary {
+  padding: 16px 32px;
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: 'Inter Tight', sans-serif;
+}
+
+.login-btn-primary:hover {
+  background-color: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+@media (max-width: 640px) {
+  .login-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================
+   Bottom Checkmarks
+============================================ */
+.login-checkmarks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e2e8f0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.check-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+/* ============================================
+   Pure CSS 3D Abstract Graphics (No images needed)
+============================================ */
+.left-graphic-wrapper {
+  position: absolute;
+  top: -10%;
+  left: -120px;
+  width: 500px;
+  height: 700px;
+  pointer-events: none;
+  z-index: 1;
+  transform: rotate(-12deg);
+}
+
+.glass-shard {
+  position: absolute;
+  border-radius: 60px 0 0 60px;
+  filter: blur(6px);
+}
+
+.s1 {
+  width: 100px;
+  height: 450px;
+  top: 10%;
+  left: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(168, 85, 247, 0.2));
+}
+.s2 {
+  width: 60px;
+  height: 250px;
+  top: 35%;
+  left: 50px;
+  transform: rotate(-10deg);
+  background: rgba(168, 85, 247, 0.15);
+}
+.s3 {
+  width: 80px;
+  height: 300px;
+  top: 15%;
+  left: 20px;
+  transform: rotate(5deg);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.right-graphic-wrapper {
+  position: absolute;
+  bottom: -150px;
+  right: -150px;
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-torus-outer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.35), rgba(59, 130, 246, 0.1), transparent 60%);
+  filter: blur(6px);
+  transform: rotate(-15deg);
+}
+
+.glass-torus-inner {
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.5) 0%, rgba(59, 130, 246, 0.2) 30%, transparent 70%);
+  filter: blur(20px);
+}
+
+/* ============================================
+   Responsive Scaling
+============================================ */
+@media (max-width: 1024px) {
+  .login-title { font-size: 56px; }
+  .left-graphic-wrapper, .right-graphic-wrapper { transform: scale(0.7); }
+}
+
+@media (max-width: 768px) {
+  .login-title { font-size: 40px; }
+  .left-graphic-wrapper, .right-graphic-wrapper { opacity: 0.3; transform: scale(0.5); }
+}
+
+@media (max-width: 480px) {
+  .login-title { font-size: 32px; }
+  .left-graphic-wrapper, .right-graphic-wrapper { display: none; }
+}
