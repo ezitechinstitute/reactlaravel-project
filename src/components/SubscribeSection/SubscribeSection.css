@@ -243,3 +243,37 @@ html.light-theme .subscribe {
   height: 100%;
   object-fit: cover;
 }
+
+/* ─── Mobile ─────────────────────────────────────────────────────
+   Tighter rhythm for small screens, a full-width submit button for
+   easier tapping, and the decorative glows dropped entirely — at
+   this size they mostly clip off-screen anyway, and skipping them
+   avoids compositing two large background images for no visual
+   payoff. */
+@media (max-width: 40rem) {
+  .subscribe {
+    padding-block: 56px;
+  }
+
+  .subscribe__header {
+    gap: 14px;
+    margin-bottom: 1.75rem;
+  }
+
+  .subscribe__body {
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .subscribe__benefits {
+    gap: 12px 28px;
+  }
+
+  .subscribe__button {
+    width: 100%;
+  }
+
+  .subscribe__glow {
+    display: none;
+  }
+}

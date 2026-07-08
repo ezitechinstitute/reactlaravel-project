@@ -90,7 +90,7 @@ export default function SubscribeSection() {
 
       {DECORATIVE_IMAGES.map(({ src, position }) => (
         <figure key={src} className={`subscribe__glow subscribe__glow--${position}`}>
-          <img src={src} alt="Decorative gradient" className="subscribe__glow-img" />
+          <img src={src} alt="Decorative gradient" className="subscribe__glow-img" loading="lazy" />
         </figure>
       ))}
     </section>
