@@ -1,4 +1,4 @@
-import { useGSAP } from '../../hooks/useAnimation'
+import { useGSAP } from '../hooks/useAnimation'
 export default function UseCaseSection() {
   const sectionRef = useGSAP((gsap, ScrollTrigger) => {
     const cards = document.querySelectorAll('.stack-cards__item')
