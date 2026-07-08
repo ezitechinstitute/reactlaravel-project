@@ -204,11 +204,78 @@ html.light-theme .footer__logo-img {
   margin-bottom: 0.5rem;
 }
 
+/* Column heading doubles as the mobile accordion trigger */
+.footer__links-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  margin: -0.25rem 0;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
 .footer__links-heading {
   font-size: 1rem;
   line-height: 150%;
   font-weight: 600;
   color: var(--footer-text-strong);
+}
+
+.footer__links-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--footer-text-muted);
+  transition: transform 0.3s ease;
+}
+
+.footer__links-chevron path {
+  stroke: currentColor;
+}
+
+.footer__links-chevron--open {
+  transform: rotate(180deg);
+}
+
+/* Collapsed by default on mobile — CSS grid-rows trick animates
+   height without needing JS to measure content. */
+.footer__links-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.footer__links-panel--open {
+  grid-template-rows: 1fr;
+}
+
+.footer__links-panel > .footer__links-list {
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (min-width: 40rem) {
+  /* From sm up, columns are static — no accordion, always expanded */
+  .footer__links-toggle {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .footer__links-chevron {
+    display: none;
+  }
+
+  .footer__links-panel,
+  .footer__links-panel--open {
+    grid-template-rows: 1fr;
+  }
 }
 
 .footer__links-item {
@@ -342,8 +409,10 @@ html.light-theme .footer .footer-title {
 
 .footer__bottom-list {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
 }
 
 .footer__bottom-link {

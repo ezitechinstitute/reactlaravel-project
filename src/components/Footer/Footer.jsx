@@ -1,4 +1,5 @@
 import './Footer.css';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -9,8 +10,30 @@ import {
   FOOTER_LINK_COLUMNS,
 } from './FooterData.js';
 
+const LEGAL_COLUMN = {
+  key: 'legal',
+  title: 'Legal Policies',
+  links: LEGAL_LINKS.map((label) => [label, '#']),
+  plain: true, // renders <a href="#"> instead of react-router <Link>
+};
+
+const ALL_COLUMNS = [...FOOTER_LINK_COLUMNS, LEGAL_COLUMN];
+
+function ChevronIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none">
+      <path d="M5 7.5L10 12.5L15 7.5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   const year = new Date().getFullYear();
+  // Link columns collapse into accordions on mobile; several can be
+  // open at once. Ignored above the sm breakpoint, where CSS forces
+  // every column open regardless of this state.
+  const [openCols, setOpenCols] = useState({});
+  const toggleCol = (key) => setOpenCols((prev) => ({ ...prev, [key]: !prev[key] }));
 
   return (
     <footer className="footer">
@@ -50,30 +73,38 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
+          {/* Links — accordions on mobile, static columns from sm up */}
           <div className="footer__links">
-            {FOOTER_LINK_COLUMNS.map(({ title, links }, i) => (
-              <div key={title} className="footer__links-col">
-                <div className="footer__links-col-inner" data-opai-animate data-delay={`0.${i + 2}`}>
-                  <p className="footer__links-heading">{title}</p>
-                  <ul>
-                    {links.map(([l, t]) => (
-                      <li key={l} className="footer__links-item"><Link to={t} className="footer-link footer__links-link">{l}</Link></li>
-                    ))}
-                  </ul>
+            {ALL_COLUMNS.map(({ key, title, links, plain }, i) => {
+              const isOpen = !!openCols[key];
+              const ItemLink = plain ? 'a' : Link;
+              return (
+                <div key={key} className="footer__links-col">
+                  <div className="footer__links-col-inner" data-opai-animate data-delay={`0.${i + 2}`}>
+                    <button
+                      type="button"
+                      className="footer__links-toggle"
+                      onClick={() => toggleCol(key)}
+                      aria-expanded={isOpen}
+                    >
+                      <span className="footer__links-heading">{title}</span>
+                      <span className={`footer__links-chevron ${isOpen ? "footer__links-chevron--open" : ""}`}>
+                        <ChevronIcon />
+                      </span>
+                    </button>
+                    <div className={`footer__links-panel ${isOpen ? "footer__links-panel--open" : ""}`}>
+                      <ul className="footer__links-list">
+                        {links.map(([l, t]) => (
+                          <li key={l} className="footer__links-item">
+                            <ItemLink {...(plain ? { href: t } : { to: t })} className="footer-link footer__links-link">{l}</ItemLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
-            <div className="footer__links-col">
-              <div className="footer__links-col-inner" data-opai-animate data-delay="0.5">
-                <p className="footer__links-heading">Legal Policies</p>
-                <ul>
-                  {LEGAL_LINKS.map(l => (
-                    <li key={l} className="footer__links-item"><a href="#" className="footer-link footer__links-link">{l}</a></li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
 

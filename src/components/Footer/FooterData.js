@@ -70,6 +70,7 @@ export const LEGAL_LINKS = [
 
 export const FOOTER_LINK_COLUMNS = [
   {
+    key: 'company',
     title: 'Company',
     links: [
       ['About Us', '/about'],
@@ -79,6 +80,7 @@ export const FOOTER_LINK_COLUMNS = [
     ],
   },
   {
+    key: 'quick-links',
     title: 'Quick Links',
     links: [
       ['Internships', '#'],
@@ -90,6 +92,7 @@ export const FOOTER_LINK_COLUMNS = [
     ],
   },
   {
+    key: 'resources',
     title: 'Resources',
     links: [
       ['Documentation', '#'],
