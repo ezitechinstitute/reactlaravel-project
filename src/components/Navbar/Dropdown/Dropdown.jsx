@@ -12,6 +12,7 @@ function Dropdown({
       id={id}
       data-lenis-prevent
       className={`dropdown ${active ? "dropdown--active" : ""} ${className}`}
+      style={{ "--dropdown-cols": sections.length }}
     >
       <div className="dropdown__container">
         {sections.map((section, index) => (
