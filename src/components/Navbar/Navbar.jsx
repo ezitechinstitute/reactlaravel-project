@@ -8,7 +8,7 @@ import NavItem from "./NavItem.jsx";
 
 import { NAVIGATION } from "./Dropdown/NavigationData.js";
 
-import { NavGlow } from './Icons.jsx';
+import { NavGlow } from './DecorativeElements.jsx';
 
 
 

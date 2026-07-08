@@ -1,4 +1,4 @@
-import { NAV_ICONS } from "../constants.jsx";
+import { NAV_ICONS } from "../Icons.jsx";
 
 /* ===========================================================
    COMPANY

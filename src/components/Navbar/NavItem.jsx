@@ -1,5 +1,5 @@
 import Dropdown from "./Dropdown/Dropdown";
-import { Arrow, NavGlow } from "./Icons.jsx";
+import { Arrow, NavGlow } from "./DecorativeElements.jsx";
 
 function NavItem({ item, activeMenu, onEnter, onLeave }) {
   const isActive = activeMenu === item.key;

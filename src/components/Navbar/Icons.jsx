@@ -1,20 +1,82 @@
-import './Icons.css';
+import {
+  BadgeHelp,
+  Blocks,
+  BookOpen,
+  BrainCircuit,
+  BriefcaseBusiness,
+  Building,
+  Building2,
+  Cloud,
+  CloudCog,
+  Code2,
+  Factory,
+  FileText,
+  FolderKanban,
+  Globe,
+  GraduationCap,
+  Handshake,
+  HeartPulse,
+  Hospital,
+  Landmark,
+  Megaphone,
+  MessageSquareWarning,
+  MonitorSmartphone,
+  Network,
+  Package,
+  Palette,
+  Receipt,
+  School,
+  Search,
+  ShoppingBag,
+  Smartphone,
+  Truck,
+  Users,
+  UsersRound,
+  Workflow,
+  Wrench,
+} from "lucide-react";
 
-/* ─── Arrow icon ───────────────────────────────────────────────────── */
-export const Arrow = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
-    <path
-      d="M1.19922 0.5L5.19922 4.5L9.19922 0.5"
-      className="nav__arrow-path"
-      strokeLinecap="round"
-      strokeLinejoin="round"/>
-  </svg>
-);
+export const NAV_ICONS = {
+  company: <Building2 size={20} />,
+  team: <Users size={20} />,
+  process: <Workflow size={20} />,
+  career: <BriefcaseBusiness size={20} />,
+  partnership: <Handshake size={20} />,
+  collaboration: <Network size={20} />,
 
-/* ─── Nav hover glow decorators ────────────────────────────────────── */
-export const NavGlow = () => (
-  <div className="nav__glow">
-    <div className="nav__glow-line" />
-    <div className="nav__glow-gradient" />
-  </div>
-);
+  customSoftware: <Code2 size={20} />,
+  saas: <CloudCog size={20} />,
+  web: <Globe size={20} />,
+  mobile: <Smartphone size={20} />,
+  erp: <Blocks size={20} />,
+  pos: <Receipt size={20} />,
+  cloud: <Cloud size={20} />,
+  maintenance: <Wrench size={20} />,
+  ai: <BrainCircuit size={20} />,
+  design: <Palette size={20} />,
+  marketing: <Megaphone size={20} />,
+  seo: <Search size={20} />,
+
+  hrms: <UsersRound size={20} />,
+  lms: <GraduationCap size={20} />,
+  crm: <BadgeHelp size={20} />,
+  hospital: <Hospital size={20} />,
+  school: <School size={20} />,
+  complaint: <MessageSquareWarning size={20} />,
+  inventory: <Package size={20} />,
+
+  healthcare: <HeartPulse size={20} />,
+  education: <BookOpen size={20} />,
+  retail: <ShoppingBag size={20} />,
+  realEstate: <Building size={20} />,
+  manufacturing: <Factory size={20} />,
+  logistics: <Truck size={20} />,
+  fintech: <Landmark size={20} />,
+  government: <Landmark size={20} />,
+
+  caseStudy: <FileText size={20} />,
+  projects: <FolderKanban size={20} />,
+
+  appDevelopment: <Smartphone size={20} />,
+  frontend: <MonitorSmartphone size={20} />,
+};
