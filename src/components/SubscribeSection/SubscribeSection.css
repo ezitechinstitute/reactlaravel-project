@@ -11,12 +11,44 @@
    classes, only `main-container` (the shared page-width container).
    ===================================================================== */
 
+/* ─── DESIGN TOKENS — dark-default / light-override, same pattern as
+   Navbar.css and Footer.css, scoped to .subscribe. The surface reuses
+   --color-background-6 (the shared dark/light surface token Footer
+   also uses) so the two adjacent bands stay visually seamless. ──── */
+.subscribe {
+  --subscribe-surface: var(--color-background-6);
+  --subscribe-text-strong: #fcfcfc;
+  --subscribe-text-muted: rgba(252, 252, 252, 0.6);
+  --subscribe-placeholder: rgba(252, 252, 252, 0.4);
+  --subscribe-border: #2a333e;
+  --subscribe-icon-bg: #fcfcfc;
+  --subscribe-icon-fill: #1a1a1c;
+  --subscribe-badge-bg: rgba(198, 245, 111, 0.15);
+  --subscribe-badge-text: #c6f56f;
+}
+
+html.light-theme .subscribe {
+  --subscribe-surface: #f3f5f7;
+  --subscribe-text-strong: #11141d;
+  --subscribe-text-muted: rgba(17, 20, 29, 0.6);
+  --subscribe-placeholder: rgba(17, 20, 29, 0.4);
+  --subscribe-border: rgba(15, 23, 42, 0.15);
+  --subscribe-icon-bg: #11141d;
+  --subscribe-icon-fill: #ffffff;
+  /* #c6f56f is a bright, light green meant to pop on a dark surface —
+     on the light surface it reads as low-contrast near-white-on-white,
+     so light mode gets a deeper green instead. */
+  --subscribe-badge-bg: rgba(77, 124, 15, 0.12);
+  --subscribe-badge-text: #4d7c0f;
+}
+
 .subscribe {
   position: relative;
   overflow: hidden;
   z-index: 10;
   padding-block: 88px;
-  background-color: #13171e;
+  background-color: var(--subscribe-surface);
+  transition: background-color 0.35s ease;
 }
 
 /* ─── Header: badge + heading + description ─────────────────────── */
@@ -36,8 +68,9 @@
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 400;
-  background-color: rgba(198, 245, 111, 0.15);
-  color: #c6f56f;
+  background-color: var(--subscribe-badge-bg);
+  color: var(--subscribe-badge-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .subscribe__copy {
@@ -51,7 +84,7 @@
   font-size: clamp(1.8rem, 4vw, 3.25rem);
   line-height: 120%;
   font-weight: 400;
-  color: #fcfcfc;
+  color: var(--subscribe-text-strong);
 }
 
 .subscribe__description {
@@ -60,7 +93,7 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: rgba(252, 252, 252, 0.6);
+  color: var(--subscribe-text-muted);
 }
 
 /* ─── Form + benefits ─────────────────────────────────────────────── */
@@ -95,11 +128,12 @@
   min-width: 0;
   padding: 12px 18px;
   background-color: transparent;
-  color: rgba(252, 252, 252, 0.9);
+  color: var(--subscribe-text-strong);
   border-radius: 9999px;
-  border: 1px solid #2a333e;
+  border: 1px solid var(--subscribe-border);
   outline: none;
   font-size: 0.875rem;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .subscribe__textarea {
@@ -107,18 +141,19 @@
   min-height: 90px;
   padding: 12px 18px;
   background-color: transparent;
-  color: rgba(252, 252, 252, 0.9);
+  color: var(--subscribe-text-strong);
   border-radius: 16px;
-  border: 1px solid #2a333e;
+  border: 1px solid var(--subscribe-border);
   outline: none;
   font-size: 0.875rem;
   font-family: inherit;
   resize: vertical;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .subscribe__input::placeholder,
 .subscribe__textarea::placeholder {
-  color: rgba(252, 252, 252, 0.4);
+  color: var(--subscribe-placeholder);
 }
 
 .subscribe__button {
@@ -167,13 +202,18 @@
   width: 20px;
   height: 20px;
   border-radius: 9999px;
-  background-color: #fcfcfc;
+  background-color: var(--subscribe-icon-bg);
+  transition: background-color 0.3s ease;
+}
+
+.subscribe__benefit-icon svg path {
+  fill: var(--subscribe-icon-fill);
 }
 
 .subscribe__benefit-text {
   margin: 0;
   font-size: 0.875rem;
-  color: #fcfcfc;
+  color: var(--subscribe-text-strong);
 }
 
 /* ─── Decorative background glows ───────────────────────────────── */

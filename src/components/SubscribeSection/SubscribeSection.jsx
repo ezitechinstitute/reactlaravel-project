@@ -78,7 +78,7 @@ export default function SubscribeSection() {
               <li key={label} className="subscribe__benefit">
                 <span className="subscribe__benefit-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none">
-                    <path d={CHECK_ICON_PATH} fill="#1a1a1c" />
+                    <path d={CHECK_ICON_PATH} />
                   </svg>
                 </span>
                 <p className="subscribe__benefit-text">{label}</p>
