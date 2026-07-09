@@ -1,16 +1,3 @@
-/* =====================================================================
-   SubscribeSection — component-scoped styles.
-
-   Ported 1:1 from the inline style={{}} objects this component used
-   to carry (see the Footer component for why: this project ships a
-   static pre-built Tailwind bundle, so relying on ad-hoc utility
-   classes here would risk the same "class doesn't exist" failure
-   mode). The few genuine Tailwind utilities it did use (relative,
-   overflow-hidden, z-10, absolute, pointer-events-none, select-none)
-   are folded in here too so the component carries zero utility
-   classes, only `main-container` (the shared page-width container).
-   ===================================================================== */
-
 /* ─── DESIGN TOKENS — dark-default / light-override, same pattern as
    Navbar.css and Footer.css, scoped to .subscribe. The surface reuses
    --color-background-6 (the shared dark/light surface token Footer
@@ -35,9 +22,6 @@ html.light-theme .subscribe {
   --subscribe-border: rgba(15, 23, 42, 0.15);
   --subscribe-icon-bg: #11141d;
   --subscribe-icon-fill: #ffffff;
-  /* #c6f56f is a bright, light green meant to pop on a dark surface —
-     on the light surface it reads as low-contrast near-white-on-white,
-     so light mode gets a deeper green instead. */
   --subscribe-badge-bg: rgba(77, 124, 15, 0.12);
   --subscribe-badge-text: #4d7c0f;
 }
@@ -244,12 +228,7 @@ html.light-theme .subscribe {
   object-fit: cover;
 }
 
-/* ─── Mobile ─────────────────────────────────────────────────────
-   Tighter rhythm for small screens, a full-width submit button for
-   easier tapping, and the decorative glows dropped entirely — at
-   this size they mostly clip off-screen anyway, and skipping them
-   avoids compositing two large background images for no visual
-   payoff. */
+/* ─── Mobile ────────── */
 @media (max-width: 40rem) {
   .subscribe {
     padding-block: 56px;

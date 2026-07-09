@@ -41,7 +41,7 @@ html.light-theme .footer {
   overflow: hidden;
   background-color: var(--footer-surface);
   padding-top: 50px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   transition: background-color 0.35s ease;
 }
 
@@ -318,14 +318,6 @@ html.light-theme .footer__logo-img {
   letter-spacing: 30.48px;
 }
 
-/* .footer-title (public/assets/main.css) clips a near-transparent
-   WHITE gradient onto the text — a subtle ghost effect made for the
-   dark surface. theme.css tries to recolor it for light mode via a
-   plain `color` override, but that's a no-op in WebKit: once
-   -webkit-text-fill-color is set, it — not color — paints the
-   glyphs. Overriding the gradient itself here (higher specificity
-   than the bare .footer-title selector, so it wins regardless of
-   stylesheet order) keeps the same ghost-text effect, just dark. */
 html.light-theme .footer .footer-title {
   background: linear-gradient(180deg, rgba(17, 20, 29, 0.1) 0%, rgba(17, 20, 29, 0.03) 100%);
   -webkit-background-clip: text;

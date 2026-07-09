@@ -39,11 +39,6 @@
   --z-index-nav: 1000;
 }
 
-/* ─── LIGHT THEME OVERRIDES ─────────────────────────────────────────
-   Driven by the global `light-theme` class the app toggles on <html>
-   (see Layout.jsx). Everything below simply remaps the same tokens
-   so the navbar, mobile sidebar, and mega-dropdown flip to a clean,
-   industry-standard light appearance without touching markup. */
 html.light-theme {
   --nav-bg-solid: #ffffff;
   --color-text-main: #11141d;
