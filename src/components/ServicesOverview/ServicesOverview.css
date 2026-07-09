@@ -1,0 +1,381 @@
+/* =====================================================================
+   ServicesOverview — component-scoped styles.
+
+   The project ships a static pre-built Tailwind bundle
+   (public/assets/main.css) rather than compiling on demand, so any
+   utility class not already used by the original template silently
+   does nothing (see Footer.css's "sm:col-span-3 incident" note). To
+   avoid depending on whichever utility combinations happen to exist
+   in that frozen bundle, every rule this component needs lives here
+   instead, under real classNames.
+
+   Every classname below is prefixed `services-overview` and used
+   nowhere else in the app (verified via repo-wide grep) — this file
+   is the single source of truth for this component's look. The one
+   exception is `main-container`, the shared template class for page
+   width, referenced by name rather than duplicated (same convention
+   Footer.css uses). Colors/type/radii still pull from the shared
+   design tokens (`var(--color-background-N)`, `var(--text-tagline-N)`,
+   etc.) so this component keeps tracking the site's light/dark theme
+   — only *layout and one-off values* are hard-coded here, never
+   anything another component's stylesheet could yank out from under
+   it.
+   ===================================================================== */
+
+/* ── Section shell ─────────────────────────────────────────── */
+
+.services-overview {
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
+  background-color: var(--color-background-5);
+}
+
+.services-overview__row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 2.5rem;
+  padding-block: 3.5rem;
+}
+
+@media (min-width: 48rem) {
+  .services-overview__row {
+    padding-block: 4rem;
+    row-gap: 5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .services-overview__row {
+    flex-direction: row;
+    gap: 4rem;
+    padding-block: 88px;
+  }
+}
+
+@media (min-width: 80rem) {
+  .services-overview__row {
+    padding-block: 120px;
+  }
+}
+
+/* ── Left column ───────────────────────────────────────────── */
+
+.services-overview__left {
+  width: 100%;
+}
+
+@media (min-width: 64rem) {
+  .services-overview__left {
+    width: 40%;
+    align-self: flex-start;
+  }
+}
+
+.services-overview__left-col {
+  max-width: 520px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+@media (min-width: 64rem) {
+  .services-overview__left-col {
+    max-width: none;
+    margin-inline: 0;
+    text-align: left;
+  }
+}
+
+/* Mobile pe CTA button center karo (auto margin ka koi effect nahi
+   hota agar text-align:center already center kar raha ho, but
+   preserved 1:1 from the original template rule). */
+.services-overview__left-col .services-overview__cta {
+  margin-inline: auto;
+}
+
+@media (min-width: 64rem) {
+  .services-overview__left-col .services-overview__cta {
+    margin-inline: 0;
+  }
+}
+
+.services-overview__badge {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-inter-tight);
+  font-size: var(--text-tagline-4);
+  line-height: var(--text-tagline-4--line-height);
+}
+
+@media (min-width: 64rem) {
+  .services-overview__badge {
+    justify-content: flex-start;
+  }
+}
+
+.services-overview__badge-icon {
+  display: flex;
+  width: 1rem;
+  height: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-overview__title {
+  margin-bottom: 0.75rem;
+  font-weight: var(--font-weight-normal);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--text-is-heading-4);
+  line-height: var(--text-is-heading-4--line-height);
+}
+
+@media (min-width: 48rem) {
+  .services-overview__title {
+    font-size: var(--text-is-heading-3);
+    line-height: var(--text-is-heading-3--line-height);
+  }
+}
+
+@media (min-width: 64rem) {
+  .services-overview__title {
+    font-size: var(--text-is-heading-2);
+    line-height: var(--text-is-heading-2--line-height);
+  }
+}
+
+/* Local accent color — previously borrowed the Hero section's
+   `.home-accent-purple` (Home.css). Duplicated here on purpose so
+   this component never depends on another component's stylesheet;
+   Home.css keeps its own copy for the Hero heading. */
+.services-overview__accent {
+  color: #8d59ff;
+}
+
+.services-overview__description {
+  margin-bottom: 3.5rem;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  font-weight: var(--font-weight-normal);
+  font-size: var(--text-tagline-2);
+  line-height: var(--text-tagline-2--line-height);
+}
+
+@media (min-width: 64rem) {
+  .services-overview__description {
+    max-width: 480px;
+  }
+}
+
+/* ── CTA button ("View full-service breakdown") ──────────────── */
+
+.services-overview__cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid transparent;
+  background-color: var(--color-background-7);
+  padding: 13px 1.5rem;
+  transition-property: all;
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: 0.3s;
+}
+
+.services-overview__cta:hover {
+  border-color: var(--color-stroke-3);
+}
+
+.services-overview__cta-text-wrap {
+  height: 100%;
+  max-height: 1.25rem;
+  overflow: hidden;
+}
+
+.services-overview__cta-text {
+  display: block;
+  font-family: var(--font-ibm-plex-mono);
+  font-size: var(--text-tagline-2);
+  line-height: 1.4;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  transition-property: transform, translate, scale, rotate;
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: 0.5s;
+}
+
+.services-overview__cta-text--primary {
+  translate: 0 -0.125rem;
+}
+
+.services-overview__cta:hover .services-overview__cta-text {
+  translate: 0 -105%;
+}
+
+.services-overview__cta-icon {
+  position: relative;
+  margin-top: 1.5px;
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.services-overview__cta-icon-bg {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  translate: 0 0;
+  border-radius: 9999px;
+  background-color: var(--color-background-6);
+  transition-property: all;
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: 0.4s;
+}
+
+.services-overview__cta-arrow {
+  position: absolute;
+  stroke: var(--color-background-10);
+  stroke-width: 2px;
+  transition-property: all;
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: 0.4s;
+}
+
+.services-overview__cta-arrow--in {
+  width: 16px;
+  height: 16px;
+  translate: 2.5px 0.125rem;
+  scale: 95% 95%;
+}
+
+.services-overview__cta:hover .services-overview__cta-arrow--in {
+  translate: 1.5rem 0.125rem;
+}
+
+.services-overview__cta-arrow--out {
+  width: 18px;
+  height: 18px;
+  translate: -1.5rem 0;
+}
+
+.services-overview__cta:hover .services-overview__cta-arrow--out {
+  translate: 0 0;
+}
+
+/* ── Right column — stacked service cards ─────────────────────── */
+
+.services-overview__right {
+  width: 100%;
+  margin-inline: auto;
+}
+
+@media (min-width: 64rem) {
+  .services-overview__right {
+    width: 55%;
+    margin-inline: 0;
+  }
+}
+
+.services-overview__card {
+  position: relative;
+  z-index: 0;
+  min-height: 170px;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 2rem;
+  background-color: var(--color-background-6);
+  border: 1px solid rgba(124, 142, 165, 0.15);
+}
+
+.services-overview__card > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.services-overview__card--spaced {
+  margin-bottom: 0.75rem;
+}
+
+.services-overview__card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.services-overview__card-icon {
+  display: block;
+  font-size: 52px;
+  line-height: 1;
+}
+
+.services-overview__card-icon,
+.services-overview__card-title {
+  color: var(--color-background-10);
+}
+
+.services-overview__card-desc {
+  color: var(--color-background-10);
+  opacity: 0.6;
+}
+
+.services-overview__card-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-xl);
+  padding: 0.625rem 1.25rem;
+  border: 1px solid rgba(124, 142, 165, 0.3);
+  background-color: transparent;
+  transition-property: all;
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: 0.3s;
+}
+
+.services-overview__card-link-text {
+  font-family: var(--font-ibm-plex-mono);
+  font-size: var(--text-tagline-3);
+  line-height: var(--text-tagline-3--line-height);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: 0.3s;
+  color: var(--color-background-10);
+  opacity: 0.75;
+}
+
+.services-overview__card-link-icon {
+  color: var(--color-background-10);
+  opacity: 0.6;
+}
+
+.services-overview__end-marker {
+  height: 1px;
+  margin-top: 0;
+}
+
+/* ── Light theme overrides ────────────────────────────────────── */
+
+/* Cards light mode mein white bg + dark text */
+html.light-theme .services-overview__card {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Card text light mode mein dark */
+html.light-theme .services-overview__card h3,
+html.light-theme .services-overview__card p,
+html.light-theme .services-overview__card span,
+html.light-theme .services-overview__card a span {
+  color: var(--color-background-7) !important;
+  opacity: 1 !important;
+}

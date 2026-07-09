@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import './Home.css'
 
+import ServicesOverview from '../../components/ServicesOverview/ServicesOverview'
 import { AI_TOOL_ICONS } from './data/aiTools'
 import { TEAM_MEMBERS } from './data/team'
 import { INDUSTRIES } from './data/industries'
-import { SERVICE_CARDS } from './data/services'
 import { COUNTER_STEPS } from './data/counterSteps'
 import { WHY_CHOOSE_CARDS } from './data/whyChooseCards'
 import { ENTERPRISE_CARDS } from './data/enterpriseCards'
@@ -30,105 +30,10 @@ function renderIconShapes(shapes) {
 }
 
 export default function Home() {
-  // ── Services Section Stairs Animation ──────────────────────────
-  const servicesRef = useRef(null)
   const whyChooseRef = useRef(null)
   const orbitRef = useRef(null)
   const [activeIndTab, setActiveIndTab] = useState(0)
     const [techBtnHover, setTechBtnHover] = useState(false)
-
-
-  // services section ke liye GSAP + ScrollTrigger animation
-  useEffect(() => {
-    const triggers = []
-    let timer
-
-    function initStackCards() {
-      const container = servicesRef.current
-      if (!container) return
-
-      const items = Array.from(container.querySelectorAll('.ezitech-sc'))
-      if (!items.length) return
-
-      if (!window.gsap || !window.ScrollTrigger) return
-
-      window.gsap.registerPlugin(window.ScrollTrigger)
-
-      const STICKY_TOP = 112
-
-      // Left column pinned
-      const leftColumn = document.querySelector('.services-left-col')
-      if (leftColumn) {
-        const lastCard = items[items.length - 1]
-        const t0 = window.ScrollTrigger.create({
-          trigger: container,
-          start: `top ${STICKY_TOP}px`,
-          endTrigger: lastCard,
-          end: `bottom ${STICKY_TOP + 200}px`,
-          pin: leftColumn,
-          pinSpacing: false,
-          invalidateOnRefresh: true,
-        })
-        triggers.push(t0)
-      }
-
-      items.forEach((card, i) => {
-        // z-index: pehli card sabse neeche, last sabse upar
-        // Reference jaisa — cards stack hoti hain top pe
-        card.style.transformOrigin = 'center top'
-        card.style.willChange = 'transform, opacity'
-        card.style.zIndex = i + 1
-
-        const t1 = window.ScrollTrigger.create({
-          trigger: card,
-          start: `top ${STICKY_TOP + i * 20}px`,
-          endTrigger: items[items.length - 1],
-          end: `bottom ${STICKY_TOP}px`,
-          pin: true,
-          pinSpacing: false,
-          invalidateOnRefresh: true,
-        })
-        triggers.push(t1)
-
-        // Jab NEXT card pin hone lagti hai tab YEH card scale down hoti hai
-        // Reference behavior: card apni size pe rehti hai, phir choti hoti hai
-        if (i < items.length - 1) {
-          const scaleTarget = 1 - (items.length - 1 - i) * 0.04
-          window.gsap.to(card, {
-            scale: scaleTarget,
-            opacity: 0.7 + i * 0.05,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: items[i + 1],
-              start: `top ${STICKY_TOP + (i + 1) * 20}px`,
-              end: `+=120`,
-              scrub: 1,
-              invalidateOnRefresh: true,
-            },
-          })
-        }
-      })
-
-      // 2 cards ki height utni padding — Counter ko neeche rakhne ke liye
-      const servicesSection = container.closest('section')
-      if (servicesSection && items.length) {
-        let totalHeight = 0
-        const cardsToCount = Math.min(2, items.length)
-        for (let i = 0; i < cardsToCount; i++) {
-          totalHeight += items[items.length - 1 - i].offsetHeight
-        }
-        servicesSection.style.paddingBottom = totalHeight + 'px'
-      }
-      window.ScrollTrigger.refresh()
-    }
-
-    timer = setTimeout(initStackCards, 600)
-
-    return () => {
-      clearTimeout(timer)
-      triggers.forEach(t => t?.kill?.())
-    }
-  }, [])
 
 
 useEffect(() => {
@@ -490,85 +395,7 @@ useEffect(() => {
         </section>
 
         {/* ========================= Services Section (Stack Cards) ========================= */}
-        <section className="bg-background-5 relative home-services-section">
-          <div className="main-container">
-            <div className="flex lg:flex-row flex-col items-start lg:gap-16 md:gap-y-20 gap-y-10 pt-14 md:pt-16 lg:pt-[88px] xl:pt-[120px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[120px]">
-
-              {/* Left column wrapper */}
-              <div className="w-full lg:w-[40%]  lg:self-start">
-                {/* Left sticky column — will be pinned by GSAP */}
-                <div className="services-left-col max-w-[520px] lg:max-w-none lg:mx-0 mx-auto text-center lg:text-left">
-                  <span data-opai-animate data-delay="0.1" className="font-inter-tight text-tagline-4 text-white/50 flex items-center gap-x-1 mb-5 justify-center lg:justify-start">
-                    <span className="flex size-4 items-center justify-center fill-white/50">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z" /></svg>
-                    </span>
-                    Services overview
-                  </span>
-                  <h2 data-opai-animate data-delay="0.2" className="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 font-normal text-white/90 mb-3">
-                    Our performance-focused{' '}
-                    <span className="home-accent-purple">services.</span>
-                  </h2>
-                  <p data-opai-animate data-delay="0.3" className="text-tagline-2 font-normal text-white/60 mb-14 lg:max-w-[480px] home-services-desc">
-                    Smart, secure, and designed for simplicity — Ezitech empowers you to take control effortlessly.
-                  </p>
-                  <div data-opai-animate data-delay="0.4">
-                    <a href="/services" className="group bg-background-7 hover:border-stroke-3 relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl border border-transparent px-6 py-[13px] transition-all duration-300 ease-in-out">
-                      <div className="h-full max-h-5 overflow-hidden" >
-                        <span className="font-ibm-plex-mono text-background-13/90 text-tagline-2 block -translate-y-0.5 leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]">View full-service breakdown</span>
-                        <span className="font-ibm-plex-mono text-tagline-2 block leading-[1.4] font-medium text-nowrap transition-transform duration-500 ease-in-out group-hover:-translate-y-[105%]">View full-service breakdown</span>
-                      </div>
-                      <div className="relative mt-[1.5px] flex size-6 items-center justify-center overflow-hidden">
-                        <span className="bg-background-6 absolute size-[22px] translate-x-0 rounded-full transition-all duration-400 ease-in-out">
-                          <span className="stroke-background-10 absolute size-[16px] translate-x-[2.5px] translate-y-0.5 scale-95 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6.75 13.5L11.25 9L6.75 4.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                          </span>
-                        </span>
-                        <span className="stroke-background-10 absolute size-[18px] -translate-x-6 stroke-2 transition-all duration-400 ease-in-out group-hover:translate-x-0">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.75 13.5L11.25 9L6.75 4.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                        </span>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right — stairsCardsAnimation */}
-              <div
-                ref={servicesRef}
-                className="w-full lg:w-[55%] lg:max-w-none lg:mx-0 mx-auto"
-                data-stairs-wrapper=".ezitech-sc"
-                data-base-offset="120"
-                data-step-offset="20"
-                data-duration="0.9"
-                data-stagger="0.1"
-                data-start="top 85%"
-                data-end="top 20%"
-                data-once
-              >
-                {SERVICE_CARDS.map((card, i) => (
-                  <div
-                    key={card.title}
-                    className={`ezitech-sc border-stroke-4/50 dark:border-stroke-5 bg-background-2 dark:bg-background-8 relative z-0 min-h-[170px] space-y-4 overflow-hidden rounded-[20px] border p-8${i < SERVICE_CARDS.length - 1 ? ' mb-3' : ''} home-service-card`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className={`${card.iconClass} block text-[52px] leading-none home-service-icon-color`}></span>
-                      <h3 className="text-heading-5 home-service-title-color">{card.title}</h3>
-                    </div>
-                    <div>
-                      <p className="home-service-desc-color">{card.desc}</p>
-                    </div>
-                    <a href="/service-details" className="group relative inline-flex items-center gap-2 rounded-xl px-5 py-2.5 transition-all duration-300 home-service-link">
-                      <span className="font-ibm-plex-mono text-tagline-3 font-medium text-nowrap transition-colors duration-300 home-service-link-text">Our Service</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none" className="home-service-link-icon"><path d="M6.75 13.5L11.25 9L6.75 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </a>
-                  </div>
-                ))}
-                {/* End marker — last card scale trigger ke liye */}
-                <div id="cards-end-marker" className="home-cards-end-marker"></div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ServicesOverview />
 
         {/* ========================= Counter Section ========================= */}
         <div id="counter-section" className="home-counter-wrap">

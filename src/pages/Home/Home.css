@@ -195,53 +195,6 @@
   opacity: 0.7;
 }
 
-/* ── Services (stack cards) ───────────────────────────────── */
-
-.home-services-section {
-  z-index: 10;
-  isolation: isolate;
-}
-
-.home-services-desc {
-  padding-top: 10px;
-  padding-bottom: 30px;
-}
-
-.home-service-card {
-  background-color: var(--color-background-6);
-  border: 1px solid rgba(124, 142, 165, 0.15);
-}
-
-.home-service-icon-color,
-.home-service-title-color {
-  color: var(--color-background-10);
-}
-
-.home-service-desc-color {
-  color: var(--color-background-10);
-  opacity: 0.6;
-}
-
-.home-service-link {
-  border: 1px solid rgba(124, 142, 165, 0.3);
-  background-color: transparent;
-}
-
-.home-service-link-text {
-  color: var(--color-background-10);
-  opacity: 0.75;
-}
-
-.home-service-link-icon {
-  color: var(--color-background-10);
-  opacity: 0.6;
-}
-
-.home-cards-end-marker {
-  height: 1px;
-  margin-top: 0;
-}
-
 /* ── Counter ───────────────────────────────────────────────── */
 
 .home-counter-wrap {

@@ -1,5 +1,5 @@
 /* ===========================================================
-   SERVICES OVERVIEW — stacked "stairs" cards (`.ezitech-sc`).
+   SERVICES OVERVIEW — stacked "stairs" cards (`.services-overview__card`).
    `iconClass` maps to the `ns-shape-N` icon font glyphs already
    defined globally in src/index.css.
 =========================================================== */

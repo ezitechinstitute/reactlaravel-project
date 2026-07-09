@@ -778,21 +778,6 @@ html.light-theme section.bg-background-5 {
   background-color: var(--color-background-5);
 }
  
-/* Services cards light mode mein white bg + dark text */
-html.light-theme .ezitech-sc {
-  background-color: #ffffff !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-}
- 
-/* Service card text light mode mein dark */
-html.light-theme .ezitech-sc h3,
-html.light-theme .ezitech-sc p,
-html.light-theme .ezitech-sc span,
-html.light-theme .ezitech-sc a span {
-  color: var(--color-background-7) !important;
-  opacity: 1 !important;
-}
- 
 /* ══════════════════════════════════════════════════════════════
    COUNTER / PROCESS SECTION — Light/Dark theme
    ══════════════════════════════════════════════════════════════ */
@@ -803,20 +788,6 @@ html.light-theme .text-white\/90 {
 }
 html.light-theme .text-white\/50 {
   color: rgba(17, 20, 29, 0.55) !important;
-}
- 
-/* ══════════════════════════════════════════════════════════════
-   SERVICES SECTION — Responsive fixes
-   ══════════════════════════════════════════════════════════════ */
- 
-/* Mobile pe services left col center, desktop pe left-align */
-@media (max-width: 1023px) {
-  .services-left-col {
-    text-align: center;
-  }
-  .services-left-col .group {
-    margin-inline: auto;
-  }
 }
  
 /* ══════════════════════════════════════════════════════════════
