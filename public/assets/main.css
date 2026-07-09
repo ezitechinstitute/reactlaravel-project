@@ -252,7 +252,6 @@
   }
 
   img, svg, video, canvas, audio, iframe, embed, object {
-    vertical-align: middle;
     display: block;
   }
 
@@ -850,6 +849,7 @@
 
   .line-clamp-2 {
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
@@ -857,6 +857,7 @@
 
   .line-clamp-5 {
     -webkit-line-clamp: 5;
+    line-clamp: 5;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
@@ -4632,6 +4633,7 @@
 
     .lg\:line-clamp-3 {
       -webkit-line-clamp: 3;
+      line-clamp:3;
       -webkit-box-orient: vertical;
       display: -webkit-box;
       overflow: hidden;
@@ -5086,6 +5088,7 @@
 
     .xl\:line-clamp-5 {
       -webkit-line-clamp: 5;
+      line-clamp: 5;
       -webkit-box-orient: vertical;
       display: -webkit-box;
       overflow: hidden;
@@ -6939,6 +6942,7 @@ header nav ul li.current-page .nav-arrow-path {
 
 .swiper-virtual .swiper-slide {
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   transform: translateZ(0);
 }
 
