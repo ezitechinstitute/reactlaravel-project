@@ -144,19 +144,9 @@ img {
 
 /* ══════════════════════════════════════════════════════════════
    APNI CUSTOM CSS YAHAN ADD KARO ↓
-   ══════════════════════════════════════════════════════════════ *//*
- * ═══════════════════════════════════════════════════════════════
- * Ezitech — Custom Global Styles
- * ═══════════════════════════════════════════════════════════════
- *
- * ⚠️  public/assets/main.css touch mat karo — template ka core CSS hai
- * ✅  Apni saari custom CSS yahan likho
- *
- * Usage:
- *   Already import hai main.jsx mein — bas yahan class banao aur
- *   JSX mein className="your-class" se use karo
- * ═══════════════════════════════════════════════════════════════
- */
+   Usage: Already import hai main.jsx mein — bas yahan class banao
+   aur JSX mein className="your-class" se use karo
+   ══════════════════════════════════════════════════════════════ */
 
 /* ── Example: Custom card ───────────────────────────────────────
 .custom-card {
@@ -760,36 +750,25 @@ html.dark .cta-check-icon svg {
    Home Page — Custom CSS
    ══════════════════════════════════════════════════════════════ */
 /* ── client Section ────────────────────────────────────────────────── */
-/* Light mode — logos dark dikhenge */
-:root {
-  --logo-filter: brightness(0) invert(0.2);
-}
-
-/* Dark mode — logos white dikhenge */
-html.dark {
-  --logo-filter: brightness(0) invert(1);
-}
- 
 /* ══════════════════════════════════════════════════════════════
    CLIENT SECTION — Light/Dark theme logo filter
    ══════════════════════════════════════════════════════════════ */
- 
+
 /* Dark mode (default) — logos white dikhenge */
 :root {
   --logo-filter: brightness(0) invert(0.7);
 }
- 
+
+/* Dark mode explicit — logos white dikhenge */
+html.dark {
+  --logo-filter: brightness(0) invert(1);
+}
+
 /* Light mode — logos dark dikhenge, readable on light bg */
 html.light-theme {
   --logo-filter: brightness(0) invert(0.25);
 }
- 
-/* Client section bg light mode mein light grey */
-html.light-theme .logos-track-left,
-html.light-theme .logos-track-right {
-  --logo-filter: brightness(0) invert(0.25);
-}
- 
+
 /* ══════════════════════════════════════════════════════════════
    SERVICES SECTION — Light/Dark theme
    ══════════════════════════════════════════════════════════════ */
@@ -860,42 +839,27 @@ html.light-theme .text-white\/50 {
    counted ho aur sections overlap na karein.
    ══════════════════════════════════════════════════════════════ */
  
-/* GSAP ScrollTrigger injected pin spacer */
+/* GSAP ScrollTrigger injected pin spacer — display block rakhna
+   zaroori hai taake Services section apni full height maintain kare
+   aur Counter section kabhi Services ke upar overlap na kare */
 .pin-spacer {
   display: block !important;
   position: relative !important;
+  pointer-events: none;
 }
- 
+
 /* Services section apni full height maintain kare */
 section.bg-background-5.relative {
   min-height: fit-content;
 }
- 
- 
-/* ══════════════════════════════════════════════════════════════
-   GSAP STAIRS — OVERLAP FINAL FIX
-   Last card ka pin-spacer section height maintain karta hai.
-   Counter section kabhi Services ke upar nahi aayega.
-   ══════════════════════════════════════════════════════════════ */
-.pin-spacer {
-  display: block !important;
-}
- 
- 
+
 /* ══════════════════════════════════════════════════════════════
    SERVICES → COUNTER OVERLAP — FINAL CSS FIX
    GSAP pinSpacing:false hone ki wajah se Services section ki
    reported height cards ki actual scroll height se kam hoti hai.
    #counter-section ko negative margin se upar aane se rokna hai.
    ══════════════════════════════════════════════════════════════ */
- 
-/* Services section ke andar GSAP jo pin-spacer inject karta hai
-   usse hide nahi karo — display block rakhna zaroori hai */
-.pin-spacer {
-  display: block !important;
-  pointer-events: none;
-}
- 
+
 /* Counter section kabhi Services cards ke upar nahi aayega */
 #counter-section {
   position: relative !important;
