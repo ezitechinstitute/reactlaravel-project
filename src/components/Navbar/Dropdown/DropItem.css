@@ -1,0 +1,252 @@
+/* ===============================
+   List Item Reset
+================================ */
+
+.dropdown-card-item {
+
+    list-style: none;
+
+}
+
+
+
+/* ===============================
+   Main Card
+================================ */
+
+.dropdown-card {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+
+    width: 100%;
+
+    padding: 14px;
+
+
+    text-decoration: none;
+
+    color: inherit;
+
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+
+    background: #ffffff;
+
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+
+/* ===============================
+   Hover Background Glow
+================================ */
+
+.dropdown-card__background {
+
+    position: absolute;
+
+    inset: 0;
+
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(99, 102, 241, 0.16),
+            transparent 65%
+        );
+
+
+    opacity: 0;
+
+
+    transition: opacity 0.35s ease;
+
+}
+
+
+
+/* Keep content above glow */
+
+.dropdown-card > *:not(.dropdown-card__background) {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+
+/* ===============================
+   Card Hover Effect
+================================ */
+
+.dropdown-card:hover {
+
+    transform: translateY(-4px);
+
+
+    background: #ffffff;
+
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,0.10);
+
+}
+
+
+
+.dropdown-card:hover .dropdown-card__background {
+
+    opacity: 1;
+
+}
+
+
+
+/* ===============================
+   Icon Container
+================================ */
+
+.dropdown-card__icon {
+
+    flex-shrink: 0;
+
+
+    width: 48px;
+
+    height: 48px;
+
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+    border-radius: 14px;
+
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #ffffff
+        );
+
+
+    color: #6366f1;
+
+
+    font-size: 22px;
+
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease;
+
+}
+
+
+
+.dropdown-card:hover .dropdown-card__icon {
+
+    transform:
+        scale(1.08)
+        rotate(-5deg);
+
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+
+    color:white;
+
+}
+
+
+
+/* ===============================
+   Content Wrapper
+================================ */
+
+.dropdown-card__content {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+
+
+/* ===============================
+   Title
+================================ */
+
+.dropdown-card__title {
+
+    margin:0;
+
+
+    font-size:15px;
+
+
+    font-weight:600;
+
+
+    line-height:1.3;
+
+
+    color:#111827;
+
+
+}
+
+
+
+/* ===============================
+   Description
+================================ */
+
+.dropdown-card__description {
+
+    margin:0;
+
+
+    max-width:220px;
+
+
+    font-size:13px;
+
+
+    line-height:1.5;
+
+
+    color:#6b7280;
+
+
+}

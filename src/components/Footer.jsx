@@ -57,7 +57,7 @@ export default function Footer() {
               <div className="space-y-2 text-left lg:text-right" data-opai-animate data-delay="0.2">
                 <p className="text-tagline-2 font-semibold text-white/90">Company</p>
                 <ul>
-                  {[['About Us','/about'],['Services','/services'],['Careers','/careers'],['Contact Us','/contact']].map(([l,t]) => (
+                  {[['About Us','/about'],['Services','/services'],['Careers','#'],['Contact Us','/contact']].map(([l,t]) => (
                     <li key={l} className="py-2"><Link to={t} className="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">{l}</Link></li>
                   ))}
                 </ul>
@@ -77,8 +77,8 @@ export default function Footer() {
               <div className="space-y-2 text-left lg:text-right" data-opai-animate data-delay="0.4">
                 <p className="text-tagline-2 font-semibold text-white/90">Legal Policies</p>
                 <ul>
-                  {[['Privacy Policy','/privacy-policy'],['Terms & Conditions','/terms-conditions'],['Refund Policy','/refund-policy'],['Cookie Policy','/cookie-policy']].map(([l,t]) => (
-                    <li key={l} className="py-2"><Link to={t} className="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">{l}</Link></li>
+                  {['Privacy Policy','Terms & Conditions','Refund Policy','Cookie Policy'].map(l => (
+                    <li key={l} className="py-2"><a href="#" className="text-tagline-3 footer-link inline-block font-normal text-white/50 transition-colors duration-500 hover:text-white">{l}</a></li>
                   ))}
                 </ul>
               </div>
@@ -97,8 +97,8 @@ export default function Footer() {
         <div className="border-stroke-1/10 flex flex-col items-center justify-between gap-2.5 border-y px-5 py-3.5 sm:flex-row sm:gap-0 lg:py-5" data-opai-animate data-delay="0.2">
           <p className="text-tagline-4 font-normal text-white/50">&copy; {year} Ezitech. All Rights Reserved.</p>
           <ul className="flex items-center gap-6">
-            {[['Privacy Policy','/privacy-policy'],['Terms & Conditions','/terms-conditions'],['Refund Policy','/refund-policy'],['Cookie Policy','/cookie-policy']].map(([l,t]) => (
-              <li key={l}><Link to={t} className="footer-link font-inter-tight text-tagline-4 font-normal text-white/50">{l}</Link></li>
+            {['Privacy Policy','Terms & Conditions','Refund Policy','Cookie Policy'].map(l => (
+              <li key={l}><a href="#" className="footer-link font-inter-tight text-tagline-4 font-normal text-white/50">{l}</a></li>
             ))}
           </ul>
         </div>

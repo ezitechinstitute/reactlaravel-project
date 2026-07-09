@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import { useGSAP } from '../hooks/useAnimation'
 
 /* ─── Accordion Item ─────────────────────────────────────────────── */
 function AccordionItem({ question, answer, isOpen, onToggle }) {
@@ -57,7 +58,7 @@ function StepCard({
 }) {
   return (
     <div className={`col-span-12 md:col-span-6 lg:col-span-4 ${colClass}`}>
-      <div data-ns-animate data-delay={delay} className="process-card">
+      <div data-delay={delay} className="process-card process-animate">
         <div className="process-card-header">
           <span className="process-step-label">{step}</span>
           <span className={`process-icon ${iconClass}`}></span>
@@ -148,18 +149,48 @@ const faqs = [
 export default function Process() {
   const [openFaq, setOpenFaq] = useState(null)
 
+  const reveal = (gsap, elements) => {
+    Array.from(elements).forEach((item) => {
+      const delay = parseFloat(item.dataset.delay || 0)
+      gsap.from(item, {
+        opacity: 0,
+        filter: 'blur(16px)',
+        y: 60,
+        duration: 0.6,
+        delay,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 90%',
+        },
+      })
+    })
+  }
+
+  const processRef = useGSAP((gsap, _ScrollTrigger, el) => {
+    reveal(gsap, el.querySelectorAll('.process-animate'))
+  })
+
+  const faqRef = useGSAP((gsap, _ScrollTrigger, el) => {
+    reveal(gsap, el.querySelectorAll('.faq-animate'))
+  })
+
+  const ctaRef = useGSAP((gsap, _ScrollTrigger, el) => {
+    reveal(gsap, el.querySelectorAll('.cta-animate'))
+  })
+
   return (
     <>
       <SEO title="Process & Workflow" url="/process" />
 
       {/* ── Process Steps ─────────────────────────────────────────── */}
-      <section className="process-section">
+      <section ref={processRef} className="process-section">
         <div className="main-container">
           <div className="process-section-header">
-            <h2 data-ns-animate data-delay="0.3" className="process-section-title">
+            <h2 data-delay="0.3" className="process-animate process-section-title">
               From sign-up to success in just a few steps
             </h2>
-            <p data-ns-animate data-delay="0.4" className="process-section-subtitle">
+            <p data-delay="0.4" className="process-animate process-section-subtitle">
               We make it easy to Get started, simple to scale, and seamless to succeed. Whether
               you&apos;re using one feature or the full suite, Nexsas is built to support you every
               step of the way.
@@ -179,24 +210,24 @@ export default function Process() {
       </section>
 
       {/* ── FAQ ────────────────────────────────────────────────────── */}
-      <section className="faq-section">
+      <section ref={faqRef} className="faq-section">
         <div className="main-container">
           <div className="faq-header">
-            <span data-ns-animate data-delay="0.1" className="faq-badge">
+            <span data-delay="0.1" className="faq-animate faq-badge">
               Faq
             </span>
             <div className="faq-title-wrap">
-              <h2 data-ns-animate data-delay="0.2" className="faq-title">
+              <h2 data-delay="0.2" className="faq-animate faq-title">
                 Commonly asked questions
               </h2>
-              <p data-ns-animate data-delay="0.3" className="faq-subtitle">
+              <p data-delay="0.3" className="faq-animate faq-subtitle">
                 By offering concise and informative responses, this section helps users find
                 solutions without the need to contact customer support, saving time
               </p>
             </div>
           </div>
 
-          <div data-ns-animate data-delay="0.4" className="faq-list">
+          <div data-delay="0.4" className="faq-list faq-animate">
             {faqs.map((faq, i) => (
               <AccordionItem
                 key={i}
@@ -211,25 +242,25 @@ export default function Process() {
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────────── */}
-      <section className="cta-section" aria-label="Use Case Overview">
+      <section ref={ctaRef} className="cta-section" aria-label="Use Case Overview">
         <div className="main-container">
           <div className="cta-row">
             <div className="cta-content">
-              <span data-ns-animate data-delay="0.3" className="cta-badge">
+              <span data-delay="0.3" className="cta-animate cta-badge">
                 Get started
               </span>
               <div className="cta-text">
-                <h2 data-ns-animate data-delay="0.4" className="cta-title">
+                <h2 data-delay="0.4" className="cta-animate cta-title">
                   Build a complete website using the assistance
                 </h2>
-                <p data-ns-animate data-delay="0.5" className="cta-subtitle">
+                <p data-delay="0.5" className="cta-animate cta-subtitle">
                   Start your free trial today and see your ideas come to life easily and creatively.
                 </p>
               </div>
             </div>
 
             <div className="cta-form-wrap">
-              <form data-ns-animate data-delay="0.6" onSubmit={(e) => e.preventDefault()} className="cta-form">
+              <form data-delay="0.6" onSubmit={(e) => e.preventDefault()} className="cta-form cta-animate">
                 <input
                   type="email"
                   name="email"
@@ -243,7 +274,7 @@ export default function Process() {
                 </button>
               </form>
               <ul className="cta-checklist">
-                <li data-ns-animate data-delay="0.7" className="cta-check-item">
+                <li data-delay="0.7" className="cta-animate cta-check-item">
                   <span className="cta-check-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +289,7 @@ export default function Process() {
                   </span>
                   <p>No credit card required</p>
                 </li>
-                <li data-ns-animate data-delay="0.8" className="cta-check-item">
+                <li data-delay="0.8" className="cta-animate cta-check-item">
                   <span className="cta-check-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
