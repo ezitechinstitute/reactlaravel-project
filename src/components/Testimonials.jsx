@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const testimonials = [
@@ -8,7 +8,7 @@ const testimonials = [
         quote: "The platform's intuitive interface and powerful features have revolutionized our workflow. Customer support is exceptional.",
         name: "David Johnson",
         role: "Marketing Director",
-        avatar: "/avatars/david.jpg", // apni image ka path
+        avatar: "/avatars/david.jpg",
         rating: 4.9,
     },
     {
@@ -29,15 +29,61 @@ const testimonials = [
     },
 ];
 
+/* ─── Inline styles (avoids Tailwind JIT issues) ─── */
+const styles = {
+    scene: {
+        height: '280px',
+        perspective: '1000px',
+        cursor: 'pointer',
+    },
+    flipper: (flipped) => ({
+        width: '100%',
+        height: '100%',
+        position: 'relative',
+        transformStyle: 'preserve-3d',
+        transition: 'transform 0.65s ease',
+        transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+    }),
+    face: {
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        borderRadius: '1rem',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden',
+    },
+    front: (isActive) => ({
+        padding: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        border: '1px solid rgba(148,174,207,0.12)',
+        backgroundColor: isActive ? 'rgba(34,126,255,0.08)' : 'rgba(255,255,255,0.03)',
+    }),
+    back: {
+        transform: 'rotateY(180deg)',
+        backgroundColor: '#11131a',
+        border: '1px solid rgba(148,174,207,0.14)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+    },
+};
+
 export default function Testimonials() {
-    const [activeIndex, setActiveIndex] = useState(1); // beech wala start me active
+    const [activeIndex, setActiveIndex] = useState(1);
+    const [hoveredId, setHoveredId] = useState(null);
 
     useEffect(() => {
+        if (hoveredId !== null) return; // pause on hover
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % testimonials.length);
-        }, 3000); // 3s me rotate
+        }, 3000);
         return () => clearInterval(interval);
-    }, []);
+    }, [hoveredId]);
 
     return (
         <section className="py-20 md:py-28" style={{ backgroundColor: '#0e111a' }}>
@@ -57,67 +103,100 @@ export default function Testimonials() {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative min-h-[320px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {testimonials.map((t, index) => {
                         const isActive = index === activeIndex;
+                        const isFlipped = hoveredId === t.id;
+
                         return (
                             <motion.div
                                 key={t.id}
-                                className="rounded-2xl p-8 relative overflow-hidden"
                                 animate={{
                                     scale: isActive ? 1.05 : 1,
-                                    opacity: isActive ? 1 : 0.4,
+                                    opacity: isActive ? 1 : 0.5,
                                     y: isActive ? -8 : 0,
                                 }}
-                                transition={{ duration: 0.5, ease: "easeInOut" }}
-                                style={{
-                                    border: '1px solid rgba(148,174,207,0.12)',
-                                    backgroundColor: isActive
-                                        ? 'rgba(34,126,255,0.08)'
-                                        : 'rgba(255,255,255,0.02)',
-                                }}
+                                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                                style={styles.scene}
+                                onMouseEnter={() => setHoveredId(t.id)}
+                                onMouseLeave={() => setHoveredId(null)}
                             >
-                                {/* Rating Badge - sirf active card pe */}
-                                <AnimatePresence>
-                                    {isActive && (
-                                        <motion.div
-                                            initial={{ scale: 0, rotate: -180 }}
-                                            animate={{ scale: 1, rotate: 0 }}
-                                            exit={{ scale: 0, rotate: 180 }}
-                                            transition={{ duration: 0.4 }}
-                                            className="absolute -top-3 -right-3 rounded-xl px-4 py-3 z-10"
-                                            style={{
-                                                background: 'linear-gradient(135deg, #227eff, #8d59ff)',
-                                            }}
-                                        >
-                                            <div className="text-center">
-                                                <p className="text-2xl font-bold text-white">{t.rating}</p>
-                                                <div className="flex gap-0.5 justify-center">
-                                                    {[...Array(5)].map((_, i) => (
-                                                        <Star key={i} size={12} fill="#fff" stroke="none" />
-                                                    ))}
-                                                </div>
-                                                <p className="text-[10px] text-white/80 mt-0.5">Trustpilot</p>
+                                {/* Pure-CSS flip — Framer Motion only handles scale/opacity on wrapper */}
+                                <div style={styles.flipper(isFlipped)}>
+
+                                    {/* ── FRONT ── */}
+                                    <div style={{ ...styles.face, ...styles.front(isActive) }}>
+                                        <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: '1.7', fontSize: '0.9rem' }}>
+                                            "{t.quote}"
+                                        </p>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                            <img
+                                                src={t.avatar}
+                                                alt={t.name}
+                                                style={{
+                                                    width: '48px',
+                                                    height: '48px',
+                                                    borderRadius: '50%',
+                                                    objectFit: 'cover',
+                                                    border: '2px solid rgba(34,126,255,0.35)',
+                                                }}
+                                            />
+                                            <div>
+                                                <p style={{ color: '#fff', fontWeight: 500, fontSize: '0.9rem' }}>{t.name}</p>
+                                                <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.78rem' }}>{t.role}</p>
                                             </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-
-                                <p className="text-white/70 mb-8 text-tagline-2 leading-relaxed">
-                                    "{t.quote}"
-                                </p>
-
-                                <div className="flex items-center gap-4">
-                                    <img
-                                        src={t.avatar}
-                                        alt={t.name}
-                                        className="size-12 rounded-full object-cover"
-                                        style={{ border: '2px solid rgba(34,126,255,0.3)' }}
-                                    />
-                                    <div>
-                                        <p className="text-white font-medium text-tagline-2">{t.name}</p>
-                                        <p className="text-white/50 text-tagline-4">{t.role}</p>
+                                        </div>
                                     </div>
+
+                                    {/* ── BACK ── */}
+                                    <div style={{ ...styles.face, ...styles.back }}>
+                                        {/* Glowing blob */}
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '-60px',
+                                            left: '-60px',
+                                            width: '180px',
+                                            height: '180px',
+                                            borderRadius: '50%',
+                                            background: 'linear-gradient(135deg, #FDE047 0%, #D946EF 100%)',
+                                            filter: 'blur(55px)',
+                                            opacity: 0.55,
+                                            pointerEvents: 'none',
+                                        }} />
+
+                                        {/* Trustpilot content */}
+                                        <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
+                                            <p style={{
+                                                fontSize: '5rem',
+                                                fontWeight: 300,
+                                                lineHeight: 1,
+                                                marginBottom: '0.5rem',
+                                                color: '#a3ff6e',
+                                                letterSpacing: '-2px',
+                                            }}>
+                                                {t.rating.toFixed(1)}
+                                            </p>
+                                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', marginBottom: '6px' }}>
+                                                <Star size={16} fill="#00b67a" stroke="none" />
+                                                <span style={{ color: '#fff', fontWeight: 700, fontSize: '1rem' }}>Trustpilot</span>
+                                            </div>
+                                            <div style={{ display: 'flex', justifyContent: 'center', gap: '3px' }}>
+                                                {[...Array(5)].map((_, i) => (
+                                                    <div key={i} style={{
+                                                        backgroundColor: '#00b67a',
+                                                        padding: '3px',
+                                                        borderRadius: '3px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                    }}>
+                                                        <Star size={10} fill="#fff" stroke="none" />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </motion.div>
                         );

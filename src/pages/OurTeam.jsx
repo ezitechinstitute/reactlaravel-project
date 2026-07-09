@@ -175,24 +175,42 @@ export default function OurTeam() {
 
     /* ── TEAM ── */
     useEffect(() => {
+        const cards = document.querySelectorAll(".t-card");
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) entry.target.classList.add("t-in");
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll(".t-card").forEach((el) => observer.observe(el));
-        return () => observer.disconnect();
+        cards.forEach((el) => observer.observe(el));
+        // Failsafe: reveal any card already within (or above) the viewport
+        // so content is never left permanently hidden if the observer misses it.
+        const failsafe = setTimeout(() => {
+            const vh = window.innerHeight || document.documentElement.clientHeight;
+            cards.forEach((el) => {
+                const r = el.getBoundingClientRect();
+                if (r.top < vh && r.bottom > 0) el.classList.add("t-in");
+            });
+        }, 400);
+        return () => { observer.disconnect(); clearTimeout(failsafe); };
     }, []);
 
     /* ── WHO ── */
     useEffect(() => {
+        const cards = document.querySelectorAll(".w-card");
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) entry.target.classList.add("w-in");
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll(".w-card").forEach((el) => observer.observe(el));
-        return () => observer.disconnect();
+        cards.forEach((el) => observer.observe(el));
+        const failsafe = setTimeout(() => {
+            const vh = window.innerHeight || document.documentElement.clientHeight;
+            cards.forEach((el) => {
+                const r = el.getBoundingClientRect();
+                if (r.top < vh && r.bottom > 0) el.classList.add("w-in");
+            });
+        }, 400);
+        return () => { observer.disconnect(); clearTimeout(failsafe); };
     }, []);
 
     const stats = [
@@ -227,7 +245,7 @@ export default function OurTeam() {
 
     return (
         <>
-            <SEO title="Our Team" url="/our-team" />
+            <SEO title="Our Team" url="/team" />
 
             {/* ── HERO ── */}
             <section className="hero-section">

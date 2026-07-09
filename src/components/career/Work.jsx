@@ -69,9 +69,7 @@ export default function Work() {
       <div className="main-container">
         <div className="mb-14 space-y-3 text-center md:mb-20">
           <p className="font-inter-tight text-tagline-4 text-white/50" data-opai-animate data-delay="0.1">More Features</p>
-          <h2 className="font-instrument-serif text-is-heading-4 md:text-is-heading-3 font-normal text-white/90" data-opai-animate data-delay="0.2">
-            Managing your career has <br />never been more rewarding
-          </h2>
+
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((item, i) => (
