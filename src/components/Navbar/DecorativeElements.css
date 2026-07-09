@@ -35,13 +35,24 @@
 
 /* Scattered soft light blobs, offset from center so the glow reads as natural light instead of a uniform shape */
 .nav__glow-line {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(34% 55% at 25% 22%, rgba(141, 89, 255, 0.28) 0%, transparent 72%),
-    radial-gradient(34% 55% at 75% 22%, rgba(141, 89, 255, 0.28) 0%, transparent 72%),
-    radial-gradient(34% 55% at 25% 78%, rgba(141, 89, 255, 0.28) 0%, transparent 72%),
-    radial-gradient(34% 55% at 75% 78%, rgba(141, 89, 255, 0.28) 0%, transparent 72%);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(141, 89, 255, 0.55) 0%,
+            rgba(141, 89, 255, 0.18) 35%,
+            transparent 70%
+        ),
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.12) 0%,
+            transparent 45%
+        );
+
+    filter: blur(24px);
 }
 
 /* Broad ambient wash filling the whole item, softest at the edges */
