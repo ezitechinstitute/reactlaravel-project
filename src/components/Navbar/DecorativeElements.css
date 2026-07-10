@@ -20,11 +20,12 @@
 /* ─── NAV HOVER GLOW DECORATORS ───────────────────────────────────── */
 .nav__glow {
   position: absolute;
-  inset: 0;
+  /* Extend past the item's box so the blur can fall off softly instead of being cut at an edge */
+  inset: -14px -10px;
   opacity: 0;
   pointer-events: none;
-  /* Uses the smooth transition token from your main layout if available, otherwise defaults */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: blur(5px);
+  transition: opacity 0.35s ease;
 }
 
 /* Triggers the glow visibility when hovering over the parent navigation item */
@@ -32,23 +33,32 @@
   opacity: 1;
 }
 
-/* Top horizontal accent line */
+/* Scattered soft light blobs, offset from center so the glow reads as natural light instead of a uniform shape */
 .nav__glow-line {
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #8d59ff, transparent);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(141, 89, 255, 0.55) 0%,
+            rgba(141, 89, 255, 0.18) 35%,
+            transparent 70%
+        ),
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.12) 0%,
+            transparent 45%
+        );
+
+    filter: blur(24px);
 }
 
-/* Soft ambient downward gradient */
+/* Broad ambient wash filling the whole item, softest at the edges */
 .nav__glow-gradient {
   position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 20px;
-  background: linear-gradient(180deg, rgba(141, 89, 255, 0.15), transparent);
+  inset: 0;
+  background: radial-gradient(70% 90% at 50% 50%, rgba(141, 89, 255, 0.26) 0%, rgba(141, 89, 255, 0.1) 50%, transparent 80%);
   pointer-events: none;
 }

@@ -14,7 +14,7 @@ function DropdownSection({
         </h4>
       )}
 
-      <ul className="dropdown__list">
+      <ul className={`dropdown__list ${items.length <= 3 ? "dropdown__list--single" : ""}`}>
         {items.map((item) => (
           <DropItem
             key={item.label}

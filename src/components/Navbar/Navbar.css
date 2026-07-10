@@ -3,17 +3,68 @@
   --nav-bg-solid: #1d2231;
   --nav-bg-scrolled: rgba(17, 20, 29, 0.85);
   --nav-margin-top: 1rem;
-  
+
   /* Shared Professional Accents */
   --color-primary: #8d59ff;
   --color-secondary: #227eff;
   --color-text-main: #ffffff;
   --color-text-muted: rgba(255, 255, 255, 0.7);
   --color-border-subtle: rgba(255, 255, 255, 0.08);
-  
+
+  /* Nav surface (dark default) */
+  --nav-surface: rgba(29, 34, 49, 0.95);
+  --nav-surface-scrolled: rgba(17, 20, 29, 0.85);
+  --nav-shadow-scrolled: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --nav-hamburger-color: #ffffff;
+  --nav-icon-btn-bg: rgba(255, 255, 255, 0.05);
+  --nav-cta-bg: rgba(255, 255, 255, 0.08);
+  --nav-cta-hover-bg: #ffffff;
+  --nav-cta-hover-text: #1d2231;
+  --nav-divider-subtle: rgba(255, 255, 255, 0.05);
+
+  /* Mega-dropdown surface (dark default) */
+  --dropdown-bg: #1b2030;
+  --dropdown-border: rgba(255, 255, 255, 0.08);
+  --dropdown-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 8px 25px rgba(0, 0, 0, 0.3);
+  --dropdown-title-color: #f3f4f6;
+  --dropdown-desc-color: rgba(255, 255, 255, 0.6);
+  --dropdown-section-title-color: rgba(255, 255, 255, 0.45);
+  --dropdown-card-hover-bg: rgba(255, 255, 255, 0.05);
+  --dropdown-card-hover-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+  --dropdown-icon-bg: linear-gradient(135deg, rgba(141, 89, 255, 0.28), rgba(34, 126, 255, 0.16));
+  --dropdown-icon-color: #b9a6ff;
+
   /* Layout Bounds */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --z-index-nav: 1000;
+}
+
+html.light-theme {
+  --nav-bg-solid: #ffffff;
+  --color-text-main: #11141d;
+  --color-text-muted: rgba(17, 20, 29, 0.65);
+  --color-border-subtle: rgba(15, 23, 42, 0.08);
+
+  --nav-surface: rgba(255, 255, 255, 0.85);
+  --nav-surface-scrolled: rgba(255, 255, 255, 0.92);
+  --nav-shadow-scrolled: 0 10px 30px -10px rgba(15, 23, 42, 0.15);
+  --nav-hamburger-color: #11141d;
+  --nav-icon-btn-bg: rgba(17, 20, 29, 0.05);
+  --nav-cta-bg: rgba(17, 20, 29, 0.05);
+  --nav-cta-hover-bg: #11141d;
+  --nav-cta-hover-text: #ffffff;
+  --nav-divider-subtle: rgba(17, 20, 29, 0.06);
+
+  --dropdown-bg: #ffffff;
+  --dropdown-border: rgba(15, 23, 42, 0.07);
+  --dropdown-shadow: 0 20px 60px rgba(15, 23, 42, 0.15), 0 8px 25px rgba(15, 23, 42, 0.08);
+  --dropdown-title-color: #111827;
+  --dropdown-desc-color: #6b7280;
+  --dropdown-section-title-color: #6b7280;
+  --dropdown-card-hover-bg: #f8f9fb;
+  --dropdown-card-hover-shadow: 0 14px 35px rgba(15, 23, 42, 0.1);
+  --dropdown-icon-bg: linear-gradient(135deg, #eef2ff, #ffffff);
+  --dropdown-icon-color: #6366f1;
 }
 
 /* ─── BASE HEADER & CONTAINER ORCHESTRATION ────────────────────────── */
@@ -33,21 +84,21 @@
   margin: var(--nav-margin-top) auto 0 auto;
   padding: 1rem 2rem;
   
-  /* FIX: Use an rgba or hex-alpha value directly on the background, NOT master opacity */
-  background-color: rgba(29, 34, 49, 0.95); /* Adjusted to match your #1d2231 color at 95% opacity */
-  
+  background-color: var(--nav-surface);
+  border: 1px solid var(--color-border-subtle);
+
   border-radius: 12px;
   backdrop-filter: blur(8px); /* Optional: Adds a sleek glass effect over elements behind it */
-  pointer-events: auto; 
+  pointer-events: auto;
   transition: var(--transition-smooth);
 }
 
 /* Scrolled Layout Modifier */
 .nav--scrolled {
-  background-color: var(--nav-bg-scrolled);
+  background-color: var(--nav-surface-scrolled);
   backdrop-filter: blur(12px);
   padding: 0.75rem 2rem;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--nav-shadow-scrolled);
 }
 
 /* Logo Alignment */
@@ -115,7 +166,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--nav-cta-bg);
   border: 1px solid var(--color-border-subtle);
   color: var(--color-text-main);
   font-size: 0.875rem;
@@ -127,8 +178,8 @@
 }
 
 .nav__cta-button:hover {
-  background-color: #ffffff;
-  color: var(--nav-bg-solid);
+  background-color: var(--nav-cta-hover-bg);
+  color: var(--nav-cta-hover-text);
   transform: translateY(-1px);
 }
 
@@ -155,7 +206,7 @@
 .nav__hamburger-line {
   width: 22px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--nav-hamburger-color);
   border-radius: 2px;
   margin: 0 auto;
 }
@@ -216,7 +267,7 @@
   position: relative;
   width: 32px;
   height: 32px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--nav-icon-btn-bg);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -262,7 +313,7 @@
   font-size: 1.05rem;
   font-weight: 500;
   padding: 0.75rem 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--nav-divider-subtle);
 }
 
 /* Mobile Accordion Elements */
@@ -295,13 +346,25 @@
 }
 
 .sidebar__submenu {
-  list-style: none;
   padding: 0.25rem 0 0.75rem 1rem;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 0.75rem;
+  border-left: 1px solid var(--nav-divider-subtle);
+}
+
+.sidebar__submenu-group + .sidebar__submenu-group {
+  margin-top: 0.1rem;
+}
+
+.sidebar__submenu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
 }
 
 .sidebar__submenu-heading {
@@ -309,17 +372,66 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-primary);
+  margin: 0;
   padding: 0.5rem 0.5rem 0.25rem 0.5rem;
   font-weight: 700;
 }
 
 .sidebar__submenu-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   color: var(--color-background-7);
   text-decoration: none;
   font-size: 0.925rem;
   padding: 0.5rem;
   border-radius: 6px;
+}
+
+.sidebar__submenu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+  opacity: 0.85;
+}
+
+.sidebar__submenu-text {
+  flex: 1;
+}
+
+/* ─── MOBILE SIDEBAR FOOTER CTA ────────────────────────────────────
+   Mirrors nav__cta-button so the "Request Custom Software" action
+   stays reachable at the bottom of the mobile menu, same as desktop. */
+.sidebar__footer {
+  flex-shrink: 0;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--nav-divider-subtle);
+}
+
+.sidebar__cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--nav-cta-bg);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-main);
+  font-size: 0.925rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  transition: var(--transition-smooth);
+}
+
+.sidebar__cta-button:hover {
+  background-color: var(--nav-cta-hover-bg);
+  color: var(--nav-cta-hover-text);
 }
 
 .sidebar__submenu-link:hover {

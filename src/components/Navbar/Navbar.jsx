@@ -224,25 +224,20 @@ export default function Navbar() {
 
 
 
-                {[
+                {/* Mirrors the desktop mega-menu: same NAVIGATION data/sections, accordion UI for touch */}
+                {NAVIGATION.map((item) => (
 
-                  { key: 'about', label: 'About', links: [['Our Story', '/about'], ['University Collaborations', '/about'], ['Our Team', '/team'], ['MoUs', '/about']] },
+                  <li key={item.key} className="sidebar__item sidebar__item--accordion">
 
-                  { key: 'company', label: 'Company', links: [['Careers', '#'], ['Partners', '#'], ['Success Stories', '/case-study'], ['FAQs', '#']] },
+                    <button className="sidebar__accordion-toggle" onClick={() => toggleMobile(item.key)}>
 
-                ].map(({ key, label, links }) => (
+                      <span className="sidebar__accordion-label">{item.label}</span>
 
-                  <li key={key} className="sidebar__item sidebar__item--accordion">
-
-                    <button className="sidebar__accordion-toggle" onClick={() => toggleMobile(key)}>
-
-                      <span className="sidebar__accordion-label">{label}</span>
-
-                      <span className={`sidebar__accordion-arrow ${mobileSubmenu === key ? "sidebar__accordion-arrow--rotated" : ""}`}>
+                      <span className={`sidebar__accordion-arrow ${mobileSubmenu === item.key ? "sidebar__accordion-arrow--rotated" : ""}`}>
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
 
-                          <path d="M10 12L14 8L10 4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M10 12L14 8L10 4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 
                         </svg>
 
@@ -250,21 +245,43 @@ export default function Navbar() {
 
                     </button>
 
-                    {mobileSubmenu === key && (
+                    {mobileSubmenu === item.key && (
 
-                      <ul className="sidebar__submenu">
+                      <div className="sidebar__submenu">
 
-                        {links.map(([l, t]) => (
+                        {item.sections.map((section, idx) => (
 
-                          <li key={l} className="sidebar__submenu-item">
+                          <div key={section.title || idx} className="sidebar__submenu-group">
 
-                            <Link to={t} className="sidebar__submenu-link" onClick={() => setMobileOpen(false)}>{l}</Link>
+                            {section.title && (
+                              <p className="sidebar__submenu-heading">{section.title}</p>
+                            )}
 
-                          </li>
+                            <ul className="sidebar__submenu-list">
+
+                              {section.items.map((link) => (
+
+                                <li key={link.label} className="sidebar__submenu-item">
+
+                                  <Link to={link.to} className="sidebar__submenu-link" onClick={() => setMobileOpen(false)}>
+
+                                    <span className="sidebar__submenu-icon">{link.icon}</span>
+
+                                    <span className="sidebar__submenu-text">{link.label}</span>
+
+                                  </Link>
+
+                                </li>
+
+                              ))}
+
+                            </ul>
+
+                          </div>
 
                         ))}
 
-                      </ul>
+                      </div>
 
                     )}
 
@@ -272,77 +289,17 @@ export default function Navbar() {
 
                 ))}
 
-
-
-                {/* Mobile Services */}
-
-                <li className="sidebar__item sidebar__item--accordion">
-
-                  <button className="sidebar__accordion-toggle" onClick={() => toggleMobile("services")}>
-
-                    <span className="sidebar__accordion-label">Services</span>
-
-                    <span className={`sidebar__accordion-arrow ${mobileSubmenu === "services" ? "sidebar__accordion-arrow--rotated" : ""}`}>
-
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-
-                        <path d="M10 12L14 8L10 4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-
-                      </svg>
-
-                    </span>
-
-                  </button>
-
-                  {mobileSubmenu === 'services' && (
-
-                    <ul className="sidebar__submenu">
-
-                      <li className="sidebar__submenu-heading">Software Development</li>
-
-                      {['Web Development', 'Mobile App Development', 'Custom Software Development', 'SaaS Development'].map(l => (
-
-                        <li key={l} className="sidebar__submenu-item"><Link to="/services" className="sidebar__submenu-link" onClick={() => setMobileOpen(false)}>{l}</Link></li>
-
-                      ))}
-
-                      <li className="sidebar__submenu-heading">AI Solutions</li>
-
-                      {['AI & Automation', 'Machine Learning', 'Chatbot Development'].map(l => (
-
-                        <li key={l} className="sidebar__submenu-item"><Link to="/services" className="sidebar__submenu-link" onClick={() => setMobileOpen(false)}>{l}</Link></li>
-
-                      ))}
-
-                    </ul>
-
-                  )}
-
-                </li>
-
-
-
-                {[
-
-                  ['Portfolio', '/case-study'],
-
-                  ['Internships', '#'],
-
-                  ['Blog', '/blog'],
-
-                  ['LMS', '#']
-
-                ].map(([l, t]) => (
-
-                  <li key={l} className="sidebar__item">
-
-                    <Link to={t} className="sidebar__link" onClick={() => setMobileOpen(false)}>{l}</Link>
-
-                  </li>
-
-                ))}
-
               </ul>
+
+            </div>
+
+            <div className="sidebar__footer">
+
+              <Link to="/contact" className="sidebar__cta-button" onClick={() => setMobileOpen(false)}>
+
+                Request Custom Software
+
+              </Link>
 
             </div>
 
