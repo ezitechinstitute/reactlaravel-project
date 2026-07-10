@@ -5,23 +5,28 @@ import Layout from './components/Layout'
 // FIX: Home eager import karo (lazy nahi)
 // Kyunki first visit pe Home ka DOM chahiye animations ke liye
 // Baki pages lazy reh sakte hain — unhe first visit pe koi issue nahi
-import Home from './pages/Home/Home.jsx'
+import Home from './pages/Home'
 
 // Baki pages lazy (performance optimization)
-const About            = lazy(() => import('./pages/About/About.jsx'))
-const Services         = lazy(() => import('./pages/Services/Services.jsx'))
+const About            = lazy(() => import('./pages/About'))
+const Services         = lazy(() => import('./pages/Services'))
 const ServiceDetails   = lazy(() => import('./pages/ServiceDetails'))
-const Pricing          = lazy(() => import('./pages/Pricing/Pricing.jsx'))
-const Team             = lazy(() => import('./pages/Team/Team.jsx'))
+const Pricing          = lazy(() => import('./pages/Pricing'))
+const Team             = lazy(() => import('./pages/OurTeam'))
 const TeamDetails      = lazy(() => import('./pages/TeamDetails'))
 const Blog             = lazy(() => import('./pages/Blog'))
 const BlogDetails      = lazy(() => import('./pages/BlogDetails'))
-const CaseStudy        = lazy(() => import('./pages/CaseStudy/CaseStudy.jsx'))
+const CaseStudy        = lazy(() => import('./pages/CaseStudy'))
 const CaseStudyDetails = lazy(() => import('./pages/CaseStudyDetails'))
 const Contact          = lazy(() => import('./pages/Contact'))
 const Login            = lazy(() => import('./pages/Login'))
 const Signup           = lazy(() => import('./pages/Signup'))
+const Careers = lazy(() => import('./pages/Careers'))
 const Process = lazy(() => import('./pages/Process'))
+const PrivacyPolicy    = lazy(() => import('./pages/PrivacyPolicy'))
+const TermsConditions  = lazy(() => import('./pages/TermsConditions'))
+const RefundPolicy     = lazy(() => import('./pages/RefundPolicy'))
+const CookiePolicy     = lazy(() => import('./pages/CookiePolicy'))
 const NotFound         = lazy(() => import('./pages/NotFound'))
 
 function Loader() {
@@ -51,7 +56,13 @@ export default function App() {
             <Route path="/blog-details"       element={<BlogDetails />} />
             <Route path="/case-study"         element={<CaseStudy />} />
             <Route path="/case-study-details" element={<CaseStudyDetails />} />
+            <Route path="/our-process" element={<Process />} />
             <Route path="/process" element={<Process />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/privacy-policy"     element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions"   element={<TermsConditions />} />
+            <Route path="/refund-policy"      element={<RefundPolicy />} />
+            <Route path="/cookie-policy"      element={<CookiePolicy />} />
             <Route path="/contact"            element={<Contact />} />
             <Route path="/login"              element={<Login />} />
             <Route path="/signup"             element={<Signup />} />

@@ -144,9 +144,19 @@ img {
 
 /* ══════════════════════════════════════════════════════════════
    APNI CUSTOM CSS YAHAN ADD KARO ↓
-   Usage: Already import hai main.jsx mein — bas yahan class banao
-   aur JSX mein className="your-class" se use karo
-   ══════════════════════════════════════════════════════════════ */
+   ══════════════════════════════════════════════════════════════ *//*
+ * ═══════════════════════════════════════════════════════════════
+ * Ezitech — Custom Global Styles
+ * ═══════════════════════════════════════════════════════════════
+ *
+ * ⚠️  public/assets/main.css touch mat karo — template ka core CSS hai
+ * ✅  Apni saari custom CSS yahan likho
+ *
+ * Usage:
+ *   Already import hai main.jsx mein — bas yahan class banao aur
+ *   JSX mein className="your-class" se use karo
+ * ═══════════════════════════════════════════════════════════════
+ */
 
 /* ── Example: Custom card ───────────────────────────────────────
 .custom-card {
@@ -750,25 +760,36 @@ html.dark .cta-check-icon svg {
    Home Page — Custom CSS
    ══════════════════════════════════════════════════════════════ */
 /* ── client Section ────────────────────────────────────────────────── */
+/* Light mode — logos dark dikhenge */
+:root {
+  --logo-filter: brightness(0) invert(0.2);
+}
+
+/* Dark mode — logos white dikhenge */
+html.dark {
+  --logo-filter: brightness(0) invert(1);
+}
+ 
 /* ══════════════════════════════════════════════════════════════
    CLIENT SECTION — Light/Dark theme logo filter
    ══════════════════════════════════════════════════════════════ */
-
+ 
 /* Dark mode (default) — logos white dikhenge */
 :root {
   --logo-filter: brightness(0) invert(0.7);
 }
-
-/* Dark mode explicit — logos white dikhenge */
-html.dark {
-  --logo-filter: brightness(0) invert(1);
-}
-
+ 
 /* Light mode — logos dark dikhenge, readable on light bg */
 html.light-theme {
   --logo-filter: brightness(0) invert(0.25);
 }
-
+ 
+/* Client section bg light mode mein light grey */
+html.light-theme .logos-track-left,
+html.light-theme .logos-track-right {
+  --logo-filter: brightness(0) invert(0.25);
+}
+ 
 /* ══════════════════════════════════════════════════════════════
    SERVICES SECTION — Light/Dark theme
    ══════════════════════════════════════════════════════════════ */
@@ -776,6 +797,21 @@ html.light-theme {
 /* Services section ka bg dark pe dark, light pe light */
 html.light-theme section.bg-background-5 {
   background-color: var(--color-background-5);
+}
+ 
+/* Services cards light mode mein white bg + dark text */
+html.light-theme .ezitech-sc {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+ 
+/* Service card text light mode mein dark */
+html.light-theme .ezitech-sc h3,
+html.light-theme .ezitech-sc p,
+html.light-theme .ezitech-sc span,
+html.light-theme .ezitech-sc a span {
+  color: var(--color-background-7) !important;
+  opacity: 1 !important;
 }
  
 /* ══════════════════════════════════════════════════════════════
@@ -788,6 +824,20 @@ html.light-theme .text-white\/90 {
 }
 html.light-theme .text-white\/50 {
   color: rgba(17, 20, 29, 0.55) !important;
+}
+ 
+/* ══════════════════════════════════════════════════════════════
+   SERVICES SECTION — Responsive fixes
+   ══════════════════════════════════════════════════════════════ */
+ 
+/* Mobile pe services left col center, desktop pe left-align */
+@media (max-width: 1023px) {
+  .services-left-col {
+    text-align: center;
+  }
+  .services-left-col .group {
+    margin-inline: auto;
+  }
 }
  
 /* ══════════════════════════════════════════════════════════════
@@ -810,27 +860,42 @@ html.light-theme .text-white\/50 {
    counted ho aur sections overlap na karein.
    ══════════════════════════════════════════════════════════════ */
  
-/* GSAP ScrollTrigger injected pin spacer — display block rakhna
-   zaroori hai taake Services section apni full height maintain kare
-   aur Counter section kabhi Services ke upar overlap na kare */
+/* GSAP ScrollTrigger injected pin spacer */
 .pin-spacer {
   display: block !important;
   position: relative !important;
-  pointer-events: none;
 }
-
+ 
 /* Services section apni full height maintain kare */
 section.bg-background-5.relative {
   min-height: fit-content;
 }
-
+ 
+ 
+/* ══════════════════════════════════════════════════════════════
+   GSAP STAIRS — OVERLAP FINAL FIX
+   Last card ka pin-spacer section height maintain karta hai.
+   Counter section kabhi Services ke upar nahi aayega.
+   ══════════════════════════════════════════════════════════════ */
+.pin-spacer {
+  display: block !important;
+}
+ 
+ 
 /* ══════════════════════════════════════════════════════════════
    SERVICES → COUNTER OVERLAP — FINAL CSS FIX
    GSAP pinSpacing:false hone ki wajah se Services section ki
    reported height cards ki actual scroll height se kam hoti hai.
    #counter-section ko negative margin se upar aane se rokna hai.
    ══════════════════════════════════════════════════════════════ */
-
+ 
+/* Services section ke andar GSAP jo pin-spacer inject karta hai
+   usse hide nahi karo — display block rakhna zaroori hai */
+.pin-spacer {
+  display: block !important;
+  pointer-events: none;
+}
+ 
 /* Counter section kabhi Services cards ke upar nahi aayega */
 #counter-section {
   position: relative !important;
@@ -2109,3 +2174,81 @@ html.light-theme .team-nav-btn { border-color: #d4d4d8; color: #52525b; }
 .team-card:hover .team-card__img { transform: scale(1.04); }
  
 .team-card__name-accent { color: #8d59ff; }
+
+/* ── Custom Ezitech Blue Utility Classes ── */
+.text-opai-blue {
+  color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/10 {
+  background-color: rgba(34, 126, 255, 0.1) !important;
+}
+.border-opai-blue\/30 {
+  border-color: rgba(34, 126, 255, 0.3) !important;
+}
+.bg-opai-blue {
+  background-color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/15 {
+  background-color: rgba(34, 126, 255, 0.15) !important;
+}
+
+/* ── Team page: missing easing utility used by leadership cards ── */
+.ease-team-ease-1 {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ── Custom Ezitech Blue Utility Classes ── */
+.text-opai-blue {
+  color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/10 {
+  background-color: rgba(34, 126, 255, 0.1) !important;
+}
+.border-opai-blue\/30 {
+  border-color: rgba(34, 126, 255, 0.3) !important;
+}
+.bg-opai-blue {
+  background-color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/15 {
+  background-color: rgba(34, 126, 255, 0.15) !important;
+}
+
+/* ── Team page: missing easing utility used by leadership cards ── */
+.ease-team-ease-1 {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ── Custom Ezitech Blue Utility Classes ── */
+.text-opai-blue {
+  color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/10 {
+  background-color: rgba(34, 126, 255, 0.1) !important;
+}
+.border-opai-blue\/30 {
+  border-color: rgba(34, 126, 255, 0.3) !important;
+}
+.bg-opai-blue {
+  background-color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/15 {
+  background-color: rgba(34, 126, 255, 0.15) !important;
+}
+
+/* ── Team page: missing easing utility used by leadership cards ── */
+.ease-team-ease-1 {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -- Navbar pill width: keep logo + nav links + "Get a Free Quote"
+   button inside the pill at all desktop widths (natural content approx 1010px).
+   nav.header-one has higher specificity than the utility max-w classes. -- */
+@media (min-width: 1280px) {
+  nav.header-one { max-width: 1100px !important; }
+}
+@media (min-width: 1536px) {
+  nav.header-one { max-width: 1290px !important; }
+}

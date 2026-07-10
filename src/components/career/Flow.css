@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap');
+
+.hiw-section {
+  background: #ffffff;
+  padding: 100px 24px;
+  font-family: 'Inter Tight', sans-serif;
+  color: #111;
+  text-align: center;
+}
+
+.hiw-header { margin-bottom: 60px; }
+
+.hiw-title {
+  font-size: 44px;
+  font-weight: 500;
+  margin: 0 0 16px;
+  color: #1a1b1e;
+  letter-spacing: -0.02em;
+}
+
+.hiw-subtitle {
+  font-size: 16px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+.hiw-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hiw-card {
+  flex: 1;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hiw-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.06);
+}
+
+.card-light { background: #f8f9fa; }
+.card-green { background: #ccf652; }
+
+.hiw-number {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 70px;
+  color: #111;
+}
+
+.hiw-card-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0 0 12px;
+  color: #111;
+  letter-spacing: -0.01em;
+}
+
+.hiw-card-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #64748b;
+  margin: 0;
+}
+
+.card-green .hiw-card-desc { color: #4d5d2b; }
+
+.hiw-connector {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translate(50%, -50%);
+  width: 44px;
+  height: 88px;
+  background: #ffffff;
+  border-radius: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 1024px) {
+  .hiw-grid { flex-wrap: wrap; gap: 30px; }
+  .hiw-card { min-width: calc(50% - 15px); }
+  .hiw-connector { display: none; }
+}
+@media (max-width: 640px) {
+  .hiw-card { min-width: 100%; }
+}
+html.light .hiw-section, html.light-theme .hiw-section { background: #f8fafc; }
+html.light .hiw-title, html.light-theme .hiw-title { color: #0f172a; }
+html.light .hiw-subtitle, html.light-theme .hiw-subtitle { color: #475569; }
+html.light .hiw-card.card-light, html.light-theme .hiw-card.card-light { background: #ffffff; }
+html.light .hiw-card.card-green, html.light-theme .hiw-card.card-green { background: #ccf652; }
+html.light .hiw-number, html.light-theme .hiw-number { color: #0f172a; }
+html.light .hiw-card-title, html.light-theme .hiw-card-title { color: #0f172a; }
+html.light .hiw-card-desc, html.light-theme .hiw-card-desc { color: #475569; }
+html.light .card-green .hiw-card-desc, html.light-theme .card-green .hiw-card-desc { color: #3d4d1e; }
+html.light .hiw-connector, html.light-theme .hiw-connector { background: #f0f2f5; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+html.light .hiw-card:hover, html.light-theme .hiw-card:hover { box-shadow: 0 24px 48px rgba(0,0,0,0.08); }
