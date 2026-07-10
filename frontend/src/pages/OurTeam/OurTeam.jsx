@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import SEO from "../../components/SEO/SEO";
+import "./OurTeam.css";
 
 export default function OurTeam() {
 
@@ -269,12 +270,12 @@ export default function OurTeam() {
                         </a>
                     </div>
                     <div className="img-wrap hero-float anim" data-delay="0.4">
-                        <img src="/brain.png" alt="AI Brain" />
+                        <img src="/images/brain.png" alt="AI Brain" />
                     </div>
                     <div className="card-wade scroll-up d1">
                         <div className="wade-outer">
                             <div className="wade-chip">
-                                <img src="/avatar1.png" alt="Wade" style={{ width: '30%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+                                <img className="wade-avatar" src="/images/avatar1.png" alt="Wade" />
                                 <div>
                                     <p className="wade-name">wade warren</p>
                                     <p className="wade-role">Marketing coordinator</p>
@@ -301,10 +302,10 @@ export default function OurTeam() {
                                 </div>
                                 <div className="dash-right">
                                     <div className="dash-chart">
-                                        <div className="dbar" style={{ height: "28px" }}></div>
-                                        <div className="dbar p" style={{ height: "42px" }}></div>
-                                        <div className="dbar" style={{ height: "22px" }}></div>
-                                        <div className="dbar p" style={{ height: "36px" }}></div>
+                                        <div className="dbar dbar-1"></div>
+                                        <div className="dbar p dbar-2"></div>
+                                        <div className="dbar dbar-3"></div>
+                                        <div className="dbar p dbar-4"></div>
                                     </div>
                                     <div className="dash-months">
                                         <span className="dmo">Apr</span>
@@ -320,9 +321,9 @@ export default function OurTeam() {
                         <div className="dev-outer">
                             <p className="dev-title">Dev team</p>
                             <div className="avs-row">
-                                <div className="av"><img src="/avatar1.png" alt="A" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
-                                <div className="av"><img src="/avatar2.png" alt="B" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
-                                <div className="av"><img src="/avatar3.png" alt="C" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
+                                <div className="av"><img src="/images/avatar1.png" alt="A" /></div>
+                                <div className="av"><img src="/images/avatar2.png" alt="B" /></div>
+                                <div className="av"><img src="/images/avatar3.png" alt="C" /></div>
                                 <div className="av-plus">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                                         <path d="M3.75 12H20.25" stroke="white" strokeWidth="2" strokeLinecap="round" />
@@ -379,7 +380,7 @@ export default function OurTeam() {
                         </div>
                     </div>
                     <div className="ab-img ab-reveal from-right sd2">
-                        <img src="/circuit.png" alt="circuit" />
+                        <img src="/images/circuit.png" alt="circuit" />
                     </div>
                 </div>
             </section>
