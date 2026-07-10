@@ -12,7 +12,7 @@ const About            = lazy(() => import('./pages/About/About.jsx'))
 const Services         = lazy(() => import('./pages/Services/Services.jsx'))
 const ServiceDetails   = lazy(() => import('./pages/ServiceDetails/ServiceDetails.jsx'))
 const Pricing          = lazy(() => import('./pages/Pricing/Pricing.jsx'))
-const Team             = lazy(() => import('./pages/Team/Team.jsx'))
+const Team             = lazy(() => import('./pages/OurTeam/OurTeam.jsx'))
 const TeamDetails      = lazy(() => import('./pages/TeamDetails/TeamDetails.jsx'))
 const Blog             = lazy(() => import('./pages/Blog/Blog.jsx'))
 const BlogDetails      = lazy(() => import('./pages/BlogDetails/BlogDetails.jsx'))
@@ -22,6 +22,7 @@ const Contact          = lazy(() => import('./pages/Contact/Contact.jsx'))
 const Login            = lazy(() => import('./pages/Login/Login.jsx'))
 const Signup           = lazy(() => import('./pages/Signup/Signup.jsx'))
 const Process = lazy(() => import('./pages/Process/Process.jsx'))
+const Careers           = lazy(() => import('./pages/Careers/Careers.jsx'))
 const NotFound         = lazy(() => import('./pages/NotFound/NotFound.jsx'))
 
 function Loader() {
@@ -51,7 +52,8 @@ export default function App() {
             <Route path="/blog-details"       element={<BlogDetails />} />
             <Route path="/case-study"         element={<CaseStudy />} />
             <Route path="/case-study-details" element={<CaseStudyDetails />} />
-            <Route path="/process" element={<Process />} />
+            <Route path="/our-process"        element={<Process />} />
+            <Route path="/careers"            element={<Careers />} />
             <Route path="/contact"            element={<Contact />} />
             <Route path="/login"              element={<Login />} />
             <Route path="/signup"             element={<Signup />} />
