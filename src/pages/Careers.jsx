@@ -1,10 +1,9 @@
 import SEO from '../components/SEO'
 import Hero from '../components/career/Hero'
-import Work from '../components/career/Work'
 import Flow from '../components/career/Flow'
 import Rank from '../components/career/Rank'
+import Stats from '../components/career/Stats'
 import SignUp from '../components/career/SignUp'
-import Login from '../components/career/login'
 
 export default function Careers() {
   return (
@@ -16,11 +15,10 @@ export default function Careers() {
       />
       <main className="bg-background-5">
         <Hero />
-        <Work />
         <Flow />
         <Rank />
+        <Stats />
         <SignUp />
-        <Login />
       </main>
     </>
   )
