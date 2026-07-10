@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
+import SEO from '../../components/SEO/SEO'
 
 /* ─── Accordion Item ─────────────────────────────────────────────── */
 function AccordionItem({ question, answer, isOpen, onToggle }) {

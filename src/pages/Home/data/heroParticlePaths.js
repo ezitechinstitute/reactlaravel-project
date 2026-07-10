@@ -1,7 +1,7 @@
 /* ===========================================================
    HERO PARTICLE CURVES — the 8 motion-path curves the hero
    background particles travel along. `startParticles()` in
-   src/components/Layout.jsx looks these up by
+   src/components/Layout/Layout.jsx looks these up by
    `#curve-path-1`..`#curve-path-8`, so the `n` here MUST stay
    1-8 and map 1:1 to those ids (see Home.jsx render).
 =========================================================== */

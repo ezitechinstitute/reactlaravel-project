@@ -1,5 +1,5 @@
 import './Services.css'
-import SEO from '../../components/SEO'
+import SEO from '../../components/SEO/SEO'
 
 import {
   ASTERISK_ICON_PATH,

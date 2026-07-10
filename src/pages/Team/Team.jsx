@@ -1,5 +1,5 @@
 import './Team.css';
-import SEO from '../../components/SEO';
+import SEO from '../../components/SEO/SEO';
 
 import { HERO_SLIDES, TEAM_MEMBERS, TESTIMONIALS, STAR_PATH, CTA_AVATARS } from './TeamData.js';
 

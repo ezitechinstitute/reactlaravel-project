@@ -1,9 +1,9 @@
-import SEO from '../../components/SEO'
+import SEO from '../../components/SEO/SEO'
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import './Home.css'
 
-import ServicesOverview from '../../components/ServicesOverview/ServicesOverview'
+import ServicesOverview from './Sections/ServicesOverview/ServicesOverview'
 import { AI_TOOL_ICONS } from './data/aiTools'
 import { TEAM_MEMBERS } from './data/team'
 import { INDUSTRIES } from './data/industries'

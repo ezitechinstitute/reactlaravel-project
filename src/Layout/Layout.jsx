@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Navbar from './Navbar/Navbar.jsx';
-import Footer from './Footer/Footer.jsx';
-import SubscribeSection from './SubscribeSection/SubscribeSection.jsx';
+import Navbar from '../components/Navbar/Navbar.jsx';
+import Footer from '../components/Footer/Footer.jsx';
+import SubscribeSection from '../components/SubscribeSection/SubscribeSection.jsx';
 
 /* ─── forceVisible ──────────────────────────────────────────────────
    CSS opacity override — GSAP se pehle blank nahi dikhega

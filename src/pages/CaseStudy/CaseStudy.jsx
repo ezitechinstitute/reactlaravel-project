@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import SEO from '../../components/SEO'
+import SEO from '../../components/SEO/SEO'
 import './CaseStudy.css'
 import { IMPACT_STATS, CASE_STUDIES, MARKETING_AVATARS } from './CaseStudyData'
 

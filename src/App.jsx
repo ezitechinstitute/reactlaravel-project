@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout'
+import Layout from './Layout/Layout.jsx'
 
 // FIX: Home eager import karo (lazy nahi)
 // Kyunki first visit pe Home ka DOM chahiye animations ke liye
@@ -10,19 +10,19 @@ import Home from './pages/Home/Home.jsx'
 // Baki pages lazy (performance optimization)
 const About            = lazy(() => import('./pages/About/About.jsx'))
 const Services         = lazy(() => import('./pages/Services/Services.jsx'))
-const ServiceDetails   = lazy(() => import('./pages/ServiceDetails'))
+const ServiceDetails   = lazy(() => import('./pages/ServiceDetails/ServiceDetails.jsx'))
 const Pricing          = lazy(() => import('./pages/Pricing/Pricing.jsx'))
 const Team             = lazy(() => import('./pages/Team/Team.jsx'))
-const TeamDetails      = lazy(() => import('./pages/TeamDetails'))
-const Blog             = lazy(() => import('./pages/Blog'))
-const BlogDetails      = lazy(() => import('./pages/BlogDetails'))
+const TeamDetails      = lazy(() => import('./pages/TeamDetails/TeamDetails.jsx'))
+const Blog             = lazy(() => import('./pages/Blog/Blog.jsx'))
+const BlogDetails      = lazy(() => import('./pages/BlogDetails/BlogDetails.jsx'))
 const CaseStudy        = lazy(() => import('./pages/CaseStudy/CaseStudy.jsx'))
-const CaseStudyDetails = lazy(() => import('./pages/CaseStudyDetails'))
-const Contact          = lazy(() => import('./pages/Contact'))
-const Login            = lazy(() => import('./pages/Login'))
-const Signup           = lazy(() => import('./pages/Signup'))
-const Process = lazy(() => import('./pages/Process'))
-const NotFound         = lazy(() => import('./pages/NotFound'))
+const CaseStudyDetails = lazy(() => import('./pages/CaseStudyDetails/CaseStudyDetails.jsx'))
+const Contact          = lazy(() => import('./pages/Contact/Contact.jsx'))
+const Login            = lazy(() => import('./pages/Login/Login.jsx'))
+const Signup           = lazy(() => import('./pages/Signup/Signup.jsx'))
+const Process = lazy(() => import('./pages/Process/Process.jsx'))
+const NotFound         = lazy(() => import('./pages/NotFound/NotFound.jsx'))
 
 function Loader() {
   return (

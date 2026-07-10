@@ -1,4 +1,4 @@
-import SEO from '../../components/SEO'
+import SEO from '../../components/SEO/SEO'
 import { Link } from 'react-router-dom'
 import './Pricing.css'
 
