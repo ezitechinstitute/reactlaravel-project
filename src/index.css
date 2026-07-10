@@ -2174,3 +2174,81 @@ html.light-theme .team-nav-btn { border-color: #d4d4d8; color: #52525b; }
 .team-card:hover .team-card__img { transform: scale(1.04); }
  
 .team-card__name-accent { color: #8d59ff; }
+
+/* ── Custom Ezitech Blue Utility Classes ── */
+.text-opai-blue {
+  color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/10 {
+  background-color: rgba(34, 126, 255, 0.1) !important;
+}
+.border-opai-blue\/30 {
+  border-color: rgba(34, 126, 255, 0.3) !important;
+}
+.bg-opai-blue {
+  background-color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/15 {
+  background-color: rgba(34, 126, 255, 0.15) !important;
+}
+
+/* ── Team page: missing easing utility used by leadership cards ── */
+.ease-team-ease-1 {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ── Custom Ezitech Blue Utility Classes ── */
+.text-opai-blue {
+  color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/10 {
+  background-color: rgba(34, 126, 255, 0.1) !important;
+}
+.border-opai-blue\/30 {
+  border-color: rgba(34, 126, 255, 0.3) !important;
+}
+.bg-opai-blue {
+  background-color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/15 {
+  background-color: rgba(34, 126, 255, 0.15) !important;
+}
+
+/* ── Team page: missing easing utility used by leadership cards ── */
+.ease-team-ease-1 {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ── Custom Ezitech Blue Utility Classes ── */
+.text-opai-blue {
+  color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/10 {
+  background-color: rgba(34, 126, 255, 0.1) !important;
+}
+.border-opai-blue\/30 {
+  border-color: rgba(34, 126, 255, 0.3) !important;
+}
+.bg-opai-blue {
+  background-color: var(--color-opai-blue, #227eff) !important;
+}
+.bg-opai-blue\/15 {
+  background-color: rgba(34, 126, 255, 0.15) !important;
+}
+
+/* ── Team page: missing easing utility used by leadership cards ── */
+.ease-team-ease-1 {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -- Navbar pill width: keep logo + nav links + "Get a Free Quote"
+   button inside the pill at all desktop widths (natural content approx 1010px).
+   nav.header-one has higher specificity than the utility max-w classes. -- */
+@media (min-width: 1280px) {
+  nav.header-one { max-width: 1100px !important; }
+}
+@media (min-width: 1536px) {
+  nav.header-one { max-width: 1290px !important; }
+}

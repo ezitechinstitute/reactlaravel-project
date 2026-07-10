@@ -8,7 +8,7 @@ export default function Home() {
   const whyChooseRef = useRef(null)
   const orbitRef = useRef(null)
   const [activeIndTab, setActiveIndTab] = useState(0)
-    const [techBtnHover, setTechBtnHover] = useState(false)
+  const [techBtnHover, setTechBtnHover] = useState(false)
 
 
   // services section ke liye GSAP + ScrollTrigger animation
@@ -52,6 +52,7 @@ export default function Home() {
         card.style.willChange = 'transform, opacity'
         card.style.zIndex = i + 1
 
+        // Har card pin hoti hai jab woh viewport top pe aati hai
         const t1 = window.ScrollTrigger.create({
           trigger: card,
           start: `top ${STICKY_TOP + i * 20}px`,
@@ -104,64 +105,64 @@ export default function Home() {
   }, [])
 
 
-useEffect(() => {
-  const ring = orbitRef.current
-  if (!ring) return
- 
-  const pivots  = ring.querySelectorAll('.ts-pivot')
-  const baskets = ring.querySelectorAll('.ts-basket')
-  const total   = pivots.length
-  if (!total) return
- 
-  // 1. Position all pivots evenly around the circle
-  const angle = 360 / total
-  pivots.forEach((pivot, i) => {
-    if (window.gsap) {
-      window.gsap.set(pivot, { rotation: angle * i })
-    } else {
-      pivot.style.transform = `rotate(${angle * i}deg)`
-    }
-  })
- 
-  // 2. Set --orbit-size CSS var and basket top position
-  function updateSize() {
-    const size = ring.offsetWidth
-    ring.style.setProperty('--orbit-size', `${size}px`)
-    baskets.forEach(b => {
-      b.style.top  = `calc(var(--orbit-size) * -0.5)`
-      b.style.left = '0px'
+  useEffect(() => {
+    const ring = orbitRef.current
+    if (!ring) return
+
+    const pivots = ring.querySelectorAll('.ts-pivot')
+    const baskets = ring.querySelectorAll('.ts-basket')
+    const total = pivots.length
+    if (!total) return
+
+    // 1. Position all pivots evenly around the circle
+    const angle = 360 / total
+    pivots.forEach((pivot, i) => {
+      if (window.gsap) {
+        window.gsap.set(pivot, { rotation: angle * i })
+      } else {
+        pivot.style.transform = `rotate(${angle * i}deg)`
+      }
     })
-  }
-  updateSize()
-  window.addEventListener('resize', updateSize)
- 
-  if (!window.gsap) return
-  const gsap = window.gsap
-  const dur  = 30 / 0.35   // speed: 0.35 like template's data-orbit-speed
- 
-  // 3. Ring spins clockwise
-  gsap.to(ring, {
-    rotation: 360,
-    duration: dur,
-    ease: 'none',
-    repeat: -1,
-    transformOrigin: 'center center',
-  })
-  // 4. Baskets counter-rotate to stay upright
-  gsap.to(baskets, {
-    rotation: -360,
-    duration: dur,
-    ease: 'none',
-    repeat: -1,
-  })
- 
-  return () => {
-    window.removeEventListener('resize', updateSize)
-    gsap.killTweensOf(ring)
-    gsap.killTweensOf(baskets)
-  }
-}, [])
- 
+
+    // 2. Set --orbit-size CSS var and basket top position
+    function updateSize() {
+      const size = ring.offsetWidth
+      ring.style.setProperty('--orbit-size', `${size}px`)
+      baskets.forEach(b => {
+        b.style.top = `calc(var(--orbit-size) * -0.5)`
+        b.style.left = '0px'
+      })
+    }
+    updateSize()
+    window.addEventListener('resize', updateSize)
+
+    if (!window.gsap) return
+    const gsap = window.gsap
+    const dur = 30 / 0.35   // speed: 0.35 like template's data-orbit-speed
+
+    // 3. Ring spins clockwise
+    gsap.to(ring, {
+      rotation: 360,
+      duration: dur,
+      ease: 'none',
+      repeat: -1,
+      transformOrigin: 'center center',
+    })
+    // 4. Baskets counter-rotate to stay upright
+    gsap.to(baskets, {
+      rotation: -360,
+      duration: dur,
+      ease: 'none',
+      repeat: -1,
+    })
+
+    return () => {
+      window.removeEventListener('resize', updateSize)
+      gsap.killTweensOf(ring)
+      gsap.killTweensOf(baskets)
+    }
+  }, [])
+
   // ── Why Choose Us — Scroll Animations + Swiper Slider ───────────────────────
   useEffect(() => {
     let timer
@@ -1534,49 +1535,49 @@ useEffect(() => {
           </div>
         </section>
 
-{/* ========================= Tech Stack ========================= */}
-<section className="bg-white pt-16 pb-0 md:pt-24 lg:pt-28 xl:pt-36 2xl:pt-44 overflow-hidden">
-  <div className="md:main-container">
- 
-    {/* Badge */}
-    <div className="flex items-center justify-center pb-4" data-opai-animate data-delay="0.1">
-      <span className="fill-opai-blue text-black flex items-center gap-x-1">
-        <span className="flex size-4 items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-            <path d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z"/>
-          </svg>
-        </span>
-        <span className="font-inter-tight text-tagline-4 text-background-13/70 text-black font-normal">
-          Our Tech Stack
-        </span>
-      </span>
-    </div>
- 
-    {/* Heading + subtext */}
-    <div className="relative z-40 mx-auto w-full max-w-[960px]" style={{paddingTop: "50px",paddingBottom:"30px"}}>
-      <div className="relative z-5 space-y-1.5 text-center md:space-y-3 pb-8 md:pb-10">
-        <h2
-          className="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 text-background-5 font-normal max-md:leading-[1.1]"
-          data-opai-animate data-delay="0.2"
-        >
-          Built on Top AI +{' '}
-          <span className="text-background-13/30">Marketing Tools</span>
-        </h2>
-        <p className="text-tagline-2 text-background-13/60 font-normal" data-opai-animate data-delay="0.3">
-               We blend automation with human creativity to deliver results that compound.
-        </p>
-     {/* Button */}
-{/* SLIDE-TRANSITIONED DEMO BUTTON WITH FULL INLINE CSS */}
+        {/* ========================= Tech Stack ========================= */}
+        <section className="bg-white pt-16 pb-0 md:pt-24 lg:pt-28 xl:pt-36 2xl:pt-44 overflow-hidden">
+          <div className="md:main-container">
+
+            {/* Badge */}
+            <div className="flex items-center justify-center pb-4" data-opai-animate data-delay="0.1">
+              <span className="fill-opai-blue text-black flex items-center gap-x-1">
+                <span className="flex size-4 items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                    <path d="M7.60938 0L7.9357 6.99568L12.3117 1.52786L8.4637 7.3793L15.2178 5.52786L8.66537 8L15.2178 10.4721L8.4637 8.6207L12.3117 14.4721L7.9357 9.00432L7.60938 16L7.28305 9.00432L2.90709 14.4721L6.75505 8.6207L0.00092268 10.4721L6.55338 8L0.00092268 5.52786L6.75505 7.3793L2.90709 1.52786L7.28305 6.99568L7.60938 0Z" />
+                  </svg>
+                </span>
+                <span className="font-inter-tight text-tagline-4 text-background-13/70 text-black font-normal">
+                  Our Tech Stack
+                </span>
+              </span>
+            </div>
+
+            {/* Heading + subtext */}
+            <div className="relative z-40 mx-auto w-full max-w-[960px]" style={{ paddingTop: "50px", paddingBottom: "30px" }}>
+              <div className="relative z-5 space-y-1.5 text-center md:space-y-3 pb-8 md:pb-10">
+                <h2
+                  className="text-is-heading-4 md:text-is-heading-3 lg:text-is-heading-2 text-background-5 font-normal max-md:leading-[1.1]"
+                  data-opai-animate data-delay="0.2"
+                >
+                  Built on Top AI +{' '}
+                  <span className="text-background-13/30">Marketing Tools</span>
+                </h2>
+                <p className="text-tagline-2 text-background-13/60 font-normal" data-opai-animate data-delay="0.3">
+                  We blend automation with human creativity to deliver results that compound.
+                </p>
+                {/* Button */}
+                {/* SLIDE-TRANSITIONED DEMO BUTTON WITH FULL INLINE CSS */}
                 <div data-opai-animate data-delay="0.4" className="relative top-20 flex justify-center">
                   <a
                     href="/contact"
                     onMouseEnter={() => setTechBtnHover(true)}
                     onMouseLeave={() => setTechBtnHover(false)}
                     className="group relative inline-flex items-center rounded-full overflow-hidden transition-all duration-300 hover:opacity-95"
-                    style={{ 
-                      backgroundColor: '#d4f53c', 
-                      color: '#0d1017', 
-                      fontSize: '0.9375rem', 
+                    style={{
+                      backgroundColor: '#d4f53c',
+                      color: '#0d1017',
+                      fontSize: '0.9375rem',
                       fontWeight: 600,
                       width: '210px',
                       height: '48px',
@@ -1585,9 +1586,9 @@ useEffect(() => {
                     }}
                   >
                     {/* Animated Left Arrow Icon Span (Translates from left to right end) */}
-                    <span 
-                      className="flex size-10 items-center justify-center rounded-full" 
-                      style={{ 
+                    <span
+                      className="flex size-10 items-center justify-center rounded-full"
+                      style={{
                         backgroundColor: '#0d1017',
                         position: 'absolute',
                         left: techBtnHover ? '166px' : '4px',
@@ -1596,23 +1597,23 @@ useEffect(() => {
                         zIndex: 10
                       }}
                     >
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        width="16" 
-                        height="16" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="white" 
-                        strokeWidth="2.5" 
-                        strokeLinecap="round" 
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
                         strokeLinejoin="round"
                       >
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <path d="M5 12h14M12 5l7 7-7 7" />
                       </svg>
                     </span>
 
                     {/* Animated Button Text Span (Translates from right to left end) */}
-                    <span 
+                    <span
                       className="whitespace-nowrap"
                       style={{
                         position: 'absolute',
@@ -1627,62 +1628,62 @@ useEffect(() => {
                       Request a Demo
                     </span>
                   </a>
-</div>
-      </div>
-    </div>
- 
-  </div>
- 
-  {/* Orbit ring — only top arc visible */}
-  <div className="ts-orbit-section">
-    <div className="ts-orbit-wrap">
-      <div data-orbit-layout>
-        {/* Ring */}
-        <div
-          ref={orbitRef}
-          data-orbit
-          className="ts-orbit-ring"
-        >
-          <div data-orbit-center>
-            {[
-              { src: '/images/icons/gemini.svg',               alt: 'Gemini' },
-              { src: '/images/icons/lovable.svg',              alt: 'Lovable' },
-              { src: '/images/icons/claude-ai.svg',            alt: 'Claude' },
-              { src: '/images/icons/qwen.svg',                 alt: 'Qwen' },
-              { src: '/images/icons/deepseek.svg',             alt: 'DeepSeek' },
-              { src: '/images/icons/runway.svg',               alt: 'Runway' },
-              { src: '/images/icons/open-ai.svg',              alt: 'OpenAI' },
-              { src: '/images/icons/mistral-ai.svg',           alt: 'Mistral' },
-              { src: '/images/icons/grok-ai.svg',              alt: 'Grok' },
-              { src: '/images/icons/perplexity-ai.svg',        alt: 'Perplexity' },
-              { src: '/images/icons/google-ads-certified.png', alt: 'Google Ads' },
-              { src: '/images/icons/github.svg',               alt: 'GitHub' },
-              { src: '/images/icons/gemini.svg',               alt: 'Gemini 2' },
-              { src: '/images/icons/open-ai.svg',              alt: 'OpenAI 2' },
-              { src: '/images/icons/claude-ai.svg',            alt: 'Claude 2' },
-              { src: '/images/icons/mistral-ai.svg',           alt: 'Mistral 2' },
-              { src: '/images/icons/deepseek.svg',             alt: 'DeepSeek 2' },
-              { src: '/images/icons/github.svg',               alt: 'GitHub 2' },
-              { src: '/images/icons/lovable.svg',              alt: 'Lovable 2' },
-              { src: '/images/icons/runway.svg',               alt: 'Runway 2' },
-              { src: '/images/icons/qwen.svg',                 alt: 'Qwen 2' },
-              { src: '/images/icons/grok-ai.svg',              alt: 'Grok 2' },
-              { src: '/images/icons/perplexity-ai.svg',        alt: 'Perplexity 2' },
-              { src: '/images/icons/google-ads-certified.png', alt: 'Google Ads 2' },
-            ].map((icon, i) => (
-              <div key={i} className="ts-pivot">
-                <div className="ts-basket">
-                  <img src={icon.src} alt={icon.alt} />
                 </div>
               </div>
-            ))}
+            </div>
+
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
- 
-</section>
+
+          {/* Orbit ring — only top arc visible */}
+          <div className="ts-orbit-section">
+            <div className="ts-orbit-wrap">
+              <div data-orbit-layout>
+                {/* Ring */}
+                <div
+                  ref={orbitRef}
+                  data-orbit
+                  className="ts-orbit-ring"
+                >
+                  <div data-orbit-center>
+                    {[
+                      { src: '/images/icons/gemini.svg', alt: 'Gemini' },
+                      { src: '/images/icons/lovable.svg', alt: 'Lovable' },
+                      { src: '/images/icons/claude-ai.svg', alt: 'Claude' },
+                      { src: '/images/icons/qwen.svg', alt: 'Qwen' },
+                      { src: '/images/icons/deepseek.svg', alt: 'DeepSeek' },
+                      { src: '/images/icons/runway.svg', alt: 'Runway' },
+                      { src: '/images/icons/open-ai.svg', alt: 'OpenAI' },
+                      { src: '/images/icons/mistral-ai.svg', alt: 'Mistral' },
+                      { src: '/images/icons/grok-ai.svg', alt: 'Grok' },
+                      { src: '/images/icons/perplexity-ai.svg', alt: 'Perplexity' },
+                      { src: '/images/icons/google-ads-certified.png', alt: 'Google Ads' },
+                      { src: '/images/icons/github.svg', alt: 'GitHub' },
+                      { src: '/images/icons/gemini.svg', alt: 'Gemini 2' },
+                      { src: '/images/icons/open-ai.svg', alt: 'OpenAI 2' },
+                      { src: '/images/icons/claude-ai.svg', alt: 'Claude 2' },
+                      { src: '/images/icons/mistral-ai.svg', alt: 'Mistral 2' },
+                      { src: '/images/icons/deepseek.svg', alt: 'DeepSeek 2' },
+                      { src: '/images/icons/github.svg', alt: 'GitHub 2' },
+                      { src: '/images/icons/lovable.svg', alt: 'Lovable 2' },
+                      { src: '/images/icons/runway.svg', alt: 'Runway 2' },
+                      { src: '/images/icons/qwen.svg', alt: 'Qwen 2' },
+                      { src: '/images/icons/grok-ai.svg', alt: 'Grok 2' },
+                      { src: '/images/icons/perplexity-ai.svg', alt: 'Perplexity 2' },
+                      { src: '/images/icons/google-ads-certified.png', alt: 'Google Ads 2' },
+                    ].map((icon, i) => (
+                      <div key={i} className="ts-pivot">
+                        <div className="ts-basket">
+                          <img src={icon.src} alt={icon.alt} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
 
 
         {/* ========================= Industries We Serve ========================= */}
@@ -2097,8 +2098,6 @@ useEffect(() => {
             </div>
           </div>
         </section>
-
-
       </main>
     </>
   )
