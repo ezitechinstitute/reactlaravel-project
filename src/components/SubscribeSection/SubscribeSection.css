@@ -1,0 +1,258 @@
+/* ─── DESIGN TOKENS — dark-default / light-override, same pattern as
+   Navbar.css and Footer.css, scoped to .subscribe. The surface reuses
+   --color-background-6 (the shared dark/light surface token Footer
+   also uses) so the two adjacent bands stay visually seamless. ──── */
+.subscribe {
+  --subscribe-surface: var(--color-background-6);
+  --subscribe-text-strong: #fcfcfc;
+  --subscribe-text-muted: rgba(252, 252, 252, 0.6);
+  --subscribe-placeholder: rgba(252, 252, 252, 0.4);
+  --subscribe-border: #2a333e;
+  --subscribe-icon-bg: #fcfcfc;
+  --subscribe-icon-fill: #1a1a1c;
+  --subscribe-badge-bg: rgba(198, 245, 111, 0.15);
+  --subscribe-badge-text: #c6f56f;
+}
+
+html.light-theme .subscribe {
+  --subscribe-surface: #f3f5f7;
+  --subscribe-text-strong: #11141d;
+  --subscribe-text-muted: rgba(17, 20, 29, 0.6);
+  --subscribe-placeholder: rgba(17, 20, 29, 0.4);
+  --subscribe-border: rgba(15, 23, 42, 0.15);
+  --subscribe-icon-bg: #11141d;
+  --subscribe-icon-fill: #ffffff;
+  --subscribe-badge-bg: rgba(77, 124, 15, 0.12);
+  --subscribe-badge-text: #4d7c0f;
+}
+
+.subscribe {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  padding-block: 88px;
+  background-color: var(--subscribe-surface);
+  transition: background-color 0.35s ease;
+}
+
+/* ─── Header: badge + heading + description ─────────────────────── */
+
+.subscribe__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.subscribe__badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  background-color: var(--subscribe-badge-bg);
+  color: var(--subscribe-badge-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.subscribe__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.subscribe__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3.25rem);
+  line-height: 120%;
+  font-weight: 400;
+  color: var(--subscribe-text-strong);
+}
+
+.subscribe__description {
+  margin: 0 auto;
+  max-width: 534px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--subscribe-text-muted);
+}
+
+/* ─── Form + benefits ─────────────────────────────────────────────── */
+
+.subscribe__body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 38px;
+}
+
+.subscribe__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.subscribe__form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+.subscribe__input {
+  height: 48px;
+  flex: 1 1 180px;
+  min-width: 0;
+  padding: 12px 18px;
+  background-color: transparent;
+  color: var(--subscribe-text-strong);
+  border-radius: 9999px;
+  border: 1px solid var(--subscribe-border);
+  outline: none;
+  font-size: 0.875rem;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.subscribe__textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 12px 18px;
+  background-color: transparent;
+  color: var(--subscribe-text-strong);
+  border-radius: 16px;
+  border: 1px solid var(--subscribe-border);
+  outline: none;
+  font-size: 0.875rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.subscribe__input::placeholder,
+.subscribe__textarea::placeholder {
+  color: var(--subscribe-placeholder);
+}
+
+.subscribe__button {
+  align-self: center;
+  height: 48px;
+  min-width: 90px;
+  padding: 0 20px;
+  background-color: #864ffe;
+  border: 1px solid #7c31f6;
+  border-radius: 9999px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.subscribe__button:hover {
+  background-color: #1a1a1c;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+.subscribe__benefits {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.subscribe__benefit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subscribe__benefit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background-color: var(--subscribe-icon-bg);
+  transition: background-color 0.3s ease;
+}
+
+.subscribe__benefit-icon svg path {
+  fill: var(--subscribe-icon-fill);
+}
+
+.subscribe__benefit-text {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--subscribe-text-strong);
+}
+
+/* ─── Decorative background glows ───────────────────────────────── */
+
+.subscribe__glow {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.subscribe__glow--top-left {
+  top: -50%;
+  left: -15%;
+  max-width: 600px;
+}
+
+.subscribe__glow--bottom-right {
+  bottom: -35%;
+  right: -10%;
+  max-width: 500px;
+}
+
+.subscribe__glow-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ─── Mobile ────────── */
+@media (max-width: 40rem) {
+  .subscribe {
+    padding-block: 56px;
+  }
+
+  .subscribe__header {
+    gap: 14px;
+    margin-bottom: 1.75rem;
+  }
+
+  .subscribe__body {
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .subscribe__benefits {
+    gap: 12px 28px;
+  }
+
+  .subscribe__button {
+    width: 100%;
+  }
+
+  .subscribe__glow {
+    display: none;
+  }
+}
