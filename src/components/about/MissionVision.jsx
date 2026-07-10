@@ -1,4 +1,4 @@
-import '../../pages/About.css'
+import '../../pages/About/About.css'
 
 export default function MissionVision() {
   return (
