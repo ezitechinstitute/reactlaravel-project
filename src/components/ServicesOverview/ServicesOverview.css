@@ -29,26 +29,44 @@
   z-index: 10;
   isolation: isolate;
   background-color: var(--color-background-5);
+  /* Dark-default / light-override text tokens — same pattern as
+     Footer.css's --footer-text-strong/--footer-text-muted. Needed
+     because .services-overview__badge and .services-overview__description
+     had no color rule at all (browser-default black — invisible on
+     the dark background), and .services-overview__title was
+     hardcoded to white (washed out on the light background). */
+  --services-overview-text-strong: rgba(255, 255, 255, 0.9);
+  --services-overview-text-muted: rgba(255, 255, 255, 0.6);
+}
+
+html.light-theme .services-overview {
+  --services-overview-text-strong: rgba(17, 20, 29, 0.9);
+  --services-overview-text-muted: rgba(17, 20, 29, 0.6);
 }
 
 .services-overview__row {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  row-gap: 2.5rem;
+  row-gap: 4.5rem;
   padding-block: 3.5rem;
 }
 
 @media (min-width: 48rem) {
   .services-overview__row {
     padding-block: 4rem;
-    row-gap: 5rem;
   }
 }
 
 @media (min-width: 64rem) {
   .services-overview__row {
     flex-direction: row;
+    /* stretch (default) — mobile ka `align-items: flex-start` yahan
+       override karna zaroori hai, warna dono columns apni content
+       height tak simat jaate, aur left column ke sticky child ko
+       stick karne ke liye room hi nahi milta (right column jitni
+       height chahiye). */
+    align-items: stretch;
     gap: 4rem;
     padding-block: 88px;
   }
@@ -69,34 +87,26 @@
 @media (min-width: 64rem) {
   .services-overview__left {
     width: 40%;
-    align-self: flex-start;
+    /* Row se poori height leta hai (default flex stretch) — is se
+       hi `.services-overview__left-col` (position: sticky) ko poore
+       stack-cards scroll range tak stick karne ke liye room milta
+       hai. `align-self: flex-start` yahan is column ko sirf apni
+       content-height tak simata deta, jisse sticky turant khatam ho
+       jaati (left text jaldi scroll ho ke gayab ho jaata). */
   }
 }
 
+/* Reference site left-aligns this column at every breakpoint (no
+   centering anywhere, even on phone widths) — matched 1:1 here. */
 .services-overview__left-col {
   max-width: 520px;
-  margin-inline: auto;
-  text-align: center;
 }
 
 @media (min-width: 64rem) {
   .services-overview__left-col {
     max-width: none;
-    margin-inline: 0;
-    text-align: left;
-  }
-}
-
-/* Mobile pe CTA button center karo (auto margin ka koi effect nahi
-   hota agar text-align:center already center kar raha ho, but
-   preserved 1:1 from the original template rule). */
-.services-overview__left-col .services-overview__cta {
-  margin-inline: auto;
-}
-
-@media (min-width: 64rem) {
-  .services-overview__left-col .services-overview__cta {
-    margin-inline: 0;
+    position: sticky;
+    top: 112px;
   }
 }
 
@@ -104,17 +114,12 @@
   display: flex;
   align-items: center;
   column-gap: 0.25rem;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 1.25rem;
   font-family: var(--font-inter-tight);
   font-size: var(--text-tagline-4);
   line-height: var(--text-tagline-4--line-height);
-}
-
-@media (min-width: 64rem) {
-  .services-overview__badge {
-    justify-content: flex-start;
-  }
+  color: var(--services-overview-text-muted);
 }
 
 .services-overview__badge-icon {
@@ -128,7 +133,7 @@
 .services-overview__title {
   margin-bottom: 0.75rem;
   font-weight: var(--font-weight-normal);
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--services-overview-text-strong);
   font-size: var(--text-is-heading-4);
   line-height: var(--text-is-heading-4--line-height);
 }
@@ -162,6 +167,7 @@
   font-weight: var(--font-weight-normal);
   font-size: var(--text-tagline-2);
   line-height: var(--text-tagline-2--line-height);
+  color: var(--services-overview-text-muted);
 }
 
 @media (min-width: 64rem) {
@@ -205,6 +211,13 @@
   line-height: 1.4;
   font-weight: var(--font-weight-medium);
   white-space: nowrap;
+  /* Button bg (--color-background-7) inverts per theme; pair it with
+     --color-background-6, which happens to invert the opposite way
+     (near-black in dark theme, white in light theme) — same trick
+     the button's own icon-circle background already relies on. Was
+     unset before (browser-default black), invisible on the dark
+     button that light theme produces. */
+  color: var(--color-background-6);
   transition-property: transform, translate, scale, rotate;
   transition-timing-function: var(--ease-in-out);
   transition-duration: 0.5s;
@@ -286,7 +299,8 @@
 }
 
 .services-overview__card {
-  position: relative;
+  position: sticky;
+  top: 112px;
   z-index: 0;
   min-height: 170px;
   overflow: hidden;
@@ -294,14 +308,11 @@
   padding: 2rem;
   background-color: var(--color-background-6);
   border: 1px solid rgba(124, 142, 165, 0.15);
+  transform-origin: top;
 }
 
 .services-overview__card > :not(:last-child) {
   margin-bottom: 1rem;
-}
-
-.services-overview__card--spaced {
-  margin-bottom: 0.75rem;
 }
 
 .services-overview__card-head {
@@ -356,11 +367,6 @@
 .services-overview__card-link-icon {
   color: var(--color-background-10);
   opacity: 0.6;
-}
-
-.services-overview__end-marker {
-  height: 1px;
-  margin-top: 0;
 }
 
 /* ── Light theme overrides ────────────────────────────────────── */

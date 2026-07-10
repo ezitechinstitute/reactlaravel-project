@@ -2,99 +2,100 @@ import './ServicesOverview.css'
 import { useEffect, useRef } from 'react'
 import { SERVICE_CARDS } from './ServicesOverviewData'
 
+// Gap (px) cards ke beech peek-offset ke liye — reference site ke
+// `--stack-cards-gap: 24px` se match karta hai. Must match
+// ServicesOverview.css `.services-overview__card { top: ... }`.
+const STACK_GAP = 24
+
 export default function ServicesOverview() {
-  // ── Services Section Stairs Animation ──────────────────────────
-  const servicesRef = useRef(null)
+  // ── Services Section — native `position: sticky` stack-cards ───
+  // Ye exact wahi technique hai jo reference site use karti hai:
+  // har card `position: sticky` hai (same `top`), isliye scroll pe
+  // wo naturally ek doosre ke upar "pile" ho jaate hain — koi GSAP
+  // pin/timeline nahi, sirf scroll position ka pure function hai,
+  // isliye scroll-up pe automatically reverse (pile-down) ho jaata
+  // hai bina kisi extra direction-tracking ke.
+  const rightRef = useRef(null)
 
-  // services section ke liye GSAP + ScrollTrigger animation
   useEffect(() => {
-    const triggers = []
-    let timer
+    const container = rightRef.current
+    if (!container) return
 
-    function initStackCards() {
-      const container = servicesRef.current
-      if (!container) return
+    const items = Array.from(container.querySelectorAll('.services-overview__card'))
+    if (!items.length) return
 
-      const items = Array.from(container.querySelectorAll('.services-overview__card'))
-      if (!items.length) return
+    let cardTop = 0
+    let cardHeight = 0
+    let scrolling = false
+    let listening = false
+    let resizeTimer
 
-      if (!window.gsap || !window.ScrollTrigger) return
-
-      window.gsap.registerPlugin(window.ScrollTrigger)
-
-      const STICKY_TOP = 112
-
-      // Left column pinned
-      const leftColumn = document.querySelector('.services-overview__left-col')
-      if (leftColumn) {
-        const lastCard = items[items.length - 1]
-        const t0 = window.ScrollTrigger.create({
-          trigger: container,
-          start: `top ${STICKY_TOP}px`,
-          endTrigger: lastCard,
-          end: `bottom ${STICKY_TOP + 200}px`,
-          pin: leftColumn,
-          pinSpacing: false,
-          invalidateOnRefresh: true,
-        })
-        triggers.push(t0)
-      }
-
-      items.forEach((card, i) => {
-        // z-index: pehli card sabse neeche, last sabse upar
-        // Reference jaisa — cards stack hoti hain top pe
-        card.style.transformOrigin = 'center top'
-        card.style.willChange = 'transform, opacity'
-        card.style.zIndex = i + 1
-
-        const t1 = window.ScrollTrigger.create({
-          trigger: card,
-          start: `top ${STICKY_TOP + i * 20}px`,
-          endTrigger: items[items.length - 1],
-          end: `bottom ${STICKY_TOP}px`,
-          pin: true,
-          pinSpacing: false,
-          invalidateOnRefresh: true,
-        })
-        triggers.push(t1)
-
-        // Jab NEXT card pin hone lagti hai tab YEH card scale down hoti hai
-        // Reference behavior: card apni size pe rehti hai, phir choti hoti hai
-        if (i < items.length - 1) {
-          const scaleTarget = 1 - (items.length - 1 - i) * 0.04
-          window.gsap.to(card, {
-            scale: scaleTarget,
-            opacity: 0.7 + i * 0.05,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: items[i + 1],
-              start: `top ${STICKY_TOP + (i + 1) * 20}px`,
-              end: `+=120`,
-              scrub: 1,
-              invalidateOnRefresh: true,
-            },
-          })
-        }
+    function measure() {
+      const style = getComputedStyle(items[0])
+      cardTop = Math.floor(parseFloat(style.top)) || 0
+      cardHeight = Math.floor(parseFloat(style.height)) || 0
+      container.style.paddingBottom = STACK_GAP * (items.length - 1) + 'px'
+      items.forEach((item, i) => {
+        item.style.transform = `translateY(${STACK_GAP * i}px)`
       })
-
-      // 2 cards ki height utni padding — Counter ko neeche rakhne ke liye
-      const servicesSection = container.closest('section')
-      if (servicesSection && items.length) {
-        let totalHeight = 0
-        const cardsToCount = Math.min(2, items.length)
-        for (let i = 0; i < cardsToCount; i++) {
-          totalHeight += items[items.length - 1 - i].offsetHeight
-        }
-        servicesSection.style.paddingBottom = totalHeight + 'px'
-      }
-      window.ScrollTrigger.refresh()
     }
 
-    timer = setTimeout(initStackCards, 600)
+    function animate() {
+      const top = container.getBoundingClientRect().top
+      items.forEach((item, i) => {
+        const n = cardTop - top - i * (cardHeight + STACK_GAP)
+        if (n > 0) {
+          const scale = i === items.length - 1 ? 1 : (cardHeight - 0.05 * n) / cardHeight
+          item.style.transform = `translateY(${STACK_GAP * i}px) scale(${Math.max(scale, 0)})`
+        } else {
+          item.style.transform = `translateY(${STACK_GAP * i}px)`
+        }
+      })
+      scrolling = false
+    }
+
+    function onScroll() {
+      if (!scrolling) {
+        scrolling = true
+        window.requestAnimationFrame(animate)
+      }
+    }
+
+    function onResize() {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(() => {
+        measure()
+        animate()
+      }, 300)
+    }
+
+    measure()
+    window.addEventListener('resize', onResize)
+
+    // Scroll listener sirf tab attach karo jab section viewport mein ho
+    // (performance — reference site isi tarah karti hai).
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (listening) return
+          listening = true
+          window.addEventListener('scroll', onScroll)
+          animate()
+        } else {
+          if (!listening) return
+          window.removeEventListener('scroll', onScroll)
+          listening = false
+        }
+      },
+      { threshold: [0, 1] }
+    )
+    observer.observe(container)
 
     return () => {
-      clearTimeout(timer)
-      triggers.forEach(t => t?.kill?.())
+      observer.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+      clearTimeout(resizeTimer)
     }
   }, [])
 
@@ -105,7 +106,7 @@ export default function ServicesOverview() {
 
           {/* Left column wrapper */}
           <div className="services-overview__left">
-            {/* Left sticky column — will be pinned by GSAP */}
+            {/* Left sticky column — plain `position: sticky` (ServicesOverview.css) */}
             <div className="services-overview__left-col">
               <span data-opai-animate data-delay="0.1" className="services-overview__badge">
                 <span className="services-overview__badge-icon">
@@ -141,24 +142,10 @@ export default function ServicesOverview() {
             </div>
           </div>
 
-          {/* Right — stairsCardsAnimation */}
-          <div
-            ref={servicesRef}
-            className="services-overview__right"
-            data-stairs-wrapper=".services-overview__card"
-            data-base-offset="120"
-            data-step-offset="20"
-            data-duration="0.9"
-            data-stagger="0.1"
-            data-start="top 85%"
-            data-end="top 20%"
-            data-once
-          >
-            {SERVICE_CARDS.map((card, i) => (
-              <div
-                key={card.title}
-                className={`services-overview__card${i < SERVICE_CARDS.length - 1 ? ' services-overview__card--spaced' : ''}`}
-              >
+          {/* Right — sticky stack cards */}
+          <div ref={rightRef} className="services-overview__right">
+            {SERVICE_CARDS.map((card) => (
+              <div key={card.title} className="services-overview__card">
                 <div className="services-overview__card-head">
                   <span className={`${card.iconClass} services-overview__card-icon`}></span>
                   <h3 className="services-overview__card-title">{card.title}</h3>
@@ -172,8 +159,6 @@ export default function ServicesOverview() {
                 </a>
               </div>
             ))}
-            {/* End marker — last card scale trigger ke liye */}
-            <div id="cards-end-marker" className="services-overview__end-marker"></div>
           </div>
         </div>
       </div>

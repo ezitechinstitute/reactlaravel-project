@@ -238,10 +238,27 @@ select,
    Prevent horizontal scrollbar — guard against any wide element
    (large hero headings, off-canvas sidebar, etc.) causing page-level
    horizontal overflow.
+
+   IMPORTANT: `overflow-x: hidden` goes on `html` ONLY (the real
+   scrolling element — confirmed via document.scrollingElement).
+   Putting it on `body` too used to silently break every
+   `position: sticky` element site-wide: per spec, a non-visible
+   overflow-x with no explicit overflow-y computes overflow-y to
+   `auto`, so `body` became a second "scroll container" even though
+   it never actually scrolls (its own scrollTop always stayed 0).
+   Sticky descendants then resolved against that frozen, non-moving
+   container instead of the real page scroll on `html`, and simply
+   scrolled away with the page instead of sticking. Leaving `body`'s
+   overflow untouched (default `visible`) lets sticky bubble up to
+   `html` correctly, while `max-width: 100%` alone still guards both
+   against horizontal overflow.
    ===================================================================== */
-html,
-body {
+html {
   overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
   max-width: 100%;
 }
 
