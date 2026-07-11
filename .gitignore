@@ -8,8 +8,6 @@ node_modules/
 .vite/
 vite.config.js.timestamp-*
 
-# ── Build output ─────────────────────────────────────────────────
-dist/
 
 # ── Environment variables ─────────────────────────────────────────
 # Sensitive data — KABHI push mat karo
